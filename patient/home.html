@@ -27,6 +27,15 @@
         .myStats {
             padding: 50px;
             background-color: #ffffff;
+            font-size: 20px;
+        }
+
+        .checkItem,
+        .checkSquare,
+        .messageBox{
+            -moz-box-shadow: 2px 2px 10px rgb(216, 216, 216);
+            -webkit-box-shadow: 2px 2px 10px rgb(216, 216, 216);
+            box-shadow: 2px 2px 10px rgb(204, 204, 204);
         }
 
         .checkItem {
@@ -36,14 +45,31 @@
             font-size: 20px;
             border-radius: 20px;
             height: 50px;
-            -moz-box-shadow: 2px 2px 10px rgb(216, 216, 216);
-            -webkit-box-shadow: 2px 2px 10px rgb(216, 216, 216);
-            box-shadow: 2px 2px 10px rgb(204, 204, 204);
+            display:grid;
+            grid-template-columns: 70px auto auto;
+            
+        }
+
+        .checkSquare{
+            width: 50px;
+            height: 50px;
+            background-color: rgb(240, 240, 240);
+            border-radius: 10px;
+        }
+
+        .messageBox{
+            background-color: rgb(241, 241, 241);
+            border-radius: 50px;
+            padding: 30px;
+            width: 70%;
+            text-align: center;
+            margin-top: -20px;
         }
 
         i {
             font-size: 30px;
             color: #587BB4;
+            padding: 10px;
         }
     </style>
 </head>
@@ -53,7 +79,9 @@
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="#">Home</a>
-        <a href="#">Messages</a>
+        <a href="#">leaderboard</a>
+        <a href="#">My Profile</a>
+        <a href="#">Log History</a>
         <a href="#">Settings</a>
         <a href="#">Logout</a>
     </div>
@@ -63,7 +91,7 @@
         <span style="float: right;font-size: 20px;">Diabetes<br>@Home</span>
     </div>
 
-    <div class="grid-container">
+    <!--<div class="grid-container">
         <div>
             <div class="userProfile">
                 <span>Welcome back,</span>
@@ -87,53 +115,90 @@
         </div>
         <div align="center"><i class="fa-solid fa-medal"
                 style="color: rgb(221, 255, 72);font-size: 120px;padding-top: 80px;"></i></div>
+    </div>-->  
+
+    <div class="grid-container2">
+        <div><img src="../images/avatar_male.png"
+            style="border-radius: 100px;border: 1px solid black;margin-top: 30px;"></div>
+        <div style="padding-top: 50px;text-align: left;"><span>Welcome back,</span>
+            <br>
+            <span style="font-size: 50px">{username}</span>
+            <span style="float: left;"></div>
+        <div><div align="center" style="padding-top: 20px;"><i class="fa-solid fa-medal"
+            style="color: rgb(221, 255, 72);font-size: 120px;"></i></div></div>
     </div>
 
-
-    <div class="checklist" style="background-color: rgb(218, 233, 255); padding: 20px;">
-        <h1>My Checklist</h1>
-        <div class="checkItem"><label class="container">
-                <input type="checkbox" checked="checked">
-                <span class="checkmark"></span>
-            </label><i class="fa-solid fa-weight-scale"></i>
-            Weight
-            <a href="weightlog.html">
-                <i class="fa-solid fa-arrow-right-from-bracket" style="font-size: 40px;float:right;"></i>
-            </a></div>
-        <div class="checkItem"><label class="container">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
-            <i class="fa-solid fa-crutch"></i>
-            Doses of insulin today
-            <a href="insulinlog.html">
-                <i class="fa-solid fa-arrow-right-from-bracket" style="font-size: 40px;float:right;"></i>
-            </a></div>
-        <div class="checkItem"><label class="container">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
-            <i class="fa-solid fa-dumbbell"></i>
-            Exercise
-            <a href="exerciselog.html">
-                <i class="fa-solid fa-arrow-right-from-bracket" style="font-size: 40px;float:right;"></i>
-            </a></div>
-        <div class="checkItem"><label class="container">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label><i class="fa-solid fa-vial"></i>
-            Blood Glucose Level
-            <a href="bloodglucose.html">
-                <i class="fa-solid fa-arrow-right-from-bracket" style="font-size: 40px;float:right;"></i>
-            </a>
-            <div><span style="margin: 50px; font-size: 25px;"><b>7.8 mol/L</b></span></div>
+    <div class="doctorMsgArea" align="right" style="padding: 50px;">
+        <div>
+            <span style="color: grey;">Dr. {DoctorName}</span>
+            <img src="../images/doctor_avatar.png"
+            style="border-radius: 100px; border: 1px solid black;vertical-align: middle;">
+        </div>
+        <div class="messageBox">
+            “Hi Mary, great day for exercising today! 
+            Keep up the good work 😊.”
         </div>
     </div>
 
+    
+    <div class="checklist" style="background-color: rgb(218, 233, 255); padding: 20px;">
+        <h1>My Checklist</h1>
+        <div class="checkItem">
+            <div><div class="checkSquare">
+                <i class="fa-solid fa-check"></i>
+            </div>
+        </div>
+            <div><i class="fa-solid fa-weight-scale"></i>Weight</div>
+            <div><a href="weightlog.html">
+                <i class="fa-solid fa-angle-right" style="font-size: 40px;float:right;"></i>
+            </a></div>
+            <div></div>
+            <div style="font-size: 25px; padding-left: 20px;"><b>74.5 KG</b></div>
+        </div>
 
-    <div>
+        <div class="checkItem">
+            <div><div class="checkSquare">
+                <i class="fa-solid fa-check"></i>
+            </div>
+        </div>
+            <div><i class="fa-solid fa-crutch"></i>Doses of insulin today</div>
+            <div><a href="insulinlog.html">
+                <i class="fa-solid fa-angle-right" style="font-size: 40px;float:right;"></i>
+            </a></div>
+            <div style="padding-left: 50px;"><b></b></div>
+        </div>
+
+        <div class="checkItem">
+            <div><div class="checkSquare"></div></div>
+            <div><i class="fa-solid fa-dumbbell"></i>Blood Glucose Level</div>
+            <div><a href="bloodglucose.html">
+                <i class="fa-solid fa-angle-right" style="font-size: 40px;float:right;"></i>
+            </a></div>
+            <div style="padding-left: 50px;"><b></b></div>
+        </div>
+
+        <div class="checkItem">
+            <div><div class="checkSquare"></div></div>
+            <div><i class="fa-solid fa-vial"></i>Tracking per day</div>
+            <div><a href="exerciselog.html">
+                <i class="fa-solid fa-angle-right" style="font-size: 40px;float:right;"></i>
+            </a></div>
+            <div style="padding-left: 50px;"><b></b></div>
+        </div>
+    </div>
+
+    <div style="border-bottom: 1px solid rgb(207, 207, 207) ;">
         <h1>Tracking per day</h1>
         <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+    </div>
+
+    <div class="myStats">
+        <div>
+            <h1>My Stats</h1>
+            <h2>80%</h2>
+            <p>Engagement Rate</p>
+            <a href="#leaderboard">view leaderboard</a>
+        </div>
     </div>
 
 

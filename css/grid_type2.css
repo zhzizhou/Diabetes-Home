@@ -2,6 +2,12 @@
     display: grid;
     grid-template-columns: auto auto;
   }
+
+  .grid-container2 {
+    display: grid;
+    grid-template-columns: 160px auto auto;
+    border-bottom: 1px solid rgb(207, 207, 207);
+  }
   
   .grid-container > div {
     background-color: rgba(255, 255, 255, 0.8);
