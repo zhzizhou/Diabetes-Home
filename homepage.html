@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/grid_type1.css">
+    <link rel="stylesheet" type="text/css" href="css/slideshow.css">
+    <title>HomePage</title>
+</head>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .topnav {
+        overflow: hidden;
+    }
+
+    .topnav a {
+        float: left;
+        color: #000000;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 20px;
+    }
+
+    #login {
+        background-color: #4973ff;
+        border-radius: 20px;
+        color: rgb(255, 255, 255);
+    }
+
+    .topnav a:hover {
+        color: #4973ff;
+    }
+
+    .topnav-right {
+        float: right;
+    }
+
+
+    #btmright {
+        background-color: rgb(241, 241, 255);
+    }
+
+
+    .about {
+        text-align: center;
+        background-color: rgb(241, 241, 255);
+        padding: 100px;
+        font-size: 22px;
+        margin-top: 100px;
+    }
+
+    footer {
+        text-align: center;
+        background-color: rgb(241, 241, 241);
+        color: rgb(145, 145, 145);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-top: 50px;
+    }
+</style>
+
+<body>
+    <div class="topnav">
+        <a href="#login">Diabete@home</a>
+        <span class="topnav-right" style="text-align: right;">
+            <a href="#intro">What is diabetes?</a>
+            <a href="#home">About</a>
+            <a href="login.html" id="login">Login</a>
+        </span>
+    </div>
+
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+            <img src="images/main.png" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="images/cook.png" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="images/stone.png" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="images/yoga.png" style="width:100%">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    </div>
+    <br>
+    <div style="text-align:center">
+        <span class="square" onclick="currentSlide(1)"></span>
+        <span class="square" onclick="currentSlide(2)"></span>
+        <span class="square" onclick="currentSlide(3)"></span>
+        <span class="square" onclick="currentSlide(4)"></span>
+    </div>
+
+    <h1 style="font-size: 50px;">What is diabetes?</h1>
+    <div class="grid-container">
+        <div class="grid-item">
+            <h2>How does diabetes affect body?</h2>
+            <p style="text-align: left;">When someone has diabetes, their body can’t maintain healthy levels of glucose
+                in the blood. Glucose is a
+                form of sugar which is the main source of energy for our bodies. Unhealthy levels of glucose in the
+                blood can lead to long term and short term health complications.
+
+                For our bodies to work properly we need to convert sugars from food into energy. Sugars from food are
+                converted into glucose. A hormone called insulin is essential for the conversion of glucose into energy.
+                In people with diabetes, insulin is no longer produced or not produced in sufficient amounts by the
+                body. When people with diabetes eat foods that contain sugars or starches, such as breads, cereals,
+                fruit and starchy vegetables and sweets, it can’t be converted into energy and the level of glucose in
+                their blood rises and is harmful to them.</p>
+        </div>
+        <div class="grid-item">
+            <h2>Why is diabetes increasing?</h2>
+            <p style="text-align: left;">All types of diabetes are increasing in prevalence:
+
+                Type 1 diabetes accounts for 10% of all diabetes and is increasing
+                Type 2 diabetes accounts for 85% of all diabetes and is increasing
+                Gestational diabetes in pregnancy is increasing
+                Type 2 diabetes is increasing at the fastest rate. There are large numbers of people with silent,
+                undiagnosed type 2 diabetes which may be damaging their bodies. An estimated 2 million Australians are
+                at high risk of developing type 2 diabetes and are already showing early signs of the condition.
+
+                Type 2 diabetes is one of the major consequences of the obesity epidemic. The combination of massive
+                changes to diet and the food supply, combined with massive changes to physical activity with more
+                sedentary work and less activity, means most populations are seeing more type 2 diabetes.</p>
+        </div>
+        <div class="grid-item">
+            <h2>Diabetes is serious</h2>
+            <p style="text-align: left;">Diabetes can be managed well but the potential complications are the same for
+                type 1 and type 2 diabetes
+                including heart attack, stroke, kidney disease, limb amputation, depression, anxiety and blindness.
+
+                We know diabetes:
+
+                Is the leading cause of blindness in working age adults
+                Is a leading cause of kidney failure and dialysis
+                Increases the risk of heart attacks and stroke by up to four times
+                Is a major cause of limb amputations
+                Affects mental health as well as physical health. Depression, anxiety and distress occur in more than
+                30% of all people with diabetes
+                Early diagnosis, optimal treatment and effective ongoing support and management reduce the risk of
+                diabetes-related complications.</p>
+
+        </div>
+        <div class="grid-item"></div>
+        <div class="grid-item">
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/JAjZv41iUJU?controls=0">
+            </iframe>
+
+        </div>
+        <div class="grid-item" id="btmright">
+            <h2>Links</h2>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+                et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+                rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+                dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                Lorem ipsum dolor sit amet, consetetur.</p>
+        </div>
+    </div>
+
+    <div class="about">
+        <h1 style="font-size: 50px;">About this website</h1>
+        <h2>Sub-Title</h2>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+            et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+            rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+            dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+            magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            Lorem ipsum dolor sit amet, consetetur.</p>
+    </div>
+    </div>
+
+    <footer>
+        <p>INFO30005 Group Project</p>
+    </footer>
+
+</body>
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var squares = document.getElementsByClassName("square");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < squares.length; i++) {
+            squares[i].className = squares[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        squares[slideIndex - 1].className += " active"; 
+    }
+
+    setInterval(function(){
+        slideIndex += 1;
+        showSlides(slideIndex);
+    },4000)
+
+</script>
+
+</html>
