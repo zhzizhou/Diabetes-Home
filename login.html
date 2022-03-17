@@ -7,20 +7,49 @@
     <link rel="stylesheet" type="text/css" href="css/button1.css">
 </head>
 
-<body background="images/jogging.png">
+<style>
+    #login {
+        background-color: #587BB4;
+        border-radius: 20px;
+        color: rgb(255, 255, 255);
+}
+</style>
 
-    
+<body>
     <div class="topnav">
-        <a href="homepage.html">Home</a>
-        <a href="#about">About</a>
-        <div style="text-align: right;padding: 14px 16px;font-size: larger;">
-            Diabetes@home</div>
+        <div class = "container">
+            <a href="#">Diabtes<br>@Home</a>
+        </div>
+
+        <img id = "mobile-cta" class = "mobile-menu" src="images/BurgerMenu.svg" alt="Open Navigation">
+
+        <nav>
+            <img id = "mobile-exit" class = "mobile-menu-exit" src="images/ExitBurgerMenu.svg" alt="Close Navigation">
+            <ul class = "Primary-nav">
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li class = "loginButton"><a href="login.html" id="login">Login</a></li>        
+            </ul>
+        </nav>
     </div>
 
+    <section class = "hero">
+        <div class="container">
+            <div class = "left-col">
+                <h1>Diabtes<br>@Home</h1>
+                <p class="subhead">A website app to help manage diabetes in the comfortof your own home</p>
+        </div>
+    </section>
 
-    <div class="outercontainer">
-        <h1><b>Login</b></h1>
-        <h1>Diabetes <b>@Home</b></h1>
+
+    <div class="Login">
+        
+        <div class="UserClinicLogin">
+            <span><a href="#">As User</a></span>
+            <span><a href="#">As Clinician</a></span>
+        </div>
+        
+        <img src="images/Line 6.svg" alt="line">
 
         <form action="/action_page.php" method="post">
             <div class="container">
