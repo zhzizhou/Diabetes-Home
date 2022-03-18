@@ -1,13 +1,15 @@
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto;
-    padding: 10px;
+    gap: 2rem;
 }
 
 .grid-item {
-    padding: 20px;
-    font-size: 22px;
     text-align: center;
+    display:flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
 }
 
 @media (min-width:500px) {
@@ -27,3 +29,5 @@
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+
