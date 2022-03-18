@@ -2,19 +2,29 @@
     overflow: hidden;
     padding-left: 2em;
     padding-right: 2em;
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    height: 10vh;
 }
 
-.topnav a {
-    height: 10vh;
-    float: left;
-    color: var(--dark-grey-text);
-    text-align: center;
-    text-decoration: none;
-    font-size: 20px;
+.menu-flex {
+    display: flex;
+    gap: 2em;
+    align-items:center;
+
 }
 
 .page {
     min-height: 100vh;
+}
+
+
+
+.small-logo {
+    width: 5rem;
+    transform: translate(0, 0.5rem);
+    
 }
 
 /*
@@ -27,7 +37,17 @@ background colour for each section of home page
     border-radius: 0 0 10em 0;
     padding-left: 2em;
     padding-right: 2em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 
+#splash-img {
+    width: 30%;
+}
+
+.logo-main {
+    width: 100%;
 }
 
 #what-is-diabetes {
