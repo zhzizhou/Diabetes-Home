@@ -127,3 +127,7 @@ footer {
     padding-left: 2em;
     padding-right: 2em;
 }
+
+.wordSapcing{
+    word-spacing: 15px;
+}
