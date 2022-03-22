@@ -40,8 +40,23 @@ background colour for each section of home page
     align-items: center;
 }
 
+
+#about-page {
+    background-color: var(--light-grey-background);
+    align-items: center;
+    height: 90vh;
+    padding: 1em;
+}
+
 #splash-img {
     width: 30%;
+}
+.logo-about{
+    width: 40%;
+    text-align: center;
+    display: block;
+    margin: auto;
+    padding-top: 2%;
 }
 
 .logo-main {
@@ -60,6 +75,11 @@ background colour for each section of home page
     display: flex;
     justify-content:space-between;
     align-items: center;
+}
+
+.aboutWeb {
+    padding: 1% 25%;
+    text-align: center;
 }
 
 #blue-circle {
