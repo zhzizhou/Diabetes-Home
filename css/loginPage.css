@@ -1,0 +1,47 @@
+.split-screen{
+    display: flex;
+    flex-direction: column;
+}
+
+.left copy{
+    text-align: left;
+}
+
+.left .right{
+    display: flex;
+    justify-content: center;
+}
+
+.left{
+    background-color: var(--light-grey-background);
+    background-size: cover;
+    height: 90vh;
+    width: 50%;
+    padding-left: 10em;
+    padding-right: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+
+.right .copy p{ 
+    text-align: left;
+    margin: 1.5em 0;
+}
+
+.logo-sub {
+    width: 50%;
+}
+
+@media screen and (min-width:900px) {
+    .split-screen{
+        flex-direction: row;
+        height: 90vh;
+    }
+    .left,.right{
+        display: flex;
+        width: 50%;
+        height: auto;
+    }
+}

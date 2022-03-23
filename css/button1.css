@@ -1,14 +1,24 @@
-button {
-    background-color: #587BB4;
+.button {
+    background-color: var(--dark-blue);
     color: white;
     padding: 15px 20px;
-    margin: 40px 0;
     border: none;
     cursor: pointer;
-    width: 70%;
-    border-radius: 20px;
+    width: 100%;
+    border-radius: 3em;
+    text-align: center;
 }
 
-button:hover {
-    opacity: 0.8;
+.button:hover {
+    background-color: var(--light-blue);
 }
+
+a {
+    transition:0.5s;
+}
+
+a:hover {
+    color: var(--dark-blue);
+    transition:0.5s;
+}
+
