@@ -66,9 +66,9 @@ const Clinician = mongoose.model('Clinician', clinicianSchema)
 const HealthRecord = mongoose.model('HealthRecord', healthRecordSchema)
 const Feedback = mongoose.model('Feedback', feedbackSchema)
 const RecordLimit = mongoose.model('RecordLimit', recordLimitSchema)
-const RecordItemSchema = mongoose.model('RecordItem', recordItemSchema)
+const RecordItem = mongoose.model('RecordItem', recordItemSchema)
 
-module.exports = {Patient, Clinician, HealthRecord, Feedback, RecordLimit, RecordItemSchema}
+module.exports = {Patient, Clinician, HealthRecord, Feedback, RecordLimit, RecordItem}
 
 
 

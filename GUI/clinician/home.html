@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/cd0b7f5d91.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../static/css/font.css">
+    <link rel="stylesheet" href="../../static/css/colour.css">
+    <link rel="stylesheet" href="https://use.typekit.net/cxa4uzj.css">
+    <title>Home</title>
+</head>
+<style>
+    body{
+        margin:0;
+    }
+
+    .outer-container {
+        display: grid;
+        grid-template-columns: 25% 40% 35%;
+        background-color: rgb(241, 241, 241);
+        height: 100vh;
+    }
+
+    .mid-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        font-size: 1em;
+    }
+
+    .msgbox{
+        display: grid;
+        grid-template-columns: 15% 85%;
+        background-color: #F2F7FF;
+        box-shadow: 2px 2px 10px rgb(204, 204, 204);
+        border-radius: 20px;
+        padding: 0.5em;
+        margin:1em;
+        margin-right: 2em;
+    }
+
+    .check-box-small{
+        height: 30px;
+        width: 30px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px rgb(204, 204, 204);
+    }
+
+    .nav-section{
+        background-color:white;
+        border-radius: 0 40px 40px 0;
+        margin-right: 4em;
+        padding-left: 2em;
+        padding-top: 1em;
+        box-shadow: 2px 2px 10px rgb(204, 204, 204);
+    }
+
+    .mid-container,
+    .patient-record{
+        background-color:white;
+        border-radius: 20px;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        padding: 1.5em;
+        box-shadow: 2px 2px 10px rgb(204, 204, 204);
+    }
+
+    .comment-section{
+        background-color:white;
+        border-radius: 20px;
+        margin-top: 3em;
+        margin-left: 3em;
+        margin-right: 3em;
+        margin-bottom: 1em;
+        padding-left: 1em;
+        padding-top: 1em;
+        box-shadow: 2px 2px 10px rgb(204, 204, 204);
+
+    }
+
+    .reply,
+    .info{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .top-nav{
+        margin-top: 50px;
+        margin-bottom: 400px;
+    }
+
+    .top-nav a,
+    .bottom-nav a {
+    font-size: 25px;
+    color: grey;
+    text-decoration: none;
+    padding-left: 10px;
+    }
+
+    a:hover{
+        color: rgb(0, 60, 255);
+        transition: 0.5s;
+    }
+
+    .blue-number{
+        color: var(--dark-blue);
+        font-size: 1.5em;
+        margin-left: 30px;
+    }
+
+
+    .nav{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+
+    .selected{    
+        font-size: 25px;
+        background-color: var(--dark-blue);
+        margin-right: 50px;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        border-radius: 20px;
+    }
+
+    .icon-gap{
+        margin-left: 10px;
+    }
+
+
+    th {
+        color: var(--dark-blue);
+        padding-top: 1em;
+        padding-bottom: 1em;
+        text-align: left;
+    }
+
+    td {
+        padding: 5px;
+        height: 3em;
+        width: 10em;
+    }
+</style>
+
+
+<body>
+    <div class="outer-container">
+        <div class="nav-section">
+            <div>
+                <img class="small-logo" src="../images/logo-small.svg" style="width: 30%;height: 30%;" alt="">
+            </div>
+            <div style="margin-top: 50px;">
+                <span><img src="../images/doctor_avatar.png"
+                        style="border-radius: 100px; border: 1px solid black;vertical-align: middle;"></span>
+                <span style="font-size: 2em; margin-left: 10px;">Dr.xxx</span>
+            </div>
+            <div class="top-nav">
+                <div class="selected"><a href="#" style="color: white;">
+                    <i class="fa-solid fa-rectangle-list"></i>
+                    <span class="icon-gap">Dashboard</span></a></div>
+                <div class="nav"><a href="#"><i class="fa-solid fa-user-group"></i>
+                    <span class="icon-gap">My Patient</span>
+                    </a></div>
+                <div class="nav"><a href="#"><i class="fa-solid fa-user-plus"></i>
+                    <span class="icon-gap">New Patient</span>
+                    </a></div>
+            </div>
+            <div class="bottom-nav">
+                <div class="nav"><a href="#"><i class="fa-solid fa-user"></i>
+                    <span class="icon-gap">Account</span></a></div>
+                <div class="nav"><a href="#"><i class="fa-solid fa-gear"></i>
+                    <span class="icon-gap">Settings</span></a></div>
+            </div>
+        </div>
+
+        <div class="main-section">
+            <h2>Good Morning, Dr.XXX</h2>
+            <div class="mid-container">
+                <div><span><i class="fa-solid fa-user-group"></i></span>
+                    <span>Patients</span>
+                    <span class="blue-number">300</span>
+                </div>
+                <div><span><i class="fa-solid fa-circle-exclamation"></i></span>
+                    <span>Alterts</span>
+                    <span class="blue-number">20</span>
+                </div>
+                <div><span><i class="fa-solid fa-comment-dots"></i></span>
+                    <span>Unread Comments</span>
+                    <span class="blue-number">5</span>
+                </div>
+            </div>
+
+            <div><span style="font-size: 2em;">Yesterday's health record</span>
+                <span style="float: right;">show
+                    <select name="select" id="select">
+                        <option value="all">All</option>
+                        <option value="bbb">bbb</option>
+                    </select>
+                </span>
+            </div>
+
+
+            <div class="patient-record">
+                <table>
+                    <tr class="out-border">
+                        <th>Patient</th>
+                        <th><div>Blood Glucose</div><div>(nmol/L)</div></th>
+                        <th><div>Weight</div><div>(kg)</div></th>
+                        <th><div>Insulin</div><div>(doses)</div></th>
+                        <th><div>Exercise</div><div>(steps)</div></th>
+                    </tr>
+                    <tr class="out-border">
+                        <td>Alfreds Futterkiste</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>100</td>
+                    </tr>
+                    <tr class="out-border">
+                        <td>Centro Moctezuma</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr class="out-border">
+                        <td>Ernst Handel</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>100</td>
+                    </tr>
+                    <tr class="out-border">
+                        <td>Island Trading</td>
+                        <td>N/A</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>100</td>
+                    </tr>
+                    <tr class="out-border">
+                        <td>Laughing Bacchus</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>100</td>
+                    </tr>
+                    <tr class="out-border">
+                        <td>Magazzini Riuniti</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>100</td>
+                    </tr>
+                    <tr class="out-border">
+                        <td>Magazzini Alimentari</td>
+                        <td>100</td>
+                        <td>N/A</td>
+                        <td>100</td>
+                        <td>100</td>
+                    </tr>
+                </table>
+                <a href="#">show more records</a>
+            </div>
+        </div>
+
+        <div class="comment-section">
+            
+            <div><span style="font-size: 2em;">Patient comments</span>
+                <span>show
+                    <select name="select2" id="select2">
+                        <option value=">unread">unread</option>
+                        <option value="bbb">bbb</option>
+                    </select>
+                </span>
+            </div>
+
+            <div class="msgbox">
+                <div class="check-box-small"></div>
+                <div>
+                    <div class="content">
+                        <div class="info">
+                            <span>Mary Shelley</span>
+                            <span style="float: right;">
+                                <span>dd/mm/yy</span>
+                                <span><i class="fa-solid fa-angle-right"></i></span>
+                            </span>
+                        </div>
+                        <div class="comment">
+                            <span>Today the weather was nice so I went for an extra walk 😊.</span>
+                        </div>
+                        <div class="reply">
+                            <div style="float: right;"><span><i class="fa-solid fa-comment-dots"></i></span>
+                                <span class="icon-gap"><i class="fa-solid fa-flag"></i></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="msgbox">
+                <div class="check-box-small"></div>
+                <div>
+                    <div class="content">
+                        <div class="info">
+                            <span>Mary Shelley</span>
+                            <span style="float: right;">
+                                <span>dd/mm/yy</span>
+                                <span><i class="fa-solid fa-angle-right"></i></span>
+                            </span>
+                        </div>
+                        <div class="comment">
+                            <span>Today the weather was nice so I went for an extra walk 😊.</span>
+                        </div>
+                        <div class="reply">
+                            <div style="float: right;"><span><i class="fa-solid fa-comment-dots"></i></span>
+                                <span class="icon-gap"><i class="fa-solid fa-flag"></i></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="msgbox">
+                <div class="check-box-small"></div>
+                <div>
+                    <div class="content">
+                        <div class="info">
+                            <span>Mary Shelley</span>
+                            <span style="float: right;">
+                                <span>dd/mm/yy</span>
+                                <span><i class="fa-solid fa-angle-right"></i></span>
+                            </span>
+                        </div>
+                        <div class="comment">
+                            <span>Today the weather was nice so I went for an extra walk 😊.</span>
+                        </div>
+                        <div class="reply">
+                            <div style="float: right;"><span><i class="fa-solid fa-comment-dots"></i></span>
+                                <span class="icon-gap"><i class="fa-solid fa-flag"></i></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+        </div>
+    </div>
+
+</body>
+
+</html>
