@@ -8,6 +8,10 @@
     height: 10vh;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .menu-flex {
     display: flex;
     gap: 2em;
