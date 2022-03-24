@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/css/reset.css">
-    <link rel="shortcut icon" type="image/x-icon" href="static/images/favicon.gif" />
+    <link rel="shortcut icon" type="image/x-icon" href="static/images/favicon.gif">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://use.typekit.net/cxa4uzj.css">
     <link rel="stylesheet" href="static/css/layout.css">
     <link rel="stylesheet" type="text/css" href="static/css/grid_type1.css">
@@ -21,44 +22,41 @@
 <body>
     <div class="page">
         <div class="topnav">
-            <a href="index.html"><img class="small-logo" src="static/images/logo-small.svg" alt=""></a>
+            <a href="index.html"><img class="small-logo" src="static/images/logo.svg" alt=""></a>
             <div class="menu-flex">
                 <a href="index.html#what-is-diabetes">What is diabetes?</a>
                 <a href="intro.html">About</a>
                 <a class="button" href="static/login.html" id="login">Login</a>
             </div>
+            <nav class="drop-down">
+                <ul>
+                    <li onclick="void(0)"><span class="material-icons-round">expand_more</span>
+                        <ul>
+                            <li><a href="#what-is-diabetes">What is diabetes?</a></li>
+                            <li><a href="intro.html">About this site</a></li>
+                            <li><a href="#">Login</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
         </div>
     
 
     <div id="about-page">
-        <div >
-            <h1 style="text-align:center">About Diabetes@Home</h1>
-        </div>
-
-        <div >
-            <p class="aboutWeb" >
-                Diabetes@Home is a website to help you manage your diabetes in the comfort of your own home.
-            </p>
-            <p class="aboutWeb">
-                The main features of this website can be accessed by logging in. Diabetes@Home works by asking you to fill our your daily heath data checklist once per day. This data that you record will be monitored by your clinician to help you stay on track!
-            </p>
-            <p class="aboutWeb">
-                Diabetes@Home was built by current University of Melbourne students as a part of a project for Web Information Technologies (INFO30005).
-            </p>
-
-        </div>
-            <img class="logo-about"  src="static/images/about-page.svg" alt="">
+            <h1>About Diabetes@Home</h1>
+            <div>
+                <p class="centre-text">
+                    Diabetes@Home is a website to help you manage your diabetes in the comfort of your own home.
+                </p>
+                <p class="centre-text">
+                    The main features of this website can be accessed by logging in. Diabetes@Home works by asking you to fill our your daily heath data checklist once per day. This data that you record will be monitored by your clinician to help you stay on track!
+                </p>
+                <p class="centre-text">
+                    Diabetes@Home was built by current University of Melbourne students as a part of a project for Web Information Technologies (INFO30005).
+                </p>
+            </div>
+        <img class="logo-about"  src="static/images/about-page.svg" alt="">
         </div>
     </div>
-        
-   
-
-
-
-
-    <footer>
-        <p>INFO30005 Group Project</p>
-    </footer>
-
 </body>
 </html>
