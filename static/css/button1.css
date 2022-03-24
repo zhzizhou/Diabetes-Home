@@ -9,6 +9,23 @@
     text-align: center;
 }
 
+.submit{
+    background-color: var(--dark-blue);
+    color: white;
+    width: 50%;
+    height: auto;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 3em;
+}
+
+.submit:hover{
+    background-color: var(--dark-blue);
+    transition:0.5s;
+}
+
 .button:hover {
     background-color: var(--light-blue);
 }

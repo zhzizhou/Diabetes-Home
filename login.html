@@ -19,21 +19,12 @@
     <title>Login</title>
 </head>
 
-<style>
-    #login {
-        background-color: #587BB4;
-        border-radius: 20px;
-        color: rgb(255, 255, 255);
-    }
-</style>
-
 <body>
     <div class="topnav">
         <a href="index.html"><img class="small-logo" src="static/images/logo-small.svg" alt=""></a>
         <div class="menu-flex">
             <a href="index.html#what-is-diabetes">What is diabetes?</a>
             <a href="intro.html">About</a>
-            <!-- <a class="button" href="login.html" id="login">Login</a> -->
         </div>
     </div>
 
@@ -58,16 +49,17 @@
 
                 <form action="/action_page.php" method="post">
                     <div class="container">
-                        <label for="uname"><b>Username</b></label>
+                        <input type="text" placeholder="Username" name="uname" required>
                         </br>
-                        <input type="text" placeholder="Enter Username" name="uname" required>
+                        <input type="password" placeholder="Password" name="psw" required>
                         </br>
-                        <label for="psw"><b>Password</b></label>
                         </br>
-                        <input type="password" placeholder="Enter Password" name="psw" required>
+                        <div align = "center">
+                            <button class="submit">Login</button>
+                        </div>
+                    
 
-                        <div align="center"><button type="submit">Login</button></div>
-                        <!-- <p align="center">Do not have an account? <span><a href="register.html">register</a></span> one</p> -->
+                        <!-- <div align="center"><button type="submit">Login</button></div> -->
                     </div>
                 </form>
 
@@ -75,38 +67,6 @@
         </div>
 
     </div>
-
-    <!-- <div id="login-page">
-        <div class = "login-container" >
-            <img class="logo-main" src="images/logo.svg" alt="">
-            <h3 class="blue-text">Helping you manage your diabetes</h3>
-            <h3 class="blue-text">in the comfort of your own home.</h3>
-        </div> 
-    </div>
-
-    <div class="outercontainer" id="right">
-        <div class="wordSapcing">
-            <span><a href="#">User</a></span>
-            <span><a href="#">Clinician</a></span>
-        </div>
-            
-        <img src="images/Line 6.svg" alt="line">
-    
-        <form action="/action_page.php" method="post">
-            <div class="container">
-                <label for="uname"><b>Username</b></label>
-                </br>
-                <input type="text" placeholder="Enter Username" name="uname" required>
-                </br>
-                <label for="psw"><b>Password</b></label>
-                </br>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-    
-                <div align="center"><button type="submit">Login</button></div>
-                <p align="center">Do not have an account? <span><a href="register.html">register</a></span> one</p>
-            </div>
-        </form>
-    </div> -->
 
 
     <!-- <footer>
