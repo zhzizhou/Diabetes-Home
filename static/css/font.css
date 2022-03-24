@@ -364,6 +364,7 @@ a:hover {
         display:flex;
         flex-direction: row;
         gap: 1rem;
+        transition: 0.5s;
     }
       
     /* Layout of each product category name within the box*/ 
@@ -376,6 +377,7 @@ a:hover {
         text-align: center; 
         padding-top: 0rem;
         text-transform: none;
+        transition: 0.5s;
     }
     
     nav ul ul li {
