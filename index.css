@@ -392,6 +392,14 @@ a:hover {
         text-align: center;
         color:white;
     }
+
+    nav ul ul li:first-child {
+       border-radius: 2rem 2rem 0 0;
+    }
+
+    nav ul ul li:last-child {
+        border-radius: 0 0 2rem 2rem;
+     }
     
     nav ul ul li:hover {
         background-color: var(--button-hover);
