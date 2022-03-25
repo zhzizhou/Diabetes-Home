@@ -7,7 +7,7 @@
 * [Parts Done](#parts-done)
 ## Group Members
 | Name             | ID            | Username      |
-| :---             | :---          | :---          |
+| :---          | :---          | :---          |
 |     |        |      |
 |     |        |      |
 |     |        |      |
