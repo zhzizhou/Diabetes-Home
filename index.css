@@ -410,6 +410,23 @@ a:hover {
         transform: scale(1,1); /* The it become the full scale when hovered -- reveals the subcategories*/ 
         opacity: 100%;
     }
+
+    .drop-down #diabetes{
+        padding: 10px 15px;
+    }
+
+    .drop-down #about{
+        padding: 10px 29px;
+    }
+
+    .drop-down #login{
+        padding: 10px 55px;
+    }
+
+    .drop-down a:hover{
+        color: #ffffff;
+    }
+
 }
 
 @media screen and (max-width: 550px) {

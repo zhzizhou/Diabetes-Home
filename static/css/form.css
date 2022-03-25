@@ -70,12 +70,12 @@ span.psw {
 }
 
 .topnav a:hover {
-    background-color: rgb(96, 184, 255);
+    background-color: #587BB4;
     color: black;
 }
 
 .topnav a.active {
-    background-color: #51c8ff;
+    background-color: #2B5291;
     color: white;
 }
 
