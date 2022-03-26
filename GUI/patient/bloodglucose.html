@@ -6,11 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/cd0b7f5d91.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="../css/usernav.css">
-    <link rel="stylesheet" type="text/css" href="../css/button1.css">
-    <link rel="stylesheet" type="text/css" href="../css/grid_type2.css">
-    <link rel="stylesheet" type="text/css" href="../css/log_page.css">
-    <title>Record your weight</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/usernav.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/log_page.css">
+    <title>Record Blood Glucose</title>
 </head>
 
 <body>
@@ -34,21 +32,24 @@
     </div>
 
     <div class="messageArea">
-        <input type="number" placeholder="Blood Glucose Level mmol/L" name="weight" required>
-
-        <div class="grid-container" id="dateTimeSection">
-            <div>
-                <i class="fa-solid fa-clock" style="font-size: 30px; color:#587BB4;"></i>
-                Date & Time
-            </div>
-            <div style="text-align: right;padding-top: 7px;">DD/MM/YY, HH:MM</div>
+        <div style="text-align: center;">
+            <input type="number" placeholder="Enter Blood Glucose (nmol/L)" name="weight" min="0" required>
         </div>
+
+        <div id="dateTimeSection">
+            <span>
+                <i class="fa-solid fa-clock"></i>
+                Date & Time
+            </span>
+            <span style="float: right; margin-top: 8px;"><input type="text" id="currentTime"></span>
+        </div>
+
+
         <div class="noteSection">
-            <i class="fa-solid fa-pen-nib" style="font-size: 30px; color:#587BB4;"></i>
+            <i class="fa-solid fa-pen-nib"></i>
             <span>Notes</span>
             <br>
-            <textarea id="review" name="review" rows="20"
-                cols="30">the size of the box should be adjusted by responsive design</textarea>
+            <textarea id="review" name="review" rows="20" cols="30"></textarea>
         </div>
         <div align="center"><button type="submit">Save</button></div>
     </div>
@@ -64,6 +65,13 @@
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
     }
+
+    var today = new Date();
+    var date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
+    var time = (("0"+today.getHours()).slice(-2)) +":"+ (("0"+today.getMinutes()).slice(-2));
+    var dateTime = date + ' ' + time;
+    document.getElementById("currentTime").value = dateTime;
+
 </script>
 
 </html>
