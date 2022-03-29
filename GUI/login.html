@@ -27,7 +27,21 @@
             <a href="../index.html#what-is-diabetes">What is diabetes?</a>
             <a href="../intro.html">About</a>
         </div>
+
+        <nav class="drop-down">
+            <ul>
+                <li onclick="void(0)">
+                    <span class="material-icons-round">expand_more</span>
+                    <ul>
+                        <li><a id="diabetes" href="#what-is-diabetes">What is diabetes?</a></li>
+                        <li><a id="about" href="intro.html">About this site</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
     </div>
+
+
 
     <div class="split-screen">
         <div class="left">
@@ -40,12 +54,13 @@
 
         <div class="right">
             <div class="outercontainer">
+                <img class="logo-sub-login" src="../static/images/logo.svg" alt="">
                 <section class="copy">
                     <div class="wordSapcing">
                         <span><a href="#">User</a></span>
                         <span><a href="#">Clinician</a></span>
                     </div>
-                    <img src="../static/images/Line 6.svg" alt="line">
+                    <!-- <img src="../static/images/Line 6.svg" alt="line"> -->
                 </section>
 
                 <form action="/action_page.php" method="post">
@@ -58,9 +73,6 @@
                         <div align = "center">
                             <button class="submit">Login</button>
                         </div>
-                    
-
-                        <!-- <div align="center"><button type="submit">Login</button></div> -->
                     </div>
                 </form>
 

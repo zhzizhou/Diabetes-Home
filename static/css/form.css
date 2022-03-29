@@ -30,7 +30,7 @@ select {
     box-shadow: 2px 2px 10px rgb(204, 204, 204);
 }
 
-.outercontainer {
+/* .outercontainer {
     background-color: #F2F7FF;
     border-radius: 3em 0 3em 0;
     padding-top: 150px;
@@ -45,7 +45,7 @@ select {
     -moz-box-shadow: 2px 2px 10px rgb(216, 216, 216);
     -webkit-box-shadow: 2px 2px 10px rgb(216, 216, 216);
     box-shadow: 2px 2px 10px rgb(204, 204, 204);
-}
+} */
 
 .container {
     padding: 16px;
