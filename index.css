@@ -255,6 +255,8 @@ a:hover {
     cursor: pointer;
     text-align: center;
     border-radius: 3em;
+    display: block;
+    margin: auto;
 }
 
 .submit:hover{
