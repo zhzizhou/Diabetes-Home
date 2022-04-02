@@ -28,7 +28,7 @@
     <div class="logInfo">
         <span style="float: left;"><a href="home.html"><i class="fa-solid fa-angle-left"></i></a></span>
         <span><i class="fa-solid fa-vial"></i>
-            <span>Boold Glucose</span></span>
+            <span>Blood Glucose</span></span>
     </div>
 
     <div class="messageArea">
@@ -68,10 +68,9 @@
 
     var today = new Date();
     var date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
-    var time = (("0"+today.getHours()).slice(-2)) +":"+ (("0"+today.getMinutes()).slice(-2));
+    var time = (("0" + today.getHours()).slice(-2)) + ":" + (("0" + today.getMinutes()).slice(-2));
     var dateTime = date + ' ' + time;
     document.getElementById("currentTime").value = dateTime;
-
 </script>
 
 </html>

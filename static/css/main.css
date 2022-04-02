@@ -138,9 +138,88 @@ td {
 }
 
 /*ALL PATIENT PAGE*/
+.patient-record {
+    background-color: white;
+    box-shadow: 2px 2px 3px var(--box-shadow);
+    border-radius: 2em;
+    padding: 2em;
+    margin-top: 1em;
+}
+
+.patient-stats {
+    background-color: white;
+    box-shadow: 2px 2px 3px var(--box-shadow);
+    border-radius: 2em;
+    width: 20em;
+    height: 20%;
+    margin-top: 9.5em;
+    padding: 2em;
+    line-height: 250%;
+}
+
+.my-patient-table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+    margin-top: -1em;
+}
+
+.my-patient-table th,
+.my-patient-table td {
+    text-align: center;
+    width: 7em;
+}
+
+
+.my-patient-table td {
+    border: solid 1px lightgrey;
+    border-style: solid none;
+    padding: 0.8em;
+}
+
+.my-patient-table td:first-child {
+    border-left-style: solid;
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
+}
+
+.my-patient-table td:last-child {
+    border-right-style: solid;
+    border-bottom-right-radius: 2em;
+    border-top-right-radius: 2em;
+}
+
+.my-patient-table th {
+    color: var(--dark-blue);
+}
+
+.my-patient-table a {
+    background-color: var(--dark-blue);
+    color: white;
+    padding: 0.4em 0.8em 0.4em 0.8em;
+    border-radius: 1em;
+}
 
 /*EXAMPLE PATIENT PAGE (PAT/MARY SHELLEY)*/
 
+.my-patient-table a:hover {
+    background-color: var(--button-hover);
+    transition: 0.1s;
+}
+
+.search-section {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+.search-section span {
+    margin-right: 0.5em;
+}
+
+.patient-record i,
+.patient-stats i {
+    vertical-align: middle;
+
+}
 /*NEW PATIENT PAGE*/
 
 /*ACCOUNT PAGE*/
