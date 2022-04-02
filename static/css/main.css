@@ -1,0 +1,11 @@
+.back-button {
+    color: var(--dark-blue);
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    padding-bottom: 1em;
+}
+
+a {
+    text-decoration: none;
+}

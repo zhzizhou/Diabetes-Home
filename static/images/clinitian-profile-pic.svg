@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="77" height="74" viewBox="0 0 77 74">
+  <g id="Group_215" data-name="Group 215" transform="translate(0 -0.407)">
+    <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(0 0.407)" fill="#fff" stroke="#8b8b8b" stroke-width="1">
+      <ellipse cx="38.5" cy="37" rx="38.5" ry="37" stroke="none"/>
+      <ellipse cx="38.5" cy="37" rx="38" ry="36.5" fill="none"/>
+    </g>
+    <g id="humaaans_standing-11" data-name="humaaans/standing-11" transform="translate(20.659 4.244)">
+      <g id="A-Human_Standing" data-name="A-Human/Standing" transform="translate(0 0)">
+        <g id="Head_Front_Short-Beard" data-name="Head/Front/Short-Beard" transform="translate(12.857 0)">
+          <g id="Head" transform="translate(0.186 0.298)">
+            <path id="Path_301" data-name="Path 301" d="M5.073,5.186A4.073,4.073,0,0,0,6.156,2.259C5.93-.959,1.451-.251.58,1.373S-.188,7.117.938,7.407a3.982,3.982,0,0,0,2.379-.755l-.611,4.324H6.315Z" transform="translate(0 0)" fill="#b28b67" fill-rule="evenodd"/>
+          </g>
+          <path id="Hair" d="M57.212,31.932q-.207,2.886-1.1,2.886c-.889,0-1.643-.564-2.033-.564-.284,0-.221.356-.032.62.156.218.913.427.913.765s-.6.076-.6.277c0,.331-.105.954.469.954s2.249-.212,2.535-1.075a15.032,15.032,0,0,0,.358-3.463.9.9,0,0,1,1.01.9.9.9,0,0,1-.272.645c.209.295.443.6.711.92a3.023,3.023,0,0,0,.77-4.072,2.228,2.228,0,0,0-1.616-1.483,2.617,2.617,0,0,0-1.718-.127,5.589,5.589,0,0,0-2.173.579c0,.959.186,1.243,1.772,1.218A2.926,2.926,0,0,1,57.212,31.932Z" transform="translate(-53.889 -29.02)" fill="#191847" fill-rule="evenodd"/>
+        </g>
+        <g id="Bottom_Standing_Skinny-Jeans" data-name="Bottom/Standing/Skinny-Jeans" transform="translate(2.368 23.753)">
+          <path id="Leg" d="M140.329,0l-5.451,19.129-3.977,14.1H128L132.226,0Z" transform="translate(-122.136 0)" fill="#191847" fill-rule="evenodd"/>
+          <path id="Leg-2" data-name="Leg" d="M83.363,0c.126,9.859.556,15.237.688,16.133s2.134,6.594,6.005,17.1H87.052Q79.66,18.117,78.8,16.133C78.225,14.81,76.454,9.432,73.786,0Z" transform="translate(-63.713)" fill="#2f3676" fill-rule="evenodd"/>
+          <g id="Accessories_Shoe_Flat-Pointy" data-name="Accessories/Shoe/Flat-Pointy" transform="translate(17.441 32.778)">
+            <path id="Shoe" d="M9.172,22.157,9.021,19H5.864A18.626,18.626,0,0,1,0,21.556v.6H5.714l1.955-.3v.3Z" transform="translate(0 -19)" fill="#191847" fill-rule="evenodd"/>
+          </g>
+          <g id="Accessories_Shoe_Flat-Pointy-2" data-name="Accessories/Shoe/Flat-Pointy" transform="translate(0 32.778)">
+            <path id="Shoe-2" data-name="Shoe" d="M9.172,22.157,9.021,19H5.864A18.626,18.626,0,0,1,0,21.556v.6H5.714l1.955-.3v.3Z" transform="translate(0 -19)" fill="#191847" fill-rule="evenodd"/>
+          </g>
+        </g>
+        <g id="Body_Lab-Coat" data-name="Body/Lab-Coat" transform="translate(0 7.888)">
+          <path id="Skin" d="M12.441,79.2,7.9,83.049a12.91,12.91,0,0,0-3.161,1.534c-.193.2-.415.6.434.473s1.746-.219,1.884.064-.354.667-.088,1.043q.265.376,2.11-2.126l4.6-2.3Zm20.552-1.665-2.663.387q4.288,9.3,4.6,9.84c.465.805-.082,2.208-.3,2.951,1.079.312.735-1.356,2.1-.94,1.246.38,2.274,1.24,3.507.217.152-.126.279-.537-.2-.777A14.222,14.222,0,0,1,36.8,87.121,102.319,102.319,0,0,1,32.994,77.536Z" transform="translate(-4.564 -65.8)" fill="#b28b67" fill-rule="evenodd"/>
+          <path id="Coat-Back" d="M0,16.344l1.6.687A37.5,37.5,0,0,1,14.065,2.491L12.9,0C7.764,2.449,2.946,4.28.692,8.432-.064,9.826.1,14.607,0,16.344Z" transform="translate(18.724 17.161) rotate(175)" fill="#c5cfd6" fill-rule="evenodd"/>
+          <path id="Shirt" d="M101.479,17.986a40.868,40.868,0,0,1-11.162,0c-.336-.062-.389-.625-.233-1.007C92.512,11.028,94.178,5.836,94.178,1.7a4.343,4.343,0,0,0,2.34.1C99.511,6.063,100.888,10.95,101.479,17.986Z" transform="translate(-78.512 -1.369)" fill="#323337" fill-rule="evenodd"/>
+          <path id="Coat-Front" d="M34.076-.441H32.828c-.291,1.709-1.207,24.848-4.036,32.418H44.1c-.332-6.934-2.95-15.264-5.6-22.234q3.517,3.219,6.131,10.907l2.867-.736Q44.3,6.135,34.347-.342l-.043-.1h-.11l-.122-.078Z" transform="translate(-15.327 0.519)" fill="#dde3e9" fill-rule="evenodd"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
