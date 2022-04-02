@@ -1,3 +1,4 @@
+/*ALL PAGES*/
 .back-button {
     color: var(--dark-blue);
     display: flex;
@@ -6,6 +7,74 @@
     padding-bottom: 1em;
 }
 
+.main-page-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    flex-shrink: 0;
+}
+
 a {
     text-decoration: none;
+}
+
+/*ALL PATIENT PAGE*/
+
+/*NEW PATIENT PAGE*/
+
+/*ACCOUNT PAGE*/
+
+/*SETTINGS PAGE*/
+
+
+
+/*EDIT TIME SERIES PAGE*/
+.time-series {
+    display: flex;
+    gap: 1em;
+}
+.single-time-series {
+    display: flex;
+    flex-direction: column;
+}
+.time-series-top {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    background-color: white;
+    padding: 1em;
+    border-radius: 1em;
+    border: solid 3px var(--dark-blue);
+    box-shadow: 2px 2px 3px var(--box-shadow);
+}
+
+.time-series-bottom {
+    background-color:white;
+    padding: 1em;
+    border-radius: 0 0 1em 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    align-items: center;
+}
+
+.time-series-value {
+    background-color: var(--dark-blue);
+    border: none;
+    border-radius: 1em;
+    width:3em;
+    padding: 0.5em;
+    color: white;
+}
+
+.time-series-value:focus {
+    outline: none;
+    background-color: var(--button-hover)
+
+}
+
+input[type="checkbox"]::before {
+    background-color: var(--light-grey-background);
+    outline: none;
+    border: none;
 }
