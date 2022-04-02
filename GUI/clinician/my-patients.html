@@ -67,11 +67,11 @@
             <div class="patient-record">
                 <div class="search-section">
                     <form action="/action_page.php" method="post">
-                        <span style="font-size: 2em; margin-right: 3em;">All Patient</span>
+                        <span style="font-size: 2em; margin-right: 3em;">Patient List</span>
                         <i class="material-icons">search</i>
                         <span><input type="text" placeholder="search for a patient" name="pname"></span>
                         <span>
-                            <select id="diabetestype" name="diabetestype">
+                            <select class="dropdown" id="diabetestype" name="diabetestype">
                                 <option value="alltype">All Types</option>
                                 <option value="type1">Type 1</option>
                                 <option value="type2">Type 2</option>
@@ -164,7 +164,7 @@
         <h3></h3>
     </main>
     <div class="patient-stats">
-        <h2>My patient</h2>
+        <h2>My patients</h2>
         <div>
             <i class="material-icons" style="margin-right: 1em;">insert_emoticon</i>
             <span>Number of Patients </span>
