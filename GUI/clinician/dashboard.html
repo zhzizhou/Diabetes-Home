@@ -53,15 +53,120 @@
             </div>
         </nav>
     </div>
-    <main>
-        <div>
+    <main class="dashboard-container">
+        <div class="dashboard-left">
             <h1 class="page-title">Good morning, Dr. Name</h1>
             
+            <div class="main-section">
+                <div class="mid-container whitebox shadow">
+                    <div class="overview-info">
+                        <span class="material-icons">people</span>
+                        <span>Patients</span>
+                        <span class="blue-text">300</span>
+                    </div>
+                    <div class="overview-info">
+                        <span class="material-icons-round">error</span>
+                        <span>Alerts</span>
+                        <span class="blue-text">20</span>
+                    </div>
+                    <div class="overview-info">
+                        <span class="material-icons-round">chat</span>
+                        <span>Unread Comments</span>
+                        <span class="blue-text">5</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="space-between">
+                        <h3>Recent health records</h3>
+                        <span>show
+                            <select class="dropdown"name="select" id="select">
+                                <option value="all">All</option>
+                                <option value="bbb">bbb</option>
+                            </select>
+                        </span>
+                    </div>
+                    <div class="patient-record whitebox shadow">
+                        <table>
+                            <tr class="out-border">
+                                <th>Patient</th>
+                                <th><div>Blood Glucose</div><div>(nmol/L)</div></th>
+                                <th><div>Weight</div><div>(kg)</div></th>
+                                <th><div>Insulin</div><div>(doses)</div></th>
+                                <th><div>Exercise</div><div>(steps)</div></th>
+                            </tr>
+                            <tr class="out-border">
+                                <td>Alfreds Futterkiste</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                            </tr>
+                            <tr class="out-border">
+                                <td>Centro Moctezuma</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>N/A</td>
+                            </tr>
+                            <tr class="out-border">
+                                <td>Ernst Handel</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                            </tr>
+                            <tr class="out-border">
+                                <td>Island Trading</td>
+                                <td>N/A</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                            </tr>
+                            <tr class="out-border">
+                                <td>Laughing Bacchus</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                            </tr>
+                            <tr class="out-border">
+                                <td>Magazzini Riuniti</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                            </tr>
+                            <tr class="out-border">
+                                <td>Magazzini Alimentari</td>
+                                <td>100</td>
+                                <td>N/A</td>
+                                <td>100</td>
+                                <td>100</td>
+                            </tr>
+                        </table>
+                        <a href="#">show more records</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <h3></h3>
-    </main>
+        <div class="comment-section whitebox shadow nav-top">
+            <div class="space-between">
+                <h3>Patient comments</h3>
+                <span>show
+                    <select class="dropdown" name="select2" id="select2">
+                        <option value=">unread">unread</option>
+                        <option value="bbb">bbb</option>
+                    </select>
+                </span>
+            </div>
+            <div class="msg-container">
+                <div class="msgbox light-blue-box shadow">
+                    <span>work in progress</span>
 
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 
 </html>

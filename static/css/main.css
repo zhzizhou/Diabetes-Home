@@ -7,6 +7,18 @@
     padding-bottom: 1em;
 }
 
+.shadow {
+    box-shadow: 2px 2px 3px var(--box-shadow);
+}
+
+.whitebox {
+    background-color: white;
+}
+
+.light-blue-box {
+    background-color: var(--light-blue);
+}
+
 .main-page-content {
     display: flex;
     flex-direction: column;
@@ -16,9 +28,118 @@
 
 a {
     text-decoration: none;
+    color:var(--dark-blue);
+}
+
+/*DASHBOARD*/
+.dashboard-container {
+    display: flex;
+    gap:3em;
+}
+
+.dashboard-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.outer-container {
+    display: grid;
+    grid-template-columns: 25% 40% 35%;
+    background-color: rgb(241, 241, 241);
+    height: 100vh;
+}
+
+.mid-container {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+}
+
+.overview-info {
+    display: flex;
+    gap: 0.5em;
+    align-items:center;
+}
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dropdown {
+    border: none;
+    padding: 0.5em;
+    border-radius: 1em;
+    background-color: var(--dark-blue);
+    color: white;
+    margin-left: 0.5em;
+}
+
+.dropdown:focus {
+    outline:none;
+    background-color: var(--button-hover)
+}
+
+.msg-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.msgbox{
+    border-radius: 0.5em;
+}
+
+.check-box-small{
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+}
+
+.mid-container,
+.patient-record{
+    border-radius: 20px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1.5em;
+}
+
+.comment-section{
+    border-radius: 3em;
+    padding: 2em;
+}
+
+
+.selected-patient{    
+    font-size: 25px;
+    background-color: var(--dark-blue);
+    margin-right: 50px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-radius: 20px;
+}
+
+.icon-gap{
+    margin-left: 10px;
+}
+
+
+th {
+    color: var(--dark-blue);
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: left;
+}
+
+td {
+    padding: 5px;
+    height: 3em;
+    width: 10em;
 }
 
 /*ALL PATIENT PAGE*/
+
+/*EXAMPLE PATIENT PAGE (PAT/MARY SHELLEY)*/
 
 /*NEW PATIENT PAGE*/
 
