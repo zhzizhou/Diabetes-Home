@@ -43,7 +43,7 @@
     padding-left: 8%;
     padding-right: 8%;
     
-    height: 50%;
+    height: 60%;
     width: 50%;
     overflow: hidden;
 
@@ -121,11 +121,11 @@
         padding-left: 5%;
         padding-right: 5%;
         height: 80%;
-        width: 40%;
+        width: 60%;
     }
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:550px) {
     .split-screen {
         flex-direction: column;
     }
