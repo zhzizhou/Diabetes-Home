@@ -223,7 +223,39 @@ td {
 /*NEW PATIENT PAGE*/
 
 /*ACCOUNT PAGE*/
+#profile-container{
+    display: flex;
+    flex-direction: row;
+    padding-top: 60px;
+}
 
+.profile-picture-display{
+    display: block;
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.profile-picture-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.profile-statistic{
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    align-items: center;
+    padding-left: 200px;
+    padding-top: 5px;
+
+}
+
+.profile-statistic li{
+    padding-right: 300px;
+    padding-bottom: 100px;
+}
 /*SETTINGS PAGE*/
 
 
