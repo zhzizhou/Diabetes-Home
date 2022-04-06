@@ -61,17 +61,14 @@ span.psw {
 }
 
 .topnav a {
-    float: left;
-    color: #000000;
+    color: #ffffff;
     text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .topnav a:hover {
-    background-color: #587BB4;
-    color: black;
+    color: #587BB4;
 }
 
 .topnav a.active {
