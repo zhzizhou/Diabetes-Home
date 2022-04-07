@@ -1,0 +1,57 @@
+module.exports = [{
+        givenName: "Mary",
+        familyName: "Shelly",
+        password: "12345",
+        email: "test@test.com",
+        profilePicture: "defaultPic",
+        nickName: "Mary",
+        gender: "Female",
+        engagementRate: 80,
+        diabeteType:"Type 1",
+        darkMode: false,
+        dateOfBirth: "1/1/1990",
+        clinicianId: "1"
+    },
+    {
+        givenName: "Andy",
+        familyName: "Jones",
+        password: "12345",
+        email: "test@test.com",
+        profilePicture: "defaultPic",
+        nickName: "Mary",
+        gender: "Male",
+        engagementRate: 85,
+        diabeteType:"Type 1",
+        darkMode: false,
+        dateOfBirth: "1/1/1990",
+        clinicianId: "1"
+    },
+    {
+        givenName: "Bob",
+        familyName: "Brown",
+        password: "12345",
+        email: "test@test.com",
+        profilePicture: "defaultPic",
+        nickName: "Mary",
+        gender: "Male",
+        engagementRate: 90,
+        diabeteType:"Type 1",
+        darkMode: false,
+        dateOfBirth: "1/1/1990",
+        clinicianId: "1"
+    },
+    {
+        givenName: "Tom",
+        familyName: "White",
+        password: "12345",
+        email: "test@test.com",
+        profilePicture: "defaultPic",
+        nickName: "Mary",
+        gender: "Male",
+        engagementRate: 60,
+        diabeteType:"Type 2",
+        darkMode: false,
+        dateOfBirth: "1/1/1990",
+        clinicianId: "2"
+    }
+]
