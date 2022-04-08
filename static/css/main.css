@@ -260,7 +260,7 @@ td {
 
 .edit-ts{
     color:rgb(255, 255, 255);
-    font-size: 18px;
+    font-size: 16px;
     background-color: var(--dark-blue);
     padding: 0.4em 0.8em 0.4em 0.8em;
     border-radius: 1em;
