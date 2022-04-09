@@ -236,14 +236,17 @@ td {
     flex-direction: column;
     gap: 1em;
 }
+
 .patient-right {
     display: flex;
     flex-direction: column;
 }
+
 .patient-title-row{
     vertical-align: middle;
     height: 56px;
 }
+
 .patient-title {
     font-size: 48px;
     text-align: left;
@@ -266,6 +269,7 @@ td {
     border-radius: 1em;
     vertical-align: middle;
 }
+
 .edit-ts-button{
     float: right;
     height: 56px;
@@ -280,10 +284,12 @@ td {
     justify-content:space-between;
     width: 20%;
 }
+
 .overview-data-title{
     font-size: 16px;
     color: #8B8B8B;
 }
+
 .ts-data{
     color: var(--dark-blue);
     font-size: 20px;
@@ -293,8 +299,8 @@ td {
     vertical-align: middle;
     text-align: center;
     width: 85%;
-
 }
+
 .ts-container{
     border-radius: 30px;
     margin-bottom: 2em;
@@ -316,6 +322,7 @@ td {
     text-align: center;
     vertical-align: middle;
 }
+
 .filter-button{
     vertical-align: middle;
     float: right;
@@ -336,6 +343,7 @@ td {
     vertical-align: middle;
     text-align: center;
 }
+
 .note-section-bottom{
     border-radius: 0 0 48px 48px;
     margin-bottom: 16px;
@@ -347,6 +355,7 @@ td {
     text-align: left;
     padding: 2em;
 }
+
 .comment-content{
     font-size: 24px;
     text-align: left;
@@ -358,18 +367,40 @@ td {
     margin-top: 1em;
     line-height: 1.75em;
 }
+
 .select-notes{
     color: var(--light-grey-text);
     padding: 16px 64px 16px 64px;
     background-color: var(--light-blue);
     border-radius: 48px 0 0 0;
 }
+
 .select-messages{
     color: var(--dark-blue);
     padding: 16px 48px 16px 32px;
     background-color: #ffffff;
     border-radius: 0 48px 0 0;
 }
+
+.details-statistic{
+    padding-top: 30px;
+    float:left;
+    padding-bottom: 30px;
+    width: 100%;
+}
+
+.details-statistic li{
+    padding-top: 10px;
+    float:left;
+    display:block;
+    width:50%;
+    height:80px;
+}
+
+.details-statistic a{
+    color: var(--dark-grey-text);
+}
+
 /*NEW PATIENT PAGE*/
 
 /*ACCOUNT PAGE*/
