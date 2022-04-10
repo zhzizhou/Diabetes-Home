@@ -1,128 +1,153 @@
-const getHome = async (req, res) => {
+const clincicianData = require('../models/clinician')
+
+const getHome = async(req, res) => {
     res.send('GET Home')
-    //TODO
+        //TODO
 }
 
-const getProfile = async (req, res) => {
-    res.send('GET Profile')
+const getProfile = async(req, res) => {
     //TODO
+    //http://localhost:3000/clinician/profile
+    res.render("clinicianData.hbs", { data: clincicianData })
+
 }
 
-const getEditPage = async (req, res) => {
+const getEditPage = async(req, res) => {
     res.send('GET EditPage')
-    //TODO
+        //TODO
 }
 
-const updateProfile = async (req, res) => {
+const updateProfile = async(req, res) => {
     res.send('PUT updateProfile')
-    //TODO
+        //TODO
 }
 
-const getSettings = async (req, res) => {
+const getSettings = async(req, res) => {
     res.send('GET Settings')
-    //TODO
+        //TODO
 }
 
-const updateSettings = async (req, res) => {
+const updateSettings = async(req, res) => {
     res.send('PUT Settings')
-    //TODO
+        //TODO
 }
 
-const getRegisterPage = async (req, res) => {
+const getRegisterPage = async(req, res) => {
     res.send('GET RegisterPage')
-    //TODO
+        //TODO
 }
 
-const registerClinician = async (req, res) => {
+const registerClinician = async(req, res) => {
     res.send('POST registerClinician')
-    //TODO
+        //TODO
 }
 
-const getNewPatientPage = async (req, res) => {
+const getNewPatientPage = async(req, res) => {
     res.send('GET NewPatientPage')
-    //TODO
+        //TODO
 }
 
-const addNewPatient = async (req, res) => {
+const addNewPatient = async(req, res) => {
     res.send('POST NewPatient')
-    //TODO
+        //TODO
 }
 
-const getMyPatientPage = async (req, res) => {
+const getMyPatientPage = async(req, res) => {
     res.send('GET MyPatientPage')
-    //TODO
+        //TODO
 }
 
-const searchPatient = async (req, res) => {
+const searchPatient = async(req, res) => {
     res.send('POST searchPatient')
-    //TODO
+        //TODO
 }
 
-const getOnePatientPage = async (req, res) => {
+const getOnePatientPage = async(req, res) => {
     res.send('GET OnePatientPage')
-    //TODO
+        //TODO
 }
 
-const getSupportPage = async (req, res) => {
+const getSupportPage = async(req, res) => {
     res.send('GET SupportPage')
-    //TODO
+        //TODO
 }
 
-const addSupport = async (req, res) => {
+const addSupport = async(req, res) => {
     res.send('POST addSupport')
-    //TODO
+        //TODO
 }
 
-const getNotesPage = async (req, res) => {
+const getNotesPage = async(req, res) => {
     res.send('GET NotesPage')
-    //TODO
+        //TODO
 }
 
 
-const addNotes = async (req, res) => {
+const addNotes = async(req, res) => {
     res.send('POST addNotes')
-    //TODO
+        //TODO
 }
 
-const getTimeSeriesPage = async (req, res) => {
+const getTimeSeriesPage = async(req, res) => {
     res.send('GET getTimeSeriesPage')
-    //TODO
+        //TODO
 }
 
-const updateTimeSeries = async (req, res) => {
+const updateTimeSeries = async(req, res) => {
     res.send('PUT updateTimeSeries')
-    //TODO
+        //TODO
 }
 
-const getPatientDetail = async (req, res) => {
+const getPatientDetail = async(req, res) => {
     res.send('GET PatientDetail')
-    //TODO
+        //TODO
 }
 
-const getEditPatientPage = async (req, res) => {
+const getEditPatientPage = async(req, res) => {
     res.send('GET EditPatientPage')
-    //TODO
+        //TODO
 }
 
-const updatePatientDetail = async (req, res) => {
+const updatePatientDetail = async(req, res) => {
     res.send('POST updatePatientDetail')
-    //TODO
+        //TODO
 }
 
-const getLoginPage = async (req, res) => {
+const getLoginPage = async(req, res) => {
     res.send('GET LoginPage')
-    //TODO
+        //TODO
 }
 
-const clinicianLogin = async (req, res) => {
+const clinicianLogin = async(req, res) => {
     res.send('POST clinicianLogin')
-    //TODO
+        //TODO
 }
 
 
 
-module.exports = {getHome,getProfile, getEditPage, updateProfile, getSettings, updateSettings,
-    getRegisterPage, registerClinician, getNewPatientPage, addNewPatient, getMyPatientPage,
-    searchPatient, getOnePatientPage, getSupportPage, addSupport, getNotesPage, addNotes, 
-    getTimeSeriesPage, updateTimeSeries, getPatientDetail, getEditPatientPage, updatePatientDetail, 
-    getLoginPage, clinicianLogin}
+module.exports = {
+    getHome,
+    getProfile,
+    getEditPage,
+    updateProfile,
+    getSettings,
+    updateSettings,
+    getRegisterPage,
+    registerClinician,
+    getNewPatientPage,
+    addNewPatient,
+    getMyPatientPage,
+    searchPatient,
+    getOnePatientPage,
+    getSupportPage,
+    addSupport,
+    getNotesPage,
+    addNotes,
+    getTimeSeriesPage,
+    updateTimeSeries,
+    getPatientDetail,
+    getEditPatientPage,
+    updatePatientDetail,
+    getLoginPage,
+    clinicianLogin
+}

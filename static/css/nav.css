@@ -27,8 +27,6 @@ nav {
     position: fixed;
 }
 
-
-
 .nav-top {
     display: flex;
     flex-direction: column;
@@ -40,10 +38,10 @@ nav a {
     text-decoration: none;
     font-size: 24px;
 }
+
 .small-logo {
     width: 6rem;
     transform: translate(0, 0.5rem);
-    
 }
 
 .menu-item-layout {
@@ -66,6 +64,7 @@ nav a {
     background-color: var(--dark-blue);
     color: white;
 }
+
 .menu-item.selected {
     background-color: var(--dark-blue);
     color: white;
@@ -76,4 +75,3 @@ nav a {
     flex-direction: column;
     gap: 1em;
 }
-
