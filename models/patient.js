@@ -1,57 +1,55 @@
-module.exports = [{
+const mongoose = require('mongoose')
+
+const patientSchema = new mongoose.Schema({
+    givenName:{type: String, required: true},
+    familyName:{type: String, required: true},
+    password:{type: String, requied: true},
+    email:{type: String,unique: true},
+    mobileNumber: {type:String},
+    profilePicture: String,
+    nickName: String,
+    gender: String,
+    engagementRate : Number,
+    diabeteType:String,
+    darkMode: {type: Boolean, default: false},
+    dateOfBirth: {type: String},
+    clinicianId: {type: mongoose.Schema.Types.ObjectId, ref: 'Clinician'}
+})
+
+const Patient = mongoose.model('Patient',patientSchema)
+
+const PateintDemo = [{
+    	_id: "1",
         givenName: "Mary",
         familyName: "Shelly",
         password: "12345",
-        email: "test@test.com",
+        email: "mary@diabeteshome.com",
+        mobileNumber: "0123456789",
         profilePicture: "defaultPic",
         nickName: "Mary",
         gender: "Female",
         engagementRate: 80,
-        diabeteType:"Type 1",
+        diabeteType: "Type 1",
         darkMode: false,
         dateOfBirth: "1/1/1990",
         clinicianId: "1"
     },
     {
-        givenName: "Andy",
+        _id: "2",
+        givenName: "Pat",
         familyName: "Jones",
         password: "12345",
-        email: "test@test.com",
+        email: "pat@diabeteshome.com",
+        mobileNumber: "0123456789",
         profilePicture: "defaultPic",
-        nickName: "Mary",
+        nickName: "Andy",
         gender: "Male",
         engagementRate: 85,
-        diabeteType:"Type 1",
+        diabeteType: "Type 2",
         darkMode: false,
         dateOfBirth: "1/1/1990",
         clinicianId: "1"
     },
-    {
-        givenName: "Bob",
-        familyName: "Brown",
-        password: "12345",
-        email: "test@test.com",
-        profilePicture: "defaultPic",
-        nickName: "Mary",
-        gender: "Male",
-        engagementRate: 90,
-        diabeteType:"Type 1",
-        darkMode: false,
-        dateOfBirth: "1/1/1990",
-        clinicianId: "1"
-    },
-    {
-        givenName: "Tom",
-        familyName: "White",
-        password: "12345",
-        email: "test@test.com",
-        profilePicture: "defaultPic",
-        nickName: "Mary",
-        gender: "Male",
-        engagementRate: 60,
-        diabeteType:"Type 2",
-        darkMode: false,
-        dateOfBirth: "1/1/1990",
-        clinicianId: "2"
-    }
 ]
+
+module.exports = Patient
