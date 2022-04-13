@@ -1,9 +1,10 @@
-.topnav {
+.responsive-nav {
     overflow: hidden;
     display: flex;
     justify-content:space-between;
     align-items:center;
     height: 10vh;
+    display: none;
 }
 
 .small-logo {
@@ -14,4 +15,10 @@
 
 #menu-opener {
     font-size: 45px;
+}
+
+@media screen and (max-width: 1050px) {
+    .responsive-nav {
+        display: flex;
+    }
 }
