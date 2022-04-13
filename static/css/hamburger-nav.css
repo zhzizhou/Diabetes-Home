@@ -1,0 +1,17 @@
+.topnav {
+    overflow: hidden;
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    height: 10vh;
+}
+
+.small-logo {
+    width: 5rem;
+    transform: translate(0, 0.5rem);
+    
+}
+
+#menu-opener {
+    font-size: 45px;
+}
