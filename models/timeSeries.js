@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 const timeSeriesSchema = new mongoose.Schema({
     patientId: {type: mongoose.Schema.Types.ObjectId, ref:'Patient', required: true},
     logItemId: {type: mongoose.Schema.Types.ObjectId, ref:'LogItem', required: true},
-    activated: {Boolean, default: true},
+    activated: {type: Boolean, default: true},
     upperLimit: {type: Number, required: true},
     lowerLimit: {type: Number, required: true, min: 0}
 })

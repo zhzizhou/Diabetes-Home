@@ -4,6 +4,8 @@ const exphbs = require('express-handlebars')
 const clinicianRouter = require('./routes/clinicianRouter')
 const patientRouter = require('./routes/patientRouter')
 const app = express()
+// connect to database
+require('./models/db.js') 
 
 app.use(express.static('public'))
 app.use(express.json())
