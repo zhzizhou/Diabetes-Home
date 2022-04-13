@@ -6,11 +6,16 @@ body {
     color: var(--dark-grey-text);
 }
 
+
 p, ul {
     font-size: 16px;
     line-height: 1.5em;
     text-align: left;
     color: var(--light-grey-text);
+}
+
+.p-dark {
+    color: var(--dark-grey-text);
 }
 
 li {
