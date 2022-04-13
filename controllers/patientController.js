@@ -1,3 +1,8 @@
+const mongoose = require('mongoose')
+const HealthRecord = require('../models/healthRecord')
+const expressValidator = require('express-validator')
+
+
 const getHome = async (req, res) => {
     res.send('GET Home')
     //TODO
@@ -20,8 +25,17 @@ const getLogPage = async (req, res) => {
 
 
 const insertLog = async (req, res) => {
-    res.send('POST insertLog')
-    //TODO
+    console.log(req.body);
+    console.log(req.params.id)
+    const newHealthRecord = new HealthRecord({
+        logItemId: req.params.id,
+        patientId: req.body.patientId,
+        value: req.body.value,
+        notes: req.body.notes
+    })
+    await newHealthRecord.save()
+    .then((result)=>res.send(result))
+    .catch((err)=>res.send(err))
 }
 
 
