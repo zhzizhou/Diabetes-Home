@@ -17,6 +17,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    margin-right: 3rem;
 }
 
 /*DASHBOARD*/
@@ -57,7 +58,7 @@ body {
     gap: 1rem;
     padding: 2rem;
     border-radius: 2rem;
-    width: 45rem;
+    width: 50%;
 }
 
 .checklist-item {
@@ -73,7 +74,9 @@ body {
 .inside-left {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 4rem;
+    width: 50%;
+    margin-right: 3rem;
 }
 .my-stats {
     display: flex;
@@ -98,6 +101,7 @@ body {
         flex-direction: row;
         padding-bottom: 2rem;
         justify-content: space-between;
+        width: 100%;
     }
 
     nav {
