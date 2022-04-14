@@ -17,7 +17,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    margin-right: 3rem;
+    margin-right: 2rem;
 }
 
 /*DASHBOARD*/
@@ -87,6 +87,10 @@ body {
     border-radius:2rem;
 }
 
+.nav-line{
+    display: none;
+}
+
 /*Leaderboard*/
 
 .record {
@@ -131,9 +135,17 @@ body {
     text-align:"center";
     vertical-align: middle;
 }
+.infobar{
+    display: none;
+}
+
 
 @media screen and (max-width: 1050px) {
     .responsive-nav {
+        display: flex;
+    }
+
+    .nav-line{
         display: flex;
     }
     
@@ -167,6 +179,15 @@ body {
 
     .my-checklist {
         width:92%;
+    }
+
+    .infobar{
+        display: block;
+        font-size: 30px;
+        color: #587BB4;
+        text-align: center;
+        padding-top: 30px;
+        background-color: rgb(255, 255, 255);
     }
 }
 
