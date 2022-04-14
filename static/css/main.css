@@ -49,7 +49,7 @@ a {
 .outer-container {
     display: grid;
     grid-template-columns: 25% 40% 35%;
-    background-color: rgb(241, 241, 241);
+    background-color: rgb(255, 255, 255);
     height: 100vh;
 }
 

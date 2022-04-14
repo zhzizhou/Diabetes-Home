@@ -4,7 +4,7 @@ body {
 
 .dashboard-container {
     width: 100%;
-    margin-right: 3rem;;
+    margin-right: 3rem;
 }
 
 .space-between {
@@ -87,6 +87,51 @@ body {
     border-radius:2rem;
 }
 
+/*Leaderboard*/
+
+.record {
+    background-color: #ffffff;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding: 1em;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    -moz-box-shadow: 2px 2px 10px rgb(216, 216, 216);
+    -webkit-box-shadow: 2px 2px 10px rgb(216, 216, 216);
+    box-shadow: 2px 2px 10px rgb(204, 204, 204);
+    font-size: 18px;
+    text-align: center;
+}
+
+.medal {
+    float: left; 
+    font-size: 60px; 
+    margin: -20px;
+}
+
+.leaderboard-box{
+    background-color:#f2f7ff; 
+    padding:1.5em; 
+    margin:1.5em; 
+    border-radius:20px; 
+    height:100%;
+    text-align:center;
+}
+
+.leaderboard-table {
+    width: 95%; 
+    text-align:center;
+    padding: 1em;
+    
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+    text-align:"center";
+    vertical-align: middle;
+}
+
 @media screen and (max-width: 1050px) {
     .responsive-nav {
         display: flex;
@@ -100,8 +145,16 @@ body {
     .inside-left {
         flex-direction: row;
         padding-bottom: 2rem;
-        justify-content: space-between;
+        margin-right: 1rem;
         width: 100%;
+
+    }
+    .doctor-comment-box{
+        width: 50%;
+    }
+    .my-stats{
+        width: 50%;
+        margin-right: 1rem;
     }
 
     nav {
@@ -113,6 +166,25 @@ body {
     }
 
     .my-checklist {
-        width:92%
+        width:92%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+
+    .page-title {
+        width:60%;
+        font-size:24pt;
+    }
+    .inside-left {
+        flex-direction: column;
+        padding-bottom: 3rem;
+        width: 100%;
+    }
+    .doctor-comment-box{
+        width: 100%;
+    }
+    .my-stats{
+        width: 90%;
     }
 }

@@ -6,97 +6,116 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/cd0b7f5d91.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="../css/usernav.css">
-    <link rel="stylesheet" type="text/css" href="../css/button1.css">
-    <link rel="stylesheet" type="text/css" href="../css/grid_type2.css">
-    <link rel="stylesheet" type="text/css" href="../css/log_page.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/usernav.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/button.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/grid_type2.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/log_page.css">
+    <link rel="stylesheet" href="../../static/css/reset.css">
+    <link rel="stylesheet" href="https://use.typekit.net/cxa4uzj.css">
+    <link rel="stylesheet" href="../../static/css/font.css">
+    <link rel="stylesheet" href="../../static/css/colour.css">
+    <link rel="stylesheet" href="../../static/css/nav.css">
+    <link rel="stylesheet" href="../../static/css/patient-main.css">
+    <link rel="stylesheet" href="../../static/css/hamburger-nav.css">
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Round" rel="stylesheet">
     <title>leaderboard</title>
+    
 </head>
 
-<style>
-    .record {
-        background-color: #ffffff;
-        margin-top: 50px;
-        margin-bottom: 50px;
-        padding: 30px;
-        border-radius: 20px;
-        display: grid;
-        grid-template-columns: auto auto auto;
-        -moz-box-shadow: 2px 2px 10px rgb(216, 216, 216);
-        -webkit-box-shadow: 2px 2px 10px rgb(216, 216, 216);
-        box-shadow: 2px 2px 10px rgb(204, 204, 204);
-        font-size: 30px;
-    }
-
-    .medal {
-        float: left; 
-        font-size: 60px; 
-        margin: -20px;
-    }
-
-</style>
-
 <body>
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="home.html">Home</a>
-        <a href="#">leaderboard</a>
-        <a href="#">My Profile</a>
-        <a href="#">Log History</a>
-        <a href="#">Settings</a>
-        <a href="#">Logout</a>
+    <div class="responsive-nav">
+        <a href="index.html"><img class="small-logo" src="../../static/images/logo.svg" alt=""></a>
+        <div class="square-menu">
+            <span class="material-icons-round blue-text" id="menu-opener">apps</span>
+        </div>
     </div>
-
-    <div class="top">
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-        <span style="float: right;font-size: 20px;">Diabetes<br>@Home</span>
-    </div>
-
-    <div class="logInfo">
-        <span style="float: left;"><a href="home.html"><i class="fa-solid fa-angle-left"></i></a></span>
+    <div class="logInfo" style="background-color: rgb(255, 255, 255);">
+        <span style="float:left;"><a href="dashboard.html"><i class="fa-solid fa-angle-left"></i></a></span>
         <span><i class="fa-solid fa-medal"></i>
-            <span>Leaderboard</span></span>
+        <span>Leaderboard</span></span>
     </div>
-
-    <div style="background-color: #f2f7ff;padding: 30px;margin: 20px; border-radius: 20px;">
-        <div align="center">
-            <img src="../images/leaderboard.png">
-            <div style="border-bottom: 4px dashed #587BB4;"></div>
-        </div>
-        <div class="record" style="font-size: 25px;background-color: #587BB4; color: white;">
-            <div>Rank</div>
-            <div>Name</div>
-            <div>Engagement Rate</div>
-        </div>
-        <span class = "medal"><img src="../images/gold_medal.svg"></span>
-        <div class="record">
-            <div>1</div>
-            <div>Alice</div>
-            <div>100%</div>
-        </div>
-        <span class = "medal"><img src="../images/sliver_medal.svg"></span>
-        <div class="record">
-            <div>2</div>
-            <div>Bob</div>
-            <div>98%</div>
-        </div>
-        <span class = "medal"><img src="../images/bronze_medal.svg"></span>
-        <div class="record">
-            <div>3</div>
-            <div>Cindy</div>
-            <div>95%</div>
-        </div>
-        <div class="record">
-            <div>4</div>
-            <div>David</div>
-            <div>92%</div>
-        </div>
-        <div class="record">
-            <div>5</div>
-            <div>Emma</div>
-            <div>90%</div>
-        </div>
+    <div style="border-bottom: 1px solid var(--light-grey-text); width:95%"></div>
+    <div class="nav-placeholder">
+        <nav>
+            <div class="nav-top">
+                <img class="small-logo" src="../../static/images/logo.svg" alt="">
+                <div class="menu-item-layout">
+                    <img src="../../static/images/patient-profile-pic.svg" alt="profile picture">
+                    <h3>Mary Shelley</h3>
+                </div>
+                <div class="menu-section">
+                    <a href="#" class="menu-item-layout menu-item selected">
+                        <span class="material-icons-round">check</span>
+                        <h3>Checklist</h3>
+                    </a>
+                    <a href="../clinician/my-patients.html" class="menu-item-layout menu-item ">
+                        <span class="material-icons">leaderboard</span>
+                        <h3>Leaderboard</h3>
+                    </a>
+                    <a href="../clinician/new-patient.html" class="menu-item-layout menu-item">
+                        <span class="material-icons">history</span>
+                        <h3>Log history</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="menu-section">
+                <a href="../clinician/my-account.html" class="menu-item-layout menu-item">
+                    <span class="material-icons">account_circle</span>
+                    <h3>Account</h3>
+                </a>
+                <a href="../clinician/settings.html" class="menu-item-layout menu-item">
+                    <span class="material-icons">settings</span>
+                    <h3>Settings</h3>
+                </a>
+                <a href="../clinician/settings.html" class="menu-item-layout menu-item">
+                    <span class="material-icons">help</span>
+                    <h3>Help</h3>
+                </a>
+            </div>
+        </nav>
     </div>
+    <main class="dashboard-container">
+        <div class ="leaderboard-box">
+            <div align="center">
+                <img src="../../static/images/leaderboard.png" style="height:8em;">
+                <div style="border-bottom: 4px dashed #587BB4; width:95%"></div>
+                <table class = "leaderboard-table">
+                    <tr class="record" style="background-color: #587BB4; color: white;">
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Engagement Rate</th>       
+                    </tr>
+                    <tr class="record">
+                        <td>1</td>
+                        <td>Alice</td>
+                        <td>100%</td>
+                    </tr>
+                    <tr class="record">
+                        <td>1</td>
+                        <td>Alice</td>
+                        <td>100%</td>
+                    </tr>
+                    <tr class="record">
+                        <td>1</td>
+                        <td>Alice</td>
+                        <td>100%</td>
+                    </tr>
+                    <tr class="record">
+                        <td>1</td>
+                        <td>Alice</td>
+                        <td>100%</td>
+                    </tr>
+                    <tr class="record">
+                        <td>1</td>
+                        <td>Alice</td>
+                        <td>100%</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
 </body>
 <script>
     function openNav() {
