@@ -1,13 +1,17 @@
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/DiabetesHome',{ 
-  useNewUrlParser: true,
-  dbName: "DiabetesHome"
+mongoose.connect('mongodb://localhost/Diabetes@Home', {
+    useNewUrlParser: true,
+    dbName: "Diabetes@Home_DataBase"
 });
-const db = mongoose.connection
+// Exit on error
+const db = mongoose.connection.on('error', err => {
+    console.error(err);
+    process.exit(1)
+})
 
-db.on('error',console.error.bind(console,'connection error'))
-db.once("open", async () => {
-  console.log("Mongo connection started on " + db.host + ":" + db.port)
+db.on('error', console.error.bind(console, 'connection error'))
+db.once("open", async() => {
+    console.log("Mongo connection started on " + db.host + ":" + db.port)
 })
 
 require('./patient')
@@ -17,9 +21,3 @@ require('./timeSeries')
 require('./healthRecord')
 require('./support')
 require('./notes')
-
-
-
-
-
-
