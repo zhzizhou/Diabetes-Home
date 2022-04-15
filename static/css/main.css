@@ -408,7 +408,37 @@ td {
 
 
 /*NEW PATIENT PAGE*/
+.new-patient-body {
+    width: auto;
+}
 
+.new-patient-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    width: 70%;
+    
+}
+
+.new-patient-line {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+   
+    flex-direction: row;
+   
+    
+    
+}
+
+.new-patient-item {
+    display: flex;
+    padding: 1em;
+    border-radius: 1em;
+    box-shadow: 2px 2px 3px var(--box-shadow);
+    width: 40%;
+    background-color: white;
+}
 
 /*ACCOUNT PAGE*/
 
