@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../../static/css/nav.css">
     <link rel="stylesheet" href="../../static/css/colour.css">
     <link rel="stylesheet" href="../../static/css/main.css">
-    
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Round" rel="stylesheet">
     <title>Dashboard</title>
 </head>
@@ -56,7 +56,7 @@
     <main class="dashboard-container">
         <div class="dashboard-left">
             <h1 class="page-title">Good morning, Dr. Name</h1>
-            
+
             <div class="main-section">
                 <div class="mid-container whitebox shadow">
                     <div class="overview-info">
@@ -79,20 +79,32 @@
                     <div class="space-between">
                         <h3>Recent health records</h3>
                         <span>show
-                            <select class="dropdown"name="select" id="select">
+                            <select class="dropdown" name="select" id="select">
                                 <option value="all">All</option>
                                 <option value="bbb">bbb</option>
                             </select>
                         </span>
                     </div>
                     <div class="patient-record whitebox shadow">
-                        <table>
+                        <table class="my-patient-table">
                             <tr class="out-border">
                                 <th>Patient</th>
-                                <th><div>Blood Glucose</div><div>(nmol/L)</div></th>
-                                <th><div>Weight</div><div>(kg)</div></th>
-                                <th><div>Insulin</div><div>(doses)</div></th>
-                                <th><div>Exercise</div><div>(steps)</div></th>
+                                <th>
+                                    <div>Blood Glucose</div>
+                                    <div>(nmol/L)</div>
+                                </th>
+                                <th>
+                                    <div>Weight</div>
+                                    <div>(kg)</div>
+                                </th>
+                                <th>
+                                    <div>Insulin</div>
+                                    <div>(doses)</div>
+                                </th>
+                                <th>
+                                    <div>Exercise</div>
+                                    <div>(steps)</div>
+                                </th>
                             </tr>
                             <tr class="out-border">
                                 <td>Alfreds Futterkiste</td>
@@ -160,8 +172,18 @@
                 </span>
             </div>
             <div class="msg-container">
-                <div class="msgbox light-blue-box shadow">
-                    <span>work in progress</span>
+                <div class="msgbox light-blue-box shadow space-between">
+                    <div>
+                        <input type="checkbox">
+                    </div>
+                    <div>
+                        <div class="space-between">
+                            <p>Mary Shelley</p>
+                            <p>10/03/22, 8:00pm </p>
+                        </div>
+                        <p class="p-dark">Today the weather was nice so I went for an extra walk 😊.</p>
+                        <p class="blue-text">Exercise: 9768</p>
+                    </div>
 
                 </div>
             </div>

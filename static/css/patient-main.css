@@ -1,0 +1,223 @@
+body {
+    background-color: white;
+}
+
+.dashboard-container {
+    width: 100%;
+    text-align: center;
+}
+
+.space-between {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.dashboard-left {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-right: 2rem;
+}
+
+/*DASHBOARD*/
+
+.top-page {
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+}
+
+.doctor-comment-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.doctor-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.doctor-comment {
+    background-color: var(--light-grey-background);
+    text-align: center;
+    padding: 1rem;
+    border-radius:5rem;
+    box-shadow: 2px 2px 3px var(--box-shadow);
+
+}
+
+.my-checklist {
+    background-color:var(--light-blue);
+    display:flex;
+    flex-direction:column;
+    gap: 1rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    width: 50%;
+}
+
+.checklist-item {
+    background-color:white;
+    border-radius: 1.5rem;
+    padding: 2rem;
+}
+
+.checklist-left {
+    gap: 2rem;
+}
+
+.inside-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    width: 50%;
+    margin-right: 3rem;
+}
+.my-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color:var(--light-blue);
+    padding: 2rem;
+    border-radius:2rem;
+}
+
+.nav-line{
+    display: none;
+}
+
+/*Leaderboard*/
+
+.record {
+    background-color: #ffffff;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding: 1em;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    -moz-box-shadow: 2px 2px 10px rgb(216, 216, 216);
+    -webkit-box-shadow: 2px 2px 10px rgb(216, 216, 216);
+    box-shadow: 2px 2px 10px rgb(204, 204, 204);
+    font-size: 18px;
+    text-align: center;
+}
+
+.medal {
+    float: left; 
+    font-size: 60px; 
+    margin: -20px;
+}
+
+.leaderboard-box{
+    background-color:#f2f7ff; 
+    padding:1.5em; 
+    margin:1.5em; 
+    border-radius:20px; 
+    text-align:center;
+}
+
+.leaderboard-table {
+    width: 95%; 
+    text-align:center;
+    padding: 1em;
+    
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+    text-align:"center";
+    vertical-align: middle;
+}
+.infobar{
+    display: none;
+}
+
+
+@media screen and (max-width: 1050px) {
+    .responsive-nav {
+        display: flex;
+    }
+
+    .nav-line{
+        display: flex;
+    }
+    
+    body {
+        display: block;
+        padding: 2rem;
+    }
+
+    .inside-left {
+        flex-direction: row;
+        padding-bottom: 2rem;
+        margin-right: 1rem;
+        width: 100%;
+
+    }
+    .doctor-comment-box{
+        width: 50%;
+    }
+    .my-stats{
+        width: 50%;
+        margin-right: 1rem;
+    }
+
+    nav {
+        display:none;
+    }
+
+    .main-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .my-checklist {
+        width:92%;
+    }
+
+    .infobar{
+        display: block;
+        font-size: 30px;
+        color: #587BB4;
+        text-align: center;
+        padding-top: 30px;
+        background-color: rgb(255, 255, 255);
+    }
+}
+
+@media screen and (max-width: 550px) {
+
+    .page-title {
+        width:60%;
+        font-size:24pt;
+    }
+    .inside-left {
+        flex-direction: column;
+        padding-bottom: 3rem;
+        width: 100%;
+    }
+    .doctor-comment-box{
+        width: 100%;
+    }
+    .my-stats{
+        width: 90%;
+    }
+
+    .dashboard-box{
+        width: 100%;
+        margin: 0;
+    }
+
+    .leaderboard-table th{
+        font-size: 14px;
+    }
+    .leaderboard-table td {
+        font-size: 16px;
+}
+}

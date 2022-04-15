@@ -1,14 +1,27 @@
-const clincicianData = require('../models/clinician')
+const Clinician = require('../models/clinician')
+const Patient = require('../models/patient')
+const expressValidator = require('express-validator')
+const bcrypt = require('bcryptjs');
 
 const getHome = async(req, res) => {
     res.send('GET Home')
         //TODO
 }
 
-const getProfile = async(req, res) => {
+const getProfile = async(req, res, next) => {
     //TODO
     //http://localhost:3000/clinician/profile
-    res.render("clinicianData.hbs", { data: clincicianData })
+    try {
+        const clinician = await Clinician.findById(req.params.clinicianId).lean()
+        if (!clinician) {
+            return res.sendStatus(404)
+        }
+
+        //found clinician
+        return res.render('clinicianData', { oneData: clinician })
+    } catch (err) {
+        return next(err)
+    }
 
 }
 
@@ -38,8 +51,27 @@ const getRegisterPage = async(req, res) => {
 }
 
 const registerClinician = async(req, res) => {
-    res.send('POST registerClinician')
-        //TODO
+    console.log(req.body);
+    try {
+        const hashedPwd = await bcrypt.hash(req.body.password, 10)
+        const newClinician = new Clinician({
+            givenName: req.body.givenName,
+            familyName: req.body.familyName,
+            password: hashedPwd,
+            email: req.body.email,
+            dateOfBirth: req.body.dateOfBirth,
+            darkMode: false,
+            mobile: req.body.mobile,
+            profilePicture: 'defaultPic',
+            gender: req.body.gender
+        })
+        await newClinician.save().
+        then((result) => res.send(result))
+            .catch((err) => res.send(err))
+
+    } catch {
+        res.send('internal error')
+    }
 }
 
 const getNewPatientPage = async(req, res) => {
@@ -48,13 +80,75 @@ const getNewPatientPage = async(req, res) => {
 }
 
 const addNewPatient = async(req, res) => {
-    res.send('POST NewPatient')
-        //TODO
+    //fake Id for temporary use
+    var clinicianId = '6256dde2082aa786c9760f98'
+    try {
+        const hashedPwd = await bcrypt.hash(req.body.password, 10)
+
+        var defaultTimeSeries = [{
+                logItem: "Weight",
+                lowerLimit: 60,
+                upperLimit: 80
+            },
+            {
+                logItem: "Insulin Doses",
+                lowerLimit: 1,
+                upperLimit: 2
+            },
+            {
+                logItem: "Exercise Steps",
+                lowerLimit: 5000,
+                upperLimit: 15000
+            },
+            {
+                logItem: "Blood Glucose Level",
+                lowerLimit: 7.8,
+                upperLimit: 11.3
+            }
+        ]
+        const newPatient = new Patient({
+            givenName: req.body.givenName,
+            familyName: req.body.familyName,
+            password: hashedPwd,
+            email: req.body.email,
+            mobile: req.body.mobile,
+            profilePicture: "defaultPic",
+            nickName: req.body.givenName,
+            gender: req.body.gender,
+            engagementRate: 100,
+            diabeteType: req.body.diabeteType,
+            darkMode: false,
+            dateOfBirth: req.body.dateOfBirth,
+            clinicianId: clinicianId,
+            timeSeries: defaultTimeSeries
+        })
+
+        await newPatient.save()
+            .catch((err) => res.send(err))
+
+    } catch {
+        res.send('internal error')
+    }
+    res.send('register patient sucessful')
 }
 
 const getMyPatientPage = async(req, res) => {
-    res.send('GET MyPatientPage')
-        //TODO
+
+    const page = (req.query.page) ? 1 : parseInt(req.query.page);
+    const limit = 7
+    const skipIndex = (page - 1) * limit;
+
+    Patient.count({}, function(err, count) {
+        const totalPages = count / limit + 1
+    })
+
+    try {
+        const allPatient = await Patient.find({}, { givenName: true, familyName: true, dateOfBirth: true, diabeteType: true })
+            .skip(skipIndex).limit(limit).lean()
+        res.send(allPatient)
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 const searchPatient = async(req, res) => {

@@ -107,6 +107,7 @@ a {
 .comment-section{
     border-radius: 3em;
     padding: 2em;
+    margin-right: 2em;
 }
 
 
@@ -147,13 +148,18 @@ td {
     margin-top: 1em;
 }
 
+.my-patient-container{
+    display: flex;
+    gap:2em;
+}
+
 .patient-stats {
     background-color: white;
     box-shadow: 2px 2px 3px var(--box-shadow);
     border-radius: 2em;
     width: 20em;
-    height: 20%;
-    margin-top: 9.5em;
+    height: 15%;
+    margin-top: 7em;
     padding: 2em;
     line-height: 250%;
 }
