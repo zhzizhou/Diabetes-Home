@@ -33,13 +33,9 @@ body {
     margin: 30px;
     border-radius: 20px;
     box-shadow: 2px 2px 10px rgb(223, 223, 223);
+    text-align: center;
+    vertical-align: middle;
 }
-
-.messageArea {
-    background-color: #e7f0ff;
-    padding: 50px;
-}
-
 
 ::placeholder {
     color: white;
@@ -74,6 +70,8 @@ i{
     border: 0;
     font-size: 1em;
     width: 150px;
+    font: inherit;
+    color: inherit;
 }
 
 input::-webkit-outer-spin-button,

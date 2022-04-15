@@ -7,52 +7,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/cd0b7f5d91.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="../../static/css/usernav.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/button.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/grid_type2.css">
     <link rel="stylesheet" type="text/css" href="../../static/css/log_page.css">
+    <link rel="stylesheet" href="../../static/css/reset.css">
+    <link rel="stylesheet" href="https://use.typekit.net/cxa4uzj.css">
+    <link rel="stylesheet" href="../../static/css/font.css">
+    <link rel="stylesheet" href="../../static/css/colour.css">
+    <link rel="stylesheet" href="../../static/css/nav.css">
+    <link rel="stylesheet" href="../../static/css/patient-main.css">
+    <link rel="stylesheet" href="../../static/css/hamburger-nav.css">
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Round" rel="stylesheet">
     <title>Record Blood Glucose</title>
 </head>
 
 <body>
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="home.html">Home</a>
-        <a href="#">Messages</a>
-        <a href="#">Settings</a>
-        <a href="#">Logout</a>
-    </div>
-
-    <div class="top">
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-        <span style="float: right;font-size: 20px;">Diabetes<br>@Home</span>
-    </div>
-
-    <div class="logInfo">
-        <span style="float: left;"><a href="home.html"><i class="fa-solid fa-angle-left"></i></a></span>
-        <span><i class="fa-solid fa-vial"></i>
-            <span>Blood Glucose</span></span>
-    </div>
-
-    <div class="messageArea">
-        <div style="text-align: center;">
-            <input type="number" placeholder="Enter Blood Glucose (nmol/L)" name="weight" min="0" required>
+    <div class="responsive-nav">
+        <a href="index.html"><img class="small-logo" src="../../static/images/logo.svg" alt=""></a>
+        <div class="square-menu">
+            <span class="material-icons-round blue-text" id="menu-opener">apps</span>
         </div>
-
-        <div id="dateTimeSection">
-            <span>
+    </div>
+    <div class="nav-line" style="border-bottom: 1px solid #E4E4E4; width:100%; float:bottom;"></div>
+    <div class="infobar">
+        <div style="padding-bottom: 30px;">
+            <span style="float:left;"><a href="dashboard.html"><i class="fa-solid fa-angle-left"></i></a></span>
+            <span><i class="fa-solid fa-medal"></i>
+            <span>Leaderboard</span></span>
+        </div>
+        <div style="border-bottom: 1px solid #E4E4E4; width:100%"></div>
+    </div>
+    <div class="nav-placeholder">
+        <nav>
+            <div class="nav-top">
+                <img class="small-logo" src="../../static/images/logo.svg" alt="">
+                <div class="menu-item-layout">
+                    <img src="../../static/images/patient-profile-pic.svg" alt="profile picture">
+                    <h3>Mary Shelley</h3>
+                </div>
+                <div class="menu-section">
+                    <a href="../patient/dashboard.html" class="menu-item-layout menu-item">
+                        <span class="material-icons-round">check</span>
+                        <h3>Checklist</h3>
+                    </a>
+                    <a href="#" class="menu-item-layout menu-item selected">
+                        <span class="material-icons">leaderboard</span>
+                        <h3>Leaderboard</h3>
+                    </a>
+                    <a href="#" class="menu-item-layout menu-item">
+                        <span class="material-icons">history</span>
+                        <h3>Log history</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="menu-section">
+                <a href="#" class="menu-item-layout menu-item">
+                    <span class="material-icons">account_circle</span>
+                    <h3>Account</h3>
+                </a>
+                <a href="#" class="menu-item-layout menu-item">
+                    <span class="material-icons">settings</span>
+                    <h3>Settings</h3>
+                </a>
+                <a href="../clinician/settings.html" class="menu-item-layout menu-item">
+                    <span class="material-icons">help</span>
+                    <h3>Help</h3>
+                </a>
+            </div>
+        </nav>
+    </div>
+    <main class="messageArea">
+        <div class="messageBox">
+            <div style="text-align: center; width: 100%;">
+                <input type="number" placeholder="Enter Blood Glucose (nmol/L)" name="weight" min="0" required>
+            </div>
+    
+            <div id="dateTimeSection">
                 <i class="fa-solid fa-clock"></i>
                 Date & Time
-            </span>
-            <span style="float: right; margin-top: 8px;"><input type="text" id="currentTime"></span>
+                <span style="margin-top: 8px;"><input type="text" id="currentTime"></span>
+            </div>
+    
+    
+            <div class="noteSection">
+                <i class="fa-solid fa-pen-nib"></i>
+                <span>Notes</span>
+                <br>
+                <textarea id="review" name="review" rows="20" cols="30"></textarea>
+            </div>
+            <div align="center"><button type="submit">Save</button></div>
         </div>
-
-
-        <div class="noteSection">
-            <i class="fa-solid fa-pen-nib"></i>
-            <span>Notes</span>
-            <br>
-            <textarea id="review" name="review" rows="20" cols="30"></textarea>
-        </div>
-        <div align="center"><button type="submit">Save</button></div>
-    </div>
+    </main>
+    
 
 
 
