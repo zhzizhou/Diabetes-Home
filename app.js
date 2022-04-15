@@ -4,10 +4,12 @@ const exphbs = require('express-handlebars')
 const clinicianRouter = require('./routes/clinicianRouter')
 const patientRouter = require('./routes/patientRouter')
 const app = express()
+    // connect to database
+require('./models/db.js')
 
 app.use(express.static('public'))
 app.use(express.json())
-app.use(express.urlencoded())
+app.use(express.urlencoded({ extended: true }));
 app.engine('hbs', exphbs.engine({
     defaultlayout: 'main',
     extname: 'hbs'
@@ -37,6 +39,6 @@ app.all('*', (req, res) => { // 'default' route to catch user errors
     res.status(404).render('error', { errorCode: '404', message: 'That route is invalid.' })
 })
 
-app.listen(3000, () => {
-    console.log('Demo app is listening on port 3000!')
+app.listen(process.env.PORT || 3000, () => {
+    console.log('The library app is running!')
 })

@@ -7,7 +7,7 @@ const clinicianSchema = new mongoose.Schema({
     email:{type: String,unique: true},
     dateOfBirth: {type: String},
     darkMode: {type: Boolean, default: false},
-    mobileNumber: {type:String},
+    mobile: {type:String},
     profilePicture: String,
     gender: String
 })
@@ -15,14 +15,14 @@ const clinicianSchema = new mongoose.Schema({
 const Clinician = mongoose.model('Clinician', clinicianSchema)
 
 const clinicianDemo = [{
-    _id: "1",
-    firstName: "Chris",
-    lastName: "Smith",
+    _id: 1,
+    givenName: "Chris",
+    familyName: "Smith",
     password: "12345",
     email: "Chris@diabetesAtHome.com",
     dateOfBirth: "1/1/1990",
     darkMode: false,
-    mobileNumber: "0123456789",
+    mobile: "0123456789",
     profilePicture: "defaultPic",
     gender: "Male"
 }]

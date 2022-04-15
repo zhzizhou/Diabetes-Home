@@ -4,7 +4,7 @@ body {
 
 .dashboard-container {
     width: 100%;
-    margin-right: 3rem;;
+    text-align: center;
 }
 
 .space-between {
@@ -17,6 +17,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    margin-right: 2rem;
 }
 
 input[type=checkbox] {
@@ -77,7 +78,7 @@ a.white-text {
     gap: 1rem;
     padding: 2rem;
     border-radius: 2rem;
-    width: 45rem;
+    width: 50%;
 }
 
 .checklist-item {
@@ -113,7 +114,9 @@ a.white-text {
 .inside-left {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 4rem;
+    width: 50%;
+    margin-right: 3rem;
 }
 .my-stats {
     display: flex;
@@ -134,6 +137,10 @@ a.white-text {
     .responsive-nav {
         display: flex;
     }
+
+    .nav-line{
+        display: flex;
+    }
     
     body {
         display: block;
@@ -146,7 +153,16 @@ a.white-text {
     .inside-left {
         flex-direction: row;
         padding-bottom: 2rem;
-        justify-content: space-between;
+        margin-right: 1rem;
+        width: 100%;
+
+    }
+    .doctor-comment-box{
+        width: 50%;
+    }
+    .my-stats{
+        width: 50%;
+        margin-right: 1rem;
     }
 
     nav {
@@ -155,9 +171,50 @@ a.white-text {
 
     .main-content {
         flex-direction: column;
+        text-align: center;
     }
 
     .my-checklist {
-        width:92%
+        width:92%;
     }
+
+    .infobar{
+        display: block;
+        font-size: 30px;
+        color: #587BB4;
+        text-align: center;
+        padding-top: 30px;
+        background-color: rgb(255, 255, 255);
+    }
+}
+
+@media screen and (max-width: 550px) {
+
+    .page-title {
+        width:60%;
+        font-size:24pt;
+    }
+    .inside-left {
+        flex-direction: column;
+        padding-bottom: 3rem;
+        width: 100%;
+    }
+    .doctor-comment-box{
+        width: 100%;
+    }
+    .my-stats{
+        width: 90%;
+    }
+
+    .dashboard-box{
+        width: 100%;
+        margin: 0;
+    }
+
+    .leaderboard-table th{
+        font-size: 14px;
+    }
+    .leaderboard-table td {
+        font-size: 16px;
+}
 }

@@ -1,34 +1,23 @@
-require('dotenv').config()    // for database login details
-const mongoose = require("mongoose")
-
-if (process.env.PORT) {  // are we running on Heroku?
-  // login details retrieved from environment variables
-  connectionString = "mongodb+srv://<username>:<password>@cluster0.srimt.mongodb.net/mylibraryapp?retryWrites=true&w=majority"
-  dbAddress = connectionString.replace("<username>",process.env.MONGO_USERNAME).replace("<password>",process.env.MONGO_PASSWORD)
-} else {  // we are running locally
-  dbAddress = "mongodb://localhost"
-}
-
-mongoose.connect( dbAddress, {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-  dbName: "DiabetesHome"
+const mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost/Diabetes@Home', {
+    useNewUrlParser: true,
+    dbName: "Diabetes@Home_DataBase"
+});
+// Exit on error
+const db = mongoose.connection.on('error', err => {
+    console.error(err);
+    process.exit(1)
 })
 
-const db = mongoose.connection
-
-db.on("error", err => {
-  console.error(err);
-  process.exit(1)
+db.on('error', console.error.bind(console, 'connection error'))
+db.once("open", async() => {
+    console.log("Mongo connection started on " + db.host + ":" + db.port)
 })
 
-db.once("open", async () => {
-  console.log("Mongo connection started on " + db.host + ":" + db.port)
-})
-
-
-
-
-
+require('./patient')
+require('./clinician')
+require('./logItem')
+require('./timeSeries')
+require('./healthRecord')
+require('./support')
+require('./notes')

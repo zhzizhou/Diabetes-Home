@@ -1,7 +1,6 @@
 body {
     display: flex;
     gap: 3em;
-    justify-content:space-between;
     background-color: var(--light-grey-background)
 }
 
