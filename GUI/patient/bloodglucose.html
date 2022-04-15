@@ -23,7 +23,7 @@
     <title>Record Blood Glucose</title>
 </head>
 
-<body>
+<body class="body-checklist">
     <div class="responsive-nav">
         <a href="index.html"><img class="small-logo" src="../../static/images/logo.svg" alt=""></a>
         <div class="square-menu">
@@ -32,7 +32,7 @@
     </div>
     <div class="nav-line" style="border-bottom: 1px solid #E4E4E4; width:100%; float:bottom;"></div>
     <div class="infobar">
-        <div style="padding-bottom: 30px;">
+        <div style="padding-left: 1em; padding-bottom: 30px;">
             <span style="float:left;"><a href="dashboard.html"><i class="fa-solid fa-angle-left"></i></a></span>
             <span><i class="fa-solid fa-medal"></i>
             <span>Leaderboard</span></span>
@@ -81,7 +81,7 @@
     <main class="messageArea">
         <div class="messageBox">
             <div style="text-align: center; width: 100%;">
-                <input type="number" placeholder="Enter Blood Glucose (nmol/L)" name="weight" min="0" required>
+                <input type="number" style="height: 80px; width: 70%; border-radius:3em; "placeholder="Enter Blood Glucose (nmol/L)" name="weight" min="0" required>
             </div>
     
             <div id="dateTimeSection">
@@ -95,7 +95,7 @@
                 <i class="fa-solid fa-pen-nib"></i>
                 <span>Notes</span>
                 <br>
-                <textarea id="review" name="review" rows="20" cols="30"></textarea>
+                <textarea id="review" name="review" rows="15" cols="30"></textarea>
             </div>
             <div align="center"><button type="submit">Save</button></div>
         </div>

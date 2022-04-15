@@ -1,11 +1,7 @@
-body {
-    background-color: white;
-    text-align: center;
-}
-
 .dashboard-container {
     width: 100%;
     text-align: center;
+    padding: 2rem;
 }
 
 .space-between {
@@ -18,7 +14,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    margin-right: 2rem;
 }
 
 /*DASHBOARD*/
@@ -44,7 +39,7 @@ body {
 }
 
 .doctor-comment {
-    background-color: var(--light-grey-background);
+    background-color: white;
     text-align: center;
     padding: 1rem;
     border-radius:5rem;
@@ -54,17 +49,18 @@ body {
 }
 
 .my-checklist {
-    background-color:var(--light-blue);
+    background-color:white;
     display:flex;
     flex-direction:column;
     gap: 1rem;
     padding: 2rem;
     border-radius: 2rem;
     width: 60%;
+    box-shadow: 2px 2px 3px var(--box-shadow);
 }
 
 .checklist-item {
-    background-color:white;
+    background-color:var(--light-blue);
     border-radius: 1.5rem;
     padding: 2rem;
 }
@@ -84,9 +80,10 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    background-color:var(--light-blue);
-    padding: 2rem;
+    background-color: white;
+    padding: 1.5rem;
     border-radius:2rem;
+    box-shadow: 2px 2px 3px var(--box-shadow);
 }
 
 .nav-line{
@@ -142,7 +139,8 @@ body {
 
 /*checklist*/
 .messageArea{
-    background-color: #e7f0ff;
+    background-color: white;
+    box-shadow: 2px 2px 10px rgb(204, 204, 204);
     padding: 1em;
     margin-top: 5em;
     margin-left: 5em;
@@ -156,18 +154,27 @@ body {
     text-align: center;
 }
 @media screen and (max-width: 1050px) {
+    body {
+        background-color: white;
+        display: block;
+    }
+    .body-checklist{
+        background-color: var(--light-blue);
+    }
+    .dashboard-left{
+        margin-right: 2em;
+    }
+
     .responsive-nav {
         display: flex;
+        padding: 0 2rem 0 2rem;
+        width: 100%;
     }
 
     .nav-line{
         display: flex;
     }
     
-    body {
-        display: block;
-        padding: 2rem;
-    }
 
     .inside-left {
         flex-direction: row;
@@ -176,12 +183,16 @@ body {
         width: 100%;
 
     }
+
+    .doctor-comment {
+        background-color: var(--light-grey-background);
+    }
     .doctor-comment-box{
         width: 50%;
     }
     .my-stats{
         width: 50%;
-        margin-right: 1rem;
+        background-color: var(--light-blue);
     }
 
     nav {
@@ -195,8 +206,11 @@ body {
 
     .my-checklist {
         width:92%;
+        background-color:var(--light-blue);
     }
-
+    .checklist-item {
+        background-color:white;
+    }
     .infobar{
         display: block;
         font-size: 30px;
@@ -208,7 +222,10 @@ body {
 
     .messageArea{
         width: 90%;
-        margin: 3em 0 1em 0;
+        margin: 3em 1em 1em 3em;
+        color: none;
+        background-color: var(--light-blue);
+        box-shadow: none;
     }
 }
 
@@ -243,5 +260,9 @@ body {
     }
     .leaderboard-table td {
         font-size: 16px;
-}
+    }
+    .messageArea{
+        width: 90%;
+        margin: 2em 1em 1em 2em;
+    }
 }
