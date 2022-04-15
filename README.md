@@ -6,17 +6,16 @@
 * [MongoDB](#Mongo DB)
 
 ## Mongo DB
-User Name: DiabetesAtHome_Admin
-Password: SD6GLSzLplIqKYDq
+User Name: admain
+Password: oAERSsu4QTIqReB9
 
-Database Name:  Diabetes@Home_DataBase
+Database Name:  diabetesAtHomeDB
 
 
-mongodb+srv://DiabetesAtHome_Admin:<password>@cluster0.i936u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-
+mongodb+srv://admin:<password>@cluster0.lepap.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
 .env:
-MONGO_URL="mongodb+srv://DiabetesAtHome_Admin:SD6GLSzLplIqKYDq@cluster0.i936u.mongodb.net/Diabetes@Home_DataBase?retryWrites=true&w=majority"
+MONGO_URL="mongodb+srv://admin:oAERSsu4QTIqReB9@cluster0.lepap.mongodb.net/diabetesAtHomeDB?retryWrites=true&w=majority
 
 
 [Back to Top](#table-of-contents)
