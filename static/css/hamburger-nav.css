@@ -1,10 +1,37 @@
 .responsive-nav {
+    display: none;
+}
+
+.responsive-nav-top {
     overflow: hidden;
     display: flex;
     justify-content:space-between;
     align-items:center;
     height: 10vh;
-    display: none;
+}
+
+.menu-container {
+    background-color: var(--dark-blue);
+    padding:2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 95vh;
+   
+}
+
+.grid-menu {
+    
+}
+
+.menu-square {
+    display: flex;
+    flex-direction: column;
+    gap:0.5rem;
+    align-items:center;
+    border:3px solid white;
+    border-radius:2rem;
+    padding: 1rem;
 }
 
 .small-logo {

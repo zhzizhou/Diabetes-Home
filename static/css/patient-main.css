@@ -19,6 +19,26 @@ body {
     gap: 3rem;
 }
 
+input[type=checkbox] {
+    height:1.5rem;
+    width:1.5rem;
+    color: var(--light-grey)
+}
+input:focus {
+    outline: none;
+}
+
+a.white-text {
+    color: white;
+}
+
+/*ICON MENU*/
+.white-text {
+    color: white;
+}
+
+
+
 /*DASHBOARD*/
 
 .top-page {
@@ -64,10 +84,30 @@ body {
     background-color:white;
     border-radius: 1.5rem;
     padding: 2rem;
+    align-items: center;
+}
+
+ .filled {
+   outline: 3px solid var(--dark-blue);
+   padding:1.5rem !important;
+}
+
+.data-icon {
+    font-size: 32px !important;
+}
+.check-icon {
+    font-size: 40px !important;
+}
+.time-entered-box {
+    display:flex;
+    justify-content:flex-start;
+    gap: 0.5rem;
+    align-items: center;
 }
 
 .checklist-left {
     gap: 2rem;
+    align-items: center;
 }
 
 .inside-left {
@@ -84,6 +124,12 @@ body {
     border-radius:2rem;
 }
 
+.checkbox {
+    background-color: var(--light-grey-background);
+    box-shadow: 2px 2px 3px var(--box-shadow);
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+}
 @media screen and (max-width: 1050px) {
     .responsive-nav {
         display: flex;
@@ -91,6 +137,9 @@ body {
     
     body {
         display: block;
+    }
+
+    .page-padding {
         padding: 2rem;
     }
 
