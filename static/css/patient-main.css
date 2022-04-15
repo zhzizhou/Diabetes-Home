@@ -1,19 +1,20 @@
 .dashboard-container {
     width: 100%;
     text-align: center;
-    padding: 2rem;
 }
 
 .space-between {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 .dashboard-left {
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    margin: 3rem;
 }
 
 /*DASHBOARD*/
@@ -161,13 +162,9 @@
     .body-checklist{
         background-color: var(--light-blue);
     }
-    .dashboard-left{
-        margin-right: 2em;
-    }
 
     .responsive-nav {
         display: flex;
-        padding: 0 2rem 0 2rem;
         width: 100%;
     }
 
@@ -205,7 +202,7 @@
     }
 
     .my-checklist {
-        width:92%;
+        width:85%;
         background-color:var(--light-blue);
     }
     .checklist-item {
@@ -226,6 +223,10 @@
         color: none;
         background-color: var(--light-blue);
         box-shadow: none;
+    }
+
+    .square-menu{
+        margin-right: 1em;
     }
 }
 
@@ -265,4 +266,5 @@
         width: 90%;
         margin: 2em 1em 1em 2em;
     }
+
 }
