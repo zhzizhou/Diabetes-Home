@@ -1,18 +1,20 @@
 const Clinician = require('../models/clinician')
 const Patient = require('../models/patient')
 const expressValidator = require('express-validator')
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs')
 
-const getHome = async(req, res) => {
+const getHome = async (req, res) => {
     res.send('GET Home')
-        //TODO
+    //TODO
 }
 
-const getProfile = async(req, res, next) => {
+const getProfile = async (req, res, next) => {
     //TODO
     //http://localhost:3000/clinician/profile
     try {
-        const clinician = await Clinician.findById(req.params.clinicianId).lean()
+        const clinician = await Clinician.findById(
+            req.params.clinicianId
+        ).lean()
         if (!clinician) {
             return res.sendStatus(404)
         }
@@ -22,36 +24,35 @@ const getProfile = async(req, res, next) => {
     } catch (err) {
         return next(err)
     }
-
 }
 
-const getEditPage = async(req, res) => {
+const getEditPage = async (req, res) => {
     res.send('GET EditPage')
-        //TODO
+    //TODO
 }
 
-const updateProfile = async(req, res) => {
+const updateProfile = async (req, res) => {
     res.send('PUT updateProfile')
-        //TODO
+    //TODO
 }
 
-const getSettings = async(req, res) => {
+const getSettings = async (req, res) => {
     res.send('GET Settings')
-        //TODO
+    //TODO
 }
 
-const updateSettings = async(req, res) => {
+const updateSettings = async (req, res) => {
     res.send('PUT Settings')
-        //TODO
+    //TODO
 }
 
-const getRegisterPage = async(req, res) => {
+const getRegisterPage = async (req, res) => {
     res.send('GET RegisterPage')
-        //TODO
+    //TODO
 }
 
-const registerClinician = async(req, res) => {
-    console.log(req.body);
+const registerClinician = async (req, res) => {
+    console.log(req.body)
     try {
         const hashedPwd = await bcrypt.hash(req.body.password, 10)
         const newClinician = new Clinician({
@@ -63,48 +64,49 @@ const registerClinician = async(req, res) => {
             darkMode: false,
             mobile: req.body.mobile,
             profilePicture: 'defaultPic',
-            gender: req.body.gender
+            gender: req.body.gender,
         })
-        await newClinician.save().
-        then((result) => res.send(result))
+        await newClinician
+            .save()
+            .then((result) => res.send(result))
             .catch((err) => res.send(err))
-
     } catch {
         res.send('internal error')
     }
 }
 
-const getNewPatientPage = async(req, res) => {
+const getNewPatientPage = async (req, res) => {
     res.send('GET NewPatientPage')
-        //TODO
+    //TODO
 }
 
-const addNewPatient = async(req, res) => {
+const addNewPatient = async (req, res) => {
     //fake Id for temporary use
     var clinicianId = '6256dde2082aa786c9760f98'
     try {
         const hashedPwd = await bcrypt.hash(req.body.password, 10)
 
-        var defaultTimeSeries = [{
-                logItem: "Weight",
+        var defaultTimeSeries = [
+            {
+                logItem: 'Weight',
                 lowerLimit: 60,
-                upperLimit: 80
+                upperLimit: 80,
             },
             {
-                logItem: "Insulin Doses",
+                logItem: 'Insulin Doses',
                 lowerLimit: 1,
-                upperLimit: 2
+                upperLimit: 2,
             },
             {
-                logItem: "Exercise Steps",
+                logItem: 'Exercise Steps',
                 lowerLimit: 5000,
-                upperLimit: 15000
+                upperLimit: 15000,
             },
             {
-                logItem: "Blood Glucose Level",
+                logItem: 'Blood Glucose Level',
                 lowerLimit: 7.8,
-                upperLimit: 11.3
-            }
+                upperLimit: 11.3,
+            },
         ]
         const newPatient = new Patient({
             givenName: req.body.givenName,
@@ -112,7 +114,7 @@ const addNewPatient = async(req, res) => {
             password: hashedPwd,
             email: req.body.email,
             mobile: req.body.mobile,
-            profilePicture: "defaultPic",
+            profilePicture: 'defaultPic',
             nickName: req.body.givenName,
             gender: req.body.gender,
             engagementRate: 100,
@@ -120,104 +122,108 @@ const addNewPatient = async(req, res) => {
             darkMode: false,
             dateOfBirth: req.body.dateOfBirth,
             clinicianId: clinicianId,
-            timeSeries: defaultTimeSeries
+            timeSeries: defaultTimeSeries,
         })
 
-        await newPatient.save()
-            .catch((err) => res.send(err))
-
+        await newPatient.save().catch((err) => res.send(err))
     } catch {
         res.send('internal error')
     }
     res.send('register patient sucessful')
 }
 
-const getMyPatientPage = async(req, res) => {
-
-    const page = (req.query.page) ? 1 : parseInt(req.query.page);
+const getMyPatientPage = async (req, res) => {
+    const page = req.query.page ? 1 : parseInt(req.query.page)
     const limit = 7
-    const skipIndex = (page - 1) * limit;
+    const skipIndex = (page - 1) * limit
 
-    Patient.count({}, function(err, count) {
+    Patient.count({}, function (err, count) {
         const totalPages = count / limit + 1
     })
 
     try {
-        const allPatient = await Patient.find({}, { givenName: true, familyName: true, dateOfBirth: true, diabeteType: true })
-            .skip(skipIndex).limit(limit).lean()
+        const allPatient = await Patient.find(
+            {},
+            {
+                givenName: true,
+                familyName: true,
+                dateOfBirth: true,
+                diabeteType: true,
+            }
+        )
+            .skip(skipIndex)
+            .limit(limit)
+            .lean()
         res.send(allPatient)
     } catch (err) {
         console.log(err)
     }
 }
 
-const searchPatient = async(req, res) => {
+const searchPatient = async (req, res) => {
     res.send('POST searchPatient')
-        //TODO
+    //TODO
 }
 
-const getOnePatientPage = async(req, res) => {
+const getOnePatientPage = async (req, res) => {
     res.send('GET OnePatientPage')
-        //TODO
+    //TODO
 }
 
-const getSupportPage = async(req, res) => {
+const getSupportPage = async (req, res) => {
     res.send('GET SupportPage')
-        //TODO
+    //TODO
 }
 
-const addSupport = async(req, res) => {
+const addSupport = async (req, res) => {
     res.send('POST addSupport')
-        //TODO
+    //TODO
 }
 
-const getNotesPage = async(req, res) => {
+const getNotesPage = async (req, res) => {
     res.send('GET NotesPage')
-        //TODO
+    //TODO
 }
 
-
-const addNotes = async(req, res) => {
+const addNotes = async (req, res) => {
     res.send('POST addNotes')
-        //TODO
+    //TODO
 }
 
-const getTimeSeriesPage = async(req, res) => {
+const getTimeSeriesPage = async (req, res) => {
     res.send('GET getTimeSeriesPage')
-        //TODO
+    //TODO
 }
 
-const updateTimeSeries = async(req, res) => {
+const updateTimeSeries = async (req, res) => {
     res.send('PUT updateTimeSeries')
-        //TODO
+    //TODO
 }
 
-const getPatientDetail = async(req, res) => {
+const getPatientDetail = async (req, res) => {
     res.send('GET PatientDetail')
-        //TODO
+    //TODO
 }
 
-const getEditPatientPage = async(req, res) => {
+const getEditPatientPage = async (req, res) => {
     res.send('GET EditPatientPage')
-        //TODO
+    //TODO
 }
 
-const updatePatientDetail = async(req, res) => {
+const updatePatientDetail = async (req, res) => {
     res.send('POST updatePatientDetail')
-        //TODO
+    //TODO
 }
 
-const getLoginPage = async(req, res) => {
+const getLoginPage = async (req, res) => {
     res.send('GET LoginPage')
-        //TODO
+    //TODO
 }
 
-const clinicianLogin = async(req, res) => {
+const clinicianLogin = async (req, res) => {
     res.send('POST clinicianLogin')
-        //TODO
+    //TODO
 }
-
-
 
 module.exports = {
     getHome,
@@ -243,5 +249,5 @@ module.exports = {
     getEditPatientPage,
     updatePatientDetail,
     getLoginPage,
-    clinicianLogin
+    clinicianLogin,
 }

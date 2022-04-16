@@ -38,5 +38,4 @@ patientRouter.get('/login', patientController.getLoginPage)
 //patient login
 patientRouter.post('/login', patientController.patientLogin)
 
-
 module.exports = patientRouter

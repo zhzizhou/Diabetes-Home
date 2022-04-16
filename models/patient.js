@@ -13,32 +13,39 @@ const patientSchema = new mongoose.Schema({
     diabeteType: String,
     darkMode: { type: Boolean, default: false },
     dateOfBirth: { type: String },
-    clinicianId: { type: mongoose.Schema.Types.ObjectId, ref: 'Clinician', required: true },
-    timeSeries: [{
-        logItem: { type: String, requied: true },
-        activated: { type: Boolean, default: true },
-        lowerLimit: { type: Number, requied: true, min: 0 },
-        upperLimit: { type: Number, requied: true }
-    }]
+    clinicianId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Clinician',
+        required: true,
+    },
+    timeSeries: [
+        {
+            logItem: { type: String, requied: true },
+            activated: { type: Boolean, default: true },
+            lowerLimit: { type: Number, requied: true, min: 0 },
+            upperLimit: { type: Number, requied: true },
+        },
+    ],
 })
 
 const Patient = mongoose.model('Patient', patientSchema)
 
-const PateintDemo = [{
+const PateintDemo = [
+    {
         _id: 10001,
-        givenName: "Patrick",
-        familyName: "Star",
-        password: "12345",
-        email: "mary@diabeteshome.com",
-        mobile: "0123456789",
-        profilePicture: "defaultPic",
-        nickName: "Pat",
-        gender: "Male",
+        givenName: 'Patrick',
+        familyName: 'Star',
+        password: '12345',
+        email: 'mary@diabeteshome.com',
+        mobile: '0123456789',
+        profilePicture: 'defaultPic',
+        nickName: 'Pat',
+        gender: 'Male',
         engagementRate: 80,
-        diabeteType: "Type 1",
+        diabeteType: 'Type 1',
         darkMode: false,
-        dateOfBirth: "1/1/1990",
-        clinicianId: 1
+        dateOfBirth: '1/1/1990',
+        clinicianId: 1,
     },
     // {
     //     _id: 10002,

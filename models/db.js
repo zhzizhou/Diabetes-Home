@@ -1,17 +1,17 @@
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/DiabetesHome', {
     useNewUrlParser: true,
-    dbName: "diabetesAtHomeDB"
-});
+    dbName: 'diabetesAtHomeDB',
+})
 // Exit on error
-const db = mongoose.connection.on('error', err => {
-    console.error(err);
+const db = mongoose.connection.on('error', (err) => {
+    console.error(err)
     process.exit(1)
 })
 
 db.on('error', console.error.bind(console, 'connection error'))
-db.once("open", async() => {
-    console.log("Mongo connection started on " + db.host + ":" + db.port)
+db.once('open', async () => {
+    console.log('Mongo connection started on ' + db.host + ':' + db.port)
 })
 
 require('./patient')

@@ -42,7 +42,10 @@ clinicianRouter.post('/my-patient', clinicianController.searchPatient)
 clinicianRouter.get('/my-patient/:id', clinicianController.getOnePatientPage)
 
 //display support page
-clinicianRouter.get('/my-patient/:id/support', clinicianController.getSupportPage)
+clinicianRouter.get(
+    '/my-patient/:id/support',
+    clinicianController.getSupportPage
+)
 
 //add support to a specific patient
 clinicianRouter.post('/my-patient/:id/support', clinicianController.addSupport)
@@ -54,19 +57,34 @@ clinicianRouter.get('/my-patient/:id/notes', clinicianController.getNotesPage)
 clinicianRouter.post('/my-patient/:id/notes', clinicianController.addNotes)
 
 //display patient's time-series page
-clinicianRouter.get('/my-patient/:id/time-series', clinicianController.getTimeSeriesPage)
+clinicianRouter.get(
+    '/my-patient/:id/time-series',
+    clinicianController.getTimeSeriesPage
+)
 
 //update a patient's time-series
-clinicianRouter.put('/my-patient/:id/time-series', clinicianController.updateTimeSeries)
+clinicianRouter.put(
+    '/my-patient/:id/time-series',
+    clinicianController.updateTimeSeries
+)
 
 //display a patient's detail
-clinicianRouter.get('/my-patient/:id/detail', clinicianController.getPatientDetail)
+clinicianRouter.get(
+    '/my-patient/:id/detail',
+    clinicianController.getPatientDetail
+)
 
 //display edit patient page
-clinicianRouter.get('/my-patient/:id/edit', clinicianController.getEditPatientPage)
+clinicianRouter.get(
+    '/my-patient/:id/edit',
+    clinicianController.getEditPatientPage
+)
 
 //update a patient's detail
-clinicianRouter.put('/my-patient/:id/edit', clinicianController.updatePatientDetail)
+clinicianRouter.put(
+    '/my-patient/:id/edit',
+    clinicianController.updatePatientDetail
+)
 
 //display clinician log in page
 clinicianRouter.get('/login', clinicianController.getLoginPage)
