@@ -1,0 +1,7 @@
+<h1>Displaying all clinican data</h1>
+<ul>
+{{!-- loops over the data set --}}
+{{#each data}}
+    <li><a href="/clinican/{{this._id}}">{{this.givenName}} {{this.familyName}}</a></li>
+{{/each}}
+</ul>

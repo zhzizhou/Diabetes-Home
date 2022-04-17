@@ -3,55 +3,64 @@ const Patient = require('../models/patient')
 const expressValidator = require('express-validator')
 const bcrypt = require('bcryptjs')
 
-const getHome = async (req, res) => {
+const getHome = async(req, res) => {
     res.send('GET Home')
-    //TODO
+        //TODO
 }
 
-const getProfile = async (req, res, next) => {
-    //TODO
-    //http://localhost:3000/clinician/profile
+const getAllClinician = async(req, res, next) => {
     try {
-        const clinician = await Clinician.findById(
-            req.params.clinicianId
-        ).lean()
-        if (!clinician) {
-            return res.sendStatus(404)
-        }
-
-        //found clinician
-        return res.render('clinicianData', { oneData: clinician })
+        const clinician = await Clinician.find().lean()
+        return res.render('allClinician-Test', { data: clinician })
     } catch (err) {
         return next(err)
     }
 }
 
-const getEditPage = async (req, res) => {
+const getProfile = async(req, res, next) => {
+    //http://localhost:3000/clinician/6259359d8c4f458dd2205d20
+    try {
+        const clinician = await Clinician.findById(
+            req.params.clinician_id
+        ).lean()
+
+        if (!clinician) {
+            return res.sendStatus(404)
+        }
+
+        //found clinician
+        return res.render('clinicianData', { oneItem: clinician })
+    } catch (err) {
+        return next(err)
+    }
+}
+
+const getEditPage = async(req, res) => {
     res.send('GET EditPage')
-    //TODO
+        //TODO
 }
 
-const updateProfile = async (req, res) => {
+const updateProfile = async(req, res) => {
     res.send('PUT updateProfile')
-    //TODO
+        //TODO
 }
 
-const getSettings = async (req, res) => {
+const getSettings = async(req, res) => {
     res.send('GET Settings')
-    //TODO
+        //TODO
 }
 
-const updateSettings = async (req, res) => {
+const updateSettings = async(req, res) => {
     res.send('PUT Settings')
-    //TODO
+        //TODO
 }
 
-const getRegisterPage = async (req, res) => {
+const getRegisterPage = async(req, res) => {
     res.send('GET RegisterPage')
-    //TODO
+        //TODO
 }
 
-const registerClinician = async (req, res) => {
+const registerClinician = async(req, res) => {
     console.log(req.body)
     try {
         const hashedPwd = await bcrypt.hash(req.body.password, 10)
@@ -75,19 +84,18 @@ const registerClinician = async (req, res) => {
     }
 }
 
-const getNewPatientPage = async (req, res) => {
+const getNewPatientPage = async(req, res) => {
     res.send('GET NewPatientPage')
-    //TODO
+        //TODO
 }
 
-const addNewPatient = async (req, res) => {
+const addNewPatient = async(req, res) => {
     //fake Id for temporary use
     var clinicianId = '6256dde2082aa786c9760f98'
     try {
         const hashedPwd = await bcrypt.hash(req.body.password, 10)
 
-        var defaultTimeSeries = [
-            {
+        var defaultTimeSeries = [{
                 logItem: 'Weight',
                 lowerLimit: 60,
                 upperLimit: 80,
@@ -132,25 +140,22 @@ const addNewPatient = async (req, res) => {
     res.send('register patient sucessful')
 }
 
-const getMyPatientPage = async (req, res) => {
+const getMyPatientPage = async(req, res) => {
     const page = req.query.page ? 1 : parseInt(req.query.page)
     const limit = 7
     const skipIndex = (page - 1) * limit
 
-    Patient.count({}, function (err, count) {
+    Patient.count({}, function(err, count) {
         const totalPages = count / limit + 1
     })
 
     try {
-        const allPatient = await Patient.find(
-            {},
-            {
+        const allPatient = await Patient.find({}, {
                 givenName: true,
                 familyName: true,
                 dateOfBirth: true,
                 diabeteType: true,
-            }
-        )
+            })
             .skip(skipIndex)
             .limit(limit)
             .lean()
@@ -160,69 +165,69 @@ const getMyPatientPage = async (req, res) => {
     }
 }
 
-const searchPatient = async (req, res) => {
+const searchPatient = async(req, res) => {
     res.send('POST searchPatient')
-    //TODO
+        //TODO
 }
 
-const getOnePatientPage = async (req, res) => {
+const getOnePatientPage = async(req, res) => {
     res.send('GET OnePatientPage')
-    //TODO
+        //TODO
 }
 
-const getSupportPage = async (req, res) => {
+const getSupportPage = async(req, res) => {
     res.send('GET SupportPage')
-    //TODO
+        //TODO
 }
 
-const addSupport = async (req, res) => {
+const addSupport = async(req, res) => {
     res.send('POST addSupport')
-    //TODO
+        //TODO
 }
 
-const getNotesPage = async (req, res) => {
+const getNotesPage = async(req, res) => {
     res.send('GET NotesPage')
-    //TODO
+        //TODO
 }
 
-const addNotes = async (req, res) => {
+const addNotes = async(req, res) => {
     res.send('POST addNotes')
-    //TODO
+        //TODO
 }
 
-const getTimeSeriesPage = async (req, res) => {
+const getTimeSeriesPage = async(req, res) => {
     res.send('GET getTimeSeriesPage')
-    //TODO
+        //TODO
 }
 
-const updateTimeSeries = async (req, res) => {
+const updateTimeSeries = async(req, res) => {
     res.send('PUT updateTimeSeries')
-    //TODO
+        //TODO
 }
 
-const getPatientDetail = async (req, res) => {
+const getPatientDetail = async(req, res) => {
     res.send('GET PatientDetail')
-    //TODO
+        //TODO
 }
 
-const getEditPatientPage = async (req, res) => {
+const getEditPatientPage = async(req, res) => {
     res.send('GET EditPatientPage')
-    //TODO
+        //TODO
 }
 
-const updatePatientDetail = async (req, res) => {
+const updatePatientDetail = async(req, res) => {
     res.send('POST updatePatientDetail')
-    //TODO
+        //TODO
 }
 
-const getLoginPage = async (req, res) => {
+const getLoginPage = async(req, res) => {
     res.send('GET LoginPage')
-    //TODO
+        //TODO
 }
 
-const clinicianLogin = async (req, res) => {
+const clinicianLogin = async(req, res) => {
     res.send('POST clinicianLogin')
-    //TODO
+        //TODO
 }
 
 module.exports = {
@@ -250,4 +255,5 @@ module.exports = {
     updatePatientDetail,
     getLoginPage,
     clinicianLogin,
+    getAllClinician,
 }
