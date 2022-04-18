@@ -83,6 +83,7 @@ const getNewPatientPage = async (req, res) => {
 const addNewPatient = async (req, res) => {
     //fake Id for temporary use
     var clinicianId = '6256dde2082aa786c9760f98'
+    console.log(req.body)
     try {
         const hashedPwd = await bcrypt.hash(req.body.password, 10)
 
@@ -133,36 +134,87 @@ const addNewPatient = async (req, res) => {
 }
 
 const getMyPatientPage = async (req, res) => {
-    const page = req.query.page ? 1 : parseInt(req.query.page)
-    const limit = 7
-    const skipIndex = (page - 1) * limit
-
-    Patient.count({}, function (err, count) {
-        const totalPages = count / limit + 1
-    })
+    var cId = '6256dde2082aa786c9760f98'
+    var saveQuery = {'male': true, 'female': true}
 
     try {
         const allPatient = await Patient.find(
-            {},
+            {clinicianId: cId},
             {
                 givenName: true,
                 familyName: true,
                 dateOfBirth: true,
                 diabeteType: true,
+                gender: true
             }
-        )
-            .skip(skipIndex)
-            .limit(limit)
-            .lean()
-        res.send(allPatient)
+        ).lean()
+        var totalPatient = allPatient.length 
+        res.render('my-patient',{title: 'My Patients',patients: allPatient,
+        total: totalPatient, query: saveQuery, doctor: {givenName:'Chris', familyName:"Smith"}})
     } catch (err) {
         console.log(err)
     }
 }
 
 const searchPatient = async (req, res) => {
-    res.send('POST searchPatient')
-    //TODO
+    console.log(req.body)
+    var query = {}
+    var saveQuery={}
+    
+	if (req.body.pname !== '') {
+        var reg = new RegExp(req.body.pname,"i")
+		query['$or'] = [{'givenName': reg}, {'familyName':reg}]
+        saveQuery['nameExist'] = true
+        saveQuery['pname'] = req.body.pname
+	}
+
+	if (req.body.diabeteType) {
+		if(req.body.diabeteType !== 'All Types'){
+            query['diabeteType'] = req.body.diabeteType
+            switch(req.body.diabeteType){
+                case 'Type 1':
+                    saveQuery['type1Exist'] = true
+                    break
+                case 'Type 2':
+                    saveQuery['type2Exist'] = true
+                    break
+                case 'Gestational':
+                    saveQuery['typegExist'] = true
+            }
+        }
+	}
+
+    if(!req.body.male || !req.body.female){
+        if(req.body.male){
+            query["gender"] = "Male"
+            saveQuery['male'] = true
+        }else if(req.body.female){
+            query["gender"] = "Female"
+            saveQuery['female'] = true
+        }
+    }else{
+        saveQuery['male'] = true
+        saveQuery['female'] = true
+    }
+
+    console.log(query)
+	try {
+		const result = await Patient.find(
+            query,
+            {
+                givenName: true,
+                familyName: true,
+                dateOfBirth: true,
+                diabeteType: true,
+                gender: true
+            }
+        ).lean()
+        var totalPatient = result.length 
+        res.render('my-patient',{title: 'My Patients',patients: result,
+        total: totalPatient, query: saveQuery, doctor: {givenName:'Chris', familyName:"Smith"}})
+	} catch (err) {
+		console.log(err)
+	}
 }
 
 const getOnePatientPage = async (req, res) => {

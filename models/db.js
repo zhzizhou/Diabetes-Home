@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/DiabetesHome', {
     useNewUrlParser: true,
-    dbName: 'diabetesAtHomeDB',
+    dbName: 'DiabetesHome',
 })
 // Exit on error
 const db = mongoose.connection.on('error', (err) => {
