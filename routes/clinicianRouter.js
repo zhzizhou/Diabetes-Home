@@ -5,8 +5,10 @@ const clinicianController = require('../controllers/clinicianController')
 //display the patient home page
 clinicianRouter.get('/home', clinicianController.getHome)
 
+
 //display clinician's profile page
-clinicianRouter.get('/profile', clinicianController.getProfile)
+clinicianRouter.get('/profile', clinicianController.getAllClinician)
+clinicianRouter.get('/:clinician_id', clinicianController.getProfile)
 
 //display clinician's edit profile page
 clinicianRouter.get('/edit', clinicianController.getEditPage)
