@@ -1,6 +1,7 @@
 const Clinician = require('../models/clinician')
 const Patient = require('../models/patient')
 const expressValidator = require('express-validator')
+const utility = require('../utils/utils')
 const bcrypt = require('bcryptjs')
 
 const getHome = async(req, res) => {
@@ -157,6 +158,10 @@ const getMyPatientPage = async (req, res) => {
             }
         ).lean()
         var totalPatient = allPatient.length 
+        for(let i = 0; i < totalPatient; i++){
+            allPatient[i]['age'] = utility.getAge(allPatient[i].dateOfBirth)
+        }
+        console.log(allPatient)
         res.render('my-patient',{title: 'My Patients',patients: allPatient,
         total: totalPatient, query: saveQuery, doctor: {givenName:'Chris', familyName:"Smith"}})
     } catch (err) {
@@ -218,6 +223,9 @@ const searchPatient = async (req, res) => {
             }
         ).lean()
         var totalPatient = result.length 
+        for(let i = 0; i < totalPatient; i++){
+            result[i]['age'] = utility.getAge(result[i].dateOfBirth)
+        }
         res.render('my-patient',{title: 'My Patients',patients: result,
         total: totalPatient, query: saveQuery, doctor: {givenName:'Chris', familyName:"Smith"}})
 	} catch (err) {
