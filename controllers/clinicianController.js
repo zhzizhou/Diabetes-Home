@@ -9,10 +9,6 @@ const getHome = async(req, res) => {
         //TODO
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 09c8b5a1c6eff74d4b05779c84f64474cf0af7cb
 const getProfile = async(req, res, next) => {
     //http://localhost:3000/clinician/6259359d8c4f458dd2205d20
     try {
