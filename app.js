@@ -4,16 +4,22 @@ const exphbs = require('express-handlebars')
 const clinicianRouter = require('./routes/clinicianRouter')
 const patientRouter = require('./routes/patientRouter')
 const app = express()
-    // connect to database
+// connect to database
 require('./models/db.js')
 
 app.use(express.static('public'))
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }));
-app.engine('hbs', exphbs.engine({
-    defaultlayout: 'main',
-    extname: 'hbs'
+app.use(express.urlencoded({
+    extended: true
 }))
+app.engine(
+    'hbs',
+    exphbs.engine({
+        defaultlayout: 'main',
+        extname: 'hbs',
+        helpers: {}
+    })
+)
 
 app.set('view engine', 'hbs')
 
@@ -35,8 +41,12 @@ app.use((req, res, next) => {
 app.use('/patient', patientRouter)
 app.use('/clinician', clinicianRouter)
 
-app.all('*', (req, res) => { // 'default' route to catch user errors
-    res.status(404).render('error', { errorCode: '404', message: 'That route is invalid.' })
+app.all('*', (req, res) => {
+    // 'default' route to catch user errors
+    res.status(404).render('error', {
+        errorCode: '404',
+        message: 'That route is invalid.',
+    })
 })
 
 app.listen(process.env.PORT || 3000, () => {

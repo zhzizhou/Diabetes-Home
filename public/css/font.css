@@ -1,0 +1,50 @@
+/*FONT STYLE AND SIZE*/
+body {
+    font-family: effra, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--dark-grey-text);
+}
+
+a {
+    text-decoration: none;
+}
+
+p, ul {
+    font-size: 16px;
+    line-height: 1.5em;
+    text-align: left;
+    color: var(--light-grey-text);
+}
+
+.p-dark {
+    color: var(--dark-grey-text);
+}
+
+li {
+    text-align: left;
+}
+
+
+h1 {
+    font-size:72px;
+    text-align: center;
+}
+
+.page-title {
+    font-size:56px;
+    text-align: left;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+
+h3 {
+    font-size: 24px;
+}
+
+.blue-text {
+    color: var(--dark-blue);
+}

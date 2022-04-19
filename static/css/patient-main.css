@@ -18,6 +18,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 .dashboard-left {
@@ -37,6 +38,8 @@ input[type=checkbox] {
 }
 input:focus {
     outline: none;
+    gap: 3rem;
+    margin: 3rem;
 }
 
 a.white-text {
@@ -75,16 +78,17 @@ a.white-text {
 }
 
 .doctor-comment {
-    background-color: var(--light-grey-background);
+    background-color: white;
     text-align: center;
     padding: 1rem;
     border-radius:5rem;
     box-shadow: 2px 2px 3px var(--box-shadow);
+    width:93%;
 
 }
 
 .my-checklist {
-    background-color:var(--light-blue);
+    background-color:white;
     display:flex;
     flex-direction:column;
     gap: 1rem;
@@ -93,10 +97,12 @@ a.white-text {
     text-align:left;
     min-width: max-content;
     width: 40rem;;
+    width: 60%;
+    box-shadow: 2px 2px 3px var(--box-shadow);
 }
 
 .checklist-item {
-    background-color:white;
+    background-color:var(--light-blue);
     border-radius: 1.5rem;
     padding: 2rem;
     align-items: center;
@@ -130,7 +136,7 @@ a.white-text {
     display: flex;
     flex-direction: column;
     gap: 4rem;
-    width: 50%;
+    width: 40%;
     margin-right: 3rem;
 }
 .my-stats {
@@ -139,9 +145,10 @@ a.white-text {
     align-items:flex-start;
     text-align: left;
     gap: 1rem;
-    background-color:var(--light-blue);
-    padding: 2rem;
+    background-color: white;
+    padding: 1.5rem;
     border-radius:2rem;
+    box-shadow: 2px 2px 3px var(--box-shadow);
 }
 
 .checkbox {
@@ -171,8 +178,34 @@ a.white-text {
         gap: 27rem;
     }
 
+/*checklist*/
+.messageArea{
+    background-color: white;
+    box-shadow: 2px 2px 10px rgb(204, 204, 204);
+    padding: 1em;
+    margin-top: 5em;
+    margin-left: 5em;
+    border-radius: 3em;
+    width: 50%;
+    text-align: center;
+}
+
+.messageBox{
+    padding-top: 0;
+    text-align: center;
+}
+@media screen and (max-width: 1050px) {
+    body {
+        background-color: white;
+        display: block;
+    }
+    .body-checklist{
+        background-color: var(--light-blue);
+    }
+
     .responsive-nav {
         display: flex;
+        width: 100%;
     }
 
     .nav-line{
@@ -195,11 +228,16 @@ a.white-text {
         width: 61rem;
 
     }
+
+    .doctor-comment {
+        background-color: var(--light-grey-background);
+    }
     .doctor-comment-box{
         width: 50%;
     }
     .my-stats{
         width: 50%;
+        background-color: var(--light-blue);
     }
 
     nav {
@@ -216,8 +254,12 @@ a.white-text {
         width:40rem;
         margin: auto;
         
+        width:85%;
+        background-color:var(--light-blue);
     }
-
+    .checklist-item {
+        background-color:white;
+    }
     .infobar{
         display: block;
         font-size: 30px;
@@ -226,7 +268,21 @@ a.white-text {
         padding-top: 30px;
         background-color: rgb(255, 255, 255);
     }
+
+    .messageArea{
+        width: 90%;
+        margin: 3em 1em 1em 3em;
+        color: none;
+        background-color: var(--light-blue);
+        box-shadow: none;
+    }
+
+    .square-menu{
+        margin-right: 1em;
+    }
 }
+
+
 
 
 @media screen and (max-width: 550px) {
@@ -318,4 +374,11 @@ a.white-text {
     .data-icon {
         font-size: 24px !important;
     }
+
+    }
+    .messageArea{
+        width: 90%;
+        margin: 2em 1em 1em 2em;
+    }
+
 }

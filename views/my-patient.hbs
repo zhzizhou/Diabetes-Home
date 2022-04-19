@@ -1,0 +1,75 @@
+
+{{> cnav}}
+
+<main>
+    <div class="my-patient-container">
+        <div class="left-container">
+            <a href="../clinician/dashboard.html" class="back-button">
+                <span class="material-icons-round">arrow_back_ios</span>
+                <h4>Back</h4>
+            </a>
+            <div>
+                <h1 class="page-title">My patients</h1>
+                <div class="patient-record">
+                    <div class="search-section">
+                        <form method="post" action="">
+                            <span style="font-size: 2em; margin-right: 3em;">All Patient</span>
+                            <i class="material-icons">search</i>
+                            <span><input type="text" placeholder="search for a patient" id="pname" name="pname" {{#if
+                                    query.nameExist}}value="{{query.pname}}" {{/if}}></span>
+                            <span>
+                                <select id="diabetesType" name="diabeteType">
+                                    <option value="All Types">All Types</option>
+                                    <option value="Type 1" {{#if query.type1Exist}}selected{{/if}}>Type 1</option>
+                                    <option value="Type 2" {{#if query.type2Exist}}selected{{/if}}>Type 2</option>
+                                    <option value="Gestational" {{#if query.typegExist}}selected{{/if}}>Gestational
+                                    </option>
+                                </select>
+                            </span>
+                            <span><label>Male
+                                    <input type="checkbox" name="male" {{#if query.male}}checked="checked" {{/if}}>
+                                </label></span>
+                            <span><label>Female
+                                    <input type="checkbox" name="female" {{#if query.female}}checked="checked" {{/if}}>
+                                </label></span>
+                            <span>
+                                <button type="submit" name="submitButton">Submit</button>
+                            </span>
+                        </form>
+                    </div>
+                    <table class="my-patient-table">
+                        <tr>
+                            <th>Patient</th>
+                            <th>Gender</th>
+                            <th>Age</th>
+                            <th>Diabete Type</th>
+                            <th>Details</th>
+                        </tr>
+                        {{#each patients}}
+                        <tr>
+                            <td>{{this.givenName}} {{this.familyName}}</td>
+                            <td>{{this.gender}}</td>
+                            <td>{{this.age}}</td>
+                            <td>{{this.diabeteType}}</td>
+                            <td><a href="/clinician/my-patient/{{this._id}}/detail">View</a></td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="patient-stats">
+            <h2>My patient</h2>
+            <div>
+                <i class="material-icons" style="margin-right: 1em;">insert_emoticon</i>
+                <span>Number of Patients </span>
+                <span class="blue-text">{{total}}</span>
+            </div>
+            <div>
+                <i class="material-icons" style="margin-right: 1em;">group</i>
+                <span>Avg. patient engagement </span>
+                <span class="blue-text">80%</span>
+            </div>
+        </div>
+    </div>
+</main>
