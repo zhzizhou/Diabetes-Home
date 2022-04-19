@@ -13,56 +13,67 @@
     <link rel="stylesheet" href="../../static/css/patient-main.css">
     <link rel="stylesheet" href="../../static/css/hamburger-nav.css">
 
-
+    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Round" rel="stylesheet">
+    
+    <script>
+    function openMenu() {
+      document.getElementById("responsive-nav").style.display = "flex";
+    }
+    
+    function closeMenu() {
+      document.getElementById("responsive-nav").style.display = "none";
+    }
+    </script>
+
     <title>Home</title>
 </head>
 
 <body>
-    
-    <div class="menu-container responsive-nav">
+
+    <div id="responsive-nav" class="menu-container responsive-nav">
         <div class="responsive-nav-top">
             <img class="small-logo" src="../../static/images/white-logo.svg" alt="">
-            <span class="material-icons-round white-text" id="menu-opener">apps</span>
+            <span onclick="closeMenu()" class="material-icons-round white-text" id="menu-opener">apps</span>
         </div>
         <div class="grid-menu white-text">
             <a class="white-text menu-square" href="#">
-                <span class="material-icons-round">home</span>
+                <span class="material-icons-round menu-icon">home</span>
                 <h3>Home</h3>
             </a>
             <a class="white-text menu-square" href="#">
-                <span class="material-icons-round">leaderboard</span>
+                <span class="material-icons-round menu-icon">leaderboard</span>
                 <h3>Leaderboard</h3>
             </a>
             <a class="white-text menu-square" href="#">
-                <span class="material-icons-round">history</span>
+                <span class="material-icons-round menu-icon">history</span>
                 <h3>Log History</h3>
             </a>
             <a class="white-text menu-square" href="#">
-                <span class="material-icons-round">help</span>
+                <span class="material-icons-round menu-icon">help</span>
                 <h3>Help</h3>
             </a>
             <a class="white-text menu-square" href="#">
-                <span class="material-icons-round">person</span>
+                <span class="material-icons-round menu-icon">person</span>
                 <h3>Account</h3>
             </a>
             <a class="white-text menu-square" href="#">
-                <span class="material-icons-round">settings</span>
+                <span class="material-icons-round menu-icon">settings</span>
                 <h3>Settings</h3>
             </a>
-            
+
         </div>
     </div>
-    
+
     <div class="page-padding">
-            
+
         <div class="responsive-nav responsive-nav-top">
             <a href="index.html"><img class="small-logo" src="../../static/images/logo.svg" alt=""></a>
-            <div class="square-menu">
+            <div onclick="openMenu()" class="square-menu">
                 <span class="material-icons-round blue-text" id="menu-opener">apps</span>
             </div>
         </div>
-        
+
         <div class="nav-placeholder">
             <nav>
                 <div class="nav-top">
@@ -102,13 +113,18 @@
                 </div>
             </nav>
         </div>
-        
+
         <main class="dashboard-container">
+           
             <div class="dashboard-left">
+            </div>
+
+            <div class="dashboard-right">
                 <div class="top-page">
                     <h1 class="page-title">Welcome Back Mary</h1>
                     <img src="../../static/images/badge.svg" alt="">
                 </div>
+    
                 <div class="main-content space-between">
                     <div class="inside-left">
                         <div class="doctor-comment-box">
@@ -119,7 +135,7 @@
                             <p class="p-dark doctor-comment">“Hi Mary, great day for exercising today! Keep up the good work
                                 😊.”</p>
                         </div>
-
+    
                         <div class="my-stats">
                             <h4>My Stats</h4>
                             <div>
@@ -132,7 +148,7 @@
                     <div>
                         <div class="my-checklist">
                             <h4>My Checklist</h4>
-                            <div class="checklist-item space-between">
+                            <a href="enter-ts.html" class="checklist-item space-between">
                                 <div class="checklist-left space-between">
                                     <div class="checkbox"></div>
                                     <span class="data-icon material-icons-round blue-text">scale</span>
@@ -141,7 +157,7 @@
                                 <div>
                                     <span class="material-icons-round blue-text ">navigate_next</span>
                                 </div>
-                            </div>
+                            </a>
                             <div class="checklist-item space-between">
                                 <div class="checklist-left space-between">
                                     <div class="checkbox"></div>
@@ -182,9 +198,11 @@
                             </div>
                         </div>
                     </div>
-                    
+    
                 </div>
+
             </div>
+
         </main>
 
     </div>
