@@ -9,15 +9,6 @@ const getHome = async(req, res) => {
         //TODO
 }
 
-const getAllClinician = async(req, res, next) => {
-    try {
-        const clinician = await Clinician.find().lean()
-        return res.render('allClinician-Test', { data: clinician })
-    } catch (err) {
-        return next(err)
-    }
-}
-
 const getProfile = async(req, res, next) => {
     //http://localhost:3000/clinician/6259359d8c4f458dd2205d20
     try {
