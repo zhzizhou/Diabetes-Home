@@ -465,16 +465,13 @@ td {
 
 .profile-picture-display {
     display: block;
-    width: 100%;
+    width: 80%;
     padding-top: 50px;
     padding-bottom: 50px;
 }
 
 .profile-picture-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 50%;
+    width: 300px;
 }
 
 .profile-statistic {
@@ -482,12 +479,12 @@ td {
     -webkit-columns: 2;
     -moz-columns: 2;
     align-items: center;
-    padding-left: 100px;
+    padding-left: 175px;
     padding-top: 5px;
 }
 
 .profile-statistic li {
-    padding-right: 300px;
+    padding-right: 200px;
     padding-bottom: 100px;
 }
 
