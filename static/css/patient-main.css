@@ -340,8 +340,8 @@ a.white-text {
         width: 350px;
     }
     .my-checklist {
-        width:360px;
-        padding:1rem;
+        width:375px;
+        padding-left: 3rem;
         border-radius:0;
     }
 
