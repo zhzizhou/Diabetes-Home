@@ -1,5 +1,9 @@
 /*ALL PAGES*/
-
+body {
+    display: flex;
+    gap: 3em;
+    background-color: var(--light-grey-background)
+}
 .back-button {
     color: var(--dark-blue);
     display: flex;

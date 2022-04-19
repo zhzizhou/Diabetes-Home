@@ -9,6 +9,10 @@ const getHome = async(req, res) => {
         //TODO
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 09c8b5a1c6eff74d4b05779c84f64474cf0af7cb
 const getProfile = async(req, res, next) => {
     //http://localhost:3000/clinician/6259359d8c4f458dd2205d20
     try {
@@ -133,49 +137,51 @@ const addNewPatient = async(req, res) => {
     res.send('register patient sucessful')
 }
 
-const getMyPatientPage = async (req, res) => {
+const getMyPatientPage = async(req, res) => {
     var cId = '6256dde2082aa786c9760f98'
-    var saveQuery = {'male': true, 'female': true}
+    var saveQuery = { 'male': true, 'female': true }
 
     try {
-        const allPatient = await Patient.find(
-            {clinicianId: cId},
-            {
-                givenName: true,
-                familyName: true,
-                dateOfBirth: true,
-                diabeteType: true,
-                gender: true
-            }
-        ).lean()
-        var totalPatient = allPatient.length 
-        for(let i = 0; i < totalPatient; i++){
+        const allPatient = await Patient.find({ clinicianId: cId }, {
+            givenName: true,
+            familyName: true,
+            dateOfBirth: true,
+            diabeteType: true,
+            gender: true
+        }).lean()
+        var totalPatient = allPatient.length
+        for (let i = 0; i < totalPatient; i++) {
             allPatient[i]['age'] = utility.getAge(allPatient[i].dateOfBirth)
         }
         console.log(allPatient)
-        res.render('my-patient',{title: 'My Patients',patients: allPatient,
-        total: totalPatient, query: saveQuery, doctor: {givenName:'Chris', familyName:"Smith"}})
+        res.render('my-patient', {
+            title: 'My Patients',
+            patients: allPatient,
+            total: totalPatient,
+            query: saveQuery,
+            doctor: { givenName: 'Chris', familyName: "Smith" }
+        })
     } catch (err) {
         console.log(err)
     }
 }
 
-const searchPatient = async (req, res) => {
+const searchPatient = async(req, res) => {
     console.log(req.body)
     var query = {}
-    var saveQuery={}
-    
-	if (req.body.pname !== '') {
-        var reg = new RegExp(req.body.pname,"i")
-		query['$or'] = [{'givenName': reg}, {'familyName':reg}]
+    var saveQuery = {}
+
+    if (req.body.pname !== '') {
+        var reg = new RegExp(req.body.pname, "i")
+        query['$or'] = [{ 'givenName': reg }, { 'familyName': reg }]
         saveQuery['nameExist'] = true
         saveQuery['pname'] = req.body.pname
-	}
+    }
 
-	if (req.body.diabeteType) {
-		if(req.body.diabeteType !== 'All Types'){
+    if (req.body.diabeteType) {
+        if (req.body.diabeteType !== 'All Types') {
             query['diabeteType'] = req.body.diabeteType
-            switch(req.body.diabeteType){
+            switch (req.body.diabeteType) {
                 case 'Type 1':
                     saveQuery['type1Exist'] = true
                     break
@@ -186,26 +192,25 @@ const searchPatient = async (req, res) => {
                     saveQuery['typegExist'] = true
             }
         }
-	}
+    }
 
-    if(!req.body.male || !req.body.female){
-        if(req.body.male){
+    if (!req.body.male || !req.body.female) {
+        if (req.body.male) {
             query["gender"] = "Male"
             saveQuery['male'] = true
-        }else if(req.body.female){
+        } else if (req.body.female) {
             query["gender"] = "Female"
             saveQuery['female'] = true
         }
-    }else{
+    } else {
         saveQuery['male'] = true
         saveQuery['female'] = true
     }
 
     console.log(query)
-	try {
-		const result = await Patient.find(
-            query,
-            {
+    try {
+        const result = await Patient.find(
+            query, {
                 givenName: true,
                 familyName: true,
                 dateOfBirth: true,
@@ -213,15 +218,20 @@ const searchPatient = async (req, res) => {
                 gender: true
             }
         ).lean()
-        var totalPatient = result.length 
-        for(let i = 0; i < totalPatient; i++){
+        var totalPatient = result.length
+        for (let i = 0; i < totalPatient; i++) {
             result[i]['age'] = utility.getAge(result[i].dateOfBirth)
         }
-        res.render('my-patient',{title: 'My Patients',patients: result,
-        total: totalPatient, query: saveQuery, doctor: {givenName:'Chris', familyName:"Smith"}})
-	} catch (err) {
-		console.log(err)
-	}
+        res.render('my-patient', {
+            title: 'My Patients',
+            patients: result,
+            total: totalPatient,
+            query: saveQuery,
+            doctor: { givenName: 'Chris', familyName: "Smith" }
+        })
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 const getOnePatientPage = async(req, res) => {
@@ -309,5 +319,4 @@ module.exports = {
     updatePatientDetail,
     getLoginPage,
     clinicianLogin,
-    getAllClinician,
 }
