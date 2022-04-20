@@ -9,22 +9,20 @@ const getHome = async(req, res) => {
         //TODO
 }
 
-const getProfile = async(req, res, next) => {
-    //http://localhost:3000/clinician/6259359d8c4f458dd2205d20
-    console.log('GET profile')
+const getProfile = async(req, res) => {
+    //http://localhost:3000/clinician/profile
     try {
         const clinician = await Clinician.findById(
-            '625e240b01e5ce1b9ef808e9'
+            // req.params.clinician_id
+            "625e240b01e5ce1b9ef808e9"
         ).lean()
 
         if (!clinician) {
             return res.sendStatus(404)
         }
-
-        console.log(clinician)
-
         //found clinician
-        return res.render('clinicianData', { oneItem: clinician })
+        return res.render('clinicianData', { thisClinician: clinician })
+
     } catch (err) {
         return next(err)
     }

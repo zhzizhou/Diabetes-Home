@@ -1,9 +1,11 @@
 /*ALL PAGES*/
+
 body {
     display: flex;
     gap: 3em;
     background-color: var(--light-grey-background)
 }
+
 .back-button {
     color: var(--dark-blue);
     display: flex;
@@ -159,9 +161,9 @@ td {
     margin-top: 1em;
 }
 
-.my-patient-container{
+.my-patient-container {
     display: flex;
-    gap:2em;
+    gap: 2em;
 }
 
 .patient-stats {
@@ -181,7 +183,7 @@ td {
     margin-top: -1em;
     font-size: 16px;
     width: 100%;
-    display: inline-block; 
+    display: inline-block;
     height: 33.5em;
     overflow-y: scroll;
 }
@@ -424,6 +426,7 @@ td {
 
 
 /*NEW PATIENT PAGE*/
+
 .new-patient-body {
     width: auto;
 }
@@ -433,18 +436,13 @@ td {
     flex-direction: column;
     gap: 2em;
     width: 70%;
-    
 }
 
 .new-patient-line {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-   
     flex-direction: row;
-   
-    
-    
 }
 
 .new-patient-item {
@@ -456,6 +454,7 @@ td {
     background-color: white;
 }
 
+
 /*ACCOUNT PAGE*/
 
 #profile-container {
@@ -466,15 +465,13 @@ td {
 
 .profile-picture-display {
     display: block;
-    width: 100%;
+    width: 80%;
     padding-top: 50px;
     padding-bottom: 50px;
 }
 
 .profile-picture-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    width: 300px;
 }
 
 .profile-statistic {
@@ -482,12 +479,12 @@ td {
     -webkit-columns: 2;
     -moz-columns: 2;
     align-items: center;
-    padding-left: 200px;
+    padding-left: 175px;
     padding-top: 5px;
 }
 
 .profile-statistic li {
-    padding-right: 300px;
+    padding-right: 200px;
     padding-bottom: 100px;
 }
 
