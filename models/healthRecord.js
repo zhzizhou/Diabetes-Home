@@ -2,8 +2,7 @@ const mongoose = require('mongoose')
 
 const healthRecordSchema = new mongoose.Schema({
     logItemId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'LogItem',
+        type: Number,
         required: true,
     },
     patientId: {

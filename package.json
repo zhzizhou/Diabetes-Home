@@ -17,6 +17,7 @@
         "express-handlebars": "^6.0.4",
         "express-validator": "^6.14.0",
         "handlebars-paginate": "^0.1.0",
+        "moment": "^2.29.3",
         "mongoose": "^6.2.10"
     },
     "devDependencies": {

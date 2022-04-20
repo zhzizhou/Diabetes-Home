@@ -23,6 +23,12 @@ const getLogPage = async (req, res) => {
 }
 
 const insertLog = async (req, res) => {
+    /**
+     * patient/log/1 WEIGHT
+     * patient/log/2 INSULIN DOSES
+     * patient/log/3 EXERCISE
+     * patient/log/4 BLOOD GLUCOSE LEVEL
+     */
     console.log(req.body)
     console.log(req.params.id)
     const newHealthRecord = new HealthRecord({

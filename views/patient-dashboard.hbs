@@ -1,0 +1,126 @@
+<div class="nav-placeholder">
+        <nav>
+            <div class="nav-top">
+                <img class="small-logo" src="/images/logo.svg" alt="">
+                <div class="menu-item-layout">
+                    <img src="/images/clinitian-profile-pic.svg" alt="profile picture">
+                    <h3>{{doctor.givenName}} {{doctor.familyName}}</h3>
+                </div>
+                <div class="menu-section">
+                    <a href="../clinician/home" class="menu-item-layout menu-item selected">
+                        <span class="material-icons">dashboard</span>
+                        <h3>Dashboard</h3>
+                    </a>
+                    <a href="../clinician/my-patient" class="menu-item-layout menu-item">
+                        <span class="material-icons">group</span>
+                        <h3>My Patients</h3>
+                    </a>
+                    <a href="../clinician/new-patient" class="menu-item-layout menu-item ">
+                        <span class="material-icons">person_add</span>
+                        <h3>New Patient</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="menu-section">
+                <a href="../clinician/profile" class="menu-item-layout menu-item">
+                    <span class="material-icons">account_circle</span>
+                    <h3>Account</h3>
+                </a>
+                <a href="../clinician/settings" class="menu-item-layout menu-item">
+                    <span class="material-icons">settings</span>
+                    <h3>Settings</h3>
+                </a>
+            </div>
+        </nav>
+    </div>
+<main class="dashboard-container">
+    <div class="dashboard-left">
+        <h1 class="page-title">Good morning, Dr. {{doctor.familyName}}</h1>
+
+        <div class="main-section">
+            <div class="mid-container whitebox shadow">
+                <div class="overview-info">
+                    <span class="material-icons">people</span>
+                    <span>Patients</span>
+                    <span class="blue-text">{{totalPatient}}</span>
+                </div>
+                <div class="overview-info">
+                    <span class="material-icons-round">error</span>
+                    <span>Alerts</span>
+                    <span class="blue-text">{{alert}}</span>
+                </div>
+                <div class="overview-info">
+                    <span class="material-icons-round">chat</span>
+                    <span>New Comments</span>
+                    <span class="blue-text">{{comment}}</span>
+                </div>
+            </div>
+            <div>
+                <div class="space-between">
+                    <h3>Recent health records</h3>
+                </div>
+                <div class="patient-record whitebox shadow">
+                    <table class="my-patient-table">
+                        <tr class="out-border">
+                            <th>Patient</th>
+                            <th> 
+                                <div>Weight</div>
+                                <div>(kg)</div>
+                            </th>
+                            <th>
+                                <div>Insulin</div>
+                                <div>(doses)</div>
+                            </th>
+                            <th>
+                                <div>Exercise</div>
+                                <div>(steps)</div>
+                            </th>
+                            <th>
+                                 <div>Blood Glucose</div>
+                                <div>(nmol/L)</div>
+                            </th>
+                        </tr>
+                        {{#each patients}}
+                        <tr class="out-border">
+                            <td>{{this.givenName}} {{this.familyName}}</td>
+                            {{#each this.timeSeries}}
+                            {{#if this.log}}
+                            <td {{#if this.log.alert}}style="color: red;"{{/if}}>
+                                {{this.log.value}}
+                                </td>
+                            {{else}}
+                            <td {{#if this.activated}}style="color: red;"{{/if}}>N/A</td>
+                            {{/if}}
+                            {{/each}}
+                        </tr>
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="comment-section whitebox shadow nav-top">
+        <div class="space-between">
+            <h3>Patient comments</h3>
+        </div>
+        <div class="msg-container">
+            {{#each patients}}
+            {{#each this.timeSeries}}
+            {{#if this.log.notes}} 
+            <div class="msgbox light-blue-box shadow space-between">
+                <div>
+                    <div class="space-between">
+                        <p>{{../givenName}} {{../familyName}}</p>
+                        <p>{{this.log.when}}</p>
+                    </div>
+                    <p class="p-dark">{{this.log.notes}}</p>
+                    <p class="blue-text">{{this.logItem}}: {{this.log.value}}</p>
+                    
+                </div>
+            </div>
+            {{/if}}
+            {{/each}}
+            {{/each}}
+        </div>
+    </div>
+</main>

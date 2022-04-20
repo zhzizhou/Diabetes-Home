@@ -1,15 +1,61 @@
 const Clinician = require('../models/clinician')
 const Patient = require('../models/patient')
+const HealthRecord = require('../models/healthRecord')
 const expressValidator = require('express-validator')
 const utility = require('../utils/utils')
+const moment = require('moment');
 const bcrypt = require('bcryptjs')
 
-const getHome = async(req, res) => {
-    res.send('GET Home')
-        //TODO
+const getHome = async (req, res) => {
+    var cId = '6256dde2082aa786c9760f98'
+    var currentId
+    var healthRecord
+    var logItemId
+    var alerts = 0
+    var comments = 0
+    try {
+        const patients = await Patient.find({
+            clinicianId: cId
+        }, {
+            givenName: true,
+            familyName: true,
+            timeSeries: true
+        }).lean()
+        var now = new Date()
+        //for each of the patient get today's health record
+        console.log(patients)
+        for (let i = 0; i < patients.length; i++) {
+            currentId = patients[i]._id;
+            healthRecord = await HealthRecord.find({
+                patientId: currentId,
+                when: {$gte: new Date(now.getFullYear(), now.getMonth(), now.getDate())}
+            }, {}).lean()
+            //inject the log into patient's timeSeries by logId
+            for(let j = 0; j < healthRecord.length; j++){
+                logItemId = healthRecord[j].logItemId - 1
+                healthRecord[j].when = moment(healthRecord[j].when).format('D/M/YY H:mm:ss')
+                if(healthRecord[j].notes !== ""){
+                    comments++
+                }
+                var val = healthRecord[j].value
+                var upper = patients[i].timeSeries[logItemId].upperLimit
+                var lower = patients[i].timeSeries[logItemId].lowerLimit
+                //check if the value out of threshold
+                if(val > upper || val < lower ){
+                    alerts++;
+                    healthRecord[j]['alert'] = true
+                }
+                patients[i].timeSeries[logItemId]['log'] = healthRecord[j]
+            }
+        }
+        res.render('patient-dashboard',{patients: patients, alert: alerts, comment: comments, 
+            totalPatient: patients.length, doctor: {givenName: 'Chris', familyName: 'Smith'}})
+    } catch (err) {
+        console.log(err)
+    }
 }
 
-const getProfile = async(req, res) => {
+const getProfile = async (req, res) => {
     //http://localhost:3000/clinician/profile
     try {
         const clinician = await Clinician.findById(
@@ -21,39 +67,41 @@ const getProfile = async(req, res) => {
             return res.sendStatus(404)
         }
         //found clinician
-        return res.render('clinicianData', { thisClinician: clinician })
+        return res.render('clinicianData', {
+            thisClinician: clinician
+        })
 
     } catch (err) {
         return next(err)
     }
 }
 
-const getEditPage = async(req, res) => {
+const getEditPage = async (req, res) => {
     res.send('GET EditPage')
-        //TODO
+    //TODO
 }
 
-const updateProfile = async(req, res) => {
+const updateProfile = async (req, res) => {
     res.send('PUT updateProfile')
-        //TODO
+    //TODO
 }
 
-const getSettings = async(req, res) => {
+const getSettings = async (req, res) => {
     res.send('GET Settings')
-        //TODO
+    //TODO
 }
 
-const updateSettings = async(req, res) => {
+const updateSettings = async (req, res) => {
     res.send('PUT Settings')
-        //TODO
+    //TODO
 }
 
-const getRegisterPage = async(req, res) => {
+const getRegisterPage = async (req, res) => {
     res.send('GET RegisterPage')
-        //TODO
+    //TODO
 }
 
-const registerClinician = async(req, res) => {
+const registerClinician = async (req, res) => {
     console.log(req.body)
     try {
         const hashedPwd = await bcrypt.hash(req.body.password, 10)
@@ -77,12 +125,12 @@ const registerClinician = async(req, res) => {
     }
 }
 
-const getNewPatientPage = async(req, res) => {
+const getNewPatientPage = async (req, res) => {
     res.send('GET NewPatientPage')
-        //TODO
+    //TODO
 }
 
-const addNewPatient = async(req, res) => {
+const addNewPatient = async (req, res) => {
     //fake Id for temporary use
     var clinicianId = '6256dde2082aa786c9760f98'
     console.log(req.body)
@@ -134,12 +182,17 @@ const addNewPatient = async(req, res) => {
     res.send('register patient sucessful')
 }
 
-const getMyPatientPage = async(req, res) => {
+const getMyPatientPage = async (req, res) => {
     var cId = '6256dde2082aa786c9760f98'
-    var saveQuery = { 'male': true, 'female': true }
+    var saveQuery = {
+        'male': true,
+        'female': true
+    }
 
     try {
-        const allPatient = await Patient.find({ clinicianId: cId }, {
+        const allPatient = await Patient.find({
+            clinicianId: cId
+        }, {
             givenName: true,
             familyName: true,
             dateOfBirth: true,
@@ -156,21 +209,28 @@ const getMyPatientPage = async(req, res) => {
             patients: allPatient,
             total: totalPatient,
             query: saveQuery,
-            doctor: { givenName: 'Chris', familyName: "Smith" }
+            doctor: {
+                givenName: 'Chris',
+                familyName: "Smith"
+            }
         })
     } catch (err) {
         console.log(err)
     }
 }
 
-const searchPatient = async(req, res) => {
+const searchPatient = async (req, res) => {
     console.log(req.body)
     var query = {}
     var saveQuery = {}
 
     if (req.body.pname !== '') {
         var reg = new RegExp(req.body.pname, "i")
-        query['$or'] = [{ 'givenName': reg }, { 'familyName': reg }]
+        query['$or'] = [{
+            'givenName': reg
+        }, {
+            'familyName': reg
+        }]
         saveQuery['nameExist'] = true
         saveQuery['pname'] = req.body.pname
     }
@@ -224,71 +284,74 @@ const searchPatient = async(req, res) => {
             patients: result,
             total: totalPatient,
             query: saveQuery,
-            doctor: { givenName: 'Chris', familyName: "Smith" }
+            doctor: {
+                givenName: 'Chris',
+                familyName: "Smith"
+            }
         })
     } catch (err) {
         console.log(err)
     }
 }
 
-const getOnePatientPage = async(req, res) => {
+const getOnePatientPage = async (req, res) => {
     res.send('GET OnePatientPage')
-        //TODO
+    //TODO
 }
 
-const getSupportPage = async(req, res) => {
+const getSupportPage = async (req, res) => {
     res.send('GET SupportPage')
-        //TODO
+    //TODO
 }
 
-const addSupport = async(req, res) => {
+const addSupport = async (req, res) => {
     res.send('POST addSupport')
-        //TODO
+    //TODO
 }
 
-const getNotesPage = async(req, res) => {
+const getNotesPage = async (req, res) => {
     res.send('GET NotesPage')
-        //TODO
+    //TODO
 }
 
-const addNotes = async(req, res) => {
+const addNotes = async (req, res) => {
     res.send('POST addNotes')
-        //TODO
+    //TODO
 }
 
-const getTimeSeriesPage = async(req, res) => {
+const getTimeSeriesPage = async (req, res) => {
     res.send('GET getTimeSeriesPage')
-        //TODO
+    //TODO
 }
 
-const updateTimeSeries = async(req, res) => {
+const updateTimeSeries = async (req, res) => {
     res.send('PUT updateTimeSeries')
-        //TODO
+    //TODO
 }
 
-const getPatientDetail = async(req, res) => {
+const getPatientDetail = async (req, res) => {
     res.send('GET PatientDetail')
-        //TODO
+    //TODO
 }
 
-const getEditPatientPage = async(req, res) => {
+const getEditPatientPage = async (req, res) => {
     res.send('GET EditPatientPage')
-        //TODO
+    //TODO
 }
 
-const updatePatientDetail = async(req, res) => {
+const updatePatientDetail = async (req, res) => {
     res.send('POST updatePatientDetail')
-        //TODO
+    //TODO
 }
 
-const getLoginPage = async(req, res) => {
+const getLoginPage = async (req, res) => {
     res.send('GET LoginPage')
-        //TODO
+    //TODO
 }
 
-const clinicianLogin = async(req, res) => {
+const clinicianLogin = async (req, res) => {
     res.send('POST clinicianLogin')
-        //TODO
+    //TODO
 }
 
 module.exports = {
