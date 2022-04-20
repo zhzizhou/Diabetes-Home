@@ -11,14 +11,17 @@ const getHome = async(req, res) => {
 
 const getProfile = async(req, res, next) => {
     //http://localhost:3000/clinician/6259359d8c4f458dd2205d20
+    console.log('GET profile')
     try {
         const clinician = await Clinician.findById(
-            req.params.clinician_id
+            '625e240b01e5ce1b9ef808e9'
         ).lean()
 
         if (!clinician) {
             return res.sendStatus(404)
         }
+
+        console.log(clinician)
 
         //found clinician
         return res.render('clinicianData', { oneItem: clinician })
