@@ -30,6 +30,11 @@ const getHome = async (req, res) => {
                 patientId: currentId,
                 when: {$gte: new Date(now.getFullYear(), now.getMonth(), now.getDate())}
             }, {}).lean()
+            alerts += 4 - healthRecord.length
+            //if the item is not activated then do not alert
+            patients[i].timeSeries.forEach(element => {
+                if(!element.activated){alerts --}
+            })
             //inject the log into patient's timeSeries by logId
             for(let j = 0; j < healthRecord.length; j++){
                 logItemId = healthRecord[j].logItemId - 1
