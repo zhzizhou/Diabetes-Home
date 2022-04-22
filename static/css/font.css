@@ -1,5 +1,5 @@
 /*FONT STYLE AND SIZE*/
-body {
+body, textarea {
     font-family: effra, sans-serif;
     font-weight: 400;
     font-style: normal;

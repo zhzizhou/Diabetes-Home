@@ -180,11 +180,10 @@ td {
 .my-patient-table {
     border-collapse: separate;
     border-spacing: 0 1em;
-    margin-top: -1em;
+    padding-top: 1rem;
     font-size: 16px;
     width: 100%;
     display: inline-block;
-    height: 33.5em;
     overflow-y: scroll;
 }
 
@@ -263,6 +262,7 @@ td {
 .patient-right {
     display: flex;
     flex-direction: column;
+    gap: 2rem;
 }
 
 .patient-title-row {
@@ -368,8 +368,7 @@ td {
 }
 
 .note-section-bottom {
-    border-radius: 0 0 48px 48px;
-    margin-bottom: 16px;
+    border-radius: 3rem;
     padding: 2em;
 }
 
@@ -399,8 +398,6 @@ td {
 }
 
 .select-messages {
-    color: var(--dark-blue);
-    padding: 16px 48px 16px 32px;
     background-color: #ffffff;
     border-radius: 0 48px 0 0;
 }
@@ -422,6 +419,19 @@ td {
 
 .details-statistic a {
     color: var(--dark-grey-text);
+}
+
+#clinical-notes-textarea {
+    border: 3px solid var(--dark-blue);
+    border-radius: 2rem;
+    color: var(--dark-blue);
+    font-size: 24px;
+    padding: 2rem;
+}
+
+#clinical-notes-textarea:focus {
+    background-color: var(--light-blue);
+    outline:none;
 }
 
 
