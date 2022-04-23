@@ -1,3 +1,4 @@
+<div class="ts-body">
     <div id="responsive-nav" class="menu-container responsive-nav">
         <div class="responsive-nav-top">
             <img class="small-logo" src="/images/white-logo.svg" alt="">
@@ -86,44 +87,45 @@
 
     </div> 
  
- <main class="dashboard-container">
+    <main class="dashboard-container">
 
-        <div class="dashboard-left">
-        </div>
-
-        <div class="dashboard-right centre-content">
-            <div class="page-title-and-nav">
-                <span class="material-icons-round blue-text">arrow_back_ios</span>
-                <div class="page-title-icon">
-                    <span class="data-icon material-icons-round blue-text">{{icon}}</span>
-                    <h3 class="blue-text">{{title}}</h3>
-                </div>
+            <div class="dashboard-left">
             </div>
 
-            <div id="blue-main-page" class="centre-flex">
-
-                <input class="enter-data-box" type="text" placeholder={{dataPlaceHolder}}>
-
-                <div class="date-time-container">
+            <div class="dashboard-right centre-content">
+                <div class="page-title-and-nav">
+                    <span class="material-icons-round blue-text">arrow_back_ios</span>
                     <div class="page-title-icon">
-                        <span class="material-icons-round blue-text">schedule</span>
-                        <p>Time</p>
-                    </div>
-                    <p class="p-dark">{{time}}</p>
-                </div>
-                <div>
-                    <div class="page-title-icon on-top">
-                        <span class="material-icons-round blue-text">edit</span>
-                        <p>Notes</p>
-                    </div>
-
-                    <div class="notes-container">
-                        <textarea id="message-input" cols="30 " rows="10 ">Take a note of something...</textarea>
+                        <span class="data-icon material-icons-round blue-text">{{icon}}</span>
+                        <h3 class="blue-text">{{title}}</h3>
                     </div>
                 </div>
 
-                {{!-- How to submit? --}}
-                <a class="button button-width-20" href="">Save</a>
-            </div>
+                <div id="blue-main-page" class="centre-flex">
+
+                    <input class="enter-data-box" type="text" placeholder={{dataPlaceHolder}}>
+
+                    <div class="date-time-container">
+                        <div class="page-title-icon">
+                            <span class="material-icons-round blue-text">schedule</span>
+                            <p>Time</p>
+                        </div>
+                        <p class="p-dark">{{time}}</p>
+                    </div>
+                    <div>
+                        <div class="page-title-icon on-top">
+                            <span class="material-icons-round blue-text">edit</span>
+                            <p>Notes</p>
+                        </div>
+
+                        <div class="notes-container">
+                            <textarea id="message-input" cols="30 " rows="10 ">Take a note of something...</textarea>
+                        </div>
+                    </div>
+
+                    {{!-- How to submit? --}}
+                    <a class="button button-width-20" href="">Save</a>
+                </div>
 
     </main>
+</div>
