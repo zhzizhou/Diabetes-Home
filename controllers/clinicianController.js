@@ -370,10 +370,17 @@ const getTimeSeriesPage = async (req, res) => {
 const updateTimeSeries = async (req, res) => {
     var newTimeSeries = []
     for(let i = 0; i < 4; i++){
+        var lower = Number(req.body.lowerLimit[i])
+        var upper = Number(req.body.upperLimit[i])
+        if(lower > upper){
+            res.send("<script> alert('Invalid Input');\
+            window.location.href='time-series'; </script>")
+            return
+        }
         var item = {
             logItem: req.body.itemName[i],
-            lowerLimit: Number(req.body.lowerLimit[i]),
-            upperLimit: Number(req.body.upperLimit[i]),
+            lowerLimit: lower,
+            upperLimit: upper,
         }
         if(req.body.hasOwnProperty('checkbox' + i)){
             item['activated'] = true
@@ -385,9 +392,11 @@ const updateTimeSeries = async (req, res) => {
     console.log(newTimeSeries)
     try{
         await Patient.findByIdAndUpdate({'_id': req.params.id},{timeSeries: newTimeSeries})
-        res.send('Update time series successful')
+        res.send("<script> alert('Update time-series successfully');\
+            window.location.href='detail'; </script>")
     }catch{
-        res.send('Update fail')
+        res.send("<script> alert('Update Fail');\
+            window.location.href='time-series'; </script>")
     }
 }
 
