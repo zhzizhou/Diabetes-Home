@@ -48,8 +48,7 @@
                     <div class="menu-item-layout">
                         <img src="/images/patient-profile-pic.svg" alt="profile picture">
 
-                        {{!-- How do we get the patinet's name --}}
-                        <h3>Mary Shelley</h3>
+                        <h3>{{thisPatient.nickName}}</h3>
 
                     </div>
                     <div class="menu-section">
@@ -77,7 +76,6 @@
                         <h3>Settings</h3>
                     </a>
 
-                    {{!-- Do we have a help page??????? --}}
                     <a href="../clinician/settings" class="menu-item-layout menu-item">
                         <span class="material-icons">help</span>
                         <h3>Help</h3>
@@ -98,7 +96,9 @@
                 <span class="material-icons-round blue-text">arrow_back_ios</span>
                 <div class="page-title-icon">
                     <span class="data-icon material-icons-round blue-text">scale</span>
-                    <h3 class="blue-text">{{thisLogItem.itemName}}</h3>
+                    <h3 class="blue-text">
+                        {{title}}
+                    </h3>
                 </div>
             </div>
 
@@ -110,7 +110,7 @@
                         <p>Time</p>
                     </div>
                     {{!-- Time(do we need date?) --}}
-                    <p class="p-dark">{{{dateFormat "LTS" timeStamp}}}</p>
+                    <p class="p-dark">{{time}}</p>
                 </div>
                 <div>
                     <div class="page-title-icon on-top">
@@ -118,7 +118,6 @@
                         <p>Notes</p>
                     </div>
 
-                    {{!-- Message --}}
                     <div class="notes-container">
                         <textarea id="message-input" cols="30 " rows="10 ">Take a note of something...</textarea>
                     </div>
