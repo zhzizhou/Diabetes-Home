@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 const HealthRecord = require('../models/healthRecord')
-const LogItem = require('../models/logItem')
 const expressValidator = require('express-validator')
 
 const getHome = async(req, res) => {
