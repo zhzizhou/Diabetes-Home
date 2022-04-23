@@ -1,0 +1,43 @@
+<div id="responsive-nav" class="menu-container responsive-nav">
+    <script>
+        function openMenu() {
+        document.getElementById("responsive-nav").style.display = "flex";
+        }
+        
+        function closeMenu() {
+        document.getElementById("responsive-nav").style.display = "none";
+        }
+    </script>
+
+    <div class="responsive-nav-top">
+        <img class="small-logo" src="../../static/images/white-logo.svg" alt="">
+        <span onclick="closeMenu()" class="material-icons-round white-text" id="menu-opener">apps</span>
+    </div>
+    <div class="grid-menu white-text">
+        <a class="white-text menu-square" href="#">
+            <span class="material-icons-round menu-icon">home</span>
+            <h3>Home</h3>
+        </a>
+        <a class="white-text menu-square" href="#">
+            <span class="material-icons-round menu-icon">leaderboard</span>
+            <h3>Leaderboard</h3>
+        </a>
+        <a class="white-text menu-square" href="#">
+            <span class="material-icons-round menu-icon">history</span>
+            <h3>Log History</h3>
+        </a>
+        <a class="white-text menu-square" href="#">
+            <span class="material-icons-round menu-icon">help</span>
+            <h3>Help</h3>
+        </a>
+        <a class="white-text menu-square" href="#">
+            <span class="material-icons-round menu-icon">person</span>
+            <h3>Account</h3>
+        </a>
+        <a class="white-text menu-square" href="#">
+            <span class="material-icons-round menu-icon">settings</span>
+            <h3>Settings</h3>
+        </a>
+
+    </div>
+</div>

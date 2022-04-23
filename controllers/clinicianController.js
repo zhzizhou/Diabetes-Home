@@ -53,7 +53,7 @@ const getHome = async (req, res) => {
                 patients[i].timeSeries[logItemId]['log'] = healthRecord[j]
             }
         }
-        res.render('patient-dashboard',{patients: patients, alert: alerts, comment: comments, 
+        res.render('clinician-dashboard',{patients: patients, alert: alerts, comment: comments, 
             totalPatient: patients.length, doctor: {givenName: 'Chris', familyName: 'Smith'}})
     } catch (err) {
         console.log(err)

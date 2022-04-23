@@ -2,10 +2,12 @@ const mongoose = require('mongoose')
 const HealthRecord = require('../models/healthRecord')
 const LogItem = require('../models/logItem')
 const expressValidator = require('express-validator')
+const { render } = require('express/lib/response')
 
 const getHome = async(req, res) => {
     res.send('GET Home')
-        //TODO
+    // patient dashboard.html
+    render('patient-dashboard')
 }
 
 const getLeaderboard = async(req, res) => {
