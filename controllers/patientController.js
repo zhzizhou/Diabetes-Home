@@ -23,35 +23,40 @@ const getLogPage = async(req, res) => {
     console.log('GET Patient LogPage')
 
     var pID = "625e1e3d67c164c3d21e5bce"
+
     var logName
     var logIcon
+    var placeHolder
     var when = moment(new Date()).format('D/M/YY H:mm:ss')
-
-    console.log(req.params.id)
 
     if (req.params.id != '') {
         switch (req.params.id) {
             case '1':
                 logName = "Weight"
                 logIcon = "scale"
+                placeHolder = "Kg"
                 break
             case '2':
                 logName = "Insulin Doses"
                 logIcon = "vaccines"
+                placeHolder = "Number-of-doses"
                 break
             case '3':
                 logName = "Exercise"
                 logIcon = "directions_run"
+                placeHolder = "Steps"
                 break
             case '4':
                 logName = "Blood Glucose Level"
                 logIcon = "bloodtype"
+                placeHolder = "mmol/L"
                 break
+            default:
+                return res.sendStatus(404)
         }
     } else {
         return res.sendStatus(404)
     }
-
 
     try {
         const patient = await Patient.findById(
@@ -68,6 +73,7 @@ const getLogPage = async(req, res) => {
             title: logName,
             icon: logIcon,
             time: when,
+            dataPlaceHolder: placeHolder,
             layout: 'patient-main'
         })
 
