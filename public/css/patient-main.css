@@ -2,7 +2,7 @@ body {
     background-color: white;
 }
 
-.leaderboard-body{
+.leaderboard-body {
     display: flex;
 }
 
@@ -178,9 +178,10 @@ a.white-text {
     border-radius: 0.5rem;
 }
 
-.nav-line{
+.nav-line {
     display: none;
 }
+
 
 /*Leaderboard*/
 
@@ -200,44 +201,45 @@ a.white-text {
 }
 
 .medal {
-    float: left; 
-    font-size: 60px; 
+    float: left;
+    font-size: 60px;
     margin: -20px;
 }
 
-.leaderboard-box{
-    background-color:#f2f7ff; 
-    padding:1.5em; 
-    margin:1.5em; 
-    border-radius:20px; 
-    text-align:center;
+.leaderboard-box {
+    background-color: #f2f7ff;
+    padding: 1.5em;
+    margin: 1.5em;
+    border-radius: 20px;
+    text-align: center;
 }
 
 .leaderboard-table {
-    width: 95%; 
-    text-align:center;
+    width: 95%;
+    text-align: center;
     padding: 1em;
-    
 }
 
 .leaderboard-table th,
 .leaderboard-table td {
-    text-align:"center";
+    text-align: "center";
     vertical-align: middle;
 }
-.infobar{
+
+.infobar {
     display: none;
 }
 
-.leaderboard-container{
+.leaderboard-container {
     width: 100%;
     text-align: center;
 }
 
+
 /*ENTER TIME SERIES*/
 
-.ts-body{
-    display:grid;
+.ts-body {
+    display: grid;
 }
 
 .page-title-and-nav {
@@ -317,6 +319,19 @@ input.enter-data-box:focus {
     width: 40rem;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Firefox */
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 @media screen and (max-width: 1900px) {
     .my-checklist {
         width: 30rem;
@@ -334,10 +349,9 @@ input.enter-data-box:focus {
         background-color: white;
         display: block;
     }
-    .leaderboard-body{
+    .leaderboard-body {
         display: block;
     }
-
     nav {
         display: none !important;
     }

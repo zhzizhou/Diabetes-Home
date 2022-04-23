@@ -99,31 +99,33 @@
                     <h3 class="blue-text">{{title}}</h3>
                 </div>
             </div>
+                
+            <form method="post" action = "">
+                <div id="blue-main-page" class="centre-flex">
+                    <input style="display:none" type="Number" name="logItemId" value = {{id}}>
+                    <input style="display:none" type="mongoose.Schema.Types.ObjectId" name="patientId" value = {{thisPatient._id}}>
 
-            <div id="blue-main-page" class="centre-flex">
-
-                <input class="enter-data-box" type="text" placeholder={{dataPlaceHolder}}>
-
-                <div class="date-time-container">
-                    <div class="page-title-icon">
-                        <span class="material-icons-round blue-text">schedule</span>
-                        <p>Time</p>
+                    <input class="enter-data-box" type="Number" name="value" placeholder={{dataPlaceHolder}}>
+                    <div class="date-time-container">
+                        <div class="page-title-icon">
+                            <span class="material-icons-round blue-text">schedule</span>
+                            <p>Time</p>
+                        </div>
+                        <p class="p-dark">{{time}}</p>
                     </div>
-                    <p class="p-dark">{{time}}</p>
+                    <div>
+                        <div class="page-title-icon on-top">
+                            <span class="material-icons-round blue-text">edit</span>
+                            <p>Notes</p>
+                        </div>
+
+                        <div class="notes-container">
+                            <textarea name = "notes" id="message-input" cols="30 " rows="10 ">Take a note of something...</textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="button button-width-20">Save</button>
                 </div>
-                <div>
-                    <div class="page-title-icon on-top">
-                        <span class="material-icons-round blue-text">edit</span>
-                        <p>Notes</p>
-                    </div>
-
-                    <div class="notes-container">
-                        <textarea id="message-input" cols="30 " rows="10 ">Take a note of something...</textarea>
-                    </div>
-                </div>
-
-                {{!-- How to submit? --}}
-                <a class="button button-width-20" href="">Save</a>
-            </div>
-
+            </form>
+    
     </main>
