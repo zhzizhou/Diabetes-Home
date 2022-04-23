@@ -174,6 +174,61 @@ a.white-text {
     border-radius: 0.5rem;
 }
 
+.nav-line{
+    display: none;
+}
+
+/*Leaderboard*/
+
+.record {
+    background-color: #ffffff;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding: 1em;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    -moz-box-shadow: 2px 2px 10px rgb(216, 216, 216);
+    -webkit-box-shadow: 2px 2px 10px rgb(216, 216, 216);
+    box-shadow: 2px 2px 10px rgb(204, 204, 204);
+    font-size: 18px;
+    text-align: center;
+}
+
+.medal {
+    float: left; 
+    font-size: 60px; 
+    margin: -20px;
+}
+
+.leaderboard-box{
+    background-color:#f2f7ff; 
+    padding:1.5em; 
+    margin:1.5em; 
+    border-radius:20px; 
+    text-align:center;
+}
+
+.leaderboard-table {
+    width: 95%; 
+    text-align:center;
+    padding: 1em;
+    
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+    text-align:"center";
+    vertical-align: middle;
+}
+.infobar{
+    display: none;
+}
+
+.leaderboard-container{
+    width: 100%;
+    text-align: center;
+}
 
 /*ENTER TIME SERIES*/
 
