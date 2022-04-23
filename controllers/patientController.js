@@ -96,6 +96,7 @@ const getLogPage = async(req, res) => {
             title: logName,
             icon: logIcon,
             time: when,
+            id: req.params.id,
             dataPlaceHolder: placeHolder,
             layout: 'patient-main'
         })

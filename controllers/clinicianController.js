@@ -3,7 +3,7 @@ const Patient = require('../models/patient')
 const HealthRecord = require('../models/healthRecord')
 const expressValidator = require('express-validator')
 const utility = require('../utils/utils')
-const moment = require('moment');
+const moment = require('moment')
 const bcrypt = require('bcryptjs')
 
 const getHome = async (req, res) => {
@@ -341,13 +341,54 @@ const addNotes = async (req, res) => {
 }
 
 const getTimeSeriesPage = async (req, res) => {
-    res.send('GET getTimeSeriesPage')
-    //TODO
+    console.log('GET getTimeSeriesPage')
+    const pid = req.params.id
+    try {
+        const onePatient = await Patient.findOne({
+            _id: pid
+        }, {
+            givenName: true,
+            familyName: true,
+            timeSeries: true
+        }).lean()
+
+        console.log(onePatient)
+
+        res.render('edit-ts', {
+            patient: onePatient,
+            layout: 'clinician-main',
+            doctor: {
+                givenName: 'Chris',
+                familyName: 'Smith'
+            }
+        })
+    } catch {
+        res.send('patient not found')
+    }
 }
 
 const updateTimeSeries = async (req, res) => {
-    res.send('PUT updateTimeSeries')
-    //TODO
+    var newTimeSeries = []
+    for(let i = 0; i < 4; i++){
+        var item = {
+            logItem: req.body.itemName[i],
+            lowerLimit: Number(req.body.lowerLimit[i]),
+            upperLimit: Number(req.body.upperLimit[i]),
+        }
+        if(req.body.hasOwnProperty('checkbox' + i)){
+            item['activated'] = true
+        }else{
+            item['activated'] = false
+        }
+        newTimeSeries.push(item)
+    }
+    console.log(newTimeSeries)
+    try{
+        await Patient.findByIdAndUpdate({'_id': req.params.id},{timeSeries: newTimeSeries})
+        res.send('Update time series successful')
+    }catch{
+        res.send('Update fail')
+    }
 }
 
 const getPatientDetail = async (req, res) => {
