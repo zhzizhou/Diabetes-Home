@@ -241,6 +241,8 @@ a.white-text {
 
 .ts-body {
     display: grid;
+    background-color: white;
+    grid-row-gap: 1rem;
 }
 
 .ts-container{
@@ -438,7 +440,7 @@ input[type=number] {
         background-color: var(--light-blue);
         box-shadow: none;
     }
-    
+
     #blue-main-page {
         width: 1050px;
         box-shadow: none;
