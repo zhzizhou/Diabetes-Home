@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const HealthRecord = require('../models/healthRecord')
 const Patient = require('../models/patient')
+const Doctor = require('../models/clinician')
 const moment = require('moment')
 const expressValidator = require('express-validator')
 
@@ -8,11 +9,25 @@ const getHome = async(req, res) => {
     //return res.render("patient-dashboard")
     console.log("GET Patient Dashboard Home page")
     var pID = "625e1e3d67c164c3d21e5bce" // Pat hardcoded
+    var dID = "625e240b01e5ce1b9ef808e9" // doctor smith hardcoded
 
     try {
-        res.render('patient-dashboard')
-    }catch(err){
-        console.log(err)
+        const patient = await Patient.findById(pID).lean()
+        const doctor = await Doctor.findById(dID).lean()
+        if (!patient || !doctor) {
+            return res.sendStatus(404)
+        }
+
+
+        //found patient
+        return res.render('patient-dashboard', {
+            layout: 'patient-main',
+            patient: patient,
+            doctor: doctor
+        })
+
+    } catch (err) {
+        return next(err)
     }
 
 }
