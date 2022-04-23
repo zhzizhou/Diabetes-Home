@@ -1,4 +1,8 @@
-
+body {
+    display: flex;
+    gap: 3em;
+    background-color: var(--light-grey-background)
+}
 
 .nav-placeholder {
     min-width: 23%;

@@ -1,28 +1,47 @@
 const mongoose = require('mongoose')
 const HealthRecord = require('../models/healthRecord')
+const LogItem = require('../models/logItem')
 const expressValidator = require('express-validator')
 
-const getHome = async (req, res) => {
+const getHome = async(req, res) => {
     res.send('GET Home')
-    //TODO
+        //TODO
 }
 
-const getLeaderboard = async (req, res) => {
+const getLeaderboard = async(req, res) => {
     res.send('GET Leaderboard')
-    //TODO
+        //TODO
 }
 
-const getLogHistory = async (req, res) => {
+const getLogHistory = async(req, res) => {
     res.send('GET LogHistory')
-    //TODO
+        //TODO
 }
 
-const getLogPage = async (req, res) => {
-    res.send('GET LogPage')
-    //TODO
+const getLogPage = async(req, res) => {
+    console.log('GET Patient LogPage')
+
+    try {
+        const logItem = await LogItem.findById(
+            // req.params.logItemId
+            // "625e240b01e5ce1b9ef808e9"
+        ).lean()
+
+        if (!logItem) {
+            return res.sendStatus(404)
+        }
+
+        //found clinician
+        return res.render('patient-enter-ts', {
+            thisLogItem: logItem
+        })
+
+    } catch (err) {
+        return next(err)
+    }
 }
 
-const insertLog = async (req, res) => {
+const insertLog = async(req, res) => {
     /**
      * patient/log/1 WEIGHT
      * patient/log/2 INSULIN DOSES
@@ -43,39 +62,39 @@ const insertLog = async (req, res) => {
         .catch((err) => res.send(err))
 }
 
-const getProfile = async (req, res) => {
+const getProfile = async(req, res) => {
     res.send('GET Profile')
-    //TODO
+        //TODO
 }
 
-const getEditPage = async (req, res) => {
+const getEditPage = async(req, res) => {
     res.send('GET EditPage')
-    //TODO
+        //TODO
 }
 
-const updateProfile = async (req, res) => {
+const updateProfile = async(req, res) => {
     res.send('PUT updateProfile')
-    //TODO
+        //TODO
 }
 
-const getSettings = async (req, res) => {
+const getSettings = async(req, res) => {
     res.send('GET Settings')
-    //TODO
+        //TODO
 }
 
-const updateSettings = async (req, res) => {
+const updateSettings = async(req, res) => {
     res.send('PUT Settings')
-    //TODO
+        //TODO
 }
 
-const getLoginPage = async (req, res) => {
+const getLoginPage = async(req, res) => {
     res.send('GET LoginPage')
-    //TODO
+        //TODO
 }
 
-const patientLogin = async (req, res) => {
+const patientLogin = async(req, res) => {
     res.send('POST patientLogin')
-    //TODO
+        //TODO
 }
 
 module.exports = {

@@ -49,6 +49,7 @@
 
 #menu-opener {
     font-size: 45px;
+    text-align: left;
 }
 
 @media screen and (max-width: 1050px) {
@@ -69,12 +70,13 @@
 @media screen and (max-width: 380px) {
     .grid-menu {
         grid-template-columns: 1fr 1fr;
-        gap: 2rem;
+        gap: 0.5rem;
         margin:0;
     }
 
     .menu-square {
         padding: 2rem 0;
+        max-width: 10rem;
     }
     
     .menu-container {
