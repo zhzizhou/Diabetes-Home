@@ -5,9 +5,15 @@ const expressValidator = require('express-validator')
 const { render } = require('express/lib/response')
 
 const getHome = async(req, res) => {
-    res.send('GET Home')
-    // patient dashboard.html
-    render('patient-dashboard')
+    //res.send('GET Home')
+    try{
+        res.render('patient-dashboard')
+    }catch(err){
+        console.log(err)
+    }
+    
+    
+    
 }
 
 const getLeaderboard = async(req, res) => {
