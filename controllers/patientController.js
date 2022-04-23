@@ -48,6 +48,8 @@ const getLogPage = async(req, res) => {
                 logIcon = "bloodtype"
                 break
         }
+    } else {
+        return res.sendStatus(404)
     }
 
 
@@ -59,8 +61,6 @@ const getLogPage = async(req, res) => {
         if (!patient) {
             return res.sendStatus(404)
         }
-
-
 
         //found patient
         return res.render('patient-enter-hs', {
