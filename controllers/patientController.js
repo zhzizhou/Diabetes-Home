@@ -5,8 +5,16 @@ const moment = require('moment')
 const expressValidator = require('express-validator')
 
 const getHome = async(req, res) => {
-    res.send('GET Home')
-        //TODO
+    //return res.render("patient-dashboard")
+    console.log("GET Patient Dashboard Home page")
+    var pID = "625e1e3d67c164c3d21e5bce" // Pat hardcoded
+
+    try {
+        res.render('patient-dashboard')
+    }catch(err){
+        console.log(err)
+    }
+
 }
 
 const getLeaderboard = async(req, res) => {
