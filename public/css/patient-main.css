@@ -32,7 +32,7 @@ body {
 .dashboard-right {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
 }
 
 input[type=checkbox] {
@@ -238,8 +238,15 @@ a.white-text {
 
 /*ENTER TIME SERIES*/
 
+<<<<<<< HEAD
 .ts-body {
     display: grid;
+=======
+.ts-body{
+    display:grid;
+    background-color: white;
+    grid-row-gap: 1rem;
+>>>>>>> 579423082cdd73dfea0663810a5d4bf8ea4850af
 }
 
 .page-title-and-nav {
@@ -435,9 +442,7 @@ input[type=number] {
         background-color: var(--light-blue);
         box-shadow: none;
     }
-    .square-menu {
-        margin-right: 1em;
-    }
+    
     #blue-main-page {
         width: 1050px;
         box-shadow: none;
