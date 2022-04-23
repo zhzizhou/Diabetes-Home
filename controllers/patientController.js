@@ -24,6 +24,7 @@ const getLogPage = async(req, res) => {
 
     var pID = "625e1e3d67c164c3d21e5bce"
     var logName
+    var logIcon
     var when = moment(new Date()).format('D/M/YY H:mm:ss')
 
     console.log(req.params.id)
@@ -32,17 +33,23 @@ const getLogPage = async(req, res) => {
         switch (req.params.id) {
             case '1':
                 logName = "Weight"
+                logIcon = "scale"
                 break
             case '2':
                 logName = "Insulin Doses"
+                logIcon = "vaccines"
                 break
             case '3':
                 logName = "Exercise"
+                logIcon = "directions_run"
                 break
             case '4':
-                logName = "Blood Glucose Leve"
+                logName = "Blood Glucose Level"
+                logIcon = "bloodtype"
                 break
         }
+    } else {
+        return res.sendStatus(404)
     }
 
 
@@ -55,12 +62,11 @@ const getLogPage = async(req, res) => {
             return res.sendStatus(404)
         }
 
-
-
         //found patient
         return res.render('patient-enter-hs', {
             thisPatient: patient,
             title: logName,
+            icon: logIcon,
             time: when,
             layout: 'patient-main'
         })
