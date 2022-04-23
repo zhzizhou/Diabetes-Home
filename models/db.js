@@ -25,8 +25,6 @@ db.once('open', async() => {
 
 require('./patient')
 require('./clinician')
-require('./logItem')
-require('./timeSeries')
 require('./healthRecord')
 require('./support')
 require('./notes')
