@@ -78,7 +78,8 @@ const getProfile = async (req, res) => {
     try {
         const clinician = await Clinician.findById(
             // req.params.clinician_id
-            "625e240b01e5ce1b9ef808e9"
+            // hard codede clinician
+            '625e240b01e5ce1b9ef808e9'
         ).lean()
 
         if (!clinician) {

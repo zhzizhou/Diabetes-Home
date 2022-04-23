@@ -2,6 +2,10 @@ body {
     background-color: white;
 }
 
+.leaderboard-body{
+    display: flex;
+}
+
 #responsive-nav {
     display: none;
     position: absolute;
@@ -12,6 +16,7 @@ body {
     display: flex;
     flex-direction: row;
     gap: 3rem;
+    padding-top: 5rem;
 }
 
 .space-between {
@@ -28,7 +33,7 @@ body {
 .dashboard-right {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
 }
 
 input[type=checkbox] {
@@ -232,6 +237,16 @@ a.white-text {
 
 /*ENTER TIME SERIES*/
 
+.ts-body{
+    display:grid;
+    background-color: white;
+    grid-row-gap: 1rem;
+}
+
+.ts-container{
+    padding-top: 2rem;
+}
+
 .page-title-and-nav {
     display: flex;
     flex-direction: row;
@@ -313,9 +328,7 @@ input.enter-data-box:focus {
     .my-checklist {
         width: 30rem;
     }
-    .dashboard-container {
-        margin-right: 3rem;
-    }
+
     .top-page {
         gap: 40rem;
     }
@@ -326,6 +339,10 @@ input.enter-data-box:focus {
         background-color: white;
         display: block;
     }
+    .leaderboard-body{
+        display: block;
+    }
+
     nav {
         display: none !important;
     }
@@ -343,7 +360,7 @@ input.enter-data-box:focus {
         display: block;
     }
     .page-padding {
-        padding: 2rem;
+        padding: 2rem 2rem 0 2rem;
         width: 100%
     }
     .inside-left {
@@ -409,9 +426,7 @@ input.enter-data-box:focus {
         background-color: var(--light-blue);
         box-shadow: none;
     }
-    .square-menu {
-        margin-right: 1em;
-    }
+
     #blue-main-page {
         width: 1050px;
         box-shadow: none;
@@ -428,6 +443,9 @@ input.enter-data-box:focus {
     }
     .centre-flex {
         gap: 2rem;
+    }
+    .ts-container{
+        padding-top: 0;
     }
 }
 
@@ -510,7 +528,7 @@ input.enter-data-box:focus {
         margin: 2em 1em 1em 2em;
     }
     #blue-main-page {
-        width: 375px;
+        width: 100%;
     }
     .page-title-and-nav {
         width: 375px;

@@ -1,10 +1,35 @@
 const mongoose = require('mongoose')
 const HealthRecord = require('../models/healthRecord')
+const Patient = require('../models/patient')
+const Doctor = require('../models/clinician')
+const moment = require('moment')
 const expressValidator = require('express-validator')
 
 const getHome = async(req, res) => {
-    res.send('GET Home')
-        //TODO
+    //return res.render("patient-dashboard")
+    console.log("GET Patient Dashboard Home page")
+    var pID = "625e1e3d67c164c3d21e5bce" // Pat hardcoded
+    var dID = "625e240b01e5ce1b9ef808e9" // doctor smith hardcoded
+
+    try {
+        const patient = await Patient.findById(pID).lean()
+        const doctor = await Doctor.findById(dID).lean()
+        if (!patient || !doctor) {
+            return res.sendStatus(404)
+        }
+
+
+        //found patient
+        return res.render('patient-dashboard', {
+            layout: 'patient-main',
+            patient: patient,
+            doctor: doctor
+        })
+
+    } catch (err) {
+        return next(err)
+    }
+
 }
 
 const getLeaderboard = async(req, res) => {
@@ -20,19 +45,60 @@ const getLogHistory = async(req, res) => {
 const getLogPage = async(req, res) => {
     console.log('GET Patient LogPage')
 
+    var pID = "625e1e3d67c164c3d21e5bce"
+
+    var logName
+    var logIcon
+    var placeHolder
+    var when = moment(new Date()).format('D/M/YY H:mm:ss')
+
+    if (req.params.id != '') {
+        switch (req.params.id) {
+            case '1':
+                logName = "Weight"
+                logIcon = "scale"
+                placeHolder = "Kg"
+                break
+            case '2':
+                logName = "Insulin Doses"
+                logIcon = "vaccines"
+                placeHolder = "Number-of-doses"
+                break
+            case '3':
+                logName = "Exercise"
+                logIcon = "directions_run"
+                placeHolder = "Steps"
+                break
+            case '4':
+                logName = "Blood Glucose Level"
+                logIcon = "bloodtype"
+                placeHolder = "mmol/L"
+                break
+            default:
+                return res.sendStatus(404)
+        }
+    } else {
+        return res.sendStatus(404)
+    }
+
     try {
-        const logItem = await LogItem.findById(
-            // req.params.logItemId
-            // "625e240b01e5ce1b9ef808e9"
+        const patient = await Patient.findById(
+            pID
         ).lean()
 
-        if (!logItem) {
+        if (!patient) {
             return res.sendStatus(404)
         }
 
-        //found clinician
-        return res.render('patient-enter-ts', {
-            thisLogItem: logItem
+        //found patient
+        return res.render('patient-enter-hs', {
+            thisPatient: patient,
+            title: logName,
+            icon: logIcon,
+            time: when,
+            id: req.params.id,
+            dataPlaceHolder: placeHolder,
+            layout: 'patient-main'
         })
 
     } catch (err) {

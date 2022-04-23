@@ -2,6 +2,10 @@ body {
     background-color: white;
 }
 
+.leaderboard-body {
+    display: flex;
+}
+
 #responsive-nav {
     display: none;
     position: absolute;
@@ -28,7 +32,7 @@ body {
 .dashboard-right {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
 }
 
 input[type=checkbox] {
@@ -174,9 +178,10 @@ a.white-text {
     border-radius: 0.5rem;
 }
 
-.nav-line{
+.nav-line {
     display: none;
 }
+
 
 /*Leaderboard*/
 
@@ -196,40 +201,53 @@ a.white-text {
 }
 
 .medal {
-    float: left; 
-    font-size: 60px; 
+    float: left;
+    font-size: 60px;
     margin: -20px;
 }
 
-.leaderboard-box{
-    background-color:#f2f7ff; 
-    padding:1.5em; 
-    margin:1.5em; 
-    border-radius:20px; 
-    text-align:center;
+.leaderboard-box {
+    background-color: #f2f7ff;
+    padding: 1.5em;
+    margin: 1.5em;
+    border-radius: 20px;
+    text-align: center;
 }
 
 .leaderboard-table {
-    width: 95%; 
-    text-align:center;
+    width: 95%;
+    text-align: center;
     padding: 1em;
-    
 }
 
 .leaderboard-table th,
 .leaderboard-table td {
-    text-align:"center";
+    text-align: "center";
     vertical-align: middle;
 }
-.infobar{
+
+.infobar {
     display: none;
 }
 
-.leaderboard-container{
+.leaderboard-container {
     width: 100%;
     text-align: center;
 }
+
+
 /*ENTER TIME SERIES*/
+
+<<<<<<< HEAD
+.ts-body {
+    display: grid;
+=======
+.ts-body{
+    display:grid;
+    background-color: white;
+    grid-row-gap: 1rem;
+>>>>>>> 579423082cdd73dfea0663810a5d4bf8ea4850af
+}
 
 .page-title-and-nav {
     display: flex;
@@ -308,6 +326,19 @@ input.enter-data-box:focus {
     width: 40rem;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Firefox */
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 @media screen and (max-width: 1900px) {
     .my-checklist {
         width: 30rem;
@@ -323,6 +354,9 @@ input.enter-data-box:focus {
 @media screen and (max-width: 1050px) {
     body {
         background-color: white;
+        display: block;
+    }
+    .leaderboard-body {
         display: block;
     }
     nav {
@@ -408,9 +442,7 @@ input.enter-data-box:focus {
         background-color: var(--light-blue);
         box-shadow: none;
     }
-    .square-menu {
-        margin-right: 1em;
-    }
+    
     #blue-main-page {
         width: 1050px;
         box-shadow: none;

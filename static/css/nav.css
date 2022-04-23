@@ -1,16 +1,12 @@
 body {
-    display: flex;
     gap: 3em;
-    background-color: var(--light-grey-background)
+    background-color: var(--light-grey-background);
+    display: flex;
 }
 
 .nav-placeholder {
     min-width: 23%;
     max-width: 23%;
-}
-
-main {
-    padding: 2.5em 0 0 0;
 }
 
 nav {

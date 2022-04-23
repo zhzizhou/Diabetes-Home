@@ -1,85 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../static/css/reset.css">
-    <link rel="stylesheet" href="https://use.typekit.net/cxa4uzj.css">
-    <link rel="stylesheet" href="../../static/css/font.css">
-    <link rel="stylesheet" href="../../static/css/colour.css">
-    <link rel="stylesheet" href="../../static/css/nav.css">
-    <link rel="stylesheet" href="../../static/css/patient-main.css">
-    <link rel="stylesheet" href="../../static/css/hamburger-nav.css">
-
-    
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Round" rel="stylesheet">
-    
-    <script>
-    function openMenu() {
-      document.getElementById("responsive-nav").style.display = "flex";
-    }
-    
-    function closeMenu() {
-      document.getElementById("responsive-nav").style.display = "none";
-    }
-    </script>
-
-    <title>Home</title>
-</head>
 
 <body>
-    <div id="responsive-nav" class="menu-container responsive-nav">
-        <div class="responsive-nav-top">
-            <img class="small-logo" src="../../static/images/white-logo.svg" alt="">
-            <span onclick="closeMenu()" class="material-icons-round white-text" id="menu-opener">apps</span>
-        </div>
-        <div class="grid-menu white-text">
-            <a class="white-text menu-square" href="#">
-                <span class="material-icons-round menu-icon">home</span>
-                <h3>Home</h3>
-            </a>
-            <a class="white-text menu-square" href="#">
-                <span class="material-icons-round menu-icon">leaderboard</span>
-                <h3>Leaderboard</h3>
-            </a>
-            <a class="white-text menu-square" href="#">
-                <span class="material-icons-round menu-icon">history</span>
-                <h3>Log History</h3>
-            </a>
-            <a class="white-text menu-square" href="#">
-                <span class="material-icons-round menu-icon">help</span>
-                <h3>Help</h3>
-            </a>
-            <a class="white-text menu-square" href="#">
-                <span class="material-icons-round menu-icon">person</span>
-                <h3>Account</h3>
-            </a>
-            <a class="white-text menu-square" href="#">
-                <span class="material-icons-round menu-icon">settings</span>
-                <h3>Settings</h3>
-            </a>
-
-        </div>
-    </div>
 
     <div class="page-padding">
 
         <div class="responsive-nav responsive-nav-top">
-            <a href="index.html"><img class="small-logo" src="../../static/images/logo.svg" alt=""></a>
-            <div onclick="openMenu()" class="square-menu">
+            <a href="index.html"><img class="small-logo" src="/images/logo.svg" alt=""></a>
+            {{!-- <div onclick="openMenu()" class="square-menu">
                 <span class="material-icons-round blue-text" id="menu-opener">apps</span>
-            </div>
+            </div> --}}
         </div>
 
         <div class="nav-placeholder">
             <nav>
                 <div class="nav-top">
-                    <img class="small-logo" src="../../static/images/logo.svg" alt="">
+                    <img class="small-logo" src="/images/logo.svg" alt="">
                     <div class="menu-item-layout">
-                        <img src="../../static/images/patient-profile-pic.svg" alt="profile picture">
-                        <h3>Mary Shelley</h3>
+                        <img src="/images/patient-profile-pic.svg" alt="profile picture">
+                        <h3>{{patient.givenName}} {{patient.familyName}}</h3>
                     </div>
                     <div class="menu-section">
                         <a href="#" class="menu-item-layout menu-item selected">
@@ -120,18 +58,18 @@
 
             <div class="dashboard-right">
                 <div class="top-page">
-                    <h1 class="page-title">Welcome Back Mary</h1>
-                    <img src="../../static/images/badge.svg" alt="">
+                    <h1 class="page-title">Welcome Back, {{patient.nickName}}</h1>
+                    <img src="/images/badge.svg" alt="">
                 </div>
     
                 <div class="main-content space-between">
                     <div class="inside-left">
                         <div class="doctor-comment-box">
                             <div class="doctor-details">
-                                <img src="../../static/images/clinitian-profile-pic.svg" alt="profile picture">
-                                <p>Dr. Smith</p>
+                                <img src="/images/clinitian-profile-pic.svg" alt="profile picture">
+                                <p>Dr. {{doctor.familyName}}</p>
                             </div>
-                            <p class="p-dark doctor-comment">“Hi Mary, great day for exercising today! Keep up the good work
+                            <p class="p-dark doctor-comment">“Hi {{patient.givenName}}, great day for exercising today! Keep up the good work
                                 😊.”</p>
                         </div>
     
@@ -147,7 +85,7 @@
                     <div>
                         <div class="my-checklist">
                             <h4>My Checklist</h4>
-                            <a href="enter-ts.html" class="checklist-item space-between">
+                            <a href="../patient/log/1" class="checklist-item space-between">
                                 <div class="checklist-left space-between">
                                     <div class="checkbox"></div>
                                     <span class="data-icon material-icons-round blue-text">scale</span>
@@ -157,7 +95,7 @@
                                     <span class="material-icons-round blue-text ">navigate_next</span>
                                 </div>
                             </a>
-                            <div class="checklist-item space-between">
+                            <a href="../patient/log/2" class="checklist-item space-between">
                                 <div class="checklist-left space-between">
                                     <div class="checkbox"></div>
                                     <span class="data-icon material-icons-round blue-text">vaccines</span>
@@ -166,11 +104,11 @@
                                 <div>
                                     <span class="material-icons-round blue-text">navigate_next</span>
                                 </div>
-                            </div>
-                            <div class="checklist-item space-between filled">
+                            </a>
+                            <a href="../patient/log/3" class="checklist-item space-between filled">
                                 <div class="checklist-left space-between">
                                     <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
-                                    <span class="material-icons-round blue-text data-icon">directions_walk</span>
+                                    <span class="material-icons-round blue-text data-icon">directions_run</span>
                                     <div>
                                         <p>Number of steps</p>
                                         <h3>9324 Steps</h3>
@@ -180,11 +118,11 @@
                                     <h4>8:00pm</h4>
                                     <span class="material-icons-round blue-text">navigate_next</span>
                                 </div>
-                            </div>
-                            <div class="checklist-item space-between filled">
+                            </a>
+                            <a href="../patient/log/4" class="checklist-item space-between filled">
                                 <div class="checklist-left space-between">
                                     <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
-                                    <span class="material-icons-round blue-text data-icon">timeline</span>
+                                    <span class="material-icons-round blue-text data-icon">bloodtype</span>
                                     <div>
                                         <p>Blood gluecose Level</p>
                                         <h3>7.8 mmol/L</h3>
@@ -194,7 +132,7 @@
                                     <h4>2:28pm</h4>
                                     <span class="material-icons-round blue-text">navigate_next</span>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
     
@@ -206,5 +144,3 @@
 
     </div>
 </body>
-
-</html>
