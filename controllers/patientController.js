@@ -1,7 +1,10 @@
 const mongoose = require('mongoose')
 const HealthRecord = require('../models/healthRecord')
+<<<<<<< HEAD
 const Patient = require('../models/patient')
 const moment = require('moment')
+=======
+>>>>>>> 964ec439c71e9f8babbc03ac2fe295068d025f2b
 const expressValidator = require('express-validator')
 
 const getHome = async(req, res) => {
