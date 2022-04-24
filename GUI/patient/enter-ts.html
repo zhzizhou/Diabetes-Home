@@ -24,6 +24,16 @@
         function closeMenu() {
             document.getElementById("responsive-nav").style.display = "none";
         }
+
+        function showModel() {
+            var model = document.getElementById("successful-update-data");
+            model.style.display = "block";
+        }
+
+        function closeModel() {
+            var model = document.getElementById("successful-update-data");
+            model.style.display = "none";
+        }
     </script>
 
     <title>Home</title>
@@ -138,6 +148,15 @@
                     </div>
                     <p class="p-dark">10/3/22, 8:15pm</p>
                 </div>
+
+                <div class="pop-up-background" id="successful-update-data" style="display: block;">
+                    <div class="pop-up-container">
+                        <h3>Keep up the good work!</h3>
+                        <span class="button button-width-20" onclick="closeModel()">Dismiss</button>
+                    </div>
+                </div>
+
+
                 <div>
                     <div class="page-title-icon on-top">
                         <span class="material-icons-round blue-text">edit</span>
@@ -150,11 +169,8 @@
                         <textarea id="message-input" cols="30 " rows="10 ">Take a note of something...</textarea>
                     </div>
                 </div>
-                <a class="button button-width-20" href="">Save</a>
+                <button type="submit" class="button button-width-20" onclick="showModel()">Save</button>
             </div>
-
-
-
         </div>
 
     </main>

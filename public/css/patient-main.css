@@ -16,6 +16,7 @@ body {
     display: flex;
     flex-direction: row;
     gap: 3rem;
+    padding-top: 5rem;
 }
 
 .space-between {
@@ -238,15 +239,14 @@ a.white-text {
 
 /*ENTER TIME SERIES*/
 
-<<<<<<< HEAD
 .ts-body {
     display: grid;
-=======
-.ts-body{
-    display:grid;
     background-color: white;
     grid-row-gap: 1rem;
->>>>>>> 579423082cdd73dfea0663810a5d4bf8ea4850af
+}
+
+.ts-container{
+    padding-top: 2rem;
 }
 
 .page-title-and-nav {
@@ -343,9 +343,7 @@ input[type=number] {
     .my-checklist {
         width: 30rem;
     }
-    .dashboard-container {
-        margin-right: 3rem;
-    }
+
     .top-page {
         gap: 40rem;
     }
@@ -376,7 +374,7 @@ input[type=number] {
         display: block;
     }
     .page-padding {
-        padding: 2rem;
+        padding: 2rem 2rem 0 2rem;
         width: 100%
     }
     .inside-left {
@@ -442,7 +440,7 @@ input[type=number] {
         background-color: var(--light-blue);
         box-shadow: none;
     }
-    
+
     #blue-main-page {
         width: 1050px;
         box-shadow: none;
@@ -459,6 +457,9 @@ input[type=number] {
     }
     .centre-flex {
         gap: 2rem;
+    }
+    .ts-container{
+        padding-top: 0;
     }
 }
 
@@ -541,7 +542,7 @@ input[type=number] {
         margin: 2em 1em 1em 2em;
     }
     #blue-main-page {
-        width: 375px;
+        width: 100%;
     }
     .page-title-and-nav {
         width: 375px;

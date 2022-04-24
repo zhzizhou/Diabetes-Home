@@ -99,6 +99,14 @@
                     <h3 class="blue-text">{{title}}</h3>
                 </div>
             </div>
+
+            <div id="successful-update-data" style="display: none;">
+                <div class="pop-up-container">
+                    <p>Keep up the good work!</p>
+                    <button class="button button-width-20" onclick="closeModel">Dismiss</button>
+                </div>
+            </div>
+            
                 
             <form method="post" action = "">
                 <div id="blue-main-page" class="centre-flex">
@@ -124,8 +132,20 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="button button-width-20">Save</button>
+                    <button type="submit" class="button button-width-20" onclick="showModel()">Save</button>
                 </div>
             </form>
     
     </main>
+
+    <script>
+        function showModel(){
+            var model = document.getElementById("successful-update-data");
+            model.style.display = "block";
+        }
+
+        function closeModel(){
+            var model = document.getElementById("successful-update-data");
+            model.style.display = "none";
+        }
+    </script>
