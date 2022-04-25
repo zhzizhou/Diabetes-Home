@@ -8,7 +8,7 @@ const expressValidator = require('express-validator')
 const getHome = async(req, res) => {
     //return res.render("patient-dashboard")
     console.log("GET Patient Dashboard Home page")
-    var pID = "625e1e3d67c164c3d21e5bce" // Pat hardcoded
+    var pID = "625e1e3d67c164c3d21e5bce" // patient Pat hardcoded
     var dID = "625e240b01e5ce1b9ef808e9" // doctor smith hardcoded
 
     try {
