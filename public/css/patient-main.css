@@ -240,9 +240,7 @@ a.white-text {
 /*ENTER TIME SERIES*/
 
 .ts-body {
-    display: grid;
-    background-color: white;
-    grid-row-gap: 1rem;
+    display: block;
 }
 
 .ts-container {
