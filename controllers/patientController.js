@@ -113,8 +113,8 @@ const insertLog = async(req, res) => {
      * patient/log/3 EXERCISE
      * patient/log/4 BLOOD GLUCOSE LEVEL
      */
-    // console.log(req.body)
-    // console.log(req.params.id)
+    console.log(req.body)
+    console.log(req.params.id)
     const newHealthRecord = new HealthRecord({
         logItemId: req.params.id,
         patientId: req.body.patientId,
