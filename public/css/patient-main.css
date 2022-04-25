@@ -1,7 +1,9 @@
 body {
     background-color: white;
 }
-
+.dashboard-body {
+    display: flex;
+}
 .leaderboard-body {
     display: flex;
 }
@@ -15,8 +17,7 @@ body {
 .dashboard-container {
     display: flex;
     flex-direction: row;
-    gap: 3rem;
-    padding-top: 5rem;
+    padding: 3rem;
 }
 
 .space-between {
@@ -101,7 +102,6 @@ a.white-text {
     padding: 1rem;
     border-radius: 5rem;
     box-shadow: 2px 2px 3px var(--box-shadow);
-    width: 93%;
 }
 
 .my-checklist {
@@ -157,7 +157,6 @@ a.white-text {
     flex-direction: column;
     gap: 4rem;
     width: 40%;
-    margin-right: 3rem;
 }
 
 .my-stats {
@@ -388,16 +387,15 @@ input[type=number] {
     }
     .dashboard-container {
         display: block;
+        padding: 0;
     }
     .page-padding {
         padding: 2rem 2rem 0 2rem;
-        width: 100%
     }
     .inside-left {
         flex-direction: row;
-        padding-bottom: 2rem;
-        margin: auto;
-        width: 61rem;
+        padding-bottom: 3rem;
+        width: 85%;
     }
     .doctor-comment {
         background-color: var(--light-grey-background);
@@ -479,19 +477,12 @@ input[type=number] {
 }
 
 @media screen and (max-width: 550px) {
-    .page-title {
-        width: 60%;
-        font-size: 24pt;
-    }
+
     .doctor-comment-box {
         width: 100%;
     }
     .my-stats {
         width: 90%;
-    }
-    .inside-left {
-        flex-direction: column;
-        width: 100%
     }
     .dashboard-box {
         width: 100%;
@@ -506,6 +497,17 @@ input[type=number] {
 }
 
 @media screen and (max-width: 380px) {
+    .space-between{
+        align-items: baseline;
+    }
+    .page-title {
+        width: 60%;
+        font-size: 24pt;
+    }
+    .inside-left {
+        flex-direction: column;
+        width: 100%;
+    }
     .my-stats {
         width: 100%;
     }
@@ -526,7 +528,6 @@ input[type=number] {
     }
     .my-checklist {
         width: 375px;
-        padding-left: 3rem;
         border-radius: 0;
     }
     .checklist-left {
