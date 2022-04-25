@@ -1,7 +1,8 @@
 body {
     gap: 3em;
     background-color: var(--light-grey-background);
-    display: flex;
+    /* Problem */
+    /* display: flex; */
 }
 
 .nav-placeholder {
@@ -17,7 +18,9 @@ nav {
     background-color: white;
     min-width: 20%;
     max-width: 20%;
-    height: 94.5vh;
+    /* Problem */
+    /* height: 94.5vh; */
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

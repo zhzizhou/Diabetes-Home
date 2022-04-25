@@ -24,6 +24,16 @@
         function closeMenu() {
             document.getElementById("responsive-nav").style.display = "none";
         }
+
+        function showModel() {
+            var model = document.getElementById("successful-update-data");
+            model.style.display = "block";
+        }
+
+        function closeModel() {
+            var model = document.getElementById("successful-update-data");
+            model.style.display = "none";
+        }
     </script>
 
     <title>Home</title>
@@ -138,23 +148,28 @@
                     </div>
                     <p class="p-dark">10/3/22, 8:15pm</p>
                 </div>
+
+                <div class="pop-up-container" id="successful-update-data">
+                    <img class="pop-up-image" src="../../static/images/clap.svg" alt="">
+                    <div class="pop-up-string">
+                        <h3>Keep up the good work!</h3>
+                    </div>
+                    <span class="button submit" onclick="closeModel()">Dismiss</button>
+                </div>
+
+
                 <div>
                     <div class="page-title-icon on-top">
                         <span class="material-icons-round blue-text">edit</span>
-                        <p>Notes</p>
-                    </div>
-                    <!-- <input class="notes-container" type="text" placeholder="Take a note of something...">
-                        </input> -->
-
-                    <div class="notes-container">
-                        <textarea id="message-input" cols="30 " rows="10 ">Take a note of something...</textarea>
-                    </div>
+                    <p>Notes</p>
                 </div>
-                <a class="button button-width-20" href="">Save</a>
+
+                <div class="notes-container">
+                    <textarea id="message-input" cols="30 " rows="10 ">Take a note of something...</textarea>
+                </div>
             </div>
-
-
-
+            <button type="submit" class="button button-width-20" onclick="showModel()">Save</button>
+        </div>
         </div>
 
     </main>

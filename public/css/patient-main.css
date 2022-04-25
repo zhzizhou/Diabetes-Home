@@ -245,7 +245,7 @@ a.white-text {
     grid-row-gap: 1rem;
 }
 
-.ts-container{
+.ts-container {
     padding-top: 2rem;
 }
 
@@ -313,6 +313,28 @@ input.enter-data-box:focus {
     resize: none;
 }
 
+.pop-up-container {
+    display: none;
+    position: fixed;
+    background-color: white;
+    border-radius: 1em;
+    box-shadow: 2px 2px 10px rgb(204, 204, 204);
+    text-align: center;
+    padding-top: 2em;
+    top: 40%;
+    width: 300px;
+    height: 325px;
+}
+
+.pop-up-image {
+    padding: 1em;
+}
+
+.pop-up-string {
+    padding-top: 1em;
+    padding-bottom: 2em;
+}
+
 .on-top {
     position: absolute;
     transform: translate(1rem, 1rem);
@@ -332,9 +354,6 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-
-/* Firefox */
-
 input[type=number] {
     -moz-appearance: textfield;
 }
@@ -343,7 +362,6 @@ input[type=number] {
     .my-checklist {
         width: 30rem;
     }
-
     .top-page {
         gap: 40rem;
     }
@@ -440,7 +458,6 @@ input[type=number] {
         background-color: var(--light-blue);
         box-shadow: none;
     }
-
     #blue-main-page {
         width: 1050px;
         box-shadow: none;
@@ -458,7 +475,7 @@ input[type=number] {
     .centre-flex {
         gap: 2rem;
     }
-    .ts-container{
+    .ts-container {
         padding-top: 0;
     }
 }
