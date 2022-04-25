@@ -2,10 +2,6 @@
     box-sizing: border-box 
  }
 
-body {
-    background-color: var(--light-grey-background);
-}
-
 .nav-placeholder {
     min-width: 23%;
     max-width: 23%;
@@ -26,6 +22,10 @@ nav {
     box-shadow: 2px 2px 3px var(--box-shadow);
     padding: 2rem;
     position: fixed;
+}
+
+.patient-nav {
+    background-color: var(--light-blue) ;
 }
 .nav-profile-pic {
     width: 4rem;

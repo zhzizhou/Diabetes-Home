@@ -1,6 +1,9 @@
 /*ALL PAGES*/
 body {
     display: flex;
+    background-color: var(--light-grey-background);
+    width: 100%;
+    justify-content:space-between;
 }
 .back-button {
     color: var(--dark-blue);
@@ -46,6 +49,7 @@ a {
     display: flex;
     flex-direction: column;
     gap: 2em;
+    width: 57.5rem;
 }
 
 .outer-container {
@@ -63,7 +67,7 @@ a {
 
 .overview-info {
     display: flex;
-    gap: 0.5em;
+    gap: 1em;
     align-items: center;
 }
 
@@ -109,7 +113,7 @@ a {
 .patient-record {
     border-radius: 20px;
     margin-top: 1em;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
     padding: 1.5em;
 }
 
@@ -117,6 +121,7 @@ a {
     border-radius: 3em;
     padding: 2em;
     margin-right: 2em;
+    width: 30em;
 }
 
 .selected-patient {
@@ -177,7 +182,7 @@ td {
 .my-patient-table {
     border-collapse: separate;
     border-spacing: 0 1em;
-    margin-top: -1em;
+    margin-top: 1em;
     font-size: 16px;
     width: 100%;
     height: 30px;

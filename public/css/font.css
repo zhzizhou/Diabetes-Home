@@ -48,3 +48,7 @@ h3 {
 .blue-text {
     color: var(--dark-blue);
 }
+
+.h3-size {
+    font-size: 24px;
+}
