@@ -1,7 +1,7 @@
 body {
-    display: flex;
     gap: 3em;
-    background-color: var(--light-grey-background)
+    background-color: var(--light-grey-background);
+    display: flex;
 }
 
 .nav-placeholder {

@@ -63,7 +63,7 @@ clinicianRouter.get(
 )
 
 //update a patient's time-series
-clinicianRouter.put(
+clinicianRouter.post(
     '/my-patient/:id/time-series',
     clinicianController.updateTimeSeries
 )

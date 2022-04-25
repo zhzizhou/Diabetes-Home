@@ -3,7 +3,7 @@ const Patient = require('../models/patient')
 const HealthRecord = require('../models/healthRecord')
 const expressValidator = require('express-validator')
 const utility = require('../utils/utils')
-const moment = require('moment');
+const moment = require('moment')
 const bcrypt = require('bcryptjs')
 
 const getHome = async (req, res) => {
@@ -28,33 +28,46 @@ const getHome = async (req, res) => {
             currentId = patients[i]._id;
             healthRecord = await HealthRecord.find({
                 patientId: currentId,
-                when: {$gte: new Date(now.getFullYear(), now.getMonth(), now.getDate())}
+                when: {
+                    $gte: new Date(now.getFullYear(), now.getMonth(), now.getDate())
+                }
             }, {}).lean()
             alerts += 4 - healthRecord.length
             //if the item is not activated then do not alert
             patients[i].timeSeries.forEach(element => {
-                if(!element.activated){alerts --}
+                if (!element.activated) {
+                    alerts--
+                }
             })
             //inject the log into patient's timeSeries by logId
-            for(let j = 0; j < healthRecord.length; j++){
+            for (let j = 0; j < healthRecord.length; j++) {
                 logItemId = healthRecord[j].logItemId - 1
                 healthRecord[j].when = moment(healthRecord[j].when).format('D/M/YY H:mm:ss')
-                if(healthRecord[j].notes !== ""){
+                if (healthRecord[j].notes !== "") {
                     comments++
                 }
                 var val = healthRecord[j].value
                 var upper = patients[i].timeSeries[logItemId].upperLimit
                 var lower = patients[i].timeSeries[logItemId].lowerLimit
                 //check if the value out of threshold
-                if(val > upper || val < lower ){
+                if (val > upper || val < lower) {
                     alerts++;
                     healthRecord[j]['alert'] = true
                 }
                 patients[i].timeSeries[logItemId]['log'] = healthRecord[j]
             }
         }
-        res.render('patient-dashboard',{patients: patients, alert: alerts, comment: comments, 
-            totalPatient: patients.length, doctor: {givenName: 'Chris', familyName: 'Smith'}})
+        res.render('clinician-dashboard', {
+            patients: patients,
+            alert: alerts,
+            comment: comments,
+            totalPatient: patients.length,
+            layout: 'clinician-main',
+            doctor: {
+                givenName: 'Chris',
+                familyName: 'Smith'
+            }
+        })
     } catch (err) {
         console.log(err)
     }
@@ -65,7 +78,8 @@ const getProfile = async (req, res) => {
     try {
         const clinician = await Clinician.findById(
             // req.params.clinician_id
-            "625e240b01e5ce1b9ef808e9"
+            // hard codede clinician
+            '625e240b01e5ce1b9ef808e9'
         ).lean()
 
         if (!clinician) {
@@ -214,6 +228,7 @@ const getMyPatientPage = async (req, res) => {
             patients: allPatient,
             total: totalPatient,
             query: saveQuery,
+            layout: 'clinician-main',
             doctor: {
                 givenName: 'Chris',
                 familyName: "Smith"
@@ -289,6 +304,7 @@ const searchPatient = async (req, res) => {
             patients: result,
             total: totalPatient,
             query: saveQuery,
+            layout: 'clinician-main',
             doctor: {
                 givenName: 'Chris',
                 familyName: "Smith"
@@ -325,13 +341,63 @@ const addNotes = async (req, res) => {
 }
 
 const getTimeSeriesPage = async (req, res) => {
-    res.send('GET getTimeSeriesPage')
-    //TODO
+    console.log('GET getTimeSeriesPage')
+    const pid = req.params.id
+    try {
+        const onePatient = await Patient.findOne({
+            _id: pid
+        }, {
+            givenName: true,
+            familyName: true,
+            timeSeries: true
+        }).lean()
+
+        console.log(onePatient)
+
+        res.render('edit-ts', {
+            patient: onePatient,
+            layout: 'clinician-main',
+            doctor: {
+                givenName: 'Chris',
+                familyName: 'Smith'
+            }
+        })
+    } catch {
+        res.send('patient not found')
+    }
 }
 
 const updateTimeSeries = async (req, res) => {
-    res.send('PUT updateTimeSeries')
-    //TODO
+    var newTimeSeries = []
+    for(let i = 0; i < 4; i++){
+        var lower = Number(req.body.lowerLimit[i])
+        var upper = Number(req.body.upperLimit[i])
+        if(lower > upper){
+            res.send("<script> alert('Invalid Input');\
+            window.location.href='time-series'; </script>")
+            return
+        }
+        var item = {
+            logItem: req.body.itemName[i],
+            lowerLimit: lower,
+            upperLimit: upper,
+        }
+        if(req.body.hasOwnProperty('checkbox' + i)){
+            item['activated'] = true
+        }else{
+            item['activated'] = false
+        }
+        newTimeSeries.push(item)
+    }
+    console.log(newTimeSeries)
+    try{
+        await Patient.findByIdAndUpdate({'_id': req.params.id},{timeSeries: newTimeSeries})
+        res.send("<script> alert('Update time-series successfully');\
+            window.location.href='detail'; </script>")
+    }catch{
+        res.send("<script> alert('Update Fail');\
+            window.location.href='time-series'; </script>")
+    }
 }
 
 const getPatientDetail = async (req, res) => {

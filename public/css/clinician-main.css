@@ -515,6 +515,12 @@ td {
     align-items: center;
 }
 
+.time-series-bottom input::-webkit-outer-spin-button,
+.time-series-bottom input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .time-series-value {
     background-color: var(--dark-blue);
     border: none;
@@ -533,4 +539,26 @@ input[type="checkbox"]::before {
     background-color: var(--light-grey-background);
     outline: none;
     border: none;
+}
+
+#time-series-button {
+    background-color: var(--dark-blue);
+    color: white;
+    padding: 0.4em 0.8em 0.4em 0.8em;
+    border-radius: 1em;
+}
+
+#time-series-button {
+    background-color: var(--dark-blue);
+    color: white;
+    width: 25em;
+    height: 3em;
+    border-radius: 2em;
+    border: 0;
+}
+
+#time-series-button:hover {
+    background-color: var(--button-hover);
+    transition: 0.1s;
+    cursor: pointer;
 }

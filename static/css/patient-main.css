@@ -2,6 +2,10 @@ body {
     background-color: white;
 }
 
+.leaderboard-body {
+    display: flex;
+}
+
 #responsive-nav {
     display: none;
     position: absolute;
@@ -12,6 +16,7 @@ body {
     display: flex;
     flex-direction: row;
     gap: 3rem;
+    padding-top: 5rem;
 }
 
 .space-between {
@@ -28,7 +33,7 @@ body {
 .dashboard-right {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
 }
 
 input[type=checkbox] {
@@ -59,12 +64,16 @@ a.white-text {
     box-shadow: 2px 2px 3px var(--box-shadow);
 }
 
+
 /*ICON MENU*/
+
 .white-text {
     color: white;
 }
 
+
 /*DASHBOARD*/
+
 .top-page {
     display: flex;
     flex-direction: row;
@@ -93,7 +102,6 @@ a.white-text {
     border-radius: 5rem;
     box-shadow: 2px 2px 3px var(--box-shadow);
     width: 93%;
-
 }
 
 .my-checklist {
@@ -171,7 +179,76 @@ a.white-text {
     border-radius: 0.5rem;
 }
 
+.nav-line {
+    display: none;
+}
+
+
+/*Leaderboard*/
+
+.record {
+    background-color: #ffffff;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding: 1em;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    -moz-box-shadow: 2px 2px 10px rgb(216, 216, 216);
+    -webkit-box-shadow: 2px 2px 10px rgb(216, 216, 216);
+    box-shadow: 2px 2px 10px rgb(204, 204, 204);
+    font-size: 18px;
+    text-align: center;
+}
+
+.medal {
+    float: left;
+    font-size: 60px;
+    margin: -20px;
+}
+
+.leaderboard-box {
+    background-color: #f2f7ff;
+    padding: 1.5em;
+    margin: 1.5em;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.leaderboard-table {
+    width: 95%;
+    text-align: center;
+    padding: 1em;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+    text-align: "center";
+    vertical-align: middle;
+}
+
+.infobar {
+    display: none;
+}
+
+.leaderboard-container {
+    width: 100%;
+    text-align: center;
+}
+
+
 /*ENTER TIME SERIES*/
+
+.ts-body {
+    display: grid;
+    background-color: white;
+    grid-row-gap: 1rem;
+}
+
+.ts-container {
+    padding-top: 2rem;
+}
+
 .page-title-and-nav {
     display: flex;
     flex-direction: row;
@@ -222,9 +299,38 @@ input.enter-data-box:focus {
     background-color: white;
     border: none;
     width: 30rem;
-    padding: 4rem 1rem 20rem 1rem;
+    height: 30rem;
+    padding: 5rem 1rem 5rem 1rem;
     border-radius: 1rem;
-    text-align: top;
+}
+
+#message-input {
+    border: none;
+    outline: none;
+    vertical-align: top;
+    width: 100%;
+    height: 100%;
+    resize: none;
+}
+
+.pop-up-container {
+    background-color: #f2f7ff;
+    text-align: center;
+    width: 80%;
+    margin: 30% auto;
+}
+
+.popup-background {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .on-top {
@@ -244,15 +350,9 @@ input.enter-data-box:focus {
     .my-checklist {
         width: 30rem;
     }
-
-    .dashboard-container {
-        margin-right: 3rem;
-    }
-
     .top-page {
         gap: 40rem;
     }
-
 }
 
 @media screen and (max-width: 1050px) {
@@ -260,72 +360,59 @@ input.enter-data-box:focus {
         background-color: white;
         display: block;
     }
-
+    .leaderboard-body {
+        display: block;
+    }
     nav {
         display: none !important;
     }
-
     .body-checklist {
         background-color: var(--light-blue);
     }
-
     .responsive-nav {
         display: flex;
         width: 100%;
     }
-
     .nav-line {
         display: flex;
     }
-
     .dashboard-container {
         display: block;
     }
-
     .page-padding {
-        padding: 2rem;
+        padding: 2rem 2rem 0 2rem;
         width: 100%
     }
-
     .inside-left {
         flex-direction: row;
         padding-bottom: 2rem;
         margin: auto;
         width: 61rem;
-
     }
-
     .doctor-comment {
         background-color: var(--light-grey-background);
     }
-
     .doctor-comment-box {
         width: 50%;
     }
-
     .my-stats {
         width: 50%;
         background-color: var(--light-blue);
     }
-
     .main-content {
         flex-direction: column;
         text-align: center;
         width: 989px;
     }
-
     .my-checklist {
         width: 40rem;
         margin: auto;
-
         width: 85%;
         background-color: var(--light-blue);
     }
-
     .checklist-item {
         background-color: white;
     }
-
     .infobar {
         display: block;
         font-size: 30px;
@@ -334,11 +421,9 @@ input.enter-data-box:focus {
         padding-top: 30px;
         background-color: rgb(255, 255, 255);
     }
-
     .top-page {
         gap: 27rem;
     }
-
     /*checklist*/
     .messageArea {
         background-color: white;
@@ -350,12 +435,10 @@ input.enter-data-box:focus {
         width: 50%;
         text-align: center;
     }
-
     .messageBox {
         padding-top: 0;
         text-align: center;
     }
-
     .messageArea {
         width: 90%;
         margin: 3em 1em 1em 3em;
@@ -363,152 +446,118 @@ input.enter-data-box:focus {
         background-color: var(--light-blue);
         box-shadow: none;
     }
-
-    .square-menu {
-        margin-right: 1em;
-    }
-
     #blue-main-page {
         width: 1050px;
         box-shadow: none;
         border-radius: 0;
         height: auto;
     }
-
     .page-title-and-nav {
         width: 1050px;
         padding-left: 2rem;
         gap: 25rem;
     }
-
     .button-width-20 {
         width: 15rem;
     }
-
     .centre-flex {
         gap: 2rem;
     }
-
+    .ts-container {
+        padding-top: 0;
+    }
 }
 
-
-
-
 @media screen and (max-width: 550px) {
-
     .page-title {
         width: 60%;
         font-size: 24pt;
     }
-
     .doctor-comment-box {
         width: 100%;
     }
-
     .my-stats {
         width: 90%;
     }
-
     .inside-left {
         flex-direction: column;
         width: 100%
     }
-
     .dashboard-box {
         width: 100%;
         margin: 0;
     }
-
     .leaderboard-table th {
         font-size: 14px;
     }
-
     .leaderboard-table td {
         font-size: 16px;
     }
 }
 
 @media screen and (max-width: 380px) {
-
     .my-stats {
         width: 100%;
     }
-
     .page-padding {
         padding: 0;
     }
-
     .top-page {
         gap: 1rem;
         align-items: center;
         padding-left: 1rem;
         padding-right: 1rem;
     }
-
     .page-title {
         min-width: 250px;
     }
-
     .main-content {
         width: 350px;
     }
-
     .my-checklist {
         width: 375px;
         padding-left: 3rem;
         border-radius: 0;
     }
-
     .checklist-left {
         gap: 0.5rem;
     }
-
     .time-entered-box {
         padding-left: 0.5rem;
         gap: 0;
     }
-
     .checklist-item {
         padding: 2rem 1rem;
     }
-
     .inside-left {
         width: 370px;
         align-items: center;
         gap: 2rem;
         padding-left: 1rem;
         padding-right: 1rem;
-
     }
-
     .check-icon {
         font-size: 24px !important;
     }
-
     .data-icon {
         font-size: 24px !important;
     }
-
     .messageArea {
         width: 90%;
         margin: 2em 1em 1em 2em;
     }
-    
     #blue-main-page {
-        width: 375px;
+        width: 100%;
     }
-    
     .page-title-and-nav {
         width: 375px;
         padding-left: 2rem;
         gap: 3.5rem;
     }
-    
     .date-time-container,
     .date-time-container:focus {
         width: 20rem;
     }
-    
     .notes-container {
         width: 20rem;
     }
