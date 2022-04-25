@@ -50,6 +50,7 @@ const getLogPage = async(req, res) => {
     var logName
     var logIcon
     var placeHolder
+        //Problem : Melbourne Time?
     var when = moment(new Date()).format('D/M/YY H:mm:ss')
 
     if (req.params.id != '') {
@@ -90,7 +91,6 @@ const getLogPage = async(req, res) => {
             return res.sendStatus(404)
         }
 
-        //found patient
         return res.render('patient-enter-hs', {
             thisPatient: patient,
             title: logName,
@@ -125,6 +125,7 @@ const insertLog = async(req, res) => {
         .save()
         .then((result) => res.send(result))
         .catch((err) => res.send(err))
+
 }
 
 const getProfile = async(req, res) => {

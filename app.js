@@ -4,7 +4,7 @@ const exphbs = require('express-handlebars')
 const clinicianRouter = require('./routes/clinicianRouter')
 const patientRouter = require('./routes/patientRouter')
 const app = express()
-// connect to database
+    // connect to database
 require('./models/db.js')
 
 app.use(express.static('public'))
@@ -25,7 +25,7 @@ app.set('view engine', 'hbs')
 
 //display index page
 app.get('/', (req, res) => {
-    res.send('GET index page')
+    res.send('GET index page DiabetesHome')
 })
 
 //display about page
@@ -50,5 +50,5 @@ app.all('*', (req, res) => {
 })
 
 app.listen(process.env.PORT || 3000, () => {
-    console.log('The library app is running!')
+    console.log('DiabetesHome is running!')
 })
