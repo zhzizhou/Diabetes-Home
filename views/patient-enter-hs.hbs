@@ -4,27 +4,27 @@
             <span onclick="closeMenu()" class="material-icons-round white-text" id="menu-opener">apps</span>
         </div>
         <div class="grid-menu white-text">
-            <a class="white-text menu-square" href="#">
+            <a class="white-text menu-square" href="../../patient/home">
                 <span class="material-icons-round menu-icon">home</span>
                 <h3>Home</h3>
             </a>
-            <a class="white-text menu-square" href="#">
+            <a class="white-text menu-square" href="../../patient/leaderboard">
                 <span class="material-icons-round menu-icon">leaderboard</span>
                 <h3>Leaderboard</h3>
             </a>
-            <a class="white-text menu-square" href="#">
+            <a class="white-text menu-square" href="../../patient/history">
                 <span class="material-icons-round menu-icon">history</span>
                 <h3>Log History</h3>
             </a>
-            <a class="white-text menu-square" href="#">
+            <a class="white-text menu-square" href="../../patient/help">
                 <span class="material-icons-round menu-icon">help</span>
                 <h3>Help</h3>
             </a>
-            <a class="white-text menu-square" href="#">
+            <a class="white-text menu-square" href="../../patient/profile">
                 <span class="material-icons-round menu-icon">person</span>
                 <h3>Account</h3>
             </a>
-            <a class="white-text menu-square" href="#">
+            <a class="white-text menu-square" href="../../patient/settings">
                 <span class="material-icons-round menu-icon">settings</span>
                 <h3>Settings</h3>
             </a>
@@ -56,27 +56,27 @@
                             <span class="material-icons-round">check</span>
                             <h3>Checklist</h3>
                         </a>
-                        <a href="../patient/leaderboard" class="menu-item-layout menu-item ">
+                        <a href="../../patient/leaderboard" class="menu-item-layout menu-item ">
                             <span class="material-icons">leaderboard</span>
                             <h3>Leaderboard</h3>
                         </a>
-                        <a href="../patient/history" class="menu-item-layout menu-item">
+                        <a href="../../patient/history" class="menu-item-layout menu-item">
                             <span class="material-icons">history</span>
                             <h3>Log history</h3>
                         </a>
                     </div>
                 </div>
                 <div class="menu-section">
-                    <a href="../patient/profile" class="menu-item-layout menu-item">
+                    <a href="../../patient/profile" class="menu-item-layout menu-item">
                         <span class="material-icons">account_circle</span>
                         <h3>Account</h3>
                     </a>
-                    <a href="../patient/settings" class="menu-item-layout menu-item">
+                    <a href="../../patient/settings" class="menu-item-layout menu-item">
                         <span class="material-icons">settings</span>
                         <h3>Settings</h3>
                     </a>
 
-                    <a href="../clinician/settings" class="menu-item-layout menu-item">
+                    <a href="../../patient/help" class="menu-item-layout menu-item">
                         <span class="material-icons">help</span>
                         <h3>Help</h3>
                     </a>
@@ -93,20 +93,23 @@
 
         <div class="dashboard-right centre-content">
             <div class="page-title-and-nav">
-                <span class="material-icons-round blue-text">arrow_back_ios</span>
+                {{!-- Problem? back button --}}
+                <a href="../../patient/home" class="material-icons-round blue-text">arrow_back_ios</a>
                 <div class="page-title-icon">
                     <span class="data-icon material-icons-round blue-text">{{icon}}</span>
                     <h3 class="blue-text">{{title}}</h3>
                 </div>
             </div>
 
-            <div id="successful-update-data" style="display: none;">
-                <div class="pop-up-container">
-                    <p>Keep up the good work!</p>
-                    <button class="button button-width-20" onclick="closeModel">Dismiss</button>
+            {{!-- Pop up window after post message --}}
+            <div class="pop-up-container" id="successful-update-data">
+                <img class="pop-up-image" src="/images/clap.svg" alt="">
+                <div class="pop-up-string">
+                    <h3>Keep up the good work!</h3>
                 </div>
+                <span class="button submit" onclick="closeModel()">Dismiss</button>
             </div>
-            
+        
                 
             <form method="post" action = "">
                 <div id="blue-main-page" class="centre-flex">
@@ -133,19 +136,10 @@
                     </div>
 
                     <button type="submit" class="button button-width-20" onclick="showModel()">Save</button>
+                    {{!-- <span class="button button-width-20" onclick="showModel()">Save</button> --}}
+
                 </div>
             </form>
-    
+        </div>
     </main>
 
-    <script>
-        function showModel(){
-            var model = document.getElementById("successful-update-data");
-            model.style.display = "block";
-        }
-
-        function closeModel(){
-            var model = document.getElementById("successful-update-data");
-            model.style.display = "none";
-        }
-    </script>
