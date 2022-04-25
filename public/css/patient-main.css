@@ -3,6 +3,7 @@ body {
 }
 .dashboard-body {
     display: flex;
+    justify-content:flex-end;
 }
 .leaderboard-body {
     display: flex;
@@ -17,6 +18,8 @@ body {
 .dashboard-container {
     display: flex;
     flex-direction: row;
+    width: 1920px;
+    justify-content:space-between;
     padding: 3rem;
 }
 
@@ -24,7 +27,11 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+}
+
+.main-content {
+    gap:5rem;
+
 }
 
 .dashboard-left {
@@ -34,7 +41,8 @@ body {
 .dashboard-right {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 3rem;
+    
 }
 
 input[type=checkbox] {
@@ -112,10 +120,7 @@ a.white-text {
     padding: 2rem;
     border-radius: 2rem;
     text-align: left;
-    min-width: max-content;
-    width: 40rem;
-    ;
-    width: 60%;
+    width: 50rem;
     box-shadow: 2px 2px 3px var(--box-shadow);
 }
 
@@ -156,7 +161,7 @@ a.white-text {
     display: flex;
     flex-direction: column;
     gap: 4rem;
-    width: 40%;
+    width: 35rem;
 }
 
 .my-stats {
