@@ -8,7 +8,7 @@ const expressValidator = require('express-validator')
 const getHome = async(req, res) => {
     //return res.render("patient-dashboard")
     console.log("GET Patient Dashboard Home page")
-    var pID = "625e1e3d67c164c3d21e5bce" // patient Pat hardcoded
+    var pID = "625e1e3d67c164c3d21e5bce" // Pat hardcoded
     var dID = "625e240b01e5ce1b9ef808e9" // doctor smith hardcoded
 
     try {
@@ -17,7 +17,6 @@ const getHome = async(req, res) => {
         if (!patient || !doctor) {
             return res.sendStatus(404)
         }
-
 
         //found patient
         return res.render('patient-dashboard', {
@@ -50,7 +49,8 @@ const getLogPage = async(req, res) => {
     var logName
     var logIcon
     var placeHolder
-        //Problem : Melbourne Time?
+
+    //Problem : Melbourne Time?
     var when = moment(new Date()).format('D/M/YY H:mm:ss')
 
     if (req.params.id != '') {
@@ -113,19 +113,30 @@ const insertLog = async(req, res) => {
      * patient/log/3 EXERCISE
      * patient/log/4 BLOOD GLUCOSE LEVEL
      */
+
+    var pID = "625e1e3d67c164c3d21e5bce"
+
     console.log(req.body)
-    console.log(req.params.id)
+
     const newHealthRecord = new HealthRecord({
         logItemId: req.params.id,
         patientId: req.body.patientId,
         value: req.body.value,
         notes: req.body.notes,
     })
-    await newHealthRecord
-        .save()
-        .then((result) => res.send(result))
-        .catch((err) => res.send(err))
 
+    // await newHealthRecord
+    //     .save()
+    //     .then((result) => res.send(result))
+    //     .catch((err) => res.send(err))
+
+    try {
+        await newHealthRecord.save()
+        res.status(204).send()
+
+    } catch {
+        res.status(204).send("<script> alert('Update Fail');</script>")
+    }
 }
 
 const getProfile = async(req, res) => {
