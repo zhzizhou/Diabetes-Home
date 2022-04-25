@@ -1,0 +1,190 @@
+<div class="nav-placeholder">
+    <nav>
+        <div class="nav-top">
+            <img class="small-logo" src="../../static/images/logo.svg" alt="">
+            <div class="menu-item-layout">
+                <img src="../../static/images/clinitian-profile-pic.svg" alt="profile picture">
+                <h3>{{doctor.givenName}}</h3>
+            </div>
+            <div class="menu-section">
+                <a href="../clinician/dashboard.html" class="menu-item-layout menu-item">
+                    <span class="material-icons">dashboard</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="#" class="menu-item-layout menu-item selected ">
+                    <span class="material-icons">group</span>
+                    <h3>My Patients</h3>
+                </a>
+                <a href="../clinician/new-patient.html" class="menu-item-layout menu-item ">
+                    <span class="material-icons">person_add</span>
+                    <h3>New Patient</h3>
+                </a>
+            </div>
+        </div>
+        <div class="menu-section">
+            <a href="../clinician/my-account.html" class="menu-item-layout menu-item">
+                <span class="material-icons">account_circle</span>
+                <h3>Account</h3>
+            </a>
+            <a href="../clinician/settings.html" class="menu-item-layout menu-item">
+                <span class="material-icons">settings</span>
+                <h3>Settings</h3>
+            </a>
+        </div>
+    </nav>
+</div>
+<main class="patient-container">
+    <div class="patient-left">
+        <a href="../clinician/my-patients.html" class="back-button">
+            <span class="material-icons-round">arrow_back_ios</span>
+            <h4>Back</h4>
+        </a>
+        <div class="patient-title-row">
+            <span class="patient-title">Mary Shelley</span><span class="patient-age">Female, 40</span><span class="edit-ts-button"><a href="../clinician/edit-ts.html" class="edit-ts">edit-time series</a></span>
+        </div>
+        <div class="main-section">
+            <div class="ts-container whitebox shadow">
+                <div class="overview-data">
+                    <span class="overview-data-title">Blood glucose</span>
+                    <span class="ts-data">4.0 - 7.8</span>
+                </div>
+                <div class="overview-data">
+                    <span class="overview-data-title">Weight (Kg)</span>
+                    <span class="ts-data">6.0 - 6.6</span>
+                </div>
+                <div class="overview-data">
+                    <span class="overview-data-title">Insulin doses</span>
+                    <span class="ts-data">4</span>
+                </div>
+                <div class="overview-data">
+                    <span class="overview-data-title">Daily steps</span>
+                    <span class="ts-data">5000 +</span>
+                </div>
+            </div>
+            <div class="patient-data whitebox shadow">
+                <div>
+                    <span style="font-size: 24px;">Health records</span>
+                    <span class="filter-button">show
+                        <select class="dropdown"name="select" id="select">
+                            <option value="all">All</option>
+                            <option value="bbb">bbb</option>
+                        </select>
+                    </span>
+                </div>
+                <table class="my-patient-table">
+                    <tr class="out-border">
+                        <th>Date</th>
+                        <th><div>Blood Glucose</div><div>(nmol/L)</div></th>
+                        <th><div>Weight</div><div>(kg)</div></th>
+                        <th><div>Insulin</div><div>(doses)</div></th>
+                        <th><div>Exercise</div><div>(steps)</div></th>
+                        <th><div>Show</div><div>comment</div></th>
+                    </tr>
+                    <tr class="out-border">
+                        <td>10/03</td>
+                        <td>7.8</td>
+                        <td>65.1</td>
+                        <td>4</td>
+                        <td>9768</td>
+                        <td><span class="material-icons-round blue-text">arrow_forward_ios</span></td>
+                    </tr>
+                    <tr class="out-border">
+                        <td>10/03</td>
+                        <td>7.8</td>
+                        <td>65.1</td>
+                        <td>4</td>
+                        <td>9768</td>
+                        <td><span class="material-icons-round blue-text">arrow_forward_ios</span></td>
+
+                    </tr>
+                    <tr class="out-border">
+                        <td>10/03</td>
+                        <td>7.8</td>
+                        <td>65.1</td>
+                        <td>4</td>
+                        <td>9768</td>
+                        <td><span class="material-icons-round blue-text">arrow_forward_ios</span></td>
+
+                    </tr>
+                    <tr class="out-border">
+                        <td>10/03</td>
+                        <td>7.8</td>
+                        <td>65.1</td>
+                        <td>4</td>
+                        <td>9768</td>
+                        <td><span class="material-icons-round blue-text">arrow_forward_ios</span></td>
+
+                    </tr>
+                    <tr class="out-border">
+                        <td>10/03</td>
+                        <td>7.8</td>
+                        <td>65.1</td>
+                        <td>4</td>
+                        <td>9768</td>
+                        <td><span class="material-icons-round blue-text">arrow_forward_ios</span></td>
+
+                    </tr>
+                    <tr class="out-border">
+                        <td>10/03</td>
+                        <td>7.8</td>
+                        <td>65.1</td>
+                        <td>4</td>
+                        <td>9768</td>
+                        <td><span class="material-icons-round blue-text">arrow_forward_ios</span></td>
+
+                    </tr>
+                    <tr class="out-border">
+                        <td>10/03</td>
+                        <td>7.8</td>
+                        <td>65.1</td>
+                        <td>4</td>
+                        <td>9768</td>
+                        <td><span class="material-icons-round blue-text">arrow_forward_ios</span></td>
+
+                    </tr>
+                </table>
+                <a href="#">show more records</a>
+            </div>
+        </div>
+    </div>
+    <div class="patient-right">
+        <div>
+            <span class="details-button"><a href="../clinician/patient-details.html" class="edit-ts">Patient details</a></span>
+        </div>
+        <div class="note-section-bottom whitebox shadow nav-top">
+            <div>
+                <h2 style="font-size:24px" class="select-messages">Support Messages</h2>
+            </div>
+            <div>
+                <span><a href="#" class="edit-ts" style="font-size:24px">Add +</a></span>
+            </div>
+            <div class="comment-container">
+                <span class="comment-time">09/03/22, 7:56pm</span>
+                <div class="comment-box light-blue-box shadow">
+                    <span class="comment-content">Hi Mary, great day for exercising today! Keep up the good work 😊.”</span>
+                </div>
+            </div>
+            <div class="comment-container">
+                <span class="comment-time">07/03/22, 8:59pm</span>
+                <div class="comment-box light-blue-box shadow">
+                    <span class="comment-content">Hi Mary, Hope you have had a good day today! Keep it up.”</span>
+                </div>
+            </div>
+        </div>
+        <div class="note-section-bottom whitebox shadow nav-top">
+            <div>
+                <h2 style="font-size:24px" class="select-messages">Clinical notes</h2>
+            </div>
+            <div class="comment-container">
+                <textarea name="" id="clinical-notes-textarea" cols="41" rows="15">Mary is a 40 year old female with Type 2 diabetes.</textarea>
+            </div>
+            <div>
+                <span><a href="#" class="edit-ts" style="font-size:24px">Save</a></span>
+            </div>
+
+        </div>
+    </div>
+    
+    </div>
+</main>
+
