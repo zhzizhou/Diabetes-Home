@@ -1,32 +1,32 @@
 <div class="nav-placeholder">
     <nav>
         <div class="nav-top">
-            <img class="small-logo" src="../../static/images/logo.svg" alt="">
+            <img class="small-logo" src="/images/logo.svg" alt="">
             <div class="menu-item-layout">
-                <img src="../../static/images/clinitian-profile-pic.svg" alt="profile picture">
-                <h3>{{doctor.givenName}}</h3>
+                <img src="/images/clinitian-profile-pic.svg" alt="profile picture">
+                <h3>{{thisClinician.givenName}} {{thisClinician.familyName}}</h3>
             </div>
             <div class="menu-section">
-                <a href="../clinician/dashboard.html" class="menu-item-layout menu-item">
+                <a href="../../../clinician/home" class="menu-item-layout menu-item">
                     <span class="material-icons">dashboard</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="#" class="menu-item-layout menu-item selected ">
+                <a href="../../../clinician/my-patient" class="menu-item-layout menu-item selected ">
                     <span class="material-icons">group</span>
                     <h3>My Patients</h3>
                 </a>
-                <a href="../clinician/new-patient.html" class="menu-item-layout menu-item ">
+                <a href="../../../clinician/new-patient" class="menu-item-layout menu-item ">
                     <span class="material-icons">person_add</span>
                     <h3>New Patient</h3>
                 </a>
             </div>
         </div>
         <div class="menu-section">
-            <a href="../clinician/my-account.html" class="menu-item-layout menu-item">
+            <a href="../../../clinician/profile" class="menu-item-layout menu-item">
                 <span class="material-icons">account_circle</span>
                 <h3>Account</h3>
             </a>
-            <a href="../clinician/settings.html" class="menu-item-layout menu-item">
+            <a href="../../../clinician/settings" class="menu-item-layout menu-item">
                 <span class="material-icons">settings</span>
                 <h3>Settings</h3>
             </a>
@@ -35,12 +35,16 @@
 </div>
 <main class="patient-container">
     <div class="patient-left">
-        <a href="../clinician/my-patients.html" class="back-button">
+        <a href="../../../clinician/my-patient" class="back-button">
             <span class="material-icons-round">arrow_back_ios</span>
             <h4>Back</h4>
         </a>
         <div class="patient-title-row">
-            <span class="patient-title">Mary Shelley</span><span class="patient-age">Female, 40</span><span class="edit-ts-button"><a href="../clinician/edit-ts.html" class="edit-ts">edit-time series</a></span>
+            <span class="patient-title">{{thisPatient.givenName}} {{thisPatient.familyName}}</span>
+            {{!-- Problem: Do we need age? Not store in DB --}}
+            <span class="patient-age">{{thisPatient.gender}}</span>
+            {{!-- Problem:  Path --}}
+            <span class="edit-ts-button"><a href="/my-patient/{{thisPatient.id}}/time-series" class="edit-ts">edit-time series</a></span>
         </div>
         <div class="main-section">
             <div class="ts-container whitebox shadow">
