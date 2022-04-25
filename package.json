@@ -12,7 +12,6 @@
     "license": "ISC",
     "dependencies": {
         "bcryptjs": "^2.4.3",
-        "dotenv": "^16.0.0",
         "express": "^4.17.3",
         "express-handlebars": "^6.0.4",
         "express-validator": "^6.14.0",
@@ -21,6 +20,7 @@
         "mongoose": "^6.2.10"
     },
     "devDependencies": {
+        "dotenv": "^16.0.0",
         "install": "^0.13.0",
         "npm": "^8.7.0",
         "prettier": "^2.6.2"
