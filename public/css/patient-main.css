@@ -1,10 +1,12 @@
 body {
     background-color: white;
 }
+
 .dashboard-body {
     display: flex;
-    justify-content:flex-end;
+    justify-content: flex-end;
 }
+
 .leaderboard-body {
     display: flex;
 }
@@ -19,7 +21,7 @@ body {
     display: flex;
     flex-direction: row;
     width: 1920px;
-    justify-content:space-between;
+    justify-content: space-between;
     padding: 3rem;
 }
 
@@ -30,8 +32,7 @@ body {
 }
 
 .main-content {
-    gap:5rem;
-
+    gap: 5rem;
 }
 
 .dashboard-left {
@@ -42,7 +43,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    
 }
 
 input[type=checkbox] {
@@ -482,7 +482,6 @@ input[type=number] {
 }
 
 @media screen and (max-width: 550px) {
-
     .doctor-comment-box {
         width: 100%;
     }
@@ -502,7 +501,7 @@ input[type=number] {
 }
 
 @media screen and (max-width: 380px) {
-    .space-between{
+    .space-between {
         align-items: baseline;
     }
     .page-title {
