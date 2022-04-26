@@ -243,6 +243,18 @@ a.white-text {
 
 /*ENTER TIME SERIES*/
 
+.checklist-container {
+    /* display: flex; */
+    position: absolute;
+    left: 30%;
+    /* flex-direction: row; */
+    width: 80%;
+    justify-content: space-between;
+    /* padding: 3rem; */
+    width: 70%;
+    height: 100%;
+}
+
 .ts-body {
     display: block;
 }
