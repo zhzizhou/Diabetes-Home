@@ -56,7 +56,7 @@
                     </div>
                 {{/each}}
 
-                
+
             </div>
 
             <div class="patient-data whitebox shadow">
@@ -142,11 +142,11 @@
             </div> --}}
 
             <div>
-                <span><a href="#" class="edit-ts" style="font-size:24px">Add +</a></span>
+                <span><a href="/clinician/my-patient/{{thisPatient._id}}/notes" class="edit-ts" style="font-size:24px">Add +</a></span>
             </div>
             <div class="comment-container">
                 {{#each thisClinicianNote}}
-                    <div class="comment-time">{{this.when}}</div>
+                    <span class="comment-time">{{this.when}}</span>
                     <div class="comment-box light-blue-box shadow">
                         <span class="comment-content">{{this.content}}</span>
                     </div>

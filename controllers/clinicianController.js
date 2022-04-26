@@ -372,13 +372,52 @@ const addSupport = async(req, res) => {
 }
 
 const getNotesPage = async(req, res) => {
-    res.send('GET NotesPage')
-        //TODO
+    var cId = "625e240b01e5ce1b9ef808e9"
+    var when = moment(new Date()).format('D/M/YY H:mm:ss')
+
+    try {
+        const clinician = await Clinician.findById(
+            cId
+        ).lean()
+
+        const patient = await Patient.findById(
+            req.params.id
+        ).lean()
+
+        if (!clinician || !patient) {
+            return res.sendStatus(404)
+        }
+
+        return res.render('clinician-addNotes', {
+            thisClinician: clinician,
+            thisPatient: patient,
+            time: when,
+            layout: 'clinician-main'
+        })
+
+    } catch (err) {
+        return next(err)
+    }
 }
 
 const addNotes = async(req, res) => {
-    res.send('POST addNotes')
-        //TODO
+    var cID = "625e240b01e5ce1b9ef808e9"
+
+    console.log(req.body)
+
+    const newNote = new ClinicainNote({
+        patientId: req.params.id,
+        clinicianId: cID,
+        content: req.body.notes
+    })
+
+    try {
+        await newNote.save()
+        res.status(204).send()
+
+    } catch {
+        res.status(204).send("<script> alert('Update Fail');</script>")
+    }
 }
 
 const getTimeSeriesPage = async(req, res) => {
@@ -457,15 +496,29 @@ const getPatientDetail = async(req, res) => {
             patientId: req.params.id,
         }).lean()
 
+        for (let j = 0; j < healthRecord.length; j++) {
+            healthRecord[j].when = moment(healthRecord[j].when).format('D/M/YY')
+        }
+
+
         const supportMessage = await SupportMessage.find({
             patientId: req.params.id,
             clinicianId: cId
         }).lean()
 
+        for (let j = 0; j < supportMessage.length; j++) {
+            supportMessage[j].when = moment(supportMessage[j].when).format('D/M/YY H:mm:ss')
+        }
+
+
         const clinicanNote = await ClinicainNote.find({
             patientId: req.params.id,
             clinicianId: cId
         }).lean()
+
+        for (let j = 0; j < clinicanNote.length; j++) {
+            clinicanNote[j].when = moment(clinicanNote[j].when).format('D/M/YY H:mm:ss')
+        }
 
         console.log("Health Record:", healthRecord)
 
