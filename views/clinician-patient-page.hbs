@@ -64,6 +64,8 @@
                     <span style="font-size: 32px;">Health records</span>
                     <span class="filter-button">show
                         <select class="dropdown"name="select" id="select">
+
+                            {{!-- Problem: Whats the value for? --}}
                             <option value="all">All</option>
                             <option value="bbb">bbb</option>
                         </select>
@@ -88,17 +90,18 @@
                         <td><span class="material-icons-round blue-text">arrow_forward_ios</span></td>
                     </tr> --}}
 
-                    {{!-- Problem how to all 4 record from 1 single day --}}
-
                     {{#each thisHealthRecord}}
                         <tr class="out-border">
                             <td>{{this.when}}</td>
                             <td>{{this.value}}</td>
+
+                            {{!-- Comment section, pop-up maybe? --}}
                             <td><span class="material-icons-round blue-text">arrow_forward_ios</span></td>
                         </tr>
                     {{/each}}
 
                 </table>
+                {{!-- Not yet implement --}}
                 <a href="#">show more records</a>
             </div>
         </div>

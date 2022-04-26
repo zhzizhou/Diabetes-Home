@@ -7,6 +7,7 @@ const expressValidator = require('express-validator')
 const utility = require('../utils/utils')
 const moment = require('moment')
 const bcrypt = require('bcryptjs')
+const { db } = require('../models/healthRecord')
 
 const getHome = async(req, res) => {
     var cId = '6256dde2082aa786c9760f98'
@@ -483,6 +484,8 @@ const updateTimeSeries = async(req, res) => {
 const getPatientDetail = async(req, res) => {
     var cId = "625e240b01e5ce1b9ef808e9"
 
+    var temWhen
+
     try {
         const clinician = await Clinician.findById(
             cId
@@ -492,6 +495,7 @@ const getPatientDetail = async(req, res) => {
             req.params.id
         ).lean()
 
+        // Health Record
         const healthRecord = await HealthRecord.find({
             patientId: req.params.id,
         }).lean()
@@ -500,7 +504,16 @@ const getPatientDetail = async(req, res) => {
             healthRecord[j].when = moment(healthRecord[j].when).format('D/M/YY')
         }
 
+        // db.healthRecord.aggregate([{
+        //     $group: {
+        //         _id: { date: "$when" },
+        //         value: { $push: "$value" }
+        //     },
+        // }])
 
+
+
+        // Support Message
         const supportMessage = await SupportMessage.find({
             patientId: req.params.id,
             clinicianId: cId
@@ -510,7 +523,7 @@ const getPatientDetail = async(req, res) => {
             supportMessage[j].when = moment(supportMessage[j].when).format('D/M/YY H:mm:ss')
         }
 
-
+        // Clinician Note
         const clinicanNote = await ClinicainNote.find({
             patientId: req.params.id,
             clinicianId: cId
