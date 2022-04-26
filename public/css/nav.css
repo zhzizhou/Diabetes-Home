@@ -8,12 +8,12 @@
 }
 
 main {
-    padding: 2.5em 0 0 0;
+    padding: 2.5em 2em 0 0;
 }
 
 nav {
     background-color: white;
-    width: 25rem !important;
+    width: 22% !important;
     height: 100%;
     display: flex;
     flex-direction: column;

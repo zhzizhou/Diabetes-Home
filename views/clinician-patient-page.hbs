@@ -48,7 +48,6 @@
         </div>
         <div class="main-section">
             <div class="ts-container whitebox shadow">
-
                 {{!-- Time series display --}}
                 {{#each thisPatient.timeSeries}}
                     <div class="overview-data">
@@ -56,11 +55,13 @@
                         <span class="ts-data">{{this.lowerLimit}} - {{this.upperLimit}}</span>
                     </div>
                 {{/each}}
+
+                
             </div>
 
             <div class="patient-data whitebox shadow">
                 <div>
-                    <span style="font-size: 24px;">Health records</span>
+                    <span style="font-size: 32px;">Health records</span>
                     <span class="filter-button">show
                         <select class="dropdown"name="select" id="select">
                             <option value="all">All</option>
@@ -113,7 +114,6 @@
                 <h2 style="font-size:24px" class="select-messages">Support Messages</h2>
             </div>
             <div>
-                {{!-- Problem dont have a add support message page --}}
                 <span><a href="/clinician/my-patient/{{thisPatient._id}}/support" class="edit-ts" style="font-size:24px">Add +</a></span>
             </div>
             {{!-- <div class="comment-container">
@@ -124,7 +124,7 @@
             </div> --}}
             <div class="comment-container">
                 {{#each thisSupportMessage}}
-                    <span class="comment-time">{{this.when}}</span>
+                    <div class="comment-time">{{this.when}}</div>
                     <div class="comment-box light-blue-box shadow">
                         <span class="comment-content">{{this.content}}</span>
                     </div>
@@ -142,15 +142,16 @@
             </div> --}}
 
             <div>
-                <span><a href="#" class="edit-ts" style="font-size:24px">Add+</a></span>
+                <span><a href="#" class="edit-ts" style="font-size:24px">Add +</a></span>
             </div>
-
-            {{#each thisClinicianNote}}
-                <span class="comment-time">{{this.when}}</span>
-                <div class="comment-box light-blue-box shadow">
-                    <span class="comment-content">{{this.content}}</span>
-                </div>
-            {{/each}}
+            <div class="comment-container">
+                {{#each thisClinicianNote}}
+                    <div class="comment-time">{{this.when}}</div>
+                    <div class="comment-box light-blue-box shadow">
+                        <span class="comment-content">{{this.content}}</span>
+                    </div>
+                {{/each}}
+            </div>
         </div>
     </div>
     

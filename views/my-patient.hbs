@@ -41,12 +41,12 @@
                 <span class="material-icons-round">arrow_back_ios</span>
                 <h4>Back</h4>
             </a>
-            <div class="dashboard-left">
+            <div class="my-patient-left">
                 <h1 class="page-title">My patients</h1>
                 <div class="patient-record">
                     <div class="search-section">
                         <form class="space-between" method="post" action="">
-                            <span style="font-size: 2em; margin-right: 3em;">All Patients</span>
+                            <span style="font-size: 2em;">All Patients</span>
                             <i class="material-icons">search</i>
                             <span><input type="text" placeholder="search for a patient" id="pname" name="pname" {{#if
                                     query.nameExist}}value="{{query.pname}}" {{/if}}></span>
@@ -66,7 +66,7 @@
                                     <input type="checkbox" name="female" {{#if query.female}}checked="checked" {{/if}}>
                                 </label></span>
                             <span>
-                                <button type="submit" name="submitButton">Submit</button>
+                                <button type="submit" class="small-button button" name="submitButton">Submit</button>
                             </span>
                         </form>
                     </div>
