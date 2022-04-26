@@ -2,11 +2,6 @@ body {
     background-color: white;
 }
 
-.dashboard-body {
-    display: flex;
-    justify-content: flex-end;
-}
-
 .leaderboard-body {
     display: flex;
 }
@@ -22,7 +17,7 @@ body {
     flex-direction: row;
     width: 1920px;
     justify-content: space-between;
-    padding: 3rem;
+    gap: 3rem;
 }
 
 .space-between {
@@ -36,7 +31,7 @@ body {
 }
 
 .dashboard-left {
-    width: 25rem;
+    min-width: 25rem;
 }
 
 .dashboard-right {
