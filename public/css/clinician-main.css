@@ -6,7 +6,7 @@ body {
     width: 100%;
 }
 
-.clinician-main{
+.clinician-main {
     position: absolute;
     left: 25%;
     width: 75%;
@@ -163,11 +163,12 @@ td {
 
 
 /*ALL PATIENT PAGE*/
+
 .left-container {
     width: 77%;
 }
 
-.my-patient-left{
+.my-patient-left {
     display: flex;
     flex-direction: column;
     gap: 2em;
@@ -282,11 +283,12 @@ td {
     gap: 1.5em;
 }
 
-.main-section{
+.main-section {
     display: flex;
     flex-direction: column;
     gap: 1.5em;
 }
+
 .patient-title-row {
     display: grid;
     grid-template-columns: 55% 13% 32%;
@@ -590,7 +592,7 @@ input[type="checkbox"]::before {
 }
 
 
-/* Add support message */
+/* Add support message  & add comment*/
 
 .dashboard-right {
     display: flex;
@@ -614,6 +616,11 @@ input[type="checkbox"]::before {
     flex-direction: row;
     gap: 0.5rem;
     align-items: center;
+}
+
+.on-top {
+    position: absolute;
+    transform: translate(1rem, 1rem);
 }
 
 .pop-up-container {
