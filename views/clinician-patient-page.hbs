@@ -144,13 +144,14 @@
             <div>
                 <span><a href="/clinician/my-patient/{{thisPatient._id}}/notes" class="edit-ts" style="font-size:24px">Add+</a></span>
             </div>
-
-            {{#each thisClinicianNote}}
-                <span class="comment-time">{{this.when}}</span>
-                <div class="comment-box light-blue-box shadow">
-                    <span class="comment-content">{{this.content}}</span>
-                </div>
-            {{/each}}
+            <div class="comment-container">
+                {{#each thisClinicianNote}}
+                    <span class="comment-time">{{this.when}}</span>
+                    <div class="comment-box light-blue-box shadow">
+                        <span class="comment-content">{{this.content}}</span>
+                    </div>
+                {{/each}}
+            </div>
         </div>
     </div>
     

@@ -496,15 +496,29 @@ const getPatientDetail = async(req, res) => {
             patientId: req.params.id,
         }).lean()
 
+        for (let j = 0; j < healthRecord.length; j++) {
+            healthRecord[j].when = moment(healthRecord[j].when).format('D/M/YY')
+        }
+
+
         const supportMessage = await SupportMessage.find({
             patientId: req.params.id,
             clinicianId: cId
         }).lean()
 
+        for (let j = 0; j < supportMessage.length; j++) {
+            supportMessage[j].when = moment(supportMessage[j].when).format('D/M/YY H:mm:ss')
+        }
+
+
         const clinicanNote = await ClinicainNote.find({
             patientId: req.params.id,
             clinicianId: cId
         }).lean()
+
+        for (let j = 0; j < clinicanNote.length; j++) {
+            clinicanNote[j].when = moment(clinicanNote[j].when).format('D/M/YY H:mm:ss')
+        }
 
         console.log("Health Record:", healthRecord)
 
