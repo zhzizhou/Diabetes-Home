@@ -495,6 +495,8 @@ const getPatientDetail = async(req, res) => {
             req.params.id
         ).lean()
 
+        patient.age = utility.getAge(patient.dateOfBirth)
+
         // Health Record
         const healthRecord = await HealthRecord.find({
             patientId: req.params.id,
@@ -510,7 +512,6 @@ const getPatientDetail = async(req, res) => {
         //         value: { $push: "$value" }
         //     },
         // }])
-
 
 
         // Support Message
