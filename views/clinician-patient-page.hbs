@@ -44,7 +44,7 @@
             {{!-- Problem: Do we need age? Not store in DB --}}
             <span class="patient-age">{{thisPatient.gender}} {{thisPatient.age}}</span>
             {{!-- Problem:  Path --}}
-            <span class="edit-ts-button"><a href="/my-patient/{{thisPatient.id}}/time-series" class="edit-ts">edit-time series</a></span>
+            <span class="edit-ts-button"><a href="../../my-patient/{{thisPatient.id}}/time-series" class="edit-ts">edit-time series</a></span>
         </div>
         <div class="main-section">
             <div class="ts-container whitebox shadow">
@@ -105,7 +105,6 @@
     </div>
     <div class="patient-right">
         <div>
-            {{!-- Problem: No idea which page should link --}}
             <span class="details-button"><a href="../../../clinician/patient-details" class="edit-ts">Patient details</a></span>
         </div>
 
