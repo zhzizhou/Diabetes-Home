@@ -3,7 +3,6 @@ body {
     display: flex;
     background-color: var(--light-grey-background);
     width: 100%;
-    justify-content:space-between;
 }
 .back-button {
     color: var(--dark-blue);
@@ -161,6 +160,7 @@ td {
     border-radius: 2em;
     padding: 2em;
     margin-top: 1em;
+    width: 57.5rem;
 }
 
 .my-patient-container {
@@ -174,9 +174,10 @@ td {
     border-radius: 2em;
     width: 20em;
     height: 15%;
-    margin-top: 7em;
+    margin-top: 9em;
     padding: 2em;
     line-height: 250%;
+    width:30em;
 }
 
 .my-patient-table {
@@ -218,17 +219,6 @@ td {
     color: var(--dark-blue);
 }
 
-.my-patient-table a {
-    background-color: var(--dark-blue);
-    color: white;
-    padding: 0.4em 0.8em 0.4em 0.8em;
-    border-radius: 1em;
-}
-
-.my-patient-table a:hover {
-    background-color: var(--button-hover);
-    transition: 0.1s;
-}
 
 .search-section {
     margin-top: 1em;

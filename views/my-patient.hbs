@@ -41,12 +41,12 @@
                 <span class="material-icons-round">arrow_back_ios</span>
                 <h4>Back</h4>
             </a>
-            <div>
+            <div class="dashboard-left">
                 <h1 class="page-title">My patients</h1>
                 <div class="patient-record">
                     <div class="search-section">
-                        <form method="post" action="">
-                            <span style="font-size: 2em; margin-right: 3em;">All Patient</span>
+                        <form class="space-between" method="post" action="">
+                            <span style="font-size: 2em; margin-right: 3em;">All Patients</span>
                             <i class="material-icons">search</i>
                             <span><input type="text" placeholder="search for a patient" id="pname" name="pname" {{#if
                                     query.nameExist}}value="{{query.pname}}" {{/if}}></span>
@@ -76,7 +76,6 @@
                             <th>Gender</th>
                             <th>Age</th>
                             <th>Diabete Type</th>
-                            <th>Details</th>
                         </tr>
                         {{#each patients}}
                         <tr>
@@ -84,7 +83,7 @@
                             <td>{{this.gender}}</td>
                             <td>{{this.age}}</td>
                             <td>{{this.diabeteType}}</td>
-                            <td><a href="/clinician/my-patient/{{this._id}}/detail">View</a></td>
+                            <td><a class="button" href="/clinician/my-patient/{{this._id}}/detail">View</a></td>
                         </tr>
                         {{/each}}
                     </table>
@@ -92,7 +91,7 @@
             </div>
         </div>
         <div class="patient-stats">
-            <h2>My patient</h2>
+            <h2>My patients</h2>
             <div>
                 <i class="material-icons" style="margin-right: 1em;">insert_emoticon</i>
                 <span>Number of Patients </span>
