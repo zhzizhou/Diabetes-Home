@@ -42,29 +42,22 @@
         <div class="patient-title-row">
             <span class="patient-title">{{thisPatient.givenName}} {{thisPatient.familyName}}</span>
             {{!-- Problem: Do we need age? Not store in DB --}}
-            <span class="patient-age">{{thisPatient.gender}}</span>
+            <span class="patient-age">{{thisPatient.gender}} {{thisPatient.age}}</span>
             {{!-- Problem:  Path --}}
             <span class="edit-ts-button"><a href="/my-patient/{{thisPatient.id}}/time-series" class="edit-ts">edit-time series</a></span>
         </div>
         <div class="main-section">
             <div class="ts-container whitebox shadow">
-                <div class="overview-data">
-                    <span class="overview-data-title">Blood glucose</span>
-                    <span class="ts-data">4.0 - 7.8</span>
-                </div>
-                <div class="overview-data">
-                    <span class="overview-data-title">Weight (Kg)</span>
-                    <span class="ts-data">6.0 - 6.6</span>
-                </div>
-                <div class="overview-data">
-                    <span class="overview-data-title">Insulin doses</span>
-                    <span class="ts-data">4</span>
-                </div>
-                <div class="overview-data">
-                    <span class="overview-data-title">Daily steps</span>
-                    <span class="ts-data">5000 +</span>
-                </div>
+
+                {{!-- Time series display --}}
+                {{#each thisPatient.timeSeries}}
+                    <div class="overview-data">
+                        <span class="overview-data-title">{{this.logItem}}</span>
+                        <span class="ts-data">{{this.lowerLimit}} - {{this.upperLimit}}</span>
+                    </div>
+                {{/each}}
             </div>
+
             <div class="patient-data whitebox shadow">
                 <div>
                     <span style="font-size: 24px;">Health records</span>
@@ -75,6 +68,7 @@
                         </select>
                     </span>
                 </div>
+
                 <table class="my-patient-table">
                     <tr class="out-border">
                         <th>Date</th>
@@ -84,68 +78,25 @@
                         <th><div>Exercise</div><div>(steps)</div></th>
                         <th><div>Show</div><div>comment</div></th>
                     </tr>
-                    <tr class="out-border">
+                    {{!-- <tr class="out-border">
                         <td>10/03</td>
                         <td>7.8</td>
                         <td>65.1</td>
                         <td>4</td>
                         <td>9768</td>
                         <td><span class="material-icons-round blue-text">arrow_forward_ios</span></td>
-                    </tr>
-                    <tr class="out-border">
-                        <td>10/03</td>
-                        <td>7.8</td>
-                        <td>65.1</td>
-                        <td>4</td>
-                        <td>9768</td>
-                        <td><span class="material-icons-round blue-text">arrow_forward_ios</span></td>
+                    </tr> --}}
 
-                    </tr>
-                    <tr class="out-border">
-                        <td>10/03</td>
-                        <td>7.8</td>
-                        <td>65.1</td>
-                        <td>4</td>
-                        <td>9768</td>
-                        <td><span class="material-icons-round blue-text">arrow_forward_ios</span></td>
+                    {{!-- Problem how to all 4 record from 1 single day --}}
 
-                    </tr>
-                    <tr class="out-border">
-                        <td>10/03</td>
-                        <td>7.8</td>
-                        <td>65.1</td>
-                        <td>4</td>
-                        <td>9768</td>
-                        <td><span class="material-icons-round blue-text">arrow_forward_ios</span></td>
+                    {{#each thisHealthRecord}}
+                        <tr class="out-border">
+                            <td>{{this.when}}</td>
+                            <td>{{this.value}}</td>
+                            <td><span class="material-icons-round blue-text">arrow_forward_ios</span></td>
+                        </tr>
+                    {{/each}}
 
-                    </tr>
-                    <tr class="out-border">
-                        <td>10/03</td>
-                        <td>7.8</td>
-                        <td>65.1</td>
-                        <td>4</td>
-                        <td>9768</td>
-                        <td><span class="material-icons-round blue-text">arrow_forward_ios</span></td>
-
-                    </tr>
-                    <tr class="out-border">
-                        <td>10/03</td>
-                        <td>7.8</td>
-                        <td>65.1</td>
-                        <td>4</td>
-                        <td>9768</td>
-                        <td><span class="material-icons-round blue-text">arrow_forward_ios</span></td>
-
-                    </tr>
-                    <tr class="out-border">
-                        <td>10/03</td>
-                        <td>7.8</td>
-                        <td>65.1</td>
-                        <td>4</td>
-                        <td>9768</td>
-                        <td><span class="material-icons-round blue-text">arrow_forward_ios</span></td>
-
-                    </tr>
                 </table>
                 <a href="#">show more records</a>
             </div>
@@ -153,39 +104,53 @@
     </div>
     <div class="patient-right">
         <div>
-            <span class="details-button"><a href="../clinician/patient-details.html" class="edit-ts">Patient details</a></span>
+            {{!-- Problem: No idea which page should link --}}
+            <span class="details-button"><a href="../../../clinician/patient-details" class="edit-ts">Patient details</a></span>
         </div>
+
         <div class="note-section-bottom whitebox shadow nav-top">
             <div>
                 <h2 style="font-size:24px" class="select-messages">Support Messages</h2>
             </div>
             <div>
+                {{!-- Problem dont have a add support message page --}}
                 <span><a href="#" class="edit-ts" style="font-size:24px">Add +</a></span>
             </div>
-            <div class="comment-container">
+            {{!-- <div class="comment-container">
                 <span class="comment-time">09/03/22, 7:56pm</span>
                 <div class="comment-box light-blue-box shadow">
                     <span class="comment-content">Hi Mary, great day for exercising today! Keep up the good work 😊.”</span>
                 </div>
-            </div>
+            </div> --}}
             <div class="comment-container">
-                <span class="comment-time">07/03/22, 8:59pm</span>
-                <div class="comment-box light-blue-box shadow">
-                    <span class="comment-content">Hi Mary, Hope you have had a good day today! Keep it up.”</span>
-                </div>
+                {{#each thisSupportMessage}}
+                    <span class="comment-time">{{this.when}}</span>
+                    <div class="comment-box light-blue-box shadow">
+                        <span class="comment-content">{{this.content}}</span>
+                    </div>
+                {{/each}}
             </div>
         </div>
+
+        {{!-- Change to display Clinician notes, not edit --}}
         <div class="note-section-bottom whitebox shadow nav-top">
             <div>
                 <h2 style="font-size:24px" class="select-messages">Clinical notes</h2>
             </div>
-            <div class="comment-container">
+            {{!-- <div class="comment-container">
                 <textarea name="" id="clinical-notes-textarea" cols="41" rows="15">Mary is a 40 year old female with Type 2 diabetes.</textarea>
-            </div>
+            </div> --}}
+
             <div>
-                <span><a href="#" class="edit-ts" style="font-size:24px">Save</a></span>
+                <span><a href="#" class="edit-ts" style="font-size:24px">Add+</a></span>
             </div>
 
+            {{#each thisClinicianNote}}
+                <span class="comment-time">{{this.when}}</span>
+                <div class="comment-box light-blue-box shadow">
+                    <span class="comment-content">{{this.content}}</span>
+                </div>
+            {{/each}}
         </div>
     </div>
     

@@ -1,6 +1,8 @@
 const Clinician = require('../models/clinician')
 const Patient = require('../models/patient')
 const HealthRecord = require('../models/healthRecord')
+const SupportMessage = require('../models/support')
+const ClinicainNote = require('../models/notes')
 const expressValidator = require('express-validator')
 const utility = require('../utils/utils')
 const moment = require('moment')
@@ -412,6 +414,22 @@ const getPatientDetail = async(req, res) => {
             req.params.id
         ).lean()
 
+        const healthRecord = await HealthRecord.find({
+            patientId: req.params.id,
+        }).lean()
+
+        const supportMessage = await SupportMessage.find({
+            patientId: req.params.id,
+            clinicianId: cId
+        }).lean()
+
+        const clinicanNote = await ClinicainNote.find({
+            patientId: req.params.id,
+            clinicianId: cId
+        }).lean()
+
+        console.log("Health Record:", healthRecord)
+
         if (!clinician || !patient) {
             return res.sendStatus(404)
         }
@@ -419,16 +437,17 @@ const getPatientDetail = async(req, res) => {
         return res.render('clinician-patient-page', {
             thisClinician: clinician,
             thisPatient: patient,
+            thisHealthRecord: healthRecord,
+            thisSupportMessage: supportMessage,
+            thisClinicianNote: clinicanNote,
             layout: "clinician-main"
         })
 
     } catch (err) {
         return next(err)
     }
-
-
-
 }
+
 
 const getEditPatientPage = async(req, res) => {
     res.send('GET EditPatientPage')
