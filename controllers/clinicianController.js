@@ -2,12 +2,13 @@ const Clinician = require('../models/clinician')
 const Patient = require('../models/patient')
 const HealthRecord = require('../models/healthRecord')
 const SupportMessage = require('../models/support')
-const ClinicainNote = require('../models/notes')
+const ClinicianNote = require('../models/notes')
 const expressValidator = require('express-validator')
 const utility = require('../utils/utils')
 const moment = require('moment')
 const bcrypt = require('bcryptjs')
 const { db } = require('../models/healthRecord')
+const { format } = require('express/lib/response')
 
 var login
 
@@ -430,7 +431,7 @@ const addNotes = async(req, res) => {
 
     console.log(req.body)
 
-    const newNote = new ClinicainNote({
+    const newNote = new ClinicianNote({
         patientId: req.params.id,
         clinicianId: cID,
         content: req.body.notes
@@ -506,72 +507,85 @@ const updateTimeSeries = async(req, res) => {
 }
 
 const getPatientDetail = async(req, res) => {
-    var cId = "625e240b01e5ce1b9ef808e9"
 
+    var cId = '625e240b01e5ce1b9ef808e9'
     try {
-        const clinician = await Clinician.findById(
-            cId
-        ).lean()
-
-        const patient = await Patient.findById(
-            req.params.id
-        ).lean()
-
+        const patient = await Patient.findById(req.params.id).lean()
         patient.age = utility.getAge(patient.dateOfBirth)
-
-        // Health Record
-        HealthRecord.aggregate([{
-            $group: {
-                _id: "when",
-                value: { $push: "$$ROOT" }
-            },
+        //search all health record group by date in descending order
+        var healthRecord = await HealthRecord.aggregate([{
+            $match : {patientId: patient._id,
+            when: {$gte: moment().day(-7).toDate()}}
+        },{
+            $group:{
+                _id:{ $dateToString: { format: "%d/%m", date: "$when"}},
+                list:{ $push: {item:"$logItemId", value:"$value"}},
+                count:{ $sum: 1}
+            }
+        },{
+            $sort: { _id: -1}
         }])
 
-        const healthRecord = await HealthRecord.find({
-            patientId: req.params.id,
-        }).lean()
+        //fill the empty items
+        for(let i = 0; i < healthRecord.length; i++){
 
-        for (let j = 0; j < healthRecord.length; j++) {
-            healthRecord[j].when = moment(healthRecord[j].when).format('D/M/YY')
+            healthRecord[i].list.sort((x,y)=>{return x.item - y.item})
+            var preFormat = [{},{},{},{}]
+
+            for(let j = 0; j < healthRecord[i].list.length; j++){
+
+                var currentRecord = healthRecord[i].list[j]
+                var pos = currentRecord.item - 1
+                var val = currentRecord.value
+                preFormat[pos] = healthRecord[i].list[j]
+
+                if(val > patient.timeSeries[pos].upperLimit ||
+                    val < patient.timeSeries[pos].lowerLimit){
+                        preFormat[pos]['alert'] = true
+                    }
+            }
+            healthRecord[i].list = preFormat
         }
-
-        console.log("Health Record:", healthRecord)
-
-        // Support Message
-        const supportMessage = await SupportMessage.find({
+        // find latest support message
+        const supports = await SupportMessage.find({
             patientId: req.params.id,
             clinicianId: cId
-        }).lean()
+        }).sort({when : -1}).limit(2).lean()
 
-        for (let j = 0; j < supportMessage.length; j++) {
-            supportMessage[j].when = moment(supportMessage[j].when).format('D/M/YY H:mm:ss')
+        console.log(supports)
+
+        for (let j = 0; j < supports.length; j++) {
+            supports[j].when = moment(supports[j].when).format('D/M/YY H:mm:ss')
         }
 
-        // Clinician Note
-        const clinicanNote = await ClinicainNote.find({
+        // find latest clinician note
+        const notes = await ClinicianNote.find({
             patientId: req.params.id,
             clinicianId: cId
-        }).lean()
+        }).sort({when : -1}).limit(1).lean()
 
-        for (let j = 0; j < clinicanNote.length; j++) {
-            clinicanNote[j].when = moment(clinicanNote[j].when).format('D/M/YY H:mm:ss')
+        console.log(notes)
+
+        for (let j = 0; j < notes.length; j++) {
+            notes[j].when = moment(notes[j].when).format('D/M/YY H:mm:ss')
         }
 
-        if (!clinician || !patient) {
-            return res.sendStatus(404)
-        }
+        //console.log(healthRecord)
 
         return res.render('clinician-patient-page', {
-            thisClinician: clinician,
-            thisPatient: patient,
-            thisHealthRecord: healthRecord,
-            thisSupportMessage: supportMessage,
-            thisClinicianNote: clinicanNote,
+            patient: patient,
+            healthRecord: healthRecord,
+            support: supports,
+            note: notes,
+            title: 'my patient',
+            doctor: {
+                givenName: 'Chris',
+                familyName: "Smith"
+            },
             layout: "clinician-main"
         })
-
     } catch (err) {
-        return next(err)
+        res.send(err)
     }
 }
 
