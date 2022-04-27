@@ -290,11 +290,16 @@ td {
 }
 
 .patient-title-row {
-    display: grid;
-    grid-template-columns: 55% 13% 32%;
+    display: flex;
     align-items: center;
+    justify-content:space-between;
 }
 
+.patient-title-age{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
 .patient-title {
     font-size: 48px;
     text-align: left;
@@ -315,9 +320,11 @@ td {
 }
 
 .edit-ts-button {
-    float: right;
     height: 56px;
-    line-height: 56px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .overview-data {
