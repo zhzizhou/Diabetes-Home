@@ -110,10 +110,8 @@
         </div>
 
         <div class="note-section-bottom whitebox shadow nav-top">
-            <div>
+            <div class="space-between">
                 <h2 style="font-size:24px" class="select-messages">Support Messages</h2>
-            </div>
-            <div>
                 <span><a href="/clinician/my-patient/{{thisPatient._id}}/support" class="edit-ts" style="font-size:24px">Add +</a></span>
             </div>
             {{!-- <div class="comment-container">
@@ -134,15 +132,9 @@
 
         {{!-- Change to display Clinician notes, not edit --}}
         <div class="note-section-bottom whitebox shadow nav-top">
-            <div>
-                <h2 style="font-size:24px" class="select-messages">Clinical notes</h2>
-            </div>
-            {{!-- <div class="comment-container">
-                <textarea name="" id="clinical-notes-textarea" cols="41" rows="15">Mary is a 40 year old female with Type 2 diabetes.</textarea>
-            </div> --}}
-
-            <div>
-                <span><a href="/clinician/my-patient/{{thisPatient._id}}/notes" class="edit-ts" style="font-size:24px">Add +</a></span>
+            <div class="space-between">
+                <h2 style="font-size:24px" class="select-messages">Clinician Notes</h2>
+                <span><a href="/clinician/my-patient/{{thisPatient._id}}/support" class="edit-ts" style="font-size:24px">Add +</a></span>
             </div>
             <div class="comment-container">
                 {{#each thisClinicianNote}}
