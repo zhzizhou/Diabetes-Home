@@ -1,13 +1,44 @@
-
 <body class="dashboard-body">
+    <div id="responsive-nav" class="menu-container responsive-nav">
+        <div class="responsive-nav-top">
+            <img class="small-logo" src="/images/white-logo.svg" alt="">
+            <span onclick="closeMenu()" class="material-icons-round white-text" id="menu-opener">apps</span>
+        </div>
+        <div class="grid-menu white-text" scroll="no">
+            <a class="white-text menu-square" href="../../patient/home">
+                <span class="material-icons-round menu-icon">home</span>
+                <h3>Home</h3>
+            </a>
+            <a class="white-text menu-square" href="../../patient/leaderboard">
+                <span class="material-icons-round menu-icon">leaderboard</span>
+                <h3>Leaderboard</h3>
+            </a>
+            <a class="white-text menu-square" href="../../patient/history">
+                <span class="material-icons-round menu-icon">history</span>
+                <h3>Log History</h3>
+            </a>
+            <a class="white-text menu-square" href="../../patient/help">
+                <span class="material-icons-round menu-icon">help</span>
+                <h3>Help</h3>
+            </a>
+            <a class="white-text menu-square" href="../../patient/profile">
+                <span class="material-icons-round menu-icon">person</span>
+                <h3>Account</h3>
+            </a>
+            <a class="white-text menu-square" href="../../patient/settings">
+                <span class="material-icons-round menu-icon">settings</span>
+                <h3>Settings</h3>
+            </a>
 
+        </div>
+    </div>
     <div class="page-padding">
 
         <div class="responsive-nav responsive-nav-top">
             <a href="index.html"><img class="small-logo" src="/images/logo.svg" alt=""></a>
-            {{!-- <div onclick="openMenu()" class="square-menu">
+            <div onclick="openMenu()" class="square-menu">
                 <span class="material-icons-round blue-text" id="menu-opener">apps</span>
-            </div> --}}
+            </div>
         </div>
 
         <div class="nav-placeholder">
@@ -94,11 +125,11 @@
                                         <span class="data-icon material-icons-round blue-text">scale</span>
                                         <div>
                                             <p>Weight</p>
-                                            <h3>{{#if log1}}{{log1.value}}{{else}}{{/if}}</h3>
+                                            <h3>{{#if log1}}{{log1.value}}{{else}}{{/if}} Kg</h3>
                                         </div>
                                     </div>
                                     <div class="time-entered-box">
-                                        <h4>{{#if log1time}}{{log1time}}{{else}}{{/if}} Kg</h4>
+                                        <h4>{{#if log1time}}{{log1time}}{{else}}{{/if}}</h4>
                                         <span class="material-icons-round blue-text">navigate_next</span>
                                     </div>
                                 </div>

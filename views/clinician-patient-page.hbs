@@ -40,10 +40,12 @@
             <h4>Back</h4>
         </a>
         <div class="patient-title-row">
+            <span class="patient-title-age">
             <span class="patient-title">{{thisPatient.givenName}} {{thisPatient.familyName}}</span>
-            <span class="patient-age">{{thisPatient.gender}} {{thisPatient.age}}</span>
+            <span class="patient-age">{{thisPatient.gender}} {{thisPatient.age}}</span></span>
             <span class="edit-ts-button"><a href="../../my-patient/{{thisPatient._id}}/time-series" class="edit-ts">edit-time series</a></span>
         </div>
+        <span class="patient-age">{{thisPatient.gender}} {{thisPatient.age}}</span>
         <div class="main-section">
             <div class="ts-container whitebox shadow">
                 {{!-- Time series display --}}
@@ -60,13 +62,8 @@
             <div class="patient-data whitebox shadow">
                 <div>
                     <span style="font-size: 32px;">Health records</span>
-                    <span class="filter-button">show
-                        <select class="dropdown"name="select" id="select">
-
-                            {{!-- Problem: Whats the value for? --}}
-                            <option value="all">All</option>
-                            <option value="bbb">bbb</option>
-                        </select>
+                    <span class="filter-button">Filter by date
+                        <input type="date">
                     </span>
                 </div>
 
@@ -77,7 +74,6 @@
                         <th><div>Weight</div><div>(kg)</div></th>
                         <th><div>Insulin</div><div>(doses)</div></th>
                         <th><div>Exercise</div><div>(steps)</div></th>
-                        <th><div>Show</div><div>comment</div></th>
                     </tr>
                     {{!-- <tr class="out-border">
                         <td>10/03</td>

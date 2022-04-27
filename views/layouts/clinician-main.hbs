@@ -26,6 +26,14 @@
             var model = document.getElementById("successful-update-data");
             model.style.display = "none";
         }
+
+        function disableScroll(){
+            $("body").attr("id","disable");  
+        }
+
+        function enableScroll(){
+            $("body").removeAttr("id","disable");
+        }
 </script>
 
 

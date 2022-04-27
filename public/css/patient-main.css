@@ -1,21 +1,27 @@
 body {
     background-color: white;
 }
-
+.fixed {
+    position: fixed;
+    top: 0;
+    height:100%;
+    left:0;
+    overflow: hidden;
+}
 .leaderboard-body {
     display: flex;
 }
 
 #responsive-nav {
     display: none;
-    position: absolute;
+    position: fixed;
     z-index: 1;
 }
 
 .dashboard-container {
     display: flex;
     flex-direction: row;
-    width: 1920px;
+    width: 100%;
     justify-content: space-between;
     gap: 5rem;
 }
@@ -496,13 +502,13 @@ input[type=number] {
         box-shadow: none;
     }
     #blue-main-page {
-        width: 1050px;
+        width: 1024px;
         box-shadow: none;
         border-radius: 0;
         height: auto;
     }
     .page-title-and-nav {
-        width: 1050px;
+        width: 1024px;
         padding-left: 2rem;
         gap: 25rem;
     }
