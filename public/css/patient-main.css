@@ -14,14 +14,14 @@ body {
 
 #responsive-nav {
     display: none;
-    position: absolute;
+    position: fixed;
     z-index: 1;
 }
 
 .dashboard-container {
     display: flex;
     flex-direction: row;
-    width: 1920px;
+    width: 100%;
     justify-content: space-between;
     gap: 5rem;
 }
@@ -44,6 +44,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    width: 75%;
 }
 
 .dashboard-right.enter-ts-container {
