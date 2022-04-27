@@ -9,6 +9,8 @@ const moment = require('moment')
 const bcrypt = require('bcryptjs')
 const { db } = require('../models/healthRecord')
 
+var login
+
 const getHome = async(req, res) => {
     var cId = '6256dde2082aa786c9760f98'
     var currentId
@@ -585,31 +587,13 @@ const updatePatientDetail = async(req, res) => {
 }
 
 const getLoginPage = async(req, res) => {
-    cId = "625e240b01e5ce1b9ef808e9"
-
-    try {
-        const clinician = await Clinician.findById(
-            cId
-        ).lean()
-
-        if (!clinician) {
-            return res.sendStatus(404)
-        }
-
-        return res.render('clinician-login', {
-            thisClinician: clinician,
-            layout: "login"
-        })
-    } catch (err) {
-        return next(err)
-    }
-
-
+    res.render('clinician-login', {
+        layout: "login"
+    })
 }
 
 const clinicianLogin = async(req, res) => {
-    res.send('POST clinicianLogin')
-        //TODO
+    res.redirect("/clinician/home")
 }
 
 module.exports = {
