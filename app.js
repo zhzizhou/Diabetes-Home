@@ -17,7 +17,9 @@ app.engine(
     exphbs.engine({
         defaultlayout: 'main',
         extname: 'hbs',
-        helpers: {}
+        helpers: {
+            have: x => x != "null"
+        }
     })
 )
 

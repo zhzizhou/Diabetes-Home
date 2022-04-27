@@ -5,6 +5,11 @@ const Doctor = require('../models/clinician')
 const moment = require('moment')
 const expressValidator = require('express-validator')
 
+// get the lastest log information
+// const getlatestlog = async(lognumber,pID) =>{
+
+// }
+
 const getHome = async(req, res) => {
     //return res.render("patient-dashboard")
     console.log("GET Patient Dashboard Home page")
@@ -12,21 +17,68 @@ const getHome = async(req, res) => {
     var dID = "625e240b01e5ce1b9ef808e9" // doctor smith hardcoded
 
     try {
+        // found hardcoded doctor and patient
         const patient = await Patient.findById(pID).lean()
         const doctor = await Doctor.findById(dID).lean()
         if (!patient || !doctor) {
             return res.sendStatus(404)
         }
 
-        //found patient
+        var latestLog1 = null
+        var latestLog2 = null
+        var latestLog3 = null
+        var latestLog4 = null
+        var now = new Date()
+        
+        // retrive lastest healthRecord from the database and do implementation
+            
+        const allhealth = await HealthRecord.find(
+        {patientId: pID,
+        when: {
+            $gte: new Date(now.getFullYear(), now.getMonth(), now.getDate())
+        }}
+        ).lean()
+        console.log(allhealth)
+        
+        // current plan: reverse the records to find the lastest record
+        // until i have a better approach, just keep it this way for now
+        for (let i= allhealth.length - 1; i>=0; i--){
+            if(latestLog1 == null  && allhealth[i].logItemId == 1){
+                latestLog1 = allhealth[i]
+                continue
+            }
+            if(latestLog2 == null && allhealth[i].logItemId == 2){
+                latestLog2 = allhealth[i]
+                continue
+            }
+            if(latestLog3 == null && allhealth[i].logItemId == 3){
+                latestLog3 = allhealth[i]
+                continue
+            }
+            if(latestLog4 == null && allhealth[i].logItemId == 4){
+                latestLog4 = allhealth[i]
+                continue
+            }
+        } 
+        // testing information
+        console.log(latestLog1)
+        console.log(latestLog2)
+        console.log(latestLog3)
+        console.log(latestLog4)
+        
+        // render hbs page
         return res.render('patient-dashboard', {
             layout: 'patient-main',
             patient: patient,
-            doctor: doctor
+            doctor: doctor,
+            log1:latestLog1,
+            log2:latestLog2,
+            log3:latestLog3,
+            log4:latestLog4
         })
 
     } catch (err) {
-        return next(err)
+        console.log(err)
     }
 
 }

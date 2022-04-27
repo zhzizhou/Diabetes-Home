@@ -319,8 +319,30 @@ const searchPatient = async(req, res) => {
 }
 
 const getOnePatientPage = async(req, res) => {
-    res.send('GET OnePatientPage')
-        //TODO
+    var cId = "625e240b01e5ce1b9ef808e9"
+
+    try {
+        const clinician = await Clinician.findById(
+            cId
+        ).lean()
+
+        const patient = await Patient.findById(
+            req.params.id
+        ).lean()
+
+        if (!clinician || !patient) {
+            return res.sendStatus(404)
+        }
+
+        return res.render('clinician-patient-detail', {
+            thisClinician: clinician,
+            thisPatient: patient,
+            layout: 'clinician-main'
+        })
+
+    } catch (err) {
+        return next(err)
+    }
 }
 
 const getSupportPage = async(req, res) => {
