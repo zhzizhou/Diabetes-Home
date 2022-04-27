@@ -496,13 +496,13 @@ input[type=number] {
         box-shadow: none;
     }
     #blue-main-page {
-        width: 1050px;
+        width: 1024px;
         box-shadow: none;
         border-radius: 0;
         height: auto;
     }
     .page-title-and-nav {
-        width: 1050px;
+        width: 1024px;
         padding-left: 2rem;
         gap: 25rem;
     }
