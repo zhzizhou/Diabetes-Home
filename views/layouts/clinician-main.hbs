@@ -13,29 +13,10 @@
     <link rel="stylesheet" href="/css/buttons.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Round" rel="stylesheet">
     <link rel="stylesheet" href="https://use.typekit.net/cxa4uzj.css">
+    <script type="javascript" src="/js/pop-up-window.js"></script>
+    <script type="javascript" src="/js/scroll.js"></script>
     <title>{{title}}</title>
 </head>
-
-<script>
-        function showModel(){
-            var model = document.getElementById("successful-update-data");
-            model.style.display = "block";
-        }
-
-        function closeModel(){
-            var model = document.getElementById("successful-update-data");
-            model.style.display = "none";
-        }
-
-        function disableScroll(){
-            $("body").attr("id","disable");  
-        }
-
-        function enableScroll(){
-            $("body").removeAttr("id","disable");
-        }
-</script>
-
 
 <body>
     {{{body}}}

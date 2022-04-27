@@ -598,7 +598,7 @@ const getLoginPage = async(req, res) => {
 
         return res.render('clinician-login', {
             thisClinician: clinician,
-            layout: "clinician-main"
+            layout: "login"
         })
     } catch (err) {
         return next(err)
