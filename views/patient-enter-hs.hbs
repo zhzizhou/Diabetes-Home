@@ -89,7 +89,7 @@
         <div class="dashboard-left">
         </div>
 
-        <div class="dashboard-right">
+        <div class="dashboard-right enter-ts-container">
             <div>
                 <div class="page-title-and-nav">
                 {{!-- Problem? back button --}}
@@ -101,7 +101,7 @@
             </div>
 
             {{!-- Pop up window after post message --}}
-            <div class="pop-up-container" id="successful-update-data">
+            <div class="pop-up-container" id="successful-update-data" scroll="no">
                 <img class="pop-up-image" src="/images/clap.svg" alt="">
                 <div class="pop-up-string">
                     <h3>Keep up the good work!</h3>
@@ -120,19 +120,19 @@
                     <div class="date-time-container">
                         <div class="page-title-icon">
                             <span class="material-icons-round blue-text">schedule</span>
-                            <p>Time</p>
+                            <p class="blue-text">Time</p>
                         </div>
                         <p class="p-dark">{{time}}</p>
                     </div>
                     <div>
                         <div class="page-title-icon on-top">
                             <span class="material-icons-round blue-text">edit</span>
-                            <p>Notes</p>
+                            <p class="blue-text">Notes</p>
                         </div>
 
                         <div class="notes-container">
                             <textarea name="notes" id="message-input" cols="30 "
-                                rows="10 ">Take a note of something...</textarea>
+                                rows="10 "></textarea>
                         </div>
                     </div>
 

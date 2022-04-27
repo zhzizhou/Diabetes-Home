@@ -17,7 +17,7 @@ body {
     flex-direction: row;
     width: 1920px;
     justify-content: space-between;
-    gap: 3rem;
+    gap: 5rem;
 }
 
 .space-between {
@@ -27,17 +27,21 @@ body {
 }
 
 .main-content {
-    gap: 5rem;
+    gap: 2rem;
 }
 
 .dashboard-left {
-    min-width: 25rem;
+    width: 26rem;
 }
 
 .dashboard-right {
     display: flex;
     flex-direction: column;
     gap: 3rem;
+}
+
+.dashboard-right.enter-ts-container {
+    margin: auto;
 }
 
 input[type=checkbox] {
@@ -66,6 +70,7 @@ a.white-text {
     border-radius: 2rem;
     height: 85vh;
     box-shadow: 2px 2px 3px var(--box-shadow);
+    margin-top: 2rem;
 }
 
 
@@ -128,7 +133,7 @@ a.white-text {
 
 .filled {
     outline: 3px solid var(--dark-blue);
-    padding: 1.5rem !important;
+    padding: 1.5rem;
 }
 
 .data-icon {
@@ -276,10 +281,12 @@ input.enter-data-box,
 input.enter-data-box:focus {
     background-color: var(--dark-blue);
     border-radius: 20rem;
-    height: 3rem;
+    height: 4rem;
     color: white;
     border: none;
     width: 15rem;
+    text-align:center;
+    font-size: 24px;
 }
 
 input.enter-data-box::placeholder,
@@ -320,7 +327,14 @@ input.enter-data-box:focus {
     width: 100%;
     height: 100%;
     resize: none;
+    color: var(--dark-text);
+    font-family: effra;
 }
+
+#message-input:hover {
+    color: var(--dark-blue);
+}
+
 
 .pop-up-container {
     display: none;
@@ -331,8 +345,11 @@ input.enter-data-box:focus {
     text-align: center;
     padding-top: 2em;
     top: 40%;
+    left: 54%;
     width: 300px;
     height: 325px;
+    z-index: 1;
+    overflow: hidden;
 }
 
 .pop-up-image {
@@ -381,6 +398,11 @@ input[type=number] {
         background-color: white;
         display: block;
     }
+
+    .dashboard-container {
+        width: 986px;
+    }
+
     .leaderboard-body {
         display: block;
     }
@@ -402,12 +424,16 @@ input[type=number] {
         padding: 0;
     }
     .page-padding {
-        padding: 2rem 2rem 0 2rem;
+        padding: 2rem;
     }
     .inside-left {
         flex-direction: row;
-        padding-bottom: 3rem;
-        width: 85%;
+        padding-bottom: 2rem;
+        width: 100%;
+    }
+
+    .main-content {
+        gap: 3rem;
     }
     .doctor-comment {
         background-color: var(--light-grey-background);
@@ -486,6 +512,11 @@ input[type=number] {
     .ts-container {
         padding-top: 0;
     }
+
+    .pop-up-container {
+        top: 30%;
+        left: 36%;
+    }
 }
 
 @media screen and (max-width: 550px) {
@@ -508,8 +539,9 @@ input[type=number] {
 }
 
 @media screen and (max-width: 380px) {
-    .space-between {
-        align-items: baseline;
+
+    .dashboard-container {
+        width:243px;
     }
     .page-title {
         width: 60%;
@@ -521,6 +553,7 @@ input[type=number] {
     }
     .my-stats {
         width: 100%;
+        align-items: top;
     }
     .page-padding {
         padding: 0;
@@ -536,6 +569,12 @@ input[type=number] {
     }
     .main-content {
         width: 350px;
+        gap: 2rem;
+    }
+
+    .filled {
+        padding-left: 16px;
+        padding-right: 16px;
     }
     .my-checklist {
         width: 375px;
@@ -569,12 +608,13 @@ input[type=number] {
         margin: 2em 1em 1em 2em;
     }
     #blue-main-page {
-        width: 100%;
+        width: 375px;
     }
     .page-title-and-nav {
         width: 375px;
         padding-left: 2rem;
         gap: 3.5rem;
+        margin-top: 2rem;
     }
     .date-time-container,
     .date-time-container:focus {
@@ -582,5 +622,10 @@ input[type=number] {
     }
     .notes-container {
         width: 20rem;
+    }
+
+    .pop-up-container {
+        top: 30%;
+        left: 10%;
     }
 }

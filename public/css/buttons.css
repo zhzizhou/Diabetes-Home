@@ -28,6 +28,7 @@ a:hover {
 
 .button-width-20 {
     width:20rem;
+    height: 3rem;
 }
 .button:hover {
     background-color: var(--button-hover);
