@@ -599,8 +599,26 @@ const updatePatientDetail = async(req, res) => {
 }
 
 const getLoginPage = async(req, res) => {
-    res.send('GET LoginPage')
-        //TODO
+    cId = "625e240b01e5ce1b9ef808e9"
+
+    try {
+        const clinician = await Clinician.findById(
+            cId
+        ).lean()
+
+        if (!clinician) {
+            return res.sendStatus(404)
+        }
+
+        return res.render('clinician-login', {
+            thisClinician: clinician,
+            layout: "login"
+        })
+    } catch (err) {
+        return next(err)
+    }
+
+
 }
 
 const clinicianLogin = async(req, res) => {
