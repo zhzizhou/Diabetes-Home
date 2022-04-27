@@ -409,7 +409,7 @@ a:hover {
     }
       
     nav li:hover ul{
-        transform: scale(1,1); /* The it become the full scale when hovered -- reveals the subcategories*/ 
+        transform: scale(1,1); /* It become the full scale when hovered -- reveals the subcategories*/ 
         opacity: 100%;
     }
 

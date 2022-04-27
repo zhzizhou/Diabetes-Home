@@ -4,20 +4,13 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="shortcut icon" type="image/x-icon" href="../static/images/favicon.gif" />
-    <link rel="stylesheet" type="text/css" href="../static/css/button.css">
-    <link rel="stylesheet" href="https://use.typekit.net/cxa4uzj.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/grid_type1.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/slideshow.css">
 
     <link rel="stylesheet" href="../static/css/reset.css">
-    <link rel="stylesheet" href="../static/css/form.css">
-    <link rel="stylesheet" href="../static/css/layout.css">
     <link rel="stylesheet" href="../static/css/font.css">
     <link rel="stylesheet" href="../static/css/colour.css">
+    <link rel="stylesheet" href="../static/css/buttons.css">
     <link rel="stylesheet" href="../static/css/loginPage.css">
     <link rel="stylesheet" href="../static/css/index.css">
-    <link rel="stylesheet" href="../static/css/buttons.css">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Login</title>
@@ -59,18 +52,22 @@
             <div class="outercontainer">
                 <img class="logo-sub-login" src="../static/images/logo.svg" alt="">
                 <h2 class="blue-text" id="center-word">Patient Login</h2>
-                <form action="/action_page.php" method="post">
-                    <div class="container">
-                        <input type="text" placeholder="Username" name="uname" required>
-                        </br>
-                        <input type="password" placeholder="Password" name="psw" required>
-                        </br>
-                        </br>
-                        <button class="submit">Login</button>
-                        </br>
-                        <span class = "blue-text" id="center-word">To login as a clincian please click <a href="login-Clinician.html" id="underline">here</a></span>
+                <div class="section">
+                    <div class="floating">
+                        <input class=" floating__input" name="username" placeholder="Username" type="text" required>
+                        <label for="username" class="floating__label" data-content="Username">
+                            <span class="hidden--visually">Username</span>
+                        </label>
                     </div>
-                </form>
+
+                    <div class="floating">
+                        <input class="floating__input" placeholder="Password" type="password" name="psw" required>
+                        <label for="password" class="floating__label" data-content="Password">
+                            <span class="hidden--visually">Password</span>
+                        </label>
+                    </div>
+                </div>
+                <span class = "blue-text" id="center-word">To login as a clincian please click <a href="login-Clinician.html" id="underline">here</a></span>
             </div>
         </div>
     </div>
