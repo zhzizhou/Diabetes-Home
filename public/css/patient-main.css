@@ -404,6 +404,10 @@ input[type=number] {
         display: block;
     }
 
+    .dashboard-right {
+        padding-top:2rem;
+    }
+
     .dashboard-container {
         width: 986px;
     }
@@ -569,6 +573,11 @@ input[type=number] {
         padding-left: 1rem;
         padding-right: 1rem;
     }
+
+    .dashboard-right {
+        padding-top:0rem;
+    }
+
     .page-title {
         min-width: 250px;
     }
