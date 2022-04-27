@@ -28,6 +28,11 @@ const getHome = async(req, res) => {
         var latestLog2 = null
         var latestLog3 = null
         var latestLog4 = null
+        var log1Time = null
+        var log2Time = null
+        var log3Time = null
+        var log4Time = null
+        
         var now = new Date()
         
         // retrive lastest healthRecord from the database and do implementation
@@ -45,18 +50,22 @@ const getHome = async(req, res) => {
         for (let i= allhealth.length - 1; i>=0; i--){
             if(latestLog1 == null  && allhealth[i].logItemId == 1){
                 latestLog1 = allhealth[i]
+                log1Time = moment(allhealth[i].when).format('D/M/YY H:mm:ss')
                 continue
             }
             if(latestLog2 == null && allhealth[i].logItemId == 2){
                 latestLog2 = allhealth[i]
+                log2Time = moment(allhealth[i].when).format('D/M/YY H:mm:ss')
                 continue
             }
             if(latestLog3 == null && allhealth[i].logItemId == 3){
                 latestLog3 = allhealth[i]
+                log3Time = moment(allhealth[i].when).format('D/M/YY H:mm:ss')
                 continue
             }
             if(latestLog4 == null && allhealth[i].logItemId == 4){
                 latestLog4 = allhealth[i]
+                log4Time = moment(allhealth[i].when).format('D/M/YY H:mm:ss')
                 continue
             }
         } 
@@ -65,7 +74,8 @@ const getHome = async(req, res) => {
         console.log(latestLog2)
         console.log(latestLog3)
         console.log(latestLog4)
-        
+        console.log(log4Time)
+
         // render hbs page
         return res.render('patient-dashboard', {
             layout: 'patient-main',
@@ -74,7 +84,12 @@ const getHome = async(req, res) => {
             log1:latestLog1,
             log2:latestLog2,
             log3:latestLog3,
-            log4:latestLog4
+            log4:latestLog4,
+            log1time: log1Time,
+            log2time: log2Time,
+            log3time: log3Time,
+            log4time: log4Time
+
         })
 
     } catch (err) {

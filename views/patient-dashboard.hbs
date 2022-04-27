@@ -85,33 +85,76 @@
                     <div>
                         <div class="my-checklist">
                             <h4>My Checklist</h4>
-                            <a href="../patient/log/1" class="checklist-item space-between">
+                            {{!-- log1 structure --}}
+                            {{#if log1}}
+                                <div class="checklist-item space-between filled">
+                                    <div class="checklist-left space-between">
+                                        
+                                        <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                                        <span class="data-icon material-icons-round blue-text">scale</span>
+                                        <div>
+                                            <p>Weight</p>
+                                            <h3>{{#if log1}}{{log1.value}}{{else}}{{/if}}</h3>
+                                        </div>
+                                    </div>
+                                    <div class="time-entered-box">
+                                        <h4>{{#if log1time}}{{log1time}}{{else}}{{/if}} Kg</h4>
+                                        <span class="material-icons-round blue-text">navigate_next</span>
+                                    </div>
+                                </div>
+                            {{else}}
+                                {{!-- unchanged version please enter --}}
+                                <a href="../patient/log/1" class="checklist-item space-between">
                                 <div class="checklist-left space-between">
                                     <div class="checkbox"></div>
                                     <span class="data-icon material-icons-round blue-text">scale</span>
                                     <div>
                                         <p>Weight</p>
-                                        <h3>{{#if log1}}{{log1.value}}{{else}}{{/if}}</h3>
+                                        {{!-- <h3>{{#if log1}}{{log1.value}}{{else}}{{/if}}</h3> --}}
                                     </div>
                                 </div>
-                                <div>
-                                    <span class="material-icons-round blue-text ">navigate_next</span>
-                                </div>
-                            </a>
-                            <a href="../patient/log/2" class="checklist-item space-between">
-                                <div class="checklist-left space-between">
-                                    <div class="checkbox"></div>
-                                    <span class="data-icon material-icons-round blue-text">vaccines</span>
-                                    <div>
-                                        <p>Doses of insulin today</p>
-                                        <h3>{{#if log2}}{{log2.value}}{{else}}{{/if}}</h3>
-                                    </div>
-                                </div>
-                                <div>
+                                <div class="time-entered-box">
+                                    {{!-- <h4>{{#if log1time}}{{log1time}}{{else}}{{/if}}</h4> --}}
                                     <span class="material-icons-round blue-text">navigate_next</span>
                                 </div>
                             </a>
-                            <a href="../patient/log/3" class="checklist-item space-between filled">
+                            {{/if}}
+
+                            {{#if log2}}
+                                <div href="../patient/log/2" class="checklist-item space-between filled">
+                                    <div class="checklist-left space-between">
+                                        
+                                        <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                                        <span class="data-icon material-icons-round blue-text">vaccines</span>
+                                        <div>
+                                            <p>Doses of insulin today</p>
+                                            <h3>{{#if log2}}{{log2.value}}{{else}}{{/if}} doses</h3>
+                                        </div>
+                                    </div>
+                                    <div class="time-entered-box">
+                                        <h4>{{#if log2time}}{{log2time}}{{else}}{{/if}}</h4>
+                                        <span class="material-icons-round blue-text">navigate_next</span>
+                                    </div>
+                                </div>
+                            {{else}}
+                                <a href="../patient/log/2" class="checklist-item space-between">
+                                    <div class="checklist-left space-between">
+                                        <div class="checkbox"></div>
+                                        <span class="data-icon material-icons-round blue-text">vaccines</span>
+                                        <div>
+                                            <p>Doses of insulin today</p>
+                                            {{!-- <h3>{{#if log2}}{{log2.value}}{{else}}{{/if}}</h3> --}}
+                                        </div>
+                                    </div>
+                                    <div class="time-entered-box">
+                                        {{!-- <h4>{{#if log2time}}{{log2time}}{{else}}{{/if}}</h4> --}}
+                                        <span class="material-icons-round blue-text">navigate_next</span>
+                                    </div>
+                                </a>
+                            {{/if}}
+                            
+                            {{#if log3}}
+                            <div href="../patient/log/3" class="checklist-item space-between filled">
                                 <div class="checklist-left space-between">
                                     <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
                                     <span class="material-icons-round blue-text data-icon">directions_run</span>
@@ -122,11 +165,31 @@
                                     </div>
                                 </div>
                                 <div class="time-entered-box">
-                                    <h4>8:00pm</h4>
+                                    <h4>{{#if log3time}}{{log3time}}{{else}}{{/if}}</h4>
+                                    <span class="material-icons-round blue-text">navigate_next</span>
+                                </div>
+                            </div>
+                            {{else}}
+                            <a href="../patient/log/3" class="checklist-item space-between ">
+                                <div class="checklist-left space-between">
+                                    <div class="checkbox"></div>
+                                    <span class="material-icons-round blue-text data-icon">directions_run</span>
+                                    <div>
+                                        <p>Number of steps</p>
+                                        {{!-- <h3>{{#if log3}}{{log3.value}}{{else}}{{/if}}</h3> --}}
+                                        <h3>{{log3.value}}</h3>
+                                    </div>
+                                </div>
+                                <div class="time-entered-box">
+                                    {{!-- <h4>{{#if log3time}}{{log3time}}{{else}}{{/if}}</h4> --}}
                                     <span class="material-icons-round blue-text">navigate_next</span>
                                 </div>
                             </a>
-                            <a href="../patient/log/4" class="checklist-item space-between filled">
+                            {{/if}}
+
+                            {{!-- log4 structure --}}
+                            {{#if log4}}
+                                <div class="checklist-item space-between filled">
                                 <div class="checklist-left space-between">
                                     <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
                                     <span class="material-icons-round blue-text data-icon">bloodtype</span>
@@ -137,10 +200,28 @@
                                     </div>
                                 </div>
                                 <div class="time-entered-box">
-                                    <h4>{{log4.when}}</h4>
+                                    <h4>{{#if log4time}}{{log4time}}{{else}}{{/if}}</h4>
                                     <span class="material-icons-round blue-text">navigate_next</span>
                                 </div>
-                            </a>
+                                </div>
+                            {{else}}
+                                <a href="../patient/log/4" class="checklist-item space-between ">
+                                <div class="checklist-left space-between">
+                                    <div class="checkbox"></div>
+                                    <span class="material-icons-round blue-text data-icon">bloodtype</span>
+                                    <div>
+                                        <p>Blood gluecose Level</p>
+                                        {{!-- <h3{{#if log4}}{{log4.value}} mmol /L{{else}}{{/if}}</h3> --}}
+                                        {{!-- <h3>{{log4.value}} mmol/L</h3> --}}
+                                    </div>
+                                </div>
+                                <div class="time-entered-box">
+            
+                                    <span class="material-icons-round blue-text">navigate_next</span>
+                                </div>
+                                </a>
+                            {{/if}}
+                            
                         </div>
                     </div>
     
