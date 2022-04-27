@@ -32,43 +32,43 @@ const getHome = async(req, res) => {
         var log2Time = null
         var log3Time = null
         var log4Time = null
-        
+
         var now = new Date()
-        
+
         // retrive lastest healthRecord from the database and do implementation
-            
-        const allhealth = await HealthRecord.find(
-        {patientId: pID,
-        when: {
-            $gte: new Date(now.getFullYear(), now.getMonth(), now.getDate())
-        }}
-        ).lean()
+
+        const allhealth = await HealthRecord.find({
+            patientId: pID,
+            when: {
+                $gte: new Date(now.getFullYear(), now.getMonth(), now.getDate())
+            }
+        }).lean()
         console.log(allhealth)
-        
+
         // current plan: reverse the records to find the lastest record
         // until i have a better approach, just keep it this way for now
-        for (let i= allhealth.length - 1; i>=0; i--){
-            if(latestLog1 == null  && allhealth[i].logItemId == 1){
+        for (let i = allhealth.length - 1; i >= 0; i--) {
+            if (latestLog1 == null && allhealth[i].logItemId == 1) {
                 latestLog1 = allhealth[i]
                 log1Time = moment(allhealth[i].when).format('D/M/YY H:mm:ss')
                 continue
             }
-            if(latestLog2 == null && allhealth[i].logItemId == 2){
+            if (latestLog2 == null && allhealth[i].logItemId == 2) {
                 latestLog2 = allhealth[i]
                 log2Time = moment(allhealth[i].when).format('D/M/YY H:mm:ss')
                 continue
             }
-            if(latestLog3 == null && allhealth[i].logItemId == 3){
+            if (latestLog3 == null && allhealth[i].logItemId == 3) {
                 latestLog3 = allhealth[i]
                 log3Time = moment(allhealth[i].when).format('D/M/YY H:mm:ss')
                 continue
             }
-            if(latestLog4 == null && allhealth[i].logItemId == 4){
+            if (latestLog4 == null && allhealth[i].logItemId == 4) {
                 latestLog4 = allhealth[i]
                 log4Time = moment(allhealth[i].when).format('D/M/YY H:mm:ss')
                 continue
             }
-        } 
+        }
         // testing information
         console.log(latestLog1)
         console.log(latestLog2)
@@ -81,10 +81,10 @@ const getHome = async(req, res) => {
             layout: 'patient-main',
             patient: patient,
             doctor: doctor,
-            log1:latestLog1,
-            log2:latestLog2,
-            log3:latestLog3,
-            log4:latestLog4,
+            log1: latestLog1,
+            log2: latestLog2,
+            log3: latestLog3,
+            log4: latestLog4,
             log1time: log1Time,
             log2time: log2Time,
             log3time: log3Time,
@@ -232,13 +232,14 @@ const updateSettings = async(req, res) => {
 }
 
 const getLoginPage = async(req, res) => {
-    res.send('GET LoginPage')
-        //TODO
+    res.render('patient-login', {
+        layout: "login"
+    })
 }
 
+
 const patientLogin = async(req, res) => {
-    res.send('POST patientLogin')
-        //TODO
+    res.redirect("/patinet/home")
 }
 
 module.exports = {

@@ -14,32 +14,10 @@
     <link rel="stylesheet" href="/css/buttons.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Round" rel="stylesheet">
     <link rel="stylesheet" href="https://use.typekit.net/cxa4uzj.css">
+    <script type="javascript" src="/js/pop-up-window.js"></script>
+    <script type="javascript" src="/js/responsive.js"></script>
     <title>{{title}}</title>
 </head>
-
-<script>
-        function openMenu() {
-            document.getElementById("responsive-nav").style.display = "flex";
-        }
-
-        function closeMenu() {
-            document.getElementById("responsive-nav").style.display = "none";
-        }
-
-        function showModel(){
-            var model = document.getElementById("successful-update-data");
-            model.style.display = "block";
-            var bodyscroll = 0; 
-            bodyscroll = -$(window).scrollTop();
-            $("body").addClass('fixed');
-            $("body").css("top",bodyscroll);
-        }
-
-        function closeModel(){
-            var model = document.getElementById("successful-update-data");
-            model.style.display = "none";
-        }
-</script>
 
 <body>
     {{{body}}}

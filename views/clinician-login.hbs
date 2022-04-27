@@ -1,25 +1,12 @@
 <div class="topnav">
-        <a href="../index.html"><img class="small-logo" src="/images/logo-small.svg" alt=""></a>
-        <div class="menu-flex">
-            <a href="../index.html#what-is-diabetes">What is diabetes?</a>
-            <a href="../intro.html">About</a>
-        </div>
-
-        <nav class="drop-down">
-            <ul>
-                <li onclick="void(0)">
-                    <span class="material-icons-round">expand_more</span>
-                    <ul>
-                        <li><a id="diabetes" href="../index.html#what-is-diabetes">What is diabetes?</a></li>
-                        <li><a id="about" href="../intro.html">About this site</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+    <a href="../index"><img class="small-logo" src="/images/logo-small.svg" alt=""></a>
+    <div class="menu-flex">
+        <a href="../index#what-is-diabetes">What is diabetes?</a>
+        <a href="../intro">About</a>
     </div>
+</div>
 
     <div class="split-screen">
-
         <div class="left">
             <img class="logo-sub" src="/images/logo.svg" alt="">
             <section class="copy">
@@ -34,14 +21,14 @@
                 <img class="logo-sub-login" src="/images/logo.svg" alt="">
                 <h2 class="blue-text" id="center-word">Clinician Login</h2>
 
-                <form action="/action_page.php" method="post">
-                    <div class="container">
-                        <input type="text" placeholder="Username" name="uname" required>
+                <form method="post">
+                    <div class="login-container">
+                        <input type="text" placeholder="Username" name="uname">
                         </br>
-                        <input type="password" placeholder="Password" name="psw" required>
+                        <input type="password" placeholder="Password" name="psw">
                         </br>
                         </br>
-                        <button class="submit" href="../clinician/home">Login</button>
+                        <button id = "login-check" class="submit" href="../clinician/home">Login</button>
                     </div>
                 </form>
             </div>
