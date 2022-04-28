@@ -5,11 +5,6 @@ const Doctor = require('../models/clinician')
 const moment = require('moment')
 const expressValidator = require('express-validator')
 
-// get the lastest log information
-// const getlatestlog = async(lognumber,pID) =>{
-
-// }
-
 const getHome = async(req, res) => {
     //return res.render("patient-dashboard")
     console.log("GET Patient Dashboard Home page")
@@ -43,7 +38,7 @@ const getHome = async(req, res) => {
                 $gte: new Date(now.getFullYear(), now.getMonth(), now.getDate())
             }
         }).lean()
-        console.log(allhealth)
+
 
         // current plan: reverse the records to find the lastest record
         // until i have a better approach, just keep it this way for now
@@ -69,16 +64,11 @@ const getHome = async(req, res) => {
                 continue
             }
         }
-        // testing information
-        console.log(latestLog1)
-        console.log(latestLog2)
-        console.log(latestLog3)
-        console.log(latestLog4)
-        console.log(log4Time)
 
         // render hbs page
         return res.render('patient-dashboard', {
             layout: 'patient-main',
+            title: "Dashboard",
             patient: patient,
             doctor: doctor,
             log1: latestLog1,
@@ -165,7 +155,8 @@ const getLogPage = async(req, res) => {
 
         return res.render('patient-enter-hs', {
             thisPatient: patient,
-            title: logName,
+            title: "Enter Log",
+            thisTitle: logName,
             icon: logIcon,
             time: when,
             id: req.params.id,
@@ -189,7 +180,6 @@ const insertLog = async(req, res) => {
 
     var pID = "625e1e3d67c164c3d21e5bce"
 
-    //console.log(req.body)
 
     const newHealthRecord = new HealthRecord({
         logItemId: req.params.id,
@@ -197,11 +187,6 @@ const insertLog = async(req, res) => {
         value: req.body.value,
         notes: req.body.notes,
     })
-
-    // await newHealthRecord
-    //     .save()
-    //     .then((result) => res.send(result))
-    //     .catch((err) => res.send(err))
 
     try {
         await newHealthRecord.save()
@@ -239,6 +224,7 @@ const updateSettings = async(req, res) => {
 
 const getLoginPage = async(req, res) => {
     res.render('patient-login', {
+        title: "Patient login",
         layout: "login"
     })
 }

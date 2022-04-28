@@ -26,8 +26,8 @@ const getHome = async(req, res) => {
             timeSeries: true
         }).lean()
         var now = new Date()
-            //for each of the patient get today's health record
-        console.log(patients)
+
+        //for each of the patient get today's health record
         for (let i = 0; i < patients.length; i++) {
             currentId = patients[i]._id;
             healthRecord = await HealthRecord.find({
@@ -66,6 +66,7 @@ const getHome = async(req, res) => {
             alert: alerts,
             comment: comments,
             totalPatient: patients.length,
+            title: "Dashboard",
             layout: 'clinician-main',
             doctor: {
                 givenName: 'Chris',
@@ -91,6 +92,7 @@ const getProfile = async(req, res) => {
         //found clinician
         return res.render('clinicianData', {
             thisClinician: clinician,
+            title: "Profile",
             layout: "clinician-main"
         })
 
@@ -226,7 +228,6 @@ const getMyPatientPage = async(req, res) => {
         for (let i = 0; i < totalPatient; i++) {
             allPatient[i]['age'] = utility.getAge(allPatient[i].dateOfBirth)
         }
-        console.log(allPatient)
         res.render('my-patient', {
             title: 'My Patients',
             patients: allPatient,
@@ -338,6 +339,7 @@ const getOnePatientPage = async(req, res) => {
         return res.render('clinician-patient-detail', {
             thisClinician: clinician,
             thisPatient: patient,
+            title: "Patient Detail",
             layout: 'clinician-main'
         })
 
@@ -367,6 +369,7 @@ const getSupportPage = async(req, res) => {
             thisClinician: clinician,
             thisPatient: patient,
             time: when,
+            title: "Add Support Message",
             layout: 'clinician-main'
         })
 
@@ -416,6 +419,7 @@ const getNotesPage = async(req, res) => {
             thisClinician: clinician,
             thisPatient: patient,
             time: when,
+            title: "Add Notes",
             layout: 'clinician-main'
         })
 
@@ -445,7 +449,6 @@ const addNotes = async(req, res) => {
 }
 
 const getTimeSeriesPage = async(req, res) => {
-    console.log('GET getTimeSeriesPage')
     const pid = req.params.id
     try {
         const onePatient = await Patient.findOne({
@@ -456,10 +459,9 @@ const getTimeSeriesPage = async(req, res) => {
             timeSeries: true
         }).lean()
 
-        console.log(onePatient)
-
         res.render('edit-ts', {
             patient: onePatient,
+            title: "Edit Time Series",
             layout: 'clinician-main',
             doctor: {
                 givenName: 'Chris',
@@ -552,8 +554,6 @@ const getPatientDetail = async(req, res) => {
             clinicianId: cId
         }).sort({ when: -1 }).limit(2).lean()
 
-        console.log(supports)
-
         for (let j = 0; j < supports.length; j++) {
             supports[j].when = moment(supports[j].when).format('D/M/YY H:mm:ss')
         }
@@ -564,20 +564,16 @@ const getPatientDetail = async(req, res) => {
             clinicianId: cId
         }).sort({ when: -1 }).limit(1).lean()
 
-        console.log(notes)
-
         for (let j = 0; j < notes.length; j++) {
             notes[j].when = moment(notes[j].when).format('D/M/YY H:mm:ss')
         }
-
-        //console.log(healthRecord)
 
         return res.render('clinician-patient-page', {
             patient: patient,
             healthRecord: healthRecord,
             support: supports,
             note: notes,
-            title: 'my patient',
+            title: 'My Patient Detail',
             doctor: {
                 givenName: 'Chris',
                 familyName: "Smith"
@@ -602,6 +598,7 @@ const updatePatientDetail = async(req, res) => {
 
 const getLoginPage = async(req, res) => {
     res.render('clinician-login', {
+        title: "Clinician login",
         layout: "login"
     })
 }
