@@ -1,8 +1,8 @@
 const Clinician = require('../models/clinician')
 const Patient = require('../models/patient')
 const HealthRecord = require('../models/healthRecord')
-const SupportMessage = require('../models/support')
-const ClinicianNote = require('../models/notes')
+const SupportMessage = require('../models/supportMessage')
+const clinicianNote = require('../models/clinicianNote')
 const expressValidator = require('express-validator')
 const utility = require('../utils/utils')
 const moment = require('moment')
@@ -431,7 +431,7 @@ const addNotes = async(req, res) => {
 
     console.log(req.body)
 
-    const newNote = new ClinicianNote({
+    const newNote = new clinicianNote({
         patientId: req.params.id,
         clinicianId: cID,
         content: req.body.notes
@@ -512,37 +512,39 @@ const getPatientDetail = async(req, res) => {
     try {
         const patient = await Patient.findById(req.params.id).lean()
         patient.age = utility.getAge(patient.dateOfBirth)
-        //search all health record group by date in descending order
+            //search all health record group by date in descending order
         var healthRecord = await HealthRecord.aggregate([{
-            $match : {patientId: patient._id,
-            when: {$gte: moment().day(-7).toDate()}}
-        },{
-            $group:{
-                _id:{ $dateToString: { format: "%d/%m", date: "$when"}},
-                list:{ $push: {item:"$logItemId", value:"$value"}},
-                count:{ $sum: 1}
+            $match: {
+                patientId: patient._id,
+                when: { $gte: moment().day(-7).toDate() }
             }
-        },{
-            $sort: { _id: -1}
+        }, {
+            $group: {
+                _id: { $dateToString: { format: "%d/%m", date: "$when" } },
+                list: { $push: { item: "$logItemId", value: "$value" } },
+                count: { $sum: 1 }
+            }
+        }, {
+            $sort: { _id: -1 }
         }])
 
         //fill the empty items
-        for(let i = 0; i < healthRecord.length; i++){
+        for (let i = 0; i < healthRecord.length; i++) {
 
-            healthRecord[i].list.sort((x,y)=>{return x.item - y.item})
-            var preFormat = [{},{},{},{}]
+            healthRecord[i].list.sort((x, y) => { return x.item - y.item })
+            var preFormat = [{}, {}, {}, {}]
 
-            for(let j = 0; j < healthRecord[i].list.length; j++){
+            for (let j = 0; j < healthRecord[i].list.length; j++) {
 
                 var currentRecord = healthRecord[i].list[j]
                 var pos = currentRecord.item - 1
                 var val = currentRecord.value
                 preFormat[pos] = healthRecord[i].list[j]
 
-                if(val > patient.timeSeries[pos].upperLimit ||
-                    val < patient.timeSeries[pos].lowerLimit){
-                        preFormat[pos]['alert'] = true
-                    }
+                if (val > patient.timeSeries[pos].upperLimit ||
+                    val < patient.timeSeries[pos].lowerLimit) {
+                    preFormat[pos]['alert'] = true
+                }
             }
             healthRecord[i].list = preFormat
         }
@@ -550,7 +552,7 @@ const getPatientDetail = async(req, res) => {
         const supports = await SupportMessage.find({
             patientId: req.params.id,
             clinicianId: cId
-        }).sort({when : -1}).limit(2).lean()
+        }).sort({ when: -1 }).limit(2).lean()
 
         console.log(supports)
 
@@ -559,10 +561,10 @@ const getPatientDetail = async(req, res) => {
         }
 
         // find latest clinician note
-        const notes = await ClinicianNote.find({
+        const notes = await clinicianNote.find({
             patientId: req.params.id,
             clinicianId: cId
-        }).sort({when : -1}).limit(1).lean()
+        }).sort({ when: -1 }).limit(1).lean()
 
         console.log(notes)
 

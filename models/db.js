@@ -49,5 +49,5 @@ db.once('open', async() => {
 require('./patient')
 require('./clinician')
 require('./healthRecord')
-require('./support')
-require('./notes')
+require('./supportMessage')
+require('./clinicianNote')

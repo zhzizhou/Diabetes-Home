@@ -261,7 +261,7 @@ td {
 .patient-container {
     display: flex;
     gap: 3em;
-    height: 1015px;
+    height: 90%;
     position: absolute;
     left: 25%;
     width: 75%;
@@ -292,14 +292,15 @@ td {
 .patient-title-row {
     display: flex;
     align-items: center;
-    justify-content:space-between;
+    justify-content: space-between;
 }
 
-.patient-title-age{
+.patient-title-age {
     display: flex;
     align-items: center;
     gap: 1.5rem;
 }
+
 .patient-title {
     font-size: 48px;
     text-align: left;
