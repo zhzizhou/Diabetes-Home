@@ -49,14 +49,14 @@
                 <div class="single-time-series">
                     <div class="time-series-top">
                         <input type="checkbox" name="checkbox{{@index}}" {{#if this.activated}}checked="checked"{{/if}}>
-                        <p>{{this.logItem}}</p>
+                        <h3 class="time-series-bottom-input">{{this.logItem}}</h3>
                     </div>
                     <div class="time-series-bottom">
-                        <p>Safety Threshold</p>
-                        <div>
+                        <h4>Safety Threshold</h4>
+                        <div class="time-series-bottom-input">
                             <input name="itemName" value="{{this.logItem}}" style="display: none;"></input>
                             <input class="time-series-value" type="number" min="0" step="any" value="{{this.lowerLimit}}" name="lowerLimit"></input>
-                            <span class="material-icons-round blue-text">minimize</span>
+                            <span class="material-icons-round blue-text">~</span>
                             <input class="time-series-value" type="number" min="0" step="any" value="{{this.upperLimit}}" name="upperLimit"></input>
                         </div>
                     </div>

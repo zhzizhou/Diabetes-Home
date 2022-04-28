@@ -528,6 +528,8 @@ td {
 .single-time-series {
     display: flex;
     flex-direction: column;
+    width: 20em;
+    align-items: stretch;
 }
 
 .time-series-top {
@@ -539,6 +541,7 @@ td {
     border-radius: 1em 1em 0 0;
     border: solid 3px var(--dark-blue);
     box-shadow: 2px 2px 3px var(--box-shadow);
+    justify-content: center;
 }
 
 .time-series-bottom {
@@ -562,11 +565,15 @@ td {
     background-color: var(--dark-blue);
     border: none;
     border-radius: 1em;
-    width: 3em;
+    width: 30%;
     padding: 0.5em;
     color: white;
+    text-align: center;
 }
-
+.time-series-bottom-input{
+    display:flex;
+    justify-content: center;
+}
 .time-series-value:focus {
     outline: none;
     background-color: var(--button-hover)
