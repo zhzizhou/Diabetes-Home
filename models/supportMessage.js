@@ -15,6 +15,6 @@ const supportMesssageSchema = new mongoose.Schema({
     when: { type: Date, default: Date.now },
 })
 
-const supportMesssage = mongoose.model('Support', supportMesssageSchema)
+const supportMesssage = mongoose.model('SupportMessage', supportMesssageSchema)
 
 module.exports = supportMesssage
