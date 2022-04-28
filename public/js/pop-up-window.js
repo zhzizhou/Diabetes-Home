@@ -7,3 +7,9 @@ function closeModel() {
     var model = document.getElementById("successful-update-data");
     model.style.display = "none";
 }
+
+
+
+function toHome(){
+    document.location.href="../../patient/home"
+}
