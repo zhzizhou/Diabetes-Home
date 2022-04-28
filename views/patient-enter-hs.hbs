@@ -90,15 +90,20 @@
         </div>
 
         <div class="dashboard-right enter-ts-container">
-            <div>
-                <div class="page-title-and-nav">
-                {{!-- Problem? back button --}}
-                <a href="../../patient/home" class="material-icons-round blue-text">arrow_back_ios</a>
-                <div class="page-title-icon">
-                    <span class="data-icon material-icons-round blue-text">{{icon}}</span>
-                    <h3 class="blue-text">{{title}}</h3>
+
+            <div class="page-title-and-nav">
+                <div class="return-icon">
+                    <a href="../../patient/home" class="material-icons-round blue-text">arrow_back_ios</a>
                 </div>
+                <div class="checklist-title">
+                    <div class="page-title-icon">
+                        <span class="data-icon material-icons-round blue-text">{{icon}}</span>
+                        <h3 class="blue-text">{{title}}</h3>
+                    </div>
+                </div>
+    
             </div>
+            
 
             {{!-- Pop up window after post message --}}
             <div class="pop-up-container" id="successful-update-data" scroll="no">
