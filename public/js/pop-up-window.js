@@ -2,22 +2,24 @@
 
 function showModel() {
     var model = document.getElementById("successful-update-data");
+    var hidebg = document.getElementById("hidebg"); 
+	hidebg.style.display="block"; 
     model.style.display = "block";
-    //var body = document.getElementById("ts-body");
-    //body.style.overflow = "hidden";
     stopBodyScroll(1);
 }
 
 function closeModel() {
+    document.getElementById("hidebg").style.display="none";
     var model = document.getElementById("successful-update-data");
     model.style.display = "none";
+    stopBodyScroll(0);
 }
 
 function stopBodyScroll(isFixed) {
     let bodyEl = document.body;
     let top = 0;
-    
-    if (isFixed) {
+
+    if (isFixed == 1) {
         top = window.scrollY;
         bodyEl.style.position = 'fixed';
         bodyEl.style.top = -top + 'px';

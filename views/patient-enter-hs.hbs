@@ -105,16 +105,7 @@
             </div>
             
 
-            {{!-- Pop up window after post message --}}
             
-            <div class="pop-up-container" id="successful-update-data" scroll="no">
-                <img class="pop-up-image" src="/images/clap.svg" alt="">
-                <div class="pop-up-string">
-                    <h3>Keep up the good work!</h3>
-                </div>
-                <span class="button submit" onclick="closeModel()"><a href="../../patient/home">Dismiss</a></button>
-            </div>
-
 
             <form method="post" action="">
                 <div id="blue-main-page" class="centre-flex">
@@ -149,7 +140,18 @@
                 </div>
             </form>
             </div>
-        </div>
-
     </main>
+    <div id="hidebg"></div>
+
+        {{!-- Pop up window after post message --}}
+        
+    <div class="pop-up-container" id="successful-update-data" scroll="no">
+        <img class="pop-up-image" src="/images/clap.svg" alt="">
+        <div class="pop-up-string">
+            <h3>Keep up the good work!</h3>
+        </div>
+        <span class="button submit" onclick="closeModel()"><a href="../../patient/home">Dismiss</a></button>
+    </div>
+
+
 </div>

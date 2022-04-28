@@ -51,7 +51,7 @@
 @media screen and (max-width: 1050px) {
     .responsive-nav {
         display: flex;
-        width:100%;
+        width: 100%;
     }
 
     .responsive-nav-top {
@@ -80,5 +80,6 @@
 
     .responsive-nav {
         padding: 1rem;
+        width: 375px;
     }
 }
