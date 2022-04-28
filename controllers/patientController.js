@@ -125,22 +125,22 @@ const getLogPage = async(req, res) => {
             case '1':
                 logName = "Weight"
                 logIcon = "scale"
-                placeHolder = "Kg"
+                placeHolder = "Enter in Kg"
                 break
             case '2':
                 logName = "Insulin Doses"
                 logIcon = "vaccines"
-                placeHolder = "Number-of-doses"
+                placeHolder = "Enter doses"
                 break
             case '3':
                 logName = "Exercise"
                 logIcon = "directions_run"
-                placeHolder = "Steps"
+                placeHolder = "Enter steps"
                 break
             case '4':
                 logName = "Blood Glucose Level"
                 logIcon = "bloodtype"
-                placeHolder = "mmol/L"
+                placeHolder = "Enter in nmol/L"
                 break
             default:
                 return res.sendStatus(404)

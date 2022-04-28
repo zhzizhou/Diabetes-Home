@@ -10,8 +10,6 @@ const bcrypt = require('bcryptjs')
 const { db } = require('../models/healthRecord')
 const { format } = require('express/lib/response')
 
-var login
-
 const getHome = async(req, res) => {
     var cId = '6256dde2082aa786c9760f98'
     var currentId
