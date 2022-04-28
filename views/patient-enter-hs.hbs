@@ -103,17 +103,14 @@
                 </div>
     
             </div>
-            
-
-            
-
+        
             <form method="post" action="">
                 <div id="blue-main-page" class="centre-flex">
                     <input style="display:none" type="Number" name="logItemId" value={{id}}>
                     <input style="display:none" type="mongoose.Schema.Types.ObjectId" name="patientId"
                         value={{thisPatient._id}}>
 
-                    <input style = "fontsize: 1em " class="enter-data-box" type="Number" name="value" placeholder="{{dataPlaceHolder}}">
+                    <input style = "fontsize: 1em " min = "0" class="enter-data-box" type="Number" step = "{{thisEnterType}}" name="value" placeholder="{{dataPlaceHolder}}">
                     <div class="date-time-container">
                         <div class="page-title-icon">
                             <span class="material-icons-round blue-text">schedule</span>
@@ -132,11 +129,7 @@
                                 rows="10 "maxlength="150"></textarea>
                         </div>
                     </div>
-
-                    <a href="../../patient/home">                        
-                       <button type="submit" class="button button-width-20" onclick="showModel()">Save</button>
-                    </a> 
-                    
+                    <button type="submit" class="button button-width-20" onclick="showModel()">Save</button>
                 </div>
             </form>
             </div>
