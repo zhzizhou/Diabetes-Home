@@ -605,6 +605,8 @@ input[type="checkbox"]::before {
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    position: absolute;
+    left: 25%;
 }
 
 .dashboard-right.centre-content {
