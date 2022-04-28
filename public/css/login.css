@@ -1,10 +1,11 @@
-/* Display */
-
 .split-screen {
     display: flex;
     flex-direction: row;
     height: 90vh;
 }
+
+
+/* padding -> position -> flexbox and grid */
 
 .left {
     background-color: var(--light-grey-background);
@@ -19,6 +20,108 @@
     overflow: hidden;
 }
 
+
+/* LOGIN INPUT FIELDS - FLOATING LABELS */
+
+input {
+    outline: none;
+    background-color: white;
+    color: var(--dark-blue);
+    border-radius: 2rem;
+    padding: 1rem;
+    margin: 5px;
+    resize: none;
+    outline: none;
+    border: 2px solid white;
+    box-shadow: 2px 2px 3px var(--box-shadow);
+    transition: 0.5s ease;
+    flex-shrink: 0;
+}
+
+
+/*MAKING FLOATING INPUTS -- when the field is clicked the label floats up*/
+
+
+/*We dont want to see the placeholder of the input -- what is seen is a label*/
+
+.hidden--visually {
+    display: none;
+}
+
+
+/*When user types, this defines the position and the font size*/
+
+.floating__input {
+    padding: 1.8rem 1rem 0.8rem;
+    font-size: 16px;
+    width: 15rem;
+}
+
+.floating__input:hover {
+    box-shadow: 3px 3px var(--dark-blue);
+}
+
+.floating__input:focus {
+    border: 2px solid var(--dark-blue);
+    box-shadow: none;
+}
+
+
+/*Placeholder invisible*/
+
+.floating__input::placeholder {
+    color: white;
+}
+
+
+/*Initally the label is in the input position -- moves after clicking*/
+
+.floating__label {
+    display: flex;
+    position: relative;
+    /*On top of the input*/
+    max-height: 0;
+    color: var(--dark-blue);
+    text-shadow: none;
+}
+
+
+/*Where the label sits before it is clicked -- for the full sized inputs*/
+
+.floating__label::before {
+    content: attr(data-content);
+    /*used to retrieve the value of an attribute of the selected element and use it in the stylesheet*/
+    display: inline-block;
+    filter: blur(0);
+    transform-origin: left top;
+    transition: transform 0.5s ease;
+    left: 1.4rem;
+    position: relative;
+}
+
+
+/*Where the label sits before it is clicked -- for the half sized inputs*/
+
+.half__floating__label::before {
+    text-align: left;
+}
+
+
+/*Where the label sits before it is clicked -- for the half sized inputs*/
+
+.floating__input:placeholder-shown+.floating__label::before {
+    transform: translate3d(0, -2.7rem, 0) scale3d(1, 1, 1);
+}
+
+.floating__label::before,
+.floating__input:focus+.floating__label::before {
+    transform: translate3d(0, -3.12rem, 0) scale3d(0.7, 0.7, 1);
+}
+
+.floating__input:focus+.floating__label::before {
+    color: var(--dark-blue);
+}
+
 .right {
     display: flex;
     flex-direction: column;
@@ -28,38 +131,25 @@
     height: 100%;
 }
 
+.sumbit-button {
+    display: block;
+}
+
 .outercontainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-color: #F2F7FF;
     border-radius: 3em 0 3em 0;
     padding-top: 5%;
     padding-left: 8%;
     padding-right: 8%;
+    gap: 2rem;
     height: 60%;
     width: 50%;
     overflow: hidden;
-    -moz-box-shadow: 2px 2px 10px rgb(216, 216, 216);
-    -webkit-box-shadow: 2px 2px 10px rgb(216, 216, 216);
-    box-shadow: 2px 2px 10px rgb(204, 204, 204);
-}
-
-
-/* Text & Button & input */
-
-input[type=text],
-input[type=password] {
-    width: 100%;
-    padding: 15px 20px;
-    margin: 10px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    border-radius: 20px;
-    -moz-box-shadow: 2px 2px 10px rgb(216, 216, 216);
-    -webkit-box-shadow: 2px 2px 10px rgb(216 216 216);
-    box-shadow: 2px 2px 10px rgb(204 204 204);
+    box-shadow: 2px 2px 3px var(--box-shadow);
 }
 
 #center-word {
@@ -89,26 +179,17 @@ input[type=password] {
     display: none;
 }
 
-.login-container {
-    padding: 16px;
-}
-
 @media screen and (max-width:1100px) {
     .split-screen {
-        flex-direction: column;
+        display: block;
+        background-image: linear-gradient(to bottom right, var(--dark-blue), white);
     }
     .left {
-        width: 100%;
-        height: 40vh;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        border-radius: 0 0 10em 0;
-        padding: 5rem;
+        display: none;
     }
     .right {
         width: 100%;
-        height: 50vh;
+        height: 80vh;
     }
     .tablet-image {
         display: block;
@@ -127,8 +208,9 @@ input[type=password] {
         padding-top: 5%;
         padding-left: 5%;
         padding-right: 5%;
-        height: 80%;
-        width: 60%;
+        height: 100vh;
+        width: 40%;
+        margin-top: 3rem;
     }
 }
 
@@ -140,15 +222,19 @@ input[type=password] {
         display: none;
     }
     .right {
-        height: 100%;
         justify-content: center;
+        padding-top: 0;
+        margin-top: 0;
     }
     .logo-sub-login {
         display: flex;
-        margin-left: 15%;
         width: 70%;
     }
     .outercontainer {
         width: 80%;
+        height: 70vh;
+        padding-top: 0;
+        align-items: center;
+        justify-content: center;
     }
 }
