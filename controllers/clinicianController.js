@@ -7,7 +7,6 @@ const expressValidator = require('express-validator')
 const utility = require('../utils/utils')
 const moment = require('moment')
 const bcrypt = require('bcryptjs')
-const { db } = require('../models/healthRecord')
 const { format } = require('express/lib/response')
 
 const getHome = async(req, res) => {
