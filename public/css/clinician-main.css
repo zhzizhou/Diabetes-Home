@@ -536,7 +536,7 @@ td {
     align-items: center;
     background-color: white;
     padding: 1em;
-    border-radius: 1em;
+    border-radius: 1em 1em 0 0;
     border: solid 3px var(--dark-blue);
     box-shadow: 2px 2px 3px var(--box-shadow);
 }
@@ -549,6 +549,7 @@ td {
     flex-direction: column;
     gap: 0.5em;
     align-items: center;
+    box-shadow: 2px 2px 3px var(--box-shadow);
 }
 
 .time-series-bottom input::-webkit-outer-spin-button,
@@ -598,12 +599,17 @@ input[type="checkbox"]::before {
     transition: 0.1s;
     cursor: pointer;
 }
-.ts-container{
+
+.edit-ts-container{
     display:flex;
     flex-direction: column;
+    position: absolute;
+    left: 0;
+    top: 20vh;
+    align-items: center;
 }
 .save-botton{
-    padding-top: 1em;
+    padding-top: 3em;
 }
 
 /* Add support message  & add comment*/
