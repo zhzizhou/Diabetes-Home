@@ -239,7 +239,7 @@ const getLoginPage = async(req, res) => {
 
 
 const patientLogin = async(req, res) => {
-    res.redirect("/patinet/home")
+    res.redirect("/patient/home")
 }
 
 module.exports = {
