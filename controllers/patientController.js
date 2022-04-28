@@ -183,7 +183,7 @@ const insertLog = async(req, res) => {
 
     var pID = "625e1e3d67c164c3d21e5bce"
 
-    console.log(req.body)
+    //console.log(req.body)
 
     const newHealthRecord = new HealthRecord({
         logItemId: req.params.id,

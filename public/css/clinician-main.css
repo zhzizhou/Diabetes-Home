@@ -598,7 +598,13 @@ input[type="checkbox"]::before {
     transition: 0.1s;
     cursor: pointer;
 }
-
+.ts-container{
+    display:flex;
+    flex-direction: column;
+}
+.save-botton{
+    padding-top: 1em;
+}
 
 /* Add support message  & add comment*/
 
@@ -644,6 +650,7 @@ input[type="checkbox"]::before {
     top: 40%;
     width: 300px;
     height: 325px;
+    z-index: 2;
 }
 
 .pop-up-image {

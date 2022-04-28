@@ -3,30 +3,30 @@
         <div class="nav-top">
             <img class="small-logo" src="/images/logo.svg" alt="">
             <div class="menu-item-layout">
-                <img src="/images/clinitian-profile-pic.svg" alt="profile picture">
+                <img class="nav-profile-pic" src="/images/clinitian-profile-pic.svg" alt="profile picture">
                 <h3>{{doctor.givenName}} {{doctor.familyName}}</h3>
             </div>
             <div class="menu-section">
-                <a href="../../../clinician/home" class="menu-item-layout menu-item">
+                <a href="../clinician/home" class="menu-item-layout menu-item">
                     <span class="material-icons">dashboard</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="../../../clinician/my-patient" class="menu-item-layout menu-item selected">
+                <a href="../clinician/my-patient" class="menu-item-layout menu-item selected">
                     <span class="material-icons">group</span>
                     <h3>My Patients</h3>
                 </a>
-                <a href="../../../clinician/new-patient" class="menu-item-layout menu-item ">
+                <a href="../clinician/new-patient" class="menu-item-layout menu-item ">
                     <span class="material-icons">person_add</span>
                     <h3>New Patient</h3>
                 </a>
             </div>
         </div>
         <div class="menu-section">
-            <a href="../../../clinician/profile" class="menu-item-layout menu-item">
+            <a href="../clinician/profile" class="menu-item-layout menu-item">
                 <span class="material-icons">account_circle</span>
                 <h3>Account</h3>
             </a>
-            <a href="../../../clinician/settings" class="menu-item-layout menu-item">
+            <a href="../clinician/settings" class="menu-item-layout menu-item">
                 <span class="material-icons">settings</span>
                 <h3>Settings</h3>
             </a>
@@ -35,17 +35,16 @@
 </div>
 
 
-<main>
+<main class="clinician-main">
     <a href="../{{patient._id}}" class="back-button">
         <span class="material-icons-round">arrow_back_ios</span>
         <h4>Back</h4>
     </a>
     <div class="main-page-content">
         <h1 class="page-title">Edit time-series</h1>
-        <h3>{{patient.givenName}} {{patient.familyName}}</h3>
-        <form method="post" action="">
+        <h2>{{patient.givenName}} {{patient.familyName}}</h2>
+        <form method="post" action="" class="ts-container">
             <div class="time-series">
-
                 {{#each patient.timeSeries}}
                 <div class="single-time-series">
                     <div class="time-series-top">
@@ -64,7 +63,7 @@
                 </div>
                 {{/each}}
             </div>
-            <div style="text-align: center; margin-top: 2em;">
+            <div class="save-botton">
                 <button id="time-series-button" type="submit" name="submitButton">Save</button>
             </div>
         </form>
