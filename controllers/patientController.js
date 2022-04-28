@@ -116,6 +116,7 @@ const getLogPage = async(req, res) => {
     var logName
     var logIcon
     var placeHolder
+    var enterType
 
     //Problem : Melbourne Time?
     var when = moment(new Date()).format('D/M/YY H:mm:ss')
@@ -125,22 +126,26 @@ const getLogPage = async(req, res) => {
             case '1':
                 logName = "Weight"
                 logIcon = "scale"
-                placeHolder = "Kg"
+                placeHolder = "Enter in Kg"
+                enterType = "1"
                 break
             case '2':
                 logName = "Insulin Doses"
                 logIcon = "vaccines"
-                placeHolder = "Number-of-doses"
+                placeHolder = "Enter doses"
+                enterType = "1"
                 break
             case '3':
                 logName = "Exercise"
                 logIcon = "directions_run"
-                placeHolder = "Steps"
+                placeHolder = "Enter steps"
+                enterType = "1"
                 break
             case '4':
                 logName = "Blood Glucose Level"
                 logIcon = "bloodtype"
-                placeHolder = "mmol/L"
+                placeHolder = "Enter in nmol/L"
+                enterType = "0.1"
                 break
             default:
                 return res.sendStatus(404)
@@ -165,6 +170,7 @@ const getLogPage = async(req, res) => {
             time: when,
             id: req.params.id,
             dataPlaceHolder: placeHolder,
+            thisEnterType: enterType,
             layout: 'patient-main'
         })
 
@@ -183,7 +189,7 @@ const insertLog = async(req, res) => {
 
     var pID = "625e1e3d67c164c3d21e5bce"
 
-    console.log(req.body)
+    //console.log(req.body)
 
     const newHealthRecord = new HealthRecord({
         logItemId: req.params.id,
