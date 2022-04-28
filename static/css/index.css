@@ -387,10 +387,8 @@ a:hover {
         /* margin-top: 0.5rem; */
         width: 10em;
         padding: 0.5rem;
-        background-color: var(--dark-blue);
         /* border-radius: 2rem; */
         transform: translate(-8rem);
-        box-shadow: 0px 3px 3px var(--box-shadow);
         text-align: center;
         color:white;
     }
@@ -404,8 +402,8 @@ a:hover {
      }
     
     nav ul ul li:hover {
-        background-color: var(--button-hover);
         color:white;
+        overflow:hidden
     }
       
     nav li:hover ul{

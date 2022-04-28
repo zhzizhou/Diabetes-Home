@@ -34,10 +34,12 @@ h1 {
 .page-title {
     font-size:56px;
     text-align: left;
+    width:max-content;
 }
 
 h2 {
     font-size: 32px;
+    width:max-content;
 }
 
 

@@ -27,6 +27,7 @@ nav {
 .patient-nav {
     background-color: var(--light-blue) ;
 }
+
 .nav-profile-pic {
     width: 4rem;
     height: auto;
@@ -62,6 +63,10 @@ nav a {
 
 .menu-item:hover {
     background-color: var(--light-blue)
+}
+
+.patient-menu.menu-item:hover {
+    background-color: white;
 }
 
 .menu-item:active {
