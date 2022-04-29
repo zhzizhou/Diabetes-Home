@@ -1,16 +1,17 @@
+/*ONLY USE FOR PATIENT POP-UP MENU*/
 * {
     box-sizing: border-box 
  }
 
-.responsive-nav {
+.responsive-nav {  /*HIDDEN AT DESKTOP SIZE*/
     display: none;
 }
 
-.responsive-nav-top {
+.responsive-nav-top {  /*HIDDEN AT DESKTOP SIZE*/
     display: none; 
 }
 
-.menu-container {
+.menu-container {  /*WHEN POPS UP*/
     background-color: var(--dark-blue);
     padding:2rem;
     display: none;
@@ -20,7 +21,7 @@
 
 }
 
-.grid-menu {
+.grid-menu { /*EACH ITEM DISPLAYED AS A GRID*/
     display: grid;
     grid-template-columns: 15rem 15rem 15rem;
     grid-template-rows: auto;
@@ -29,7 +30,7 @@
     overflow-x: hidden; 
 }
 
-.menu-square {
+.menu-square { /*INDIVDUAL BUTTON*/
     display: flex;
     flex-direction: column;
     gap:0.5rem;
@@ -43,11 +44,12 @@
     font-size: 52px !important;
 }
 
-#menu-opener {
+#menu-opener { /*GRID ICON*/
     font-size: 45px;
     text-align: left;
 }
 
+/*FOR IPAD SCREEN SIZE - DISPLAY THE RESPONSIVE MENU*/
 @media screen and (max-width: 1050px) {
     .responsive-nav {
         display: flex;
@@ -62,9 +64,10 @@
     }
 }
 
+/*FOR IPHONE SCREEN SIZE - MAKE THE MENU SMALLER*/
 @media screen and (max-width: 380px) {
     .grid-menu {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr; /*LESS ITEMS IN GRID HORIZONTALLY*/
         gap: 0.5rem;
         margin:0;
     }

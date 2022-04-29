@@ -1,17 +1,23 @@
+/*STYLES FOR PATIENT SIDE OF DIABETES @ HOME*/
+
+/*THE MIDDLE SECTION OF THIS CSS FILE IS STILL A WORK IN PROGRESS*/
+
+/*GLOBAL STYLE (ALL PAGES)*/
+
 body {
     background-color: white;
 }
+
 .fixed {
+    /*USE THIS FOR POP-UPS*/
     position: fixed;
     top: 0;
-    height:100%;
-    left:0;
+    height: 100%;
+    left: 0;
     overflow: hidden;
 }
-.leaderboard-body {
-    display: flex;
-}
 
+/*ONLY FOR PATIENT - NOT FOR CLINICIAN*/
 #responsive-nav {
     display: none;
     position: fixed;
@@ -19,6 +25,7 @@ body {
 }
 
 .dashboard-container {
+    /*ONLY FOR PATIENT - NOT FOR CLINICIAN*/
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -27,52 +34,35 @@ body {
 }
 
 .space-between {
+    /*GLOBAL STYLE FLEX BOX TO MAKE THE ITEMS STRETCH APART*/
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
 .main-content {
+    /*MAIN CONTAINER FOR THE MAIN CONTENT OF THE PAGE*/
     gap: 2rem;
 }
 
 .dashboard-left {
+    /*SUB CONTAINER*/
     width: 26rem;
 }
 
 .dashboard-right {
+    /*SUB CONTAINER*/
     display: flex;
     flex-direction: column;
     gap: 3rem;
 }
 
-.dashboard-right.enter-ts-container {
-    margin: auto;
-    position: fixed;
-    left: 50%;
-    transform: translateX(-20%);
-}
-
-input[type=checkbox] {
-    height: 1.5rem;
-    width: 1.5rem;
-    color: var(--light-grey);
-}
-
-input[type=checkbox]:focus {
-    outline: none;
-    gap: 3rem;
-    margin: 3rem;
-}
 
 input:focus {
     outline: none;
 }
 
-a.white-text {
-    color: white;
-}
-
+/*MAIN PART OF THE MAGE*/
 #blue-main-page {
     background-color: var(--light-blue);
     padding: 4rem;
@@ -82,14 +72,8 @@ a.white-text {
 }
 
 
-/*ICON MENU*/
 
-.white-text {
-    color: white;
-}
-
-
-/*DASHBOARD*/
+/*DASHBOARD - DESKTOP VERSION*/
 
 .top-page {
     display: flex;
@@ -122,6 +106,7 @@ a.white-text {
 }
 
 .my-checklist {
+    /*DASHBOARD CHECKLIST*/
     background-color: var(--light-blue);
     display: flex;
     flex-direction: column;
@@ -134,6 +119,7 @@ a.white-text {
 }
 
 .checklist-item {
+    /*EACH ITEM BEFORE IT HAS BEEN ENTERED FOR THE DAY*/
     background-color: white;
     border-radius: 1.5rem;
     padding: 2rem;
@@ -162,11 +148,13 @@ a.white-text {
 }
 
 .checklist-left {
+    /*SUB CONTAINER*/
     gap: 2rem;
     align-items: center;
 }
 
 .inside-left {
+    /*SUB CONTAINER*/
     display: flex;
     flex-direction: column;
     gap: 4rem;
@@ -174,6 +162,7 @@ a.white-text {
 }
 
 .my-stats {
+    /*SUB CONTAINER ON PAGE FOR STATS*/
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -197,7 +186,11 @@ a.white-text {
 }
 
 
-/*Leaderboard*/
+/*LEADERBOARD PAGE -- WORK IN PROGRESS*/
+.leaderboard-body {
+    display: flex;
+}
+
 
 .record {
     background-color: #ffffff;
@@ -250,18 +243,34 @@ a.white-text {
 }
 
 
-/*ENTER TIME SERIES*/
+/*ENTER TIME SERIES PAGE -- WORK IN PROGRESS*/
 
 .checklist-container {
-    /* display: flex; */
     position: absolute;
     left: 30%;
-    /* flex-direction: row; */
     width: 80%;
     justify-content: space-between;
-    /* padding: 3rem; */
     width: 70%;
     height: 100%;
+}
+
+.dashboard-right.enter-ts-container {
+    margin: auto;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-20%);
+}
+
+input[type=checkbox] {
+    height: 1.5rem;
+    width: 1.5rem;
+    color: var(--light-grey);
+}
+
+input[type=checkbox]:focus {
+    outline: none;
+    gap: 3rem;
+    margin: 3rem;
 }
 
 .ts-body {
@@ -280,15 +289,18 @@ a.white-text {
     align-items: center;
     padding-top: 1rem;
 }
+
 .return-icon {
     position: absolute;
     left: 0;
 }
+
 .checklist-title {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
+
 .page-title-icon {
     display: flex;
     flex-direction: row;
@@ -296,22 +308,40 @@ a.white-text {
     align-items: center;
 }
 
-input.enter-data-box,
-input.enter-data-box:focus {
+input.enter-data-box {
     background-color: var(--dark-blue);
     border-radius: 20rem;
     height: 4rem;
     color: white;
     border: none;
     width: 15rem;
-    text-align:center;
+    text-align: center;
     font-size: 24px;
 }
 
-input.enter-data-box::placeholder,
-input.enter-data-box:focus {
+input.enter-data-box::placeholder {
     color: white;
+}
+
+input.enter-data-box:focus {
+    background-color: white;
+    outline: 3px solid var(--dark-blue);
+    color: var(--dark-blue);
+    border-radius: 20rem;
+    height: 4rem;
+    border: none;
+    width: 15rem;
+    text-align: center;
+    font-size: 24px;
+}
+
+input.enter-data-box:focus {
+    color: var(--dark-blue);
     padding: 1rem;
+}
+
+input.enter-data-box:hover {
+    outline: 3px solid var(--dark-blue);
 }
 
 .dashboard-right.centre-content {
@@ -384,14 +414,17 @@ input.enter-data-box:focus {
     transform: translate(1rem, 1rem);
 }
 
-#hidebg { position:absolute;left:0px;top:0px; 
-    background-color:#000; 
+#hidebg {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-color: #000;
     width: 1920px;
     height: 100vh;
-    filter:alpha(opacity=20);
-    opacity:0.2;
-    display:none;
-    z-Index:1;
+    filter: alpha(opacity=20);
+    opacity: 0.2;
+    display: none;
+    z-Index: 1;
 }
 
 .centre-flex {
@@ -412,15 +445,18 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
+/*REPSONSIVE DESIGN SECTION*/
 @media screen and (max-width: 1900px) {
     .my-checklist {
         width: 30rem;
     }
+
     .top-page {
         gap: 40rem;
     }
 }
 
+/*REPSONSIVE DESIGN - FOR IPAD*/
 @media screen and (max-width: 1050px) {
     body {
         background-color: white;
@@ -431,11 +467,11 @@ input[type=number] {
         margin: auto;
         position: absolute;
         left: 0;
-        transform:none;
+        transform: none;
     }
 
     .dashboard-right {
-        padding-top:2rem;
+        padding-top: 2rem;
     }
 
     .dashboard-container {
@@ -445,26 +481,33 @@ input[type=number] {
     .leaderboard-body {
         display: block;
     }
+
     nav {
         display: none !important;
     }
+
     .body-checklist {
         background-color: var(--light-blue);
     }
+
     .responsive-nav {
         display: flex;
         width: 100%;
     }
+
     .nav-line {
         display: flex;
     }
+
     .dashboard-container {
         display: block;
         padding: 0;
     }
+
     .page-padding {
         padding: 2rem;
     }
+
     .inside-left {
         flex-direction: row;
         padding-bottom: 2rem;
@@ -474,30 +517,37 @@ input[type=number] {
     .main-content {
         gap: 3rem;
     }
+
     .doctor-comment {
         background-color: var(--light-grey-background);
     }
+
     .doctor-comment-box {
         width: 50%;
     }
+
     .my-stats {
         width: 50%;
         background-color: var(--light-blue);
     }
+
     .main-content {
         flex-direction: column;
         text-align: center;
         width: 989px;
     }
+
     .my-checklist {
         width: 40rem;
         margin: auto;
         width: 85%;
         background-color: var(--light-blue);
     }
+
     .checklist-item {
         background-color: white;
     }
+
     .infobar {
         display: block;
         font-size: 30px;
@@ -506,9 +556,11 @@ input[type=number] {
         padding-top: 30px;
         background-color: rgb(255, 255, 255);
     }
+
     .top-page {
         gap: 27rem;
     }
+
     /*checklist*/
     .messageArea {
         background-color: white;
@@ -520,10 +572,12 @@ input[type=number] {
         width: 50%;
         text-align: center;
     }
+
     .messageBox {
         padding-top: 0;
         text-align: center;
     }
+
     .messageArea {
         width: 90%;
         margin: 3em 1em 1em 3em;
@@ -531,26 +585,32 @@ input[type=number] {
         background-color: var(--light-blue);
         box-shadow: none;
     }
+
     #blue-main-page {
         width: 1024px;
         box-shadow: none;
         border-radius: 0;
         height: auto;
     }
+
     .page-title-and-nav {
         width: 1024px;
         padding-top: 0;
     }
+
     .return-icon {
         position: absolute;
         left: 3%;
     }
+
     .button-width-20 {
         width: 15rem;
     }
+
     .centre-flex {
         gap: 2rem;
     }
+
     .ts-container {
         padding-top: 0;
     }
@@ -561,45 +621,57 @@ input[type=number] {
     }
 }
 
+
+/*REPSONSIVE DESIGN - FOR IPHONE*/
 @media screen and (max-width: 550px) {
     .doctor-comment-box {
         width: 100%;
     }
+
     .my-stats {
         width: 90%;
     }
+
     .dashboard-box {
         width: 100%;
         margin: 0;
     }
+
     .leaderboard-table th {
         font-size: 14px;
     }
+
     .leaderboard-table td {
         font-size: 16px;
     }
 }
 
+/*REPSONSIVE DESIGN - FOR SMALL IPHONE*/
 @media screen and (max-width: 380px) {
 
     .dashboard-container {
-        width:243px;
+        width: 243px;
     }
+
     .page-title {
         width: 60%;
         font-size: 24pt;
     }
+
     .inside-left {
         flex-direction: column;
         width: 100%;
     }
+
     .my-stats {
         width: 100%;
         align-items: top;
     }
+
     .page-padding {
         padding: 0;
     }
+
     .top-page {
         gap: 1rem;
         align-items: center;
@@ -608,12 +680,13 @@ input[type=number] {
     }
 
     .dashboard-right {
-        padding-top:0rem;
+        padding-top: 0rem;
     }
 
     .page-title {
         min-width: 250px;
     }
+
     .main-content {
         width: 350px;
         gap: 2rem;
@@ -623,20 +696,25 @@ input[type=number] {
         padding-left: 16px;
         padding-right: 16px;
     }
+
     .my-checklist {
         width: 375px;
         border-radius: 0;
     }
+
     .checklist-left {
         gap: 0.5rem;
     }
+
     .time-entered-box {
         padding-left: 0.5rem;
         gap: 0;
     }
+
     .checklist-item {
         padding: 2rem 1rem;
     }
+
     .inside-left {
         width: 370px;
         align-items: center;
@@ -644,27 +722,34 @@ input[type=number] {
         padding-left: 1rem;
         padding-right: 1rem;
     }
+
     .check-icon {
         font-size: 24px !important;
     }
+
     .data-icon {
         font-size: 24px !important;
     }
+
     .messageArea {
         width: 90%;
         margin: 2em 1em 1em 2em;
     }
+
     #blue-main-page {
         width: 375px;
     }
+
     .page-title-and-nav {
         width: 375px;
         padding-top: 1.5rem;
     }
+
     .date-time-container,
     .date-time-container:focus {
         width: 20rem;
     }
+
     .notes-container {
         width: 20rem;
     }

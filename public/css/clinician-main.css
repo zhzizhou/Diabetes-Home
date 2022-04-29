@@ -1,4 +1,9 @@
-/*ALL PAGES*/
+
+/*STYLES FOR CLINCIAN SIDE OF DIABETES @ HOME*/
+
+/*PLEASE NOTE THE MIDDLE SECTION OF THIS CSS FILE IS STILL A WORK IN PROGRESS*/
+
+/*GLOBAL STYLE (ALL PAGES)*/
 
 body {
     display: flex;
@@ -6,7 +11,7 @@ body {
     width: 100%;
 }
 
-.clinician-main {
+.clinician-main { 
     position: absolute;
     left: 25%;
     width: 75%;
@@ -20,7 +25,7 @@ body {
     padding-bottom: 1em;
 }
 
-.shadow {
+.shadow { /*USE FOR SHADOWS*/
     box-shadow: 2px 2px 3px var(--box-shadow);
 }
 
@@ -44,10 +49,16 @@ a {
     color: var(--dark-blue);
 }
 
+.space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-/*DASHBOARD*/
+/*DASHBOARD PAGE*/
 
-.dashboard-container {
+/*LAYOUT FOR DASHBOARD PAGE*/
+.dashboard-container { /*MAIN CONTAINER*/
     display: flex;
     gap: 3em;
     position: absolute;
@@ -55,37 +66,33 @@ a {
     width: 70%;
 }
 
-.dashboard-left {
+.dashboard-left { /*SUB CONTAINER*/
     display: flex;
     flex-direction: column;
     gap: 2em;
     width: 70%;
 }
 
-.outer-container {
+.outer-container {  /*SUB CONTAINER*/
     display: grid;
     grid-template-columns: 25% 40% 35%;
     background-color: rgb(255, 255, 255);
     height: 100vh;
 }
 
-.mid-container {
+.mid-container { /*SUB CONTAINER*/
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-.overview-info {
+.overview-info { /*SUB CONTAINER*/
     display: flex;
     gap: 1em;
     align-items: center;
 }
 
-.space-between {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+/*DASHBOARD - SUB ELEMENT STYLE*/
 
 .dropdown {
     border: none;
@@ -134,7 +141,7 @@ a {
     width: 30%;
 }
 
-.selected-patient {
+.selected-patient { 
     font-size: 25px;
     background-color: var(--dark-blue);
     margin-right: 50px;
@@ -162,8 +169,9 @@ td {
 }
 
 
-/*ALL PATIENT PAGE*/
+/*VIEW 'ALL PATIENT' PAGE*/
 
+/*LAYOUT*/
 .left-container {
     width: 77%;
 }
@@ -212,6 +220,7 @@ td {
     overflow-y: scroll;
 }
 
+/*PATIENT TABLE LAYOUT*/
 .my-patient-table th,
 .my-patient-table td {
     text-align: center;
@@ -256,9 +265,10 @@ td {
 }
 
 
-/*EXAMPLE PATIENT DETAIL PAGE (PAT/MARY SHELLEY)*/
+/*VIEW SINGLE PATIENT PAGE - EXAMPLE PATIENT DETAIL PAGE (PAT/MARY SHELLEY)*/
 
-.patient-container {
+/*LAYOUT*/
+.patient-container {  /*MAIN CONTAINER*/
     display: flex;
     gap: 3em;
     height: 90%;
@@ -267,14 +277,14 @@ td {
     width: 75%;
 }
 
-.patient-left {
+.patient-left { /*SUB CONATINER*/
     display: flex;
     flex-direction: column;
     gap: 1em;
     width: 60%;
 }
 
-.patient-right {
+.patient-right { /*SUB CONATINER*/
     display: flex;
     flex-direction: column;
     width: 40%;
@@ -306,7 +316,7 @@ td {
     text-align: left;
 }
 
-.patient-age {
+.patient-age { /*PATIENT STATS*/
     color: #8B8B8B;
     font-size: 26px;
 }
@@ -320,6 +330,7 @@ td {
     vertical-align: middle;
 }
 
+ /*CUSTOM BUTTON*/
 .edit-ts-button {
     height: 56px;
     display: flex;
@@ -328,6 +339,47 @@ td {
     align-items: center;
 }
 
+ /*SEARCH PATIENT FIELD*/
+#pname {
+    border:3px solid var(--dark-blue);
+    padding: 1rem 1rem 1rem 3rem;
+    border-radius: 2rem;
+    color: var(--dark-blue);
+}
+
+#pname:hover {
+    border:3px solid var(--button-hover);
+}
+
+#pname:focus {
+    background-color: var(--light-blue);
+    outline: none;
+}
+
+.search-icon {
+    transform: translate(40px);
+}
+
+#diabetesType {
+    padding: 1rem;
+    background-color: var(--dark-blue);
+    border-radius: 2rem;
+    color:white;
+    border: none;
+    transition:0.5s;
+}
+
+#diabetesType:hover {
+    background-color: var(--button-hover);
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--dark-blue);
+}
+
+
+
+ /*PATIENT TABLE LAYOUT */
 .overview-data {
     display: grid;
     grid-template-rows: 30% 70%;
@@ -346,6 +398,7 @@ td {
     text-align: center;
 }
 
+/*DIFFERENT STYLE COMPARED TO DASHBOARD*/
 .ts-data {
     color: var(--dark-blue);
     font-size: 20px;
@@ -372,13 +425,13 @@ td {
     padding: 1.5em;
 }
 
-.patient-data-table {
+.patient-data-table { 
     font-size: 24px;
     text-align: center;
     vertical-align: middle;
 }
 
-.filter-button {
+.filter-button { /*SPECFIC*/
     vertical-align: middle;
     float: right;
 }
@@ -453,6 +506,16 @@ td {
     color: var(--dark-grey-text);
 }
 
+input[type=date] {
+    color: var(--dark-blue);
+    font-family: effra;
+    border: none;
+    background-color:var(--light-blue);
+    padding: 1rem;
+    border-radius:2rem;
+    margin-left: 1rem;
+}
+
 
 /*NEW PATIENT PAGE*/
 
@@ -515,11 +578,10 @@ td {
 }
 
 
-/*SETTINGS PAGE*/
+/*SETTINGS PAGE -- TO BE COMPLETED*/
 
 
 /*EDIT TIME SERIES PAGE*/
-
 .time-series {
     display: flex;
     gap: 1em;
@@ -619,7 +681,7 @@ input[type="checkbox"]::before {
     padding-top: 3em;
 }
 
-/* Add support message  & add comment*/
+/* Add support message  & add comment SECTION*/
 
 .dashboard-right {
     display: flex;

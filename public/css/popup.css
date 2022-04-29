@@ -1,5 +1,9 @@
+/*POP UP PAGE STYLES*/
 
-*, *::after, *::before {
+/*MAINLY USED AFTER PATIENT ENTERS THEIR DATA*/
+*,
+*::after,
+*::before {
     box-sizing: border-box;
 }
 
@@ -16,22 +20,20 @@
     width: 500px;
     max-width: 80%;
 }
-  
+
 .pop.active {
     transform: translate(-50%, -50%) scale(1);
 }
 
-
-
-#overlay{
-    position:fixed;
+#overlay {
+    position: fixed; /*DONT WANT IT TO MOVE*/
     opacity: 0;
     transition: 200ms ease-in-out;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0, 0, 0, .5); /*ADDING BACKGROUND COLOUR*/
     pointer-events: none;
 }
 

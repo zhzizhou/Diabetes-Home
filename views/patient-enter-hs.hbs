@@ -55,26 +55,26 @@
                             <span class="material-icons-round">check</span>
                             <h3>My Checklist</h3>
                         </a>
-                        <a href="../clinician/my-patients.html" class="menu-item-layout menu-item ">
+                        <a href="../clinician/my-patients.html" class="menu-item-layout menu-item patient-menu">
                             <span class="material-icons">leaderboard</span>
                             <h3>Leaderboard</h3>
                         </a>
-                        <a href="../clinician/new-patient.html" class="menu-item-layout menu-item">
+                        <a href="../clinician/new-patient.html" class="menu-item-layout menu-item patient-menu">
                             <span class="material-icons">history</span>
                             <h3>Log history</h3>
                         </a>
                     </div>
                 </div>
                 <div class="menu-section">
-                    <a href="../clinician/my-account.html" class="menu-item-layout menu-item">
+                    <a href="../clinician/my-account.html" class="menu-item-layout menu-item patient-menu">
                         <span class="material-icons">account_circle</span>
                         <h3>Account</h3>
                     </a>
-                    <a href="../clinician/settings.html" class="menu-item-layout menu-item">
+                    <a href="../clinician/settings.html" class="menu-item-layout menu-item patient-menu">
                         <span class="material-icons">settings</span>
                         <h3>Settings</h3>
                     </a>
-                    <a href="../clinician/settings.html" class="menu-item-layout menu-item">
+                    <a href="../clinician/settings.html" class="menu-item-layout menu-item patient-menuÏ">
                         <span class="material-icons">help</span>
                         <h3>Help</h3>
                     </a>
@@ -101,16 +101,17 @@
                         <h3 class="blue-text">{{thisTitle}}</h3>
                     </div>
                 </div>
-    
+
             </div>
-        
+
             <form method="post" action="">
                 <div id="blue-main-page" class="centre-flex">
                     <input style="display:none" type="Number" name="logItemId" value={{id}}>
                     <input style="display:none" type="mongoose.Schema.Types.ObjectId" name="patientId"
                         value={{thisPatient._id}}>
 
-                    <input style = "fontsize: 1em " min = "0" class="enter-data-box" type="Number" step = "{{thisEnterType}}" name="value" placeholder="{{dataPlaceHolder}}">
+                    <input style="fontsize: 1em " min="0" class="enter-data-box" type="Number" step="{{thisEnterType}}"
+                        name="value" placeholder="{{dataPlaceHolder}}">
                     <div class="date-time-container">
                         <div class="page-title-icon">
                             <span class="material-icons-round blue-text">schedule</span>
@@ -125,20 +126,19 @@
                         </div>
 
                         <div class="notes-container">
-                            <textarea name="notes" id="message-input" cols="30 "
-                                rows="10 "maxlength="150"></textarea>
+                            <textarea name="notes" id="message-input" cols="30 " rows="10 " maxlength="150"></textarea>
                         </div>
                     </div>
                     <button type="submit" class="button button-width-20" onclick="showModel()">Save</button>
                     {{!-- <span class="button button-width-20" onclick="showModel()">Save</button> --}}
                 </div>
             </form>
-            </div>
+        </div>
     </main>
     <div id="hidebg"></div>
 
-        {{!-- Pop up window after post message --}}
-        
+    {{!-- Pop up window after post message --}}
+
     <div class="pop-up-container" id="successful-update-data" scroll="no">
         <img class="pop-up-image" src="/images/clap.svg" alt="">
         <div class="pop-up-string">
@@ -147,7 +147,7 @@
         <a href="../../patient/home">
             <span class="button submit" onclick="closeModel()">Dismiss</span>
         </a>
-        
+
     </div>
 
 

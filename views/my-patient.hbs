@@ -47,7 +47,7 @@
                     <div class="search-section">
                         <form class="space-between" method="post" action="">
                             <span style="font-size: 2em;">All Patients</span>
-                            <i class="material-icons">search</i>
+                            <i class="material-icons blue-text search-icon">search</i>
                             <span><input type="text" placeholder="search for a patient" id="pname" name="pname" {{#if
                                     query.nameExist}}value="{{query.pname}}" {{/if}}></span>
                             <span>
@@ -66,7 +66,7 @@
                                     <input type="checkbox" name="female" {{#if query.female}}checked="checked" {{/if}}>
                                 </label></span>
                             <span>
-                                <button type="submit" class="small-button button" name="submitButton">Search</button>
+                                <button type="submit" class="search button" name="submitButton">Search</button>
                             </span>
                         </form>
                     </div>
@@ -83,7 +83,7 @@
                             <td>{{this.gender}}</td>
                             <td>{{this.age}}</td>
                             <td>{{this.diabeteType}}</td>
-                            <td><a class="button" href="/clinician/my-patient/{{this._id}}/detail">View</a></td>
+                            <td><a class="blue-text" href="/clinician/my-patient/{{this._id}}/detail">View</a></td>
                         </tr>
                         {{/each}}
                     </table>

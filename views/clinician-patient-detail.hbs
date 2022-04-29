@@ -32,71 +32,71 @@
             </a>
         </div>
     </nav>
-</div>    
-    
-    
-    
-    
-    <main style="width: 100%;">
-        <div style="position: absolute; left: 25%; width: 75%;">
-            <a href="/clinician/my-patient/{{thisPatient._id}}/detail" class="back-button">
-                <span class="material-icons-round">arrow_back_ios</span>
-                <h4>Back</h4>
-            </a>
-            <h1 style="text-align:left; margin-bottom:0.5em">Patient details</h1>
-            <h2>Personal details</h2>
-            <div  class="details-statistic">
-                <ul>
-                    <li>
-                        <a>First Name</a>
-                        <h3 class="blue-text">{{thisPatient.givenName}}</h3>
-                    </li>
+</div>
 
-                    <li>
-                        <a>Gender</a>
-                        <h3 class="blue-text">{{thisPatient.gender}}</h3>
-                    </li>
 
-                    <li>
-                        <a>Email</a>
-                        <h3 class="blue-text">{{thisPatient.email}}</h3>
-                    </li>
 
-                    <li>
-                        <a>Last Name</a>
-                        <h3 class="blue-text">{{thisPatient.familyName}}</h3>
-                    </li>
 
-                    <li>
-                        <a>Birthday</a>
-                        <h3 class="blue-text">{{thisPatient.dateOfBirth}}</h3>
-                    </li>
+<main style="width: 100%;">
+    <div style="position: absolute; left: 25%; width: 75%;">
+        <a href="/clinician/my-patient/{{thisPatient._id}}/detail" class="back-button">
+            <span class="material-icons-round">arrow_back_ios</span>
+            <h4>Back</h4>
+        </a>
+        <h1 style="text-align:left; margin-bottom:0.5em">Patient details</h1>
+        <h2>Personal details</h2>
+        <div class="details-statistic">
+            <ul>
+                <li>
+                    <a>First Name</a>
+                    <h3 class="blue-text">{{thisPatient.givenName}}</h3>
+                </li>
 
-                    <li>
-                        <a>Mobile</a>
-                        <h3 class="blue-text">{{thisPatient.mobile}}</h3>
-                    </li>
-                </ul>
-            </div>
-            <h2>Health details</h2>
-            <div class="details-statistic">
-                <ul>
-                    <li>
-                        {{!-- We dont have Height data --}}
-                        <a>Height (cm)</a>
-                        <h3 class="blue-text">163</h3>
-                    </li>
+                <li>
+                    <a>Gender</a>
+                    <h3 class="blue-text">{{thisPatient.gender}}</h3>
+                </li>
 
-                    <li>
-                        <a>Type of diabetes</a>
-                        <h3 class="blue-text">{{thisPatient.diabeteType}}</h3>
-                    </li>
+                <li>
+                    <a>Email</a>
+                    <h3 class="blue-text">{{thisPatient.email}}</h3>
+                </li>
 
-                    <li>
-                        <a>Starting weight (kg)</a>
-                        <h3 class="blue-text">60</h3>
-                    </li>   
-                </ul>
-            </div>
+                <li>
+                    <a>Last Name</a>
+                    <h3 class="blue-text">{{thisPatient.familyName}}</h3>
+                </li>
+
+                <li>
+                    <a>Birthday</a>
+                    <h3 class="blue-text">{{thisPatient.dateOfBirth}}</h3>
+                </li>
+
+                <li>
+                    <a>Mobile</a>
+                    <h3 class="blue-text">{{thisPatient.mobile}}</h3>
+                </li>
+            </ul>
         </div>
-    </main>
+        <h2>Health details</h2>
+        <div class="details-statistic">
+            <ul>
+                <li>
+                    {{!-- We dont have Height data --}}
+                    <a>Height (cm)</a>
+                    <h3 class="blue-text">163</h3>
+                </li>
+
+                <li>
+                    <a>Type of diabetes</a>
+                    <h3 class="blue-text">{{thisPatient.diabeteType}}</h3>
+                </li>
+
+                <li>
+                    <a>Starting weight (kg)</a>
+                    <h3 class="blue-text">60</h3>
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
