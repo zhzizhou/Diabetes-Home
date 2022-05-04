@@ -27,12 +27,18 @@ app.set('view engine', 'hbs')
 
 //display index page
 app.get('/', (req, res) => {
-    res.send('GET index page DiabetesHome')
+    res.render('index', {
+        title: "DiabetesHome",
+        layout: 'index-main'
+    })
 })
 
 //display about page
 app.get('/about', (req, res) => {
-    res.send('GET about page')
+    res.render('about', {
+        title: "about",
+        layout: 'index-main'
+    })
 })
 
 app.use((req, res, next) => {
