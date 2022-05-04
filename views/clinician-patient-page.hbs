@@ -128,7 +128,7 @@
         </div>
 
         {{!-- Change to display Clinician notes, not edit --}}
-        <div class="note-section-bottom whitebox shadow nav-top">
+        {{!-- <div class="note-section-bottom whitebox shadow nav-top">
             <div class="space-between">
                 <h2 style="font-size:24px" class="select-messages">Clinician Notes</h2>
                 <span><a href="/clinician/my-patient/{{patient._id}}/notes" class="edit-ts" style="font-size:24px">Add
@@ -136,12 +136,28 @@
             </div>
             <div class="comment-container">
                 {{#each note}}
-                <div class="comment-time">{{this.when}}</div>
+                <div class="comment-time">{{note.when}}</div>
                 <div class="comment-box light-blue-box shadow">
-                    <span class="comment-content">{{this.content}}</span>
+                    <span class="comment-content">{{note.content}}</span>
                 </div>
                 {{/each}}
             </div>
+        </div> --}}
+
+        <div class="note-section-bottom whitebox shadow nav-top">
+            <form method="post" action="">
+                <div class="space-between">
+                    <h2 style="font-size:24px" class="select-messages">Clinician Notes</h2>
+                    {{!-- <span><a href="/clinician/my-patient/{{patient._id}}/notes" class="edit-ts" style="font-size:24px">Add+</a></span> --}}
+                    <button type="submit" class="button button-width-20">Save</button>
+                </div>
+
+                <div class="clinician-note-container">
+                    <textarea name="notes" id="message-input" cols="30 " rows="5"
+                            maxlength="200" class="comment-container">{{note.content}}</textarea>
+                </div>
+                {{!-- <span class="button button-width-20" onclick="showModel()">Save</button> --}}
+            </form>
         </div>
     </div>
 

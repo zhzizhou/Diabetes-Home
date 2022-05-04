@@ -1,0 +1,143 @@
+<div class="ts-body" id="ts-body">
+    <div id="responsive-nav" class="menu-container responsive-nav">
+        <div class="responsive-nav-top">
+            <img class="small-logo" src="/images/white-logo.svg" alt="">
+            <span onclick="closeMenu()" class="material-icons-round white-text" id="menu-opener">apps</span>
+        </div>
+        <div class="grid-menu white-text" scroll="no">
+            <a class="white-text menu-square" href="../../patient/home">
+                <span class="material-icons-round menu-icon">home</span>
+                <h3>Home</h3>
+            </a>
+            <a class="white-text menu-square" href="../../patient/leaderboard">
+                <span class="material-icons-round menu-icon">leaderboard</span>
+                <h3>Leaderboard</h3>
+            </a>
+            <a class="white-text menu-square" href="../../patient/history">
+                <span class="material-icons-round menu-icon">history</span>
+                <h3>Log History</h3>
+            </a>
+            <a class="white-text menu-square" href="../../patient/help">
+                <span class="material-icons-round menu-icon">help</span>
+                <h3>Help</h3>
+            </a>
+            <a class="white-text menu-square" href="../../patient/profile">
+                <span class="material-icons-round menu-icon">person</span>
+                <h3>Account</h3>
+            </a>
+            <a class="white-text menu-square" href="../../patient/settings">
+                <span class="material-icons-round menu-icon">settings</span>
+                <h3>Settings</h3>
+            </a>
+
+        </div>
+    </div>
+
+    <div class="page-padding">
+
+        <div class="responsive-nav responsive-nav-top">
+            <a href="index.html"><img class="small-logo" src="/images/logo.svg" alt=""></a>
+            <div onclick="openMenu()" class="square-menu">
+                <span class="material-icons-round blue-text" id="menu-opener">apps</span>
+            </div>
+        </div>
+
+        <div class="nav-placeholder">
+            <nav class="patient-nav">
+                <div class="nav-top">
+                    <img class="small-logo" src="/images/logo.svg" alt="">
+                    <div class="menu-item-layout">
+                        <img class="nav-profile-pic" src="/images/patient-profile-pic.svg" alt="profile picture">
+                        <h3>{{thisPatient.nickName}} {{thispatient.familyName}}</h3>
+                    </div>
+                    <div class="menu-section">
+                        <a href="../../patient/home" class="menu-item-layout menu-item selected">
+                            <span class="material-icons-round">check</span>
+                            <h3>My Checklist</h3>
+                        </a>
+                        <a href="../clinician/my-patients.html" class="menu-item-layout menu-item patient-menu">
+                            <span class="material-icons">leaderboard</span>
+                            <h3>Leaderboard</h3>
+                        </a>
+                        <a href="../clinician/new-patient.html" class="menu-item-layout menu-item patient-menu">
+                            <span class="material-icons">history</span>
+                            <h3>Log history</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="menu-section">
+                    <a href="../clinician/my-account.html" class="menu-item-layout menu-item patient-menu">
+                        <span class="material-icons">account_circle</span>
+                        <h3>Account</h3>
+                    </a>
+                    <a href="../clinician/settings.html" class="menu-item-layout menu-item patient-menu">
+                        <span class="material-icons">settings</span>
+                        <h3>Settings</h3>
+                    </a>
+                    <a href="../clinician/settings.html" class="menu-item-layout menu-item patient-menuÏ">
+                        <span class="material-icons">help</span>
+                        <h3>Help</h3>
+                    </a>
+                </div>
+            </nav>
+        </div>
+
+    </div>
+
+
+<main>
+    <a href="../patient/home" class="back-button">
+        <span class="material-icons-round">arrow_back_ios</span>
+        <h4>Back</h4>
+    </a>
+    <div>
+        <h1 class="page-title">Account</h1>
+        <br>
+
+        <section id="profile-container">
+            <div class="profile-picture-container">
+                <h2>My profile picture</h2>
+                <img class="profile-picture-display" src="/images/clinitian-profile-pic.svg" alt="profile picture">
+                <h3 class="blue-text">Change profile picture</h3>
+            </div>
+
+            <ul class="profile-statistic">
+                <li>
+                    <h2>First Name</h2>
+                    </br>
+                    <h3 class="blue-text">{{thisPatient.givenName}}</h3>
+                </li>
+
+                <li>
+                    <h2>Gender</h2>
+                    </br>
+                    <h3 class="blue-text">{{thisPatient.gender}}</h3>
+                </li>
+
+                <li>
+                    <h2>Email</h2>
+                    </br>
+                    <h3 class="blue-text">{{thisPatient.email}}</h3>
+                </li>
+
+                <li>
+                    <h2>Last Name</h2>
+                    </br>
+                    <h3 class="blue-text">{{thisPatient.familyName}}</h3>
+                </li>
+
+                <li>
+                    <h2>Birthday</h2>
+                    </br>
+                    <h3 class="blue-text">{{thisPatient.dateOfBirth}}</h3>
+                </li>
+
+                <li>
+                    <h2>Mobile</h2>
+                    </br>
+                    <h3 class="blue-text">0{{thisPatient.mobile}}</h3>
+                </li>
+            </ul>
+        </section>
+    </div>
+</main>

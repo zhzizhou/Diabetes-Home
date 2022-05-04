@@ -198,8 +198,24 @@ const insertLog = async(req, res) => {
 }
 
 const getProfile = async(req, res) => {
-    res.send('GET Profile')
-        //TODO
+    try {
+        const patient = await Patient.findById(
+            '625e1e3d67c164c3d21e5bce'
+        ).lean()
+
+        if (!patient) {
+            return res.sendStatus(404)
+        }
+        //found patient
+        return res.render('patient-profile', {
+            thisPatient: patient,
+            title: "Profile",
+            layout: "patient-main"
+        })
+
+    } catch (err) {
+        return next(err)
+    }
 }
 
 const getEditPage = async(req, res) => {

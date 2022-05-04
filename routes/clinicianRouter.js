@@ -74,6 +74,12 @@ clinicianRouter.get(
     clinicianController.getPatientDetail
 )
 
+// //update clinician note
+// clinicianRouter.post(
+//     '/my-patient/:id/detail',
+//     clinicianController.updateClinicianNote
+// )
+
 //display edit patient page
 clinicianRouter.get(
     '/my-patient/:id/edit',

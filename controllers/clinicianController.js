@@ -78,7 +78,6 @@ const getHome = async(req, res) => {
 }
 
 const getProfile = async(req, res) => {
-    //http://localhost:3000/clinician/profile
     try {
         const clinician = await Clinician.findById(
             // req.params.clinician_id
@@ -89,7 +88,7 @@ const getProfile = async(req, res) => {
             return res.sendStatus(404)
         }
         //found clinician
-        return res.render('clinicianData', {
+        return res.render('clinician-profile', {
             thisClinician: clinician,
             title: "Profile",
             layout: "clinician-main"
@@ -558,14 +557,21 @@ const getPatientDetail = async(req, res) => {
         }
 
         // find latest clinician note
-        const notes = await clinicianNote.find({
+        // const notes = await clinicianNote.find({
+        //     patientId: req.params.id,
+        //     clinicianId: cId
+        // }).sort({ when: -1 }).limit(1).lean()
+
+        // for (let j = 0; j < notes.length; j++) {
+        //     notes[j].when = moment(notes[j].when).format('D/M/YY H:mm:ss')
+        // }
+
+        const notes = await clinicianNote.findOne({
             patientId: req.params.id,
             clinicianId: cId
-        }).sort({ when: -1 }).limit(1).lean()
+        }).lean()
 
-        for (let j = 0; j < notes.length; j++) {
-            notes[j].when = moment(notes[j].when).format('D/M/YY H:mm:ss')
-        }
+        notes.when = moment(notes.when).format('D/M/YY H:mm:ss')
 
         return res.render('clinician-patient-page', {
             patient: patient,
@@ -583,6 +589,21 @@ const getPatientDetail = async(req, res) => {
         res.send(err)
     }
 }
+
+// const updateClinicianNote = async(req, res) => {
+
+//     const filter = { patientId: req.params.id, clinicianId: cId };
+//     const update = { content: req.body.notes };
+
+//     try {
+//         await clinicianNote.findOneAndUpdate(filter, update)
+//         res.send("<script> alert('Update clinician note successfully');\
+//             window.location.href='detail'; </script>")
+//     } catch {
+//         res.send("<script> alert('Update Fail');\
+//             window.location.href='detail'; </script>")
+//     }
+// }
 
 
 const getEditPatientPage = async(req, res) => {
