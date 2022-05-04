@@ -60,8 +60,13 @@ a.white-text {
     background-color: var(--light-blue);
     padding: 4rem;
     border-radius: 2rem;
-    height: 85vh;
+    height: auto;
     box-shadow: 2px 2px 3px var(--box-shadow);
+}
+
+/*LOG PAGE*/
+.log-container {
+    gap: 2rem;
 }
 
 

@@ -445,6 +445,12 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
+/*LOG PAGE*/
+.log-container {
+    gap: 2rem;
+}
+
+
 /*REPSONSIVE DESIGN SECTION*/
 @media screen and (max-width: 1900px) {
     .my-checklist {

@@ -129,46 +129,160 @@
 
         <div class="dashboard-left">
         </div>
-
         <div class="dashboard-right centre-content">
             <div class="page-title-and-nav">
                 <span class="material-icons-round blue-text">arrow_back_ios</span>
                 <div class="page-title-icon" id="ts-title">
-                    <span class="data-icon material-icons-round blue-text">scale</span>
-                    <h3 class="blue-text">Weight Log</h3>
+                    <span class="data-icon material-icons-round blue-text">history</span>
+                    <h3 class="blue-text">Log History</h3>
                 </div>
             </div>
 
-            <div id="blue-main-page" class="centre-flex">
-                <input class="enter-data-box" type="text" placeholder="Kg">
-                <div class="date-time-container">
-                    <div class="page-title-icon">
-                        <span class="material-icons-round blue-text">schedule</span>
-                        <p>Date & Time</p>
+            <div id="blue-main-page" class="centre-flex log-container">
+                <span class="filter-button">Filter by date<input type="date"></span>
+                <div class="grey-background p-dark">Today</div>
+                <div class="checklist-item space-between filled">
+                    <div class="checklist-left space-between">
+                        <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                        <span class="material-icons-round blue-text data-icon">timeline</span>
+                        <div>
+                            <p>Blood gluecose Level</p>
+                            <h3>7.8 mmol/L</h3>
+                        </div>
                     </div>
-                    <p class="p-dark">10/3/22, 8:15pm</p>
-                </div>
-
-                <div class="pop-up-container" id="successful-update-data">
-                    <img class="pop-up-image" src="../../static/images/clap.svg" alt="">
-                    <div class="pop-up-string">
-                        <h3>Keep up the good work!</h3>
+                    <div class="time-entered-box">
+                        <h4>2:28pm</h4>
+                        <span class="material-icons-round blue-text">navigate_next</span>
                     </div>
-                    <span class="button submit" onclick="closeModel()">Dismiss</button>
                 </div>
-
-
-                <div>
-                    <div class="page-title-icon on-top">
-                        <span class="material-icons-round blue-text">edit</span>
-                    <p>Notes</p>
+                <div class="checklist-item space-between filled">
+                    <div class="checklist-left space-between">
+                        <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                        <span class="material-icons-round blue-text data-icon">timeline</span>
+                        <div>
+                            <p>Blood gluecose Level</p>
+                            <h3>7.8 mmol/L</h3>
+                        </div>
+                    </div>
+                    <div class="time-entered-box">
+                        <h4>2:28pm</h4>
+                        <span class="material-icons-round blue-text">navigate_next</span>
+                    </div>
                 </div>
-
-                <div class="notes-container">
-                    <textarea id="message-input" cols="30 " rows="10 ">Take a note of something...</textarea>
+                <div class="checklist-item space-between filled">
+                    <div class="checklist-left space-between">
+                        <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                        <span class="material-icons-round blue-text data-icon">timeline</span>
+                        <div>
+                            <p>Blood gluecose Level</p>
+                            <h3>7.8 mmol/L</h3>
+                        </div>
+                    </div>
+                    <div class="time-entered-box">
+                        <h4>2:28pm</h4>
+                        <span class="material-icons-round blue-text">navigate_next</span>
+                    </div>
+                </div>
+                <div class="grey-background p-dark">Yesterday</div>
+                <div class="checklist-item space-between filled">
+                    <div class="checklist-left space-between">
+                        <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                        <span class="material-icons-round blue-text data-icon">timeline</span>
+                        <div>
+                            <p>Blood gluecose Level</p>
+                            <h3>7.8 mmol/L</h3>
+                        </div>
+                    </div>
+                    <div class="time-entered-box">
+                        <h4>2:28pm</h4>
+                        <span class="material-icons-round blue-text">navigate_next</span>
+                    </div>
+                </div>
+                <div class="checklist-item space-between filled">
+                    <div class="checklist-left space-between">
+                        <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                        <span class="material-icons-round blue-text data-icon">timeline</span>
+                        <div>
+                            <p>Blood gluecose Level</p>
+                            <h3>7.8 mmol/L</h3>
+                        </div>
+                    </div>
+                    <div class="time-entered-box">
+                        <h4>2:28pm</h4>
+                        <span class="material-icons-round blue-text">navigate_next</span>
+                    </div>
+                </div>
+                <div class="checklist-item space-between filled">
+                    <div class="checklist-left space-between">
+                        <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                        <span class="material-icons-round blue-text data-icon">timeline</span>
+                        <div>
+                            <p>Blood gluecose Level</p>
+                            <h3>7.8 mmol/L</h3>
+                        </div>
+                    </div>
+                    <div class="time-entered-box">
+                        <h4>2:28pm</h4>
+                        <span class="material-icons-round blue-text">navigate_next</span>
+                    </div>
+                </div>
+                <div class="checklist-item space-between filled">
+                    <div class="checklist-left space-between">
+                        <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                        <span class="material-icons-round blue-text data-icon">timeline</span>
+                        <div>
+                            <p>Blood gluecose Level</p>
+                            <h3>7.8 mmol/L</h3>
+                        </div>
+                    </div>
+                    <div class="time-entered-box">
+                        <h4>2:28pm</h4>
+                        <span class="material-icons-round blue-text">navigate_next</span>
+                    </div>
+                </div>
+                <div class="checklist-item space-between filled">
+                    <div class="checklist-left space-between">
+                        <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                        <span class="material-icons-round blue-text data-icon">timeline</span>
+                        <div>
+                            <p>Blood gluecose Level</p>
+                            <h3>7.8 mmol/L</h3>
+                        </div>
+                    </div>
+                    <div class="time-entered-box">
+                        <h4>2:28pm</h4>
+                        <span class="material-icons-round blue-text">navigate_next</span>
+                    </div>
+                </div>
+                <div class="checklist-item space-between filled">
+                    <div class="checklist-left space-between">
+                        <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                        <span class="material-icons-round blue-text data-icon">timeline</span>
+                        <div>
+                            <p>Blood gluecose Level</p>
+                            <h3>7.8 mmol/L</h3>
+                        </div>
+                    </div>
+                    <div class="time-entered-box">
+                        <h4>2:28pm</h4>
+                        <span class="material-icons-round blue-text">navigate_next</span>
+                    </div>
+                </div>
+                <div class="checklist-item space-between filled">
+                    <div class="checklist-left space-between">
+                        <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                        <span class="material-icons-round blue-text data-icon">timeline</span>
+                        <div>
+                            <p>Blood gluecose Level</p>
+                            <h3>7.8 mmol/L</h3>
+                        </div>
+                    </div>
+                    <div class="time-entered-box">
+                        <h4>2:28pm</h4>
+                        <span class="material-icons-round blue-text">navigate_next</span>
+                    </div>
                 </div>
             </div>
-            <button type="submit" class="button button-width-20" onclick="showModel()">Save</button>
         </div>
         </div>
 

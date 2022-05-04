@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/reset.css">
+    <link rel="stylesheet" href="https://use.typekit.net/cxa4uzj.css">
+    <link rel="stylesheet" href="../../static/css/patient-main.css">
+    <link rel="stylesheet" href="../../static/css/font.css">
+    <link rel="stylesheet" href="../../static/css/colour.css">
+    <link rel="stylesheet" href="../../static/css/buttons.css">
+    <link rel="stylesheet" href="../../static/css/nav.css">
+    <link rel="stylesheet" href="../../static/css/hamburger-nav.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/cxa4uzj.css">
+    <script type="text/javascript" src="/js/pop-up-window.js"></script>
+    <script type="text/javascript" src="/js/responsive.js"></script>
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <div class="ts-body" id="ts-body">
+        <div id="responsive-nav" class="menu-container responsive-nav">
+            <div class="responsive-nav-top">
+                <img class="small-logo" src="/images/white-logo.svg" alt="">
+                <span onclick="closeMenu()" class="material-icons-round white-text" id="menu-opener">apps</span>
+            </div>
+            <div class="grid-menu white-text" scroll="no">
+                <a class="white-text menu-square" href="../../patient/home">
+                    <span class="material-icons-round menu-icon">home</span>
+                    <h3>Home</h3>
+                </a>
+                <a class="white-text menu-square" href="../../patient/leaderboard">
+                    <span class="material-icons-round menu-icon">leaderboard</span>
+                    <h3>Leaderboard</h3>
+                </a>
+                <a class="white-text menu-square" href="../../patient/history">
+                    <span class="material-icons-round menu-icon">history</span>
+                    <h3>Log History</h3>
+                </a>
+                <a class="white-text menu-square" href="../../patient/help">
+                    <span class="material-icons-round menu-icon">help</span>
+                    <h3>Help</h3>
+                </a>
+                <a class="white-text menu-square" href="../../patient/profile">
+                    <span class="material-icons-round menu-icon">person</span>
+                    <h3>Account</h3>
+                </a>
+                <a class="white-text menu-square" href="../../patient/settings">
+                    <span class="material-icons-round menu-icon">settings</span>
+                    <h3>Settings</h3>
+                </a>
+    
+            </div>
+        </div>
+    
+        <div class="page-padding">
+    
+            <div class="responsive-nav responsive-nav-top">
+                <a href="index.html"><img class="small-logo" src="/images/logo.svg" alt=""></a>
+                <div onclick="openMenu()" class="square-menu">
+                    <span class="material-icons-round blue-text" id="menu-opener">apps</span>
+                </div>
+            </div>
+    
+            <div class="nav-placeholder">
+                <nav class="patient-nav">
+                    <div class="nav-top">
+                        <img class="small-logo" src="/images/logo.svg" alt="">
+                        <div class="menu-item-layout">
+                            <img class="nav-profile-pic" src="/images/patient-profile-pic.svg" alt="profile picture">
+                            <h3>{{thisPatient.nickName}} {{thispatient.familyName}}</h3>
+                        </div>
+                        <div class="menu-section">
+                            <a href="../../patient/home" class="menu-item-layout menu-item selected">
+                                <span class="material-icons-round">check</span>
+                                <h3>My Checklist</h3>
+                            </a>
+                            <a href="../clinician/my-patients.html" class="menu-item-layout menu-item patient-menu">
+                                <span class="material-icons">leaderboard</span>
+                                <h3>Leaderboard</h3>
+                            </a>
+                            <a href="../clinician/new-patient.html" class="menu-item-layout menu-item patient-menu">
+                                <span class="material-icons">history</span>
+                                <h3>Log history</h3>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="menu-section">
+                        <a href="../clinician/my-account.html" class="menu-item-layout menu-item patient-menu">
+                            <span class="material-icons">account_circle</span>
+                            <h3>Account</h3>
+                        </a>
+                        <a href="../clinician/settings.html" class="menu-item-layout menu-item patient-menu">
+                            <span class="material-icons">settings</span>
+                            <h3>Settings</h3>
+                        </a>
+                        <a href="../clinician/settings.html" class="menu-item-layout menu-item patient-menuÏ">
+                            <span class="material-icons">help</span>
+                            <h3>Help</h3>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+    
+        </div>
+    
+        <main class="dashboard-container">
+    
+            <div class="dashboard-left">
+            </div>
+    
+            <div class="dashboard-right enter-ts-container">
+    
+                <div class="page-title-and-nav">
+                    <div class="return-icon">
+                        <a href="../../patient/home" class="material-icons-round blue-text">arrow_back_ios</a>
+                    </div>
+                    <div class="checklist-title">
+                        <div class="page-title-icon">
+                            <span class="data-icon material-icons-round blue-text">{{icon}}</span>
+                            <h3 class="blue-text">{{thisTitle}}</h3>
+                        </div>
+                    </div>
+    
+                </div>
+    
+                <form method="post" action="">
+                    <div id="blue-main-page" class="centre-flex">
+                        <input style="display:none" type="Number" name="logItemId" value={{id}}>
+                        <input style="display:none" type="mongoose.Schema.Types.ObjectId" name="patientId"
+                            value={{thisPatient._id}}>
+    
+                        <input style="fontsize: 1em " min="0" class="enter-data-box" type="Number" step="{{thisEnterType}}"
+                            name="value" placeholder="{{dataPlaceHolder}}">
+                        <div class="date-time-container">
+                            <div class="page-title-icon">
+                                <span class="material-icons-round blue-text">schedule</span>
+                                <p class="blue-text">Time</p>
+                            </div>
+                            <p class="p-dark">{{time}}</p>
+                        </div>
+                        <div>
+                            <div class="page-title-icon on-top">
+                                <span class="material-icons-round blue-text">edit</span>
+                                <p class="blue-text">Notes</p>
+                            </div>
+    
+                            <div class="notes-container">
+                                <textarea name="notes" id="message-input" cols="30 " rows="10 " maxlength="150"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="button button-width-20" onclick="showModel()">Save</button>
+                        {{!-- <span class="button button-width-20" onclick="showModel()">Save</button> --}}
+                    </div>
+                </form>
+            </div>
+        </main>
+        <div id="hidebg"></div>
+    
+        {{!-- Pop up window after post message --}}
+    
+        <div class="pop-up-container" id="successful-update-data" scroll="no">
+            <img class="pop-up-image" src="/images/clap.svg" alt="">
+            <div class="pop-up-string">
+                <h3>Keep up the good work!</h3>
+            </div>
+            <a href="../../patient/home">
+                <span class="button submit" onclick="closeModel()">Dismiss</span>
+            </a>
+    
+        </div>
+    
+    
+    </div>
+</body>
+
+
+</html>
