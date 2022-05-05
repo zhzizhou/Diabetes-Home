@@ -11,7 +11,7 @@ function closeMenu() {
   stopBodyScroll(0);
 }
 
-function stopBodyScroll(isFixed) {
+/*function stopBodyScroll(isFixed) {
   let bodyEl = document.body;
   let top = 0;
 
@@ -25,4 +25,4 @@ function stopBodyScroll(isFixed) {
       bodyEl.style.top = '';
       window.scrollTo(0, top);
   }
-}
+}*/

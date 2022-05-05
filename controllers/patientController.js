@@ -89,8 +89,24 @@ const getHome = async(req, res) => {
 }
 
 const getLeaderboard = async(req, res) => {
-    res.send('GET Leaderboard')
-        //TODO
+    try {
+        const patient = await Patient.findById(
+            '625e1e3d67c164c3d21e5bce'
+        ).lean()
+
+        if (!patient) {
+            return res.sendStatus(404)
+        }
+        //found patient
+        return res.render('patient-leaderboard', {
+            thisPatient: patient,
+            title: "Leaderboard",
+            layout: "patient-main"
+        })
+
+    } catch (err) {
+        return next(err)
+    }
 }
 
 const getLogHistory = async(req, res) => {
