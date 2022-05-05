@@ -227,6 +227,7 @@ input:focus {
     margin: 1.5em;
     border-radius: 20px;
     text-align: center;
+    width: 100%;
 }
 
 .leaderboard-table {
@@ -250,6 +251,7 @@ input:focus {
     position: absolute;
     left: 24rem;
     padding-right: 2rem;
+    width: 70%;
 }
 
 
@@ -644,6 +646,10 @@ input[type=number] {
     .pop-up-container {
         top: 30%;
         left: 36%;
+    }
+    .leaderboard-container {
+        position: initial;
+        width: 90%;
     }
 }
 

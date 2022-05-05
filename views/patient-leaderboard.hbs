@@ -9,7 +9,7 @@
                 <span class="material-icons-round menu-icon">home</span>
                 <h3>Home</h3>
             </a>
-            <a class="white-text menu-square" href="../../patient/leaderboard">
+            <a class="white-text menu-square" href="#">
                 <span class="material-icons-round menu-icon">leaderboard</span>
                 <h3>Leaderboard</h3>
             </a>
@@ -49,30 +49,30 @@
                         <h3>{{thisPatient.nickName}} {{thispatient.familyName}}</h3>
                     </div>
                     <div class="menu-section">
-                        <a href="../../patient/home" class="menu-item-layout menu-item selected">
+                        <a href="../../patient/home" class="menu-item-layout menu-item">
                             <span class="material-icons-round">check</span>
                             <h3>My Checklist</h3>
                         </a>
-                        <a href="../clinician/my-patients.html" class="menu-item-layout menu-item patient-menu">
+                        <a href="../../patient/leaderboard" class="menu-item-layout menu-item patient-menu  selected">
                             <span class="material-icons">leaderboard</span>
                             <h3>Leaderboard</h3>
                         </a>
-                        <a href="../clinician/new-patient.html" class="menu-item-layout menu-item patient-menu">
+                        <a href="../../patient/history" class="menu-item-layout menu-item patient-menu">
                             <span class="material-icons">history</span>
                             <h3>Log history</h3>
                         </a>
                     </div>
                 </div>
                 <div class="menu-section">
-                    <a href="../clinician/my-account.html" class="menu-item-layout menu-item patient-menu">
+                    <a href="../../patient/profile" class="menu-item-layout menu-item patient-menu">
                         <span class="material-icons">account_circle</span>
                         <h3>Account</h3>
                     </a>
-                    <a href="../clinician/settings.html" class="menu-item-layout menu-item patient-menu">
+                    <a href="../../patient/settings" class="menu-item-layout menu-item patient-menu">
                         <span class="material-icons">settings</span>
                         <h3>Settings</h3>
                     </a>
-                    <a href="../clinician/settings.html" class="menu-item-layout menu-item patient-menuÏ">
+                    <a href="../../patient/help" class="menu-item-layout menu-item patient-menuÏ">
                         <span class="material-icons">help</span>
                         <h3>Help</h3>
                     </a>
@@ -80,9 +80,19 @@
             </nav>
         </div>
     <main class="leaderboard-container">
+        <div class="page-title-and-nav">
+                <div class="return-icon">
+                    <a href="../../patient/home" class="material-icons-round blue-text">arrow_back_ios</a>
+                </div>
+                <div class="checklist-title">
+                    <div class="page-title-icon">
+                        <h3 class="blue-text">Leaderboard</h3>
+                    </div>
+                </div>
+        </div>
         <div class ="leaderboard-box">
             <div align="center">
-                <img src="../../static/images/leaderboard.png" style="height:8em;">
+                <img src="/images/leaderboard.png" style="height:8em;">
                 <div style="border-bottom: 4px dashed #587BB4; width:95%"></div>
                 <table class = "leaderboard-table">
                     <tr class="record" style="background-color: #587BB4; color: white;">
