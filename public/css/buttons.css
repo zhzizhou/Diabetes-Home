@@ -71,3 +71,15 @@ a:hover {
     height: 2.9rem;
     width: 5rem;
 }
+
+
+/*DATE PICKER STYLES*/
+input[type=date] {
+    color: var(--dark-blue);
+    font-family: effra;
+    border: none;
+    background-color: var(--light-blue);
+    padding: 1rem;
+    border-radius: 2rem;
+    margin-left: 1rem;
+}

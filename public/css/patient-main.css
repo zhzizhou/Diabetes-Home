@@ -502,6 +502,13 @@ input[type=number] {
     }
 }
 
+/*REPSONSIVE DESIGN - FOR IPAD*/
+
+@media screen and (max-width: 1600px) {
+    .dashboard-left {
+        min-width: 20rem;
+    }
+}
 
 /*REPSONSIVE DESIGN - FOR IPAD*/
 
@@ -549,6 +556,7 @@ input[type=number] {
         flex-direction: row;
         padding-bottom: 2rem;
         width: 96%;
+        
     }
     .main-content {
         gap: 3rem;
@@ -751,5 +759,9 @@ input[type=number] {
     .pop-up-container {
         top: 30%;
         left: 10%;
+    }
+
+    #blue-main-page {
+        padding: 4rem 0 4rem 0;
     }
 }

@@ -94,8 +94,10 @@ const getLeaderboard = async(req, res) => {
 }
 
 const getLogHistory = async(req, res) => {
-    res.send('GET LogHistory')
-        //TODO
+    res.render('patient-log-history', {
+        title: "Log History",
+        layout: "patient-main"
+    })
 }
 
 const getLogPage = async(req, res) => {

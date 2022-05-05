@@ -1,0 +1,244 @@
+<body class="dashboard-body">
+    <div id="responsive-nav" class="menu-container responsive-nav">
+        <div class="responsive-nav-top">
+            <img class="small-logo" src="/images/white-logo.svg" alt="">
+            <span onclick="closeMenu()" class="material-icons-round white-text" id="menu-opener">apps</span>
+        </div>
+        <div class="grid-menu white-text" scroll="no">
+            <a class="white-text menu-square" href="../../patient/home">
+                <span class="material-icons-round menu-icon">home</span>
+                <h3>Home</h3>
+            </a>
+            <a class="white-text menu-square" href="../../patient/leaderboard">
+                <span class="material-icons-round menu-icon">leaderboard</span>
+                <h3>Leaderboard</h3>
+            </a>
+            <a class="white-text menu-square" href="../../patient/history">
+                <span class="material-icons-round menu-icon">history</span>
+                <h3>Log History</h3>
+            </a>
+            <a class="white-text menu-square" href="../../patient/help">
+                <span class="material-icons-round menu-icon">help</span>
+                <h3>Help</h3>
+            </a>
+            <a class="white-text menu-square" href="../../patient/profile">
+                <span class="material-icons-round menu-icon">person</span>
+                <h3>Account</h3>
+            </a>
+            <a class="white-text menu-square" href="../../patient/settings">
+                <span class="material-icons-round menu-icon">settings</span>
+                <h3>Settings</h3>
+            </a>
+
+        </div>
+    </div>
+    <div class="page-padding">
+
+        <div class="responsive-nav responsive-nav-top">
+            <a href="index.html"><img class="small-logo" src="/images/logo.svg" alt=""></a>
+            <div onclick="openMenu()" class="square-menu">
+                <span class="material-icons-round blue-text" id="menu-opener">apps</span>
+            </div>
+        </div>
+
+        <div class="nav-placeholder">
+            <nav class="patient-nav">
+                <div class="nav-top">
+                    <img class="small-logo" src="/images/logo.svg" alt="">
+                    <div class="menu-item-layout">
+                        <img class="nav-profile-pic" src="/images/patient-profile-pic.svg" alt="profile picture">
+                        <h3>{{patient.givenName}} {{patient.familyName}}</h3>
+                    </div>
+                    <div class="menu-section">
+                        <a href="../../patient/home" class="menu-item-layout menu-item patient-menu">
+                            <span class="material-icons-round">check</span>
+                            <h3>My Checklist</h3>
+                        </a>
+                        <a href="../../patient/leaderboard" class="menu-item-layout patient-menu menu-item">
+                            <span class="material-icons">leaderboard</span>
+                            <h3>Leaderboard</h3>
+                        </a>
+                        <a href="../../patient/history" class="menu-item-layout menu-item selected">
+                            <span class="material-icons">history</span>
+                            <h3>Log history</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="menu-section">
+                    <a href="../patient/profile" class="menu-item-layout menu-item patient-menu">
+                        <span class="material-icons">account_circle</span>
+                        <h3>Account</h3>
+                    </a>
+                    <a href="../patient/settings" class="menu-item-layout menu-item patient-menu">
+                        <span class="material-icons">settings</span>
+                        <h3>Settings</h3>
+                    </a>
+                    <a href="/" class="menu-item-layout menu-item patient-menu">
+                        <span class="material-icons">help</span>
+                        <h3>Help</h3>
+                    </a>
+                </div>
+            </nav>
+        </div>
+
+        <main class="dashboard-container">
+            <div class="dashboard-left">
+            </div>
+            <div class="dashboard-right centre-content">
+                <div class="page-title-and-nav">
+                    <span class="material-icons-round blue-text">arrow_back_ios</span>
+                    <div class="page-title-icon" id="ts-title">
+                        <span class="data-icon material-icons-round blue-text">history</span>
+                        <h3 class="blue-text">Log History</h3>
+                    </div>
+                </div>
+
+                <div id="blue-main-page" class="centre-flex log-container">
+                    <span class="filter-button">Filter by date<input type="date"></span>
+                    <div class="grey-background p-dark">Today</div>
+                    <div class="checklist-item space-between filled">
+                        <div class="checklist-left space-between">
+                            <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                            <span class="material-icons-round blue-text data-icon">timeline</span>
+                            <div>
+                                <p>Blood gluecose Level</p>
+                                <h3>7.8 mmol/L</h3>
+                            </div>
+                        </div>
+                        <div class="time-entered-box">
+                            <h4>2:28pm</h4>
+                            <span class="material-icons-round blue-text">navigate_next</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item space-between filled">
+                        <div class="checklist-left space-between">
+                            <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                            <span class="material-icons-round blue-text data-icon">timeline</span>
+                            <div>
+                                <p>Blood gluecose Level</p>
+                                <h3>7.8 mmol/L</h3>
+                            </div>
+                        </div>
+                        <div class="time-entered-box">
+                            <h4>2:28pm</h4>
+                            <span class="material-icons-round blue-text">navigate_next</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item space-between filled">
+                        <div class="checklist-left space-between">
+                            <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                            <span class="material-icons-round blue-text data-icon">timeline</span>
+                            <div>
+                                <p>Blood gluecose Level</p>
+                                <h3>7.8 mmol/L</h3>
+                            </div>
+                        </div>
+                        <div class="time-entered-box">
+                            <h4>2:28pm</h4>
+                            <span class="material-icons-round blue-text">navigate_next</span>
+                        </div>
+                    </div>
+                    <div class="grey-background p-dark">Yesterday</div>
+                    <div class="checklist-item space-between filled">
+                        <div class="checklist-left space-between">
+                            <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                            <span class="material-icons-round blue-text data-icon">timeline</span>
+                            <div>
+                                <p>Blood gluecose Level</p>
+                                <h3>7.8 mmol/L</h3>
+                            </div>
+                        </div>
+                        <div class="time-entered-box">
+                            <h4>2:28pm</h4>
+                            <span class="material-icons-round blue-text">navigate_next</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item space-between filled">
+                        <div class="checklist-left space-between">
+                            <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                            <span class="material-icons-round blue-text data-icon">timeline</span>
+                            <div>
+                                <p>Blood gluecose Level</p>
+                                <h3>7.8 mmol/L</h3>
+                            </div>
+                        </div>
+                        <div class="time-entered-box">
+                            <h4>2:28pm</h4>
+                            <span class="material-icons-round blue-text">navigate_next</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item space-between filled">
+                        <div class="checklist-left space-between">
+                            <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                            <span class="material-icons-round blue-text data-icon">timeline</span>
+                            <div>
+                                <p>Blood gluecose Level</p>
+                                <h3>7.8 mmol/L</h3>
+                            </div>
+                        </div>
+                        <div class="time-entered-box">
+                            <h4>2:28pm</h4>
+                            <span class="material-icons-round blue-text">navigate_next</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item space-between filled">
+                        <div class="checklist-left space-between">
+                            <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                            <span class="material-icons-round blue-text data-icon">timeline</span>
+                            <div>
+                                <p>Blood gluecose Level</p>
+                                <h3>7.8 mmol/L</h3>
+                            </div>
+                        </div>
+                        <div class="time-entered-box">
+                            <h4>2:28pm</h4>
+                            <span class="material-icons-round blue-text">navigate_next</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item space-between filled">
+                        <div class="checklist-left space-between">
+                            <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                            <span class="material-icons-round blue-text data-icon">timeline</span>
+                            <div>
+                                <p>Blood gluecose Level</p>
+                                <h3>7.8 mmol/L</h3>
+                            </div>
+                        </div>
+                        <div class="time-entered-box">
+                            <h4>2:28pm</h4>
+                            <span class="material-icons-round blue-text">navigate_next</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item space-between filled">
+                        <div class="checklist-left space-between">
+                            <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                            <span class="material-icons-round blue-text data-icon">timeline</span>
+                            <div>
+                                <p>Blood gluecose Level</p>
+                                <h3>7.8 mmol/L</h3>
+                            </div>
+                        </div>
+                        <div class="time-entered-box">
+                            <h4>2:28pm</h4>
+                            <span class="material-icons-round blue-text">navigate_next</span>
+                        </div>
+                    </div>
+                    <div class="checklist-item space-between filled">
+                        <div class="checklist-left space-between">
+                            <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                            <span class="material-icons-round blue-text data-icon">timeline</span>
+                            <div>
+                                <p>Blood gluecose Level</p>
+                                <h3>7.8 mmol/L</h3>
+                            </div>
+                        </div>
+                        <div class="time-entered-box">
+                            <h4>2:28pm</h4>
+                            <span class="material-icons-round blue-text">navigate_next</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>

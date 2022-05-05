@@ -534,16 +534,6 @@ input[type="checkbox"]:checked {
     color: var(--dark-grey-text);
 }
 
-input[type=date] {
-    color: var(--dark-blue);
-    font-family: effra;
-    border: none;
-    background-color: var(--light-blue);
-    padding: 1rem;
-    border-radius: 2rem;
-    margin-left: 1rem;
-}
-
 
 /*NEW PATIENT PAGE*/
 
