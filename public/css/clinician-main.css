@@ -748,7 +748,7 @@ input[type="checkbox"]::before {
     top: 40%;
     width: 300px;
     height: 325px;
-    z-index: 2;
+    z-index: 15;
 }
 
 .pop-up-image {

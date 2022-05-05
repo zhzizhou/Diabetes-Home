@@ -18,14 +18,24 @@ function closeModel() {
 // Stop scoll
 function stopBodyScroll(isFixed) {
     let bodyEl = document.body;
+    var tsbody = document.getElementById("ts-body");
+    var box = document.getElementById("dashboard-right");
+    var nav = document.getElementsByClassName("nav-placeholder");
     let top = 0;
-
+  
     if (isFixed == 1) {
         top = window.scrollY;
         bodyEl.style.position = 'fixed';
+        tsbody.style.position = 'fixed';
+        box.style.position = 'fixed';
+        nav.style.position = 'fixed';
         bodyEl.style.top = -top + 'px';
-    } else {
+    }
+    else {
         bodyEl.style.position = '';
+        tsbody.style.position = '';
+        box.style.position = '';
+        nav.style.position = '';
         bodyEl.style.top = '';
         window.scrollTo(0, top);
     }

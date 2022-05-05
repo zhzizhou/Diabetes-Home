@@ -1,6 +1,6 @@
 /*OPEN MENU*/
 function openMenu() {
-  stopBodyScroll(1);
+  stopBodyScrollUnderMenu(1);
   document.getElementById("responsive-nav").style.display = "flex";
 
 }
@@ -8,10 +8,10 @@ function openMenu() {
 /*CLOSE MENU*/
 function closeMenu() {
   document.getElementById("responsive-nav").style.display = "none";
-  stopBodyScroll(0);
+  stopBodyScrollUnderMenu(0);
 }
 
-function stopBodyScroll(isFixed) {
+function stopBodyScrollUnderMenu(isFixed) {
   let bodyEl = document.body;
   let top = 0;
 
