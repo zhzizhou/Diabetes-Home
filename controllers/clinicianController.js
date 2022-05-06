@@ -120,7 +120,7 @@ const updateSettings = async(req, res) => {
 }
 
 const getRegisterPage = async(req, res) => {
-    res.send('GET RegisterPage')
+    res.send('Patient')
         //TODO
 }
 
@@ -149,8 +149,25 @@ const registerClinician = async(req, res) => {
 }
 
 const getNewPatientPage = async(req, res) => {
-    res.send('GET NewPatientPage')
-        //TODO
+    try {
+        const clinician = await Clinician.findById(
+            // req.params.clinician_id
+            '625e240b01e5ce1b9ef808e9'
+        ).lean()
+
+        if (!clinician) {
+            return res.sendStatus(404)
+        }
+        //found clinician
+        return res.render('clinician-add-new-patient', {
+            doctor: clinician,
+            title: "Add new patien",
+            layout: "clinician-main"
+        })
+
+    } catch (err) {
+        return next(err)
+    }
 }
 
 const addNewPatient = async(req, res) => {
