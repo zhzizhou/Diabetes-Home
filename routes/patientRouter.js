@@ -1,9 +1,33 @@
 const express = require('express')
 const patientRouter = express.Router()
+const passport = require('passport')
 const patientController = require('../controllers/patientController')
 
+const isAuthenticated = (req, res, next) => {
+    if (!req.isAuthenticated()) {
+        return res.redirect('login')
+    }
+    return next()
+}
+
+patientRouter.get('/login', patientController.getLoginPage)
+
+// patient login
+patientRouter.post('/login',
+    passport.authenticate('patient', {
+        successRedirect: 'home',
+        failureRedirect: 'login',
+        failureFlash: true
+    })
+)
+// patient logout
+patientRouter.get('/logout', (req, res) => {
+    req.logout()
+    res.redirect('/')
+})
+
 //display the patient home page
-patientRouter.get('/home', patientController.getHome)
+patientRouter.get('/home', isAuthenticated, patientController.getHome)
 
 //display the leaderboard page
 patientRouter.get('/leaderboard', patientController.getLeaderboard)
@@ -32,10 +56,5 @@ patientRouter.get('/settings', patientController.getSettings)
 //update new settings
 patientRouter.put('/settings', patientController.updateSettings)
 
-//display patient login page
-patientRouter.get('/login', patientController.getLoginPage)
-
-//patient login
-patientRouter.post('/login', patientController.patientLogin)
 
 module.exports = patientRouter

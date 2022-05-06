@@ -1,9 +1,33 @@
 const express = require('express')
 const clinicianRouter = express.Router()
+const passport = require('passport')
 const clinicianController = require('../controllers/clinicianController')
 
+const isAuthenticated = (req, res, next) => {
+    if (!req.isAuthenticated()) {
+        return res.redirect('login')
+    }
+    return next()
+}
+
+clinicianRouter.get('/login', clinicianController.getLoginPage)
+
+// clinician login
+clinicianRouter.post('/login',
+    passport.authenticate('clinician', {
+        successRedirect: 'home',
+        failureRedirect: 'login',
+        failureFlash: true
+    })
+)
+// clinician logout
+clinicianRouter.get('/logout', (req, res) => {
+    req.logout()
+    res.redirect('/')
+})
+
 //display the patient home page
-clinicianRouter.get('/home', clinicianController.getHome)
+clinicianRouter.get('/home', isAuthenticated, clinicianController.getHome)
 
 //display clinician's profile page
 clinicianRouter.get('/profile', clinicianController.getProfile)
@@ -86,10 +110,11 @@ clinicianRouter.put(
     clinicianController.updatePatientDetail
 )
 
-//display clinician log in page
+/*//display clinician log in page
 clinicianRouter.get('/login', clinicianController.getLoginPage)
 
 //clician login request
-clinicianRouter.post('/login', clinicianController.clinicianLogin)
+clinicianRouter.post('/login', clinicianController.clinicianLogin)*/
+
 
 module.exports = clinicianRouter

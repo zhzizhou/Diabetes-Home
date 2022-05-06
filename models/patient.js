@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const bcrypt = require('bcrypt')
 
 const patientSchema = new mongoose.Schema({
     givenName: { type: String, required: true },
@@ -28,41 +29,29 @@ const patientSchema = new mongoose.Schema({
     ],
 })
 
+patientSchema.methods.verifyPassword = function (password, callback) {
+    bcrypt.compare(password, this.password, (err, valid) => {
+        callback(err, valid)
+    })
+}
+
+
+patientSchema.pre('save', function save(next) {
+    const patient = this
+    const SALT_FACTOR = 10
+
+    if (!patient.isModified('password')) {
+        return next()
+    }
+
+    bcrypt.hash(patient.password, SALT_FACTOR, (err, hash) => {
+        if (err) {
+            return next(err)
+        }
+        patient.password = hash
+        next()
+    })
+})
+
 const Patient = mongoose.model('Patient', patientSchema)
-
-const PateintDemo = [
-    {
-        _id: 10001,
-        givenName: 'Patrick',
-        familyName: 'Star',
-        password: '12345',
-        email: 'mary@diabeteshome.com',
-        mobile: '0123456789',
-        profilePicture: 'defaultPic',
-        nickName: 'Pat',
-        gender: 'Male',
-        engagementRate: 80,
-        diabeteType: 'Type 1',
-        darkMode: false,
-        dateOfBirth: '1/1/1990',
-        clinicianId: 1,
-    },
-    // {
-    //     _id: 10002,
-    //     givenName: "Pat",
-    //     familyName: "Jones",
-    //     password: "12345",
-    //     email: "pat@diabeteshome.com",
-    //     mobile: "0123456789",
-    //     profilePicture: "defaultPic",
-    //     nickName: "Andy",
-    //     gender: "Male",
-    //     engagementRate: 85,
-    //     diabeteType: "Type 2",
-    //     darkMode: false,
-    //     dateOfBirth: "1/1/1990",
-    //     clinicianId: "1"
-    // },
-]
-
 module.exports = Patient

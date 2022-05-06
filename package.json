@@ -11,13 +11,18 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "bcrypt": "^5.0.1",
         "bcryptjs": "^2.4.3",
         "express": "^4.17.3",
+        "express-flash": "^0.0.2",
         "express-handlebars": "^6.0.4",
+        "express-session": "^1.17.2",
         "express-validator": "^6.14.0",
         "handlebars-paginate": "^0.1.0",
         "moment": "^2.29.3",
-        "mongoose": "^6.2.10"
+        "mongoose": "^6.2.10",
+        "passport": "^0.5.2",
+        "passport-local": "^1.0.0"
     },
     "devDependencies": {
         "dotenv": "^16.0.0",
