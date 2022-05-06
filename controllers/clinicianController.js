@@ -6,11 +6,10 @@ const clinicianNote = require('../models/clinicianNote')
 const expressValidator = require('express-validator')
 const utility = require('../utils/utils')
 const moment = require('moment')
-const bcrypt = require('bcryptjs')
 const { format } = require('express/lib/response')
 
 const getHome = async(req, res) => {
-    var cId = '6256dde2082aa786c9760f98'
+    var cId = req.user._id;
     var currentId
     var healthRecord
     var logItemId
@@ -142,11 +141,10 @@ const getRegisterPage = async(req, res) => {
 const registerClinician = async(req, res) => {
     console.log(req.body)
     try {
-        const hashedPwd = await bcrypt.hash(req.body.password, 10)
         const newClinician = new Clinician({
             givenName: req.body.givenName,
             familyName: req.body.familyName,
-            password: hashedPwd,
+            password: req.body.password,
             email: req.body.email,
             dateOfBirth: req.body.dateOfBirth,
             darkMode: false,
@@ -190,7 +188,6 @@ const addNewPatient = async(req, res) => {
     var clinicianId = '6256dde2082aa786c9760f98'
     console.log(req.body)
     try {
-        const hashedPwd = await bcrypt.hash(req.body.password, 10)
 
         var defaultTimeSeries = [{
                 logItem: 'Weight',
@@ -216,7 +213,7 @@ const addNewPatient = async(req, res) => {
         const newPatient = new Patient({
             givenName: req.body.givenName,
             familyName: req.body.familyName,
-            password: hashedPwd,
+            password: req.body.password,
             email: req.body.email,
             mobile: req.body.mobile,
             profilePicture: 'defaultPic',
@@ -673,6 +670,7 @@ const updatePatientDetail = async(req, res) => {
 
 const getLoginPage = async(req, res) => {
     res.render('clinician-login', {
+        flash: req.flash('error'),
         title: "Clinician login",
         layout: "login"
     })

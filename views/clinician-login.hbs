@@ -34,19 +34,22 @@
 
             <form method="post" class="section">
                 <div class="floating">
-                    <input class=" floating__input" name="username" placeholder="Username" type="text" required>
+                    <input class=" floating__input" id="username" name="username" placeholder="Username" type="text" required>
                     <label for="username" class="floating__label" data-content="Username">
                         <span class="hidden--visually">Username</span>
                     </label>
                 </div>
 
                 <div class="floating">
-                    <input class="floating__input" placeholder="Password" type="password" name="psw" required>
+                    <input class="floating__input" id="password" name="password" placeholder="Password" type="password" required>
                     <label for="password" class="floating__label" data-content="Password">
                         <span class="hidden--visually">Password</span>
                     </label>
                 </div>
-                <button id="login-check" class="submit" href="../clinician/home">Login</button>
+                <button id="login-check" class="submit" href="/login">Login</button>
+                {{#each flash}}
+                <div style="color: red;">{{this}}</div>
+                {{/each}}
             </form>
             <span class="blue-text" id="center-word">To login as a patient please click <a href="/patient/login"
                     id="underline">here</a></span>

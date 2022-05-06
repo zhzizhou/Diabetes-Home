@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const bcrypt = require('bcrypt')
 
 const clinicianSchema = new mongoose.Schema({
     givenName: { type: String, required: true },
@@ -12,21 +13,29 @@ const clinicianSchema = new mongoose.Schema({
     gender: String,
 })
 
-const Clinician = mongoose.model('Clinician', clinicianSchema)
+clinicianSchema.methods.verifyPassword = function (password, callback) {
+    bcrypt.compare(password, this.password, (err, valid) => {
+        callback(err, valid)
+    })
+}
 
-// const clinicianDemo = [
-//     {
-//         _id: 1,
-//         givenName: 'Chris',
-//         familyName: 'Smith',
-//         password: '12345',
-//         email: 'Chris@diabetesAtHome.com',
-//         dateOfBirth: '1/1/1990',
-//         darkMode: false,
-//         mobile: '0123456789',
-//         profilePicture: 'defaultPic',
-//         gender: 'Male',
-//     },
-// ]
+clinicianSchema.pre('save', function save(next) {
+    const clinician = this
+    const SALT_FACTOR = 10
+
+    if (!clinician.isModified('password')) {
+        return next()
+    }
+
+    bcrypt.hash(clinician.password, SALT_FACTOR, (err, hash) => {
+        if (err) {
+            return next(err)
+        }
+        clinician.password = hash
+        next()
+    })
+})
+
+const Clinician = mongoose.model('Clinician', clinicianSchema)
 
 module.exports = Clinician

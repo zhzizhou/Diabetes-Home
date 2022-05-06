@@ -1,10 +1,13 @@
 // Import express
 const express = require('express')
+const app = express()
+const flash = require('express-flash')
+const session = require('express-session')
 const exphbs = require('express-handlebars')
 const clinicianRouter = require('./routes/clinicianRouter')
 const patientRouter = require('./routes/patientRouter')
-const app = express()
-    // connect to database
+
+// connect to database
 require('./models/db.js')
 
 app.use(express.static('public'))
@@ -24,6 +27,26 @@ app.engine(
 )
 
 app.set('view engine', 'hbs')
+app.use(flash())
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET || 'keyboard cat',
+        name: 'diabeteshome',
+        saveUninitialized: false,
+        resave: false,
+        proxy: process.env.NODE_ENV === 'production', 
+        cookie: {
+            sameSite: 'strict',
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            maxAge: 86400000
+        },
+    })
+)
+
+const passport = require('./passport')
+app.use(passport.authenticate('session'))
+
 
 //display index page
 app.get('/', (req, res) => {

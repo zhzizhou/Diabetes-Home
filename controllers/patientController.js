@@ -294,6 +294,7 @@ const updateSettings = async(req, res) => {
 
 const getLoginPage = async(req, res) => {
     res.render('patient-login', {
+        flash: req.flash('error'),
         title: "Patient login",
         layout: "login"
     })
