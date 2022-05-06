@@ -40,7 +40,7 @@
             <a href="../../my-patient/{{thisPatient._id}}/detail"
                 class="material-icons-round blue-text">arrow_back_ios</a>
             <div class="page-title-icon">
-                <h3 class="blue-text">Add Note</h3>
+                <h3 class="blue-text">Edit Notes</h3>
             </div>
         </div>
 
@@ -48,7 +48,7 @@
         <div class="pop-up-container" id="successful-update-data">
             <img class="pop-up-image" src="/images/clap.svg" alt="">
             <div class="pop-up-string">
-                <h3>Notes Added</h3>
+                <h3>Notes Updated</h3>
             </div>
             <span class="button submit" onclick="closeModel()">Dismiss</button>
         </div>
@@ -71,7 +71,7 @@
 
                     <div class="notes-container">
                         <textarea name="notes" id="message-input" cols="30 " rows="5"
-                            maxlength="200">Take a note of something...</textarea>
+                            maxlength="200">{{placeholder}}</textarea>
                     </div>
                 </div>
 

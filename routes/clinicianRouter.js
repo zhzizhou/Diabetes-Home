@@ -53,8 +53,8 @@ clinicianRouter.post('/my-patient/:id/support', clinicianController.addSupport)
 //display notes page
 clinicianRouter.get('/my-patient/:id/notes', clinicianController.getNotesPage)
 
-//add notes to a specific patient
-clinicianRouter.post('/my-patient/:id/notes', clinicianController.addNotes)
+//update notes to a specific patient
+clinicianRouter.post('/my-patient/:id/notes', clinicianController.editNotes)
 
 //display patient's time-series page
 clinicianRouter.get(
@@ -73,12 +73,6 @@ clinicianRouter.get(
     '/my-patient/:id/detail',
     clinicianController.getPatientDetail
 )
-
-// //update clinician note
-// clinicianRouter.post(
-//     '/my-patient/:id/detail',
-//     clinicianController.updateClinicianNote
-// )
 
 //display edit patient page
 clinicianRouter.get(

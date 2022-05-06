@@ -416,6 +416,7 @@ const addSupport = async(req, res) => {
 const getNotesPage = async(req, res) => {
     var cId = "625e240b01e5ce1b9ef808e9"
     var when = moment(new Date()).format('D/M/YY H:mm:ss')
+    var placeholder
 
     try {
         const clinician = await Clinician.findById(
@@ -426,15 +427,27 @@ const getNotesPage = async(req, res) => {
             req.params.id
         ).lean()
 
+        const notes = await clinicianNote.findOne({
+            patientId: req.params.id,
+            clinicianId: cId
+        }).lean()
+
         if (!clinician || !patient) {
             return res.sendStatus(404)
         }
 
-        return res.render('clinician-addNotes', {
+        if (!notes) {
+            placeholder = "Take note of something..."
+        } else {
+            placeholder = notes.content
+        }
+
+        return res.render('clinician-editNotes', {
             thisClinician: clinician,
             thisPatient: patient,
             time: when,
-            title: "Add Notes",
+            placeholder: placeholder,
+            title: "Edit Notes",
             layout: 'clinician-main'
         })
 
@@ -443,23 +456,44 @@ const getNotesPage = async(req, res) => {
     }
 }
 
-const addNotes = async(req, res) => {
-    var cID = "625e240b01e5ce1b9ef808e9"
+const editNotes = async(req, res) => {
+    var cId = "625e240b01e5ce1b9ef808e9"
 
     console.log(req.body)
 
-    const newNote = new clinicianNote({
-        patientId: req.params.id,
-        clinicianId: cID,
-        content: req.body.notes
-    })
+    var filter = { patientId: req.params.id, clinicianId: cId }
+    var content = { content: req.body.notes }
 
     try {
-        await newNote.save()
-        res.status(204).send()
+
+        console.log("test 1")
+        console.log(req.params.id)
+        const currentNotes = await clinicianNote.findOne({
+            patientId: req.params.id,
+            clinicianId: cId
+        }).lean()
+        console.log("test 2")
+        if (!currentNotes) {
+            console.log("Add new Notes")
+            const newNote = new clinicianNote({
+                patientId: req.params.id,
+                clinicianId: cId,
+                content: req.body.notes
+            })
+            await newNote.save()
+        } else {
+            console.log("Update Notes")
+            await clinicianNote.findOneandUpdate(filter, content)
+        }
+
+        // res.status(204).send()
+        res.send("<script> alert('Update clinician notes successfully');\
+            window.location.href='detail'; </script>")
 
     } catch {
-        res.status(204).send("<script> alert('Update Fail');</script>")
+        // res.status(204).send("<script> alert('Update Fail');</script>")
+        res.send("<script> alert('Update Fail');\
+            window.location.href='detail'; </script>")
     }
 }
 
@@ -586,13 +620,17 @@ const getPatientDetail = async(req, res) => {
         //     notes[j].when = moment(notes[j].when).format('D/M/YY H:mm:ss')
         // }
 
-
-        const notes = await clinicianNote.find({
+        var notes
+        const note = await clinicianNote.findOne({
             patientId: req.params.id,
             clinicianId: cId
         }).lean()
 
-        notes.when = moment(notes.when).format('D/M/YY H:mm:ss')
+        if (!note) {
+            notes = "Start Entering Notes For This Patient"
+        } else {
+            notes = note.content
+        }
 
         return res.render('clinician-patient-page', {
             patient: patient,
@@ -610,21 +648,6 @@ const getPatientDetail = async(req, res) => {
         res.send(err)
     }
 }
-
-// const updateClinicianNote = async(req, res) => {
-
-//     const filter = { patientId: req.params.id, clinicianId: cId };
-//     const update = { content: req.body.notes };
-
-//     try {
-//         await clinicianNote.findOneAndUpdate(filter, update)
-//         res.send("<script> alert('Update clinician note successfully');\
-//             window.location.href='detail'; </script>")
-//     } catch {
-//         res.send("<script> alert('Update Fail');\
-//             window.location.href='detail'; </script>")
-//     }
-// }
 
 
 const getEditPatientPage = async(req, res) => {
@@ -665,7 +688,7 @@ module.exports = {
     getSupportPage,
     addSupport,
     getNotesPage,
-    addNotes,
+    editNotes,
     getTimeSeriesPage,
     updateTimeSeries,
     getPatientDetail,
