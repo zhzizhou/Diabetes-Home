@@ -161,8 +161,8 @@ const getNewPatientPage = async(req, res) => {
         //found clinician
         return res.render('clinician-add-new-patient', {
             doctor: clinician,
-            title: "Add new patien",
-            layout: "clinician-main"
+            title: "Add new patient",
+            layout: "clinician-add-new-patient"
         })
 
     } catch (err) {
