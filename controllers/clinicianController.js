@@ -120,7 +120,7 @@ const getSettings = async(req, res) => {
             return res.sendStatus(404)
         }
         //found clinician
-        return res.render('clinician-setting',{
+        return res.render('clinician-setting', {
             layout: "clinician-main"
         })
 
@@ -480,14 +480,10 @@ const editNotes = async(req, res) => {
     var content = { content: req.body.notes }
 
     try {
-
-        console.log("test 1")
-        console.log(req.params.id)
         const currentNotes = await clinicianNote.findOne({
             patientId: req.params.id,
             clinicianId: cId
         }).lean()
-        console.log("test 2")
         if (!currentNotes) {
             console.log("Add new Notes")
             const newNote = new clinicianNote({
