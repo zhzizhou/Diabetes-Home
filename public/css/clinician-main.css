@@ -291,8 +291,8 @@ td {
     gap: 3em;
     height: 90%;
     position: absolute;
-    left: 25%;
-    width: 75%;
+    left: 21%;
+    width: 79%;
 }
 
 .patient-left {
@@ -812,4 +812,16 @@ input[type="checkbox"]::before {
     padding: 1rem;
     align-items: center;
     justify-content: space-between;
+}
+
+/*ADD NEW PATIENT PAGE*/
+.add-new-patient-form {
+    Display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 2rem;
+    gap: 2rem;
+}
+
+.form-heading {
+    padding-bottom: 2rem;
 }

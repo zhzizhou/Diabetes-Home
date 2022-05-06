@@ -85,6 +85,26 @@ input[type=date] {
     margin-left: 1rem;
 }
 
+#birthday-input {
+    background-color: white;
+    margin-left: 0rem;
+    padding: 1.4rem;
+    width: 12rem;
+    height: 64px !important;
+    color: var(--dark-grey);
+    box-shadow:none;
+}
+
+#birthday-input:focus{
+    border:none;
+}
+
+.non-type-input {
+    height: 64px !important;
+    }
+}
+
+
 /*TAB BUTTONS*/
 .tab {
     overflow: hidden;
