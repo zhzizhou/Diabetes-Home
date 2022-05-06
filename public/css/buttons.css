@@ -116,3 +116,7 @@ input[type=date] {
 .tabcontent {
     display: none;
 }
+
+.add-button {
+    margin-bottom: 2rem; 
+}

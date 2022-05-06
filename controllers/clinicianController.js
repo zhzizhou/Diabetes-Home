@@ -135,7 +135,7 @@ const updateSettings = async(req, res) => {
 }
 
 const getRegisterPage = async(req, res) => {
-    res.send('GET RegisterPage')
+    res.send('Patient')
         //TODO
 }
 
@@ -164,8 +164,25 @@ const registerClinician = async(req, res) => {
 }
 
 const getNewPatientPage = async(req, res) => {
-    res.send('GET NewPatientPage')
-        //TODO
+    try {
+        const clinician = await Clinician.findById(
+            // req.params.clinician_id
+            '625e240b01e5ce1b9ef808e9'
+        ).lean()
+
+        if (!clinician) {
+            return res.sendStatus(404)
+        }
+        //found clinician
+        return res.render('clinician-add-new-patient', {
+            doctor: clinician,
+            title: "Add new patien",
+            layout: "clinician-main"
+        })
+
+    } catch (err) {
+        return next(err)
+    }
 }
 
 const addNewPatient = async(req, res) => {
@@ -523,6 +540,9 @@ const getPatientDetail = async(req, res) => {
 
     var cId = '625e240b01e5ce1b9ef808e9'
     try {
+        const clinician = await Clinician.findById(
+            cId
+        ).lean()
         const patient = await Patient.findById(req.params.id).lean()
         patient.age = utility.getAge(patient.dateOfBirth)
             //search all health record group by date in descending order
@@ -581,7 +601,8 @@ const getPatientDetail = async(req, res) => {
         //     notes[j].when = moment(notes[j].when).format('D/M/YY H:mm:ss')
         // }
 
-        const notes = await clinicianNote.findOne({
+
+        const notes = await clinicianNote.find({
             patientId: req.params.id,
             clinicianId: cId
         }).lean()

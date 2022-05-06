@@ -224,12 +224,16 @@ input:focus {
 .leaderboard-box {
     background-color: #f2f7ff;
     padding: 1.5em;
-    margin: 1.5em;
     border-radius: 20px;
     text-align: center;
     width: 100%;
+    position: relative;
+    left: 5%;
+    top: 1rem;
 }
-
+.leaderboard-return{
+    display: none;
+}
 .leaderboard-table {
     width: 95%;
     text-align: center;
@@ -243,7 +247,14 @@ input:focus {
 }
 
 .infobar {
-    display: none;
+    display: block;
+    font-size: 30px;
+    color: #587BB4;
+    text-align: center;
+    padding: 1.5rem 0 4rem 0;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    left: 5%;
 }
 
 .leaderboard-container {
@@ -601,12 +612,7 @@ input[type=number] {
         background-color: white;
     }
     .infobar {
-        display: block;
-        font-size: 30px;
-        color: #587BB4;
-        text-align: center;
-        padding-top: 30px;
-        background-color: rgb(255, 255, 255);
+        padding: 1.5rem 0 4rem 1rem;
     }
     .top-page {
         gap: 27rem;
@@ -663,6 +669,13 @@ input[type=number] {
     .leaderboard-container {
         position: initial;
         width: 90%;
+        padding: 0;
+    }
+    .leaderboard-box {
+        top: 0;
+    }
+    .leaderboard-return{
+        display: block;
     }
 }
 

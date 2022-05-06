@@ -1,0 +1,92 @@
+<div class="nav-placeholder">
+    <nav>
+        <div class="nav-top">
+            <img class="small-logo" src="/images/logo.svg" alt="">
+            <div class="menu-item-layout">
+                <img src="/images/clinitian-profile-pic.svg" alt="profile picture" class="nav-profile-pic">
+                <h3>{{doctor.givenName}} {{doctor.familyName}}</h3>
+            </div>
+            <div class="menu-section">
+                <a href="../../../clinician/home" class="menu-item-layout menu-item">
+                    <span class="material-icons">dashboard</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="../../../clinician/my-patient" class="menu-item-layout menu-item">
+                    <span class="material-icons">group</span>
+                    <h3>My Patients</h3>
+                </a>
+                <a href="../../../clinician/new-patient" class="menu-item-layout menu-item selected">
+                    <span class="material-icons">person_add</span>
+                    <h3>New Patient</h3>
+                </a>
+            </div>
+        </div>
+        <div class="menu-section">
+            <a href="../../../clinician/profile" class="menu-item-layout menu-item">
+                <span class="material-icons">account_circle</span>
+                <h3>Account</h3>
+            </a>
+            <a href="../../../clinician/settings" class="menu-item-layout menu-item">
+                <span class="material-icons">settings</span>
+                <h3>Settings</h3>
+            </a>
+        </div>
+    </nav>
+</div>
+<main>
+    <div class="my-patient-container">
+        <div class="left-container">
+            <a href="../clinician/home" class="back-button">
+                <span class="material-icons-round">arrow_back_ios</span>
+                <h4>Back</h4>
+            </a>
+            <div class="my-patient-left">
+                <h1 class="page-title">Add new patient</h1>
+                <form method="post" action="">
+                    <h3>Personal Details</h3>
+                    <div class="floating">
+                        <input class=" floating__input" name="first_name" placeholder="First Name" type="text" required>
+                        <label for="first_name" class="floating__label" data-content="First Name">
+                            <span class="hidden--visually">First Name</span>
+                        </label>
+                    </div>
+                    <div class="floating">
+                        <input class=" floating__input" name="last_name" placeholder="Last Name" type="text" required>
+                        <label for="last_name" class="floating__label" data-content="Last Name">
+                            <span class="hidden--visually">Last Name</span>
+                        </label>
+                    </div>
+                    <div class="floating">
+                        <input class=" floating__input" name="Email" placeholder="Email" type="text" required>
+                        <label for="Email" class="floating__label" data-content="Email">
+                            <span class="hidden--visually">Email</span>
+                        </label>
+                    </div>
+                    <div class="floating">
+                        <input class=" floating__input" name="contact_number" placeholder="Contact Number" type="text"
+                            required>
+                        <label for="contact_number" class="floating__label" data-content="Contact Number">
+                            <span class="hidden--visually">Contact Number</span>
+                        </label>
+                    </div>
+
+                    <h3>Health Details</h3>
+                    <div class="floating">
+                        <input class=" floating__input" name="weight" placeholder="Weight" type="text"
+                            required>
+                        <label for="weight" class="floating__label" data-content="Weight (kg)">
+                            <span class="hidden--visually">Weight</span>
+                        </label>
+                        <input class=" floating__input" name="height" placeholder="Contact Number" type="text"
+                            required>
+                        <label for="height" class="floating__label" data-content="Height (cm)">
+                            <span class="hidden--visually">Height</span>
+                        </label>
+                    </div>
+                    <button class="submit button">Create</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</main>
