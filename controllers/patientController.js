@@ -110,10 +110,27 @@ const getLeaderboard = async(req, res) => {
 }
 
 const getLogHistory = async(req, res) => {
-    res.render('patient-log-history', {
-        title: "Log History",
-        layout: "patient-main"
-    })
+    try {
+        const patient = await Patient.findById(
+            '625e1e3d67c164c3d21e5bce'
+        ).lean()
+
+        if (!patient) {
+            return res.sendStatus(404)
+        }
+        //found patient
+        res.render('patient-log-history', {
+            title: "Log History",
+            layout: "patient-main",
+            thisPatient: patient
+        })
+
+    } catch (err) {
+        return next(err)
+    }
+
+
+    
 }
 
 const getLogPage = async(req, res) => {
@@ -247,8 +264,27 @@ const updateProfile = async(req, res) => {
 }
 
 const getSettings = async(req, res) => {
-    res.send('GET Settings')
-        //TODO
+    console.log("Inside get settings")
+    try {
+        const patient = await Patient.findById(
+            '625e1e3d67c164c3d21e5bce'
+        ).lean()
+
+        if (!patient) {
+            return res.sendStatus(404)
+        }
+        //found patient
+        return res.render('patient-setting',{
+            layout:"patient-main",
+            thisTitle: "Settings",
+            patient: patient,
+            icon:"bloodtype"
+
+        })
+
+    } catch (err) {
+        return next(err)
+    }
 }
 
 const updateSettings = async(req, res) => {

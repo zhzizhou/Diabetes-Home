@@ -110,8 +110,23 @@ const updateProfile = async(req, res) => {
 }
 
 const getSettings = async(req, res) => {
-    res.send('GET Settings')
-        //TODO
+    try {
+        const clinician = await Clinician.findById(
+            // req.params.clinician_id
+            '625e240b01e5ce1b9ef808e9'
+        ).lean()
+
+        if (!clinician) {
+            return res.sendStatus(404)
+        }
+        //found clinician
+        return res.render('clinician-setting',{
+            layout: "clinician-main"
+        })
+
+    } catch (err) {
+        return next(err)
+    }
 }
 
 const updateSettings = async(req, res) => {
