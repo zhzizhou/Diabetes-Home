@@ -106,58 +106,45 @@
         </div>
     </div>
     <div class="patient-right">
+
+        <span class="details-button"><a href="/clinician/my-patient/{{patient._id}}" class="edit-ts">Patient
+                details</a></span>
         <div>
-            <span class="details-button"><a href="/clinician/my-patient/{{patient._id}}" class="edit-ts">Patient
-                    details</a></span>
-        </div>
+            <div>
+                <button class="tablinks" onclick="openCity(event, 'Add-support-message')" id="open">Support
+                    Messages</button>
+                <button class="tablinks" onclick="openCity(event, 'Add-clinician-note')">Clinicial Notes</button>
+            </div>
 
-        <div class="note-section-bottom whitebox shadow nav-top">
-            <div class="space-between">
-                <h2 style="font-size:24px" class="select-messages">Support Messages</h2>
-                <span><a href="/clinician/my-patient/{{patient._id}}/support" class="edit-ts" style="font-size:24px">Add
-                        +</a></span>
-            </div>
-            <div class="comment-container">
-                {{#each support}}
-                <div class="comment-time">{{this.when}}</div>
-                <div class="comment-box light-blue-box shadow">
-                    <span class="comment-content">{{this.content}}</span>
-                </div>
-                {{/each}}
-            </div>
-        </div>
+            <!-- Tab content -->
+            <div id="Add-support-message" class="tabcontent whitebox note-section-bottom">
 
-        {{!-- Change to display Clinician notes, not edit --}}
-        {{!-- <div class="note-section-bottom whitebox shadow nav-top">
-            <div class="space-between">
-                <h2 style="font-size:24px" class="select-messages">Clinician Notes</h2>
-                <span><a href="/clinician/my-patient/{{patient._id}}/notes" class="edit-ts" style="font-size:24px">Add
-                        +</a></span>
-            </div>
-            <div class="comment-container">
-                {{#each note}}
-                <div class="comment-time">{{note.when}}</div>
-                <div class="comment-box light-blue-box shadow">
-                    <span class="comment-content">{{note.content}}</span>
-                </div>
-                {{/each}}
-            </div>
-        </div> --}}
-
-        <div class="note-section-bottom whitebox shadow nav-top">
-            <form method="post" action="">
                 <div class="space-between">
-                    <h2 style="font-size:24px" class="select-messages">Clinician Notes</h2>
-                    {{!-- <span><a href="/clinician/my-patient/{{patient._id}}/notes" class="edit-ts" style="font-size:24px">Add+</a></span> --}}
-                    <button type="submit" class="button button-width-20">Save</button>
+                    <span><a href="/clinician/my-patient/{{patient._id}}/support" class="edit-ts"
+                            style="font-size:24px">Add+</a></span>
                 </div>
+                <div class="comment-container">
+                    {{#each support}}
+                    <div class="comment-time">{{this.when}}</div>
+                    <div class="comment-box light-blue-box shadow">
+                        <span class="comment-content">{{this.content}}</span>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
 
-                <div class="clinician-note-container">
-                    <textarea name="notes" id="message-input" cols="30 " rows="5"
-                            maxlength="200" class="comment-container">{{note.content}}</textarea>
-                </div>
-                {{!-- <span class="button button-width-20" onclick="showModel()">Save</button> --}}
-            </form>
+            <div id="Add-clinician-note" class="tabcontent whitebox note-section-bottom">
+                <form method="post" action="">
+                    <div class="space-between">
+                        <button type="submit" class="button button-width-20">Save</button>
+                    </div>
+
+                    <div class="clinician-note-container">
+                        <textarea name="notes" id="message-input" cols="30 " rows="5" maxlength="200"
+                            class="comment-container">{{note.content}}</textarea>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 

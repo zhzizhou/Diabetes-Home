@@ -456,10 +456,15 @@ input[type=number] {
 }
 
 
-/*LOG PAGE*/
+/*LOG HISTORY PAGE*/
 
 .log-container {
     gap: 2rem;
+}
+
+#log-history-date {
+    margin-bottom: 1rem;
+    margin-left: 24rem;
 }
 
 

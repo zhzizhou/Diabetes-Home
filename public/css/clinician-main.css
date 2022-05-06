@@ -480,7 +480,7 @@ input[type="checkbox"]:checked {
 }
 
 .note-section-bottom {
-    border-radius: 48px;
+    border-radius:0 0 2rem 2rem ;
     padding: 2em;
 }
 
