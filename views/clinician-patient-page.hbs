@@ -133,7 +133,17 @@
             </div>
 
             <div id="Add-clinician-note" class="tabcontent whitebox note-section-bottom">
-                <form method="post" action="">
+
+                <div class="space-between">
+                    <a href="/clinician/my-patient/{{patient._id}}/notes" class="edit-ts add-button" style="font-size:24px">Edit</a>
+                </div>
+
+                <div class="comment-container">
+                    <div class="comment-box light-blue-box shadow">
+                        <span class="comment-content">{{note}}</span>
+                    </div>
+                </div>
+                {{!-- <form method="post" action="">
                     <div class="space-between">
                         <button type="submit" class="button button-width-20">Save</button>
                     </div>
@@ -142,7 +152,7 @@
                         <textarea name="notes" id="message-input" cols="30 " rows="5" maxlength="200"
                             class="comment-container">{{note.content}}</textarea>
                     </div>
-                </form>
+                </form> --}}
             </div>
         </div>
     </div>

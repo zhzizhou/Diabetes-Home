@@ -42,46 +42,90 @@
             </a>
             <div class="my-patient-left">
                 <h1 class="page-title">Add new patient</h1>
-                <form method="post" action="">
-                    <h3>Personal Details</h3>
-                    <div class="floating">
-                        <input class=" floating__input" name="first_name" placeholder="First Name" type="text" required>
-                        <label for="first_name" class="floating__label" data-content="First Name">
-                            <span class="hidden--visually">First Name</span>
-                        </label>
-                    </div>
-                    <div class="floating">
-                        <input class=" floating__input" name="last_name" placeholder="Last Name" type="text" required>
-                        <label for="last_name" class="floating__label" data-content="Last Name">
-                            <span class="hidden--visually">Last Name</span>
-                        </label>
-                    </div>
-                    <div class="floating">
-                        <input class=" floating__input" name="Email" placeholder="Email" type="text" required>
-                        <label for="Email" class="floating__label" data-content="Email">
-                            <span class="hidden--visually">Email</span>
-                        </label>
-                    </div>
-                    <div class="floating">
-                        <input class=" floating__input" name="contact_number" placeholder="Contact Number" type="text"
-                            required>
-                        <label for="contact_number" class="floating__label" data-content="Contact Number">
-                            <span class="hidden--visually">Contact Number</span>
-                        </label>
+                <form method="post" action="" class="">
+                    <h3 class="form-heading">Personal Details</h3>
+                    <div class="add-new-patient-form">
+                        <div class="floating">
+                            <input class=" floating__input wide-input" name="first_name" placeholder="First Name"
+                                type="text" required>
+                            <label for="first_name" class="floating__label" data-content="First Name">
+                                <span class="hidden--visually">First Name</span>
+                            </label>
+                        </div>
+                        <div class="floating">
+                            <input class=" floating__input wide-input" name="last_name" placeholder="Last Name"
+                                type="text" required>
+                            <label for="last_name" class="floating__label" data-content="Last Name">
+                                <span class="hidden--visually">Last Name</span>
+                            </label>
+                        </div>
+                        <div class="floating wide-input space-between non-type-input">
+                            <h4 class="blue-text">Birthday</h4>
+                            <input class="floating__input" name="last_name" placeholder="Birthday"
+                                id="birthday-input" type="date" required>
+                        </div>
+                        <div class="floating wide-input non-type-input space-between">
+                            <h4 class="blue-text">Gender</h4>
+                             <div>
+                                <input type="checkbox" name="Male" value="Male">
+                                <label for="Male">Male</label><br>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="Female" value="Female">
+                                <label for="Female">Female</label><br>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="Other" value="Other">
+                                <label for="Other">Other</label><br>
+                            </div>
+                        </div>
+                        <div class="floating">
+                            <input class=" floating__input wide-input" name="Email" placeholder="Email" type="text"
+                                required>
+                            <label for="Email" class="floating__label" data-content="Email">
+                                <span class="hidden--visually">Email</span>
+                            </label>
+                        </div>
+                        <div class="floating">
+                            <input class=" floating__input wide-input" name="contact_number"
+                                placeholder="Contact Number" type="number" required>
+                            <label for="contact_number" class="floating__label" data-content="Contact Number">
+                                <span class="hidden--visually">Contact Number</span>
+                            </label>
+                        </div>
                     </div>
 
-                    <h3>Health Details</h3>
-                    <div class="floating">
-                        <input class=" floating__input" name="weight" placeholder="Weight" type="text"
-                            required>
-                        <label for="weight" class="floating__label" data-content="Weight (kg)">
-                            <span class="hidden--visually">Weight</span>
-                        </label>
-                        <input class=" floating__input" name="height" placeholder="Contact Number" type="text"
-                            required>
-                        <label for="height" class="floating__label" data-content="Height (cm)">
-                            <span class="hidden--visually">Height</span>
-                        </label>
+                    <h3 class="form-heading">Health Details</h3>
+                    <div class="add-new-patient-form">
+                        <div class="floating wide-input non-type-input space-between">
+                            <h4 class="blue-text">Diabetes Type</h4>
+                             <div>
+                                <input type="checkbox" name="Type_1" value="Type_1">
+                                <label for="Type_1">Type 1</label><br>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="Type_2" value="Type_2">
+                                <label for="Type_2">Type_2</label><br>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="Gestational" value="Gestational">
+                                <label for="Gestational">Gestational</label><br>
+                            </div>
+                        </div>
+                        <div class="floating">
+                            <input class=" floating__input wide-input" name="Height" placeholder="Height" type="number"
+                                required>
+                            <label for="Email" class="floating__label" data-content="Height (cm)">
+                                <span class="hidden--visually">Height (cm)</span>
+                            </label>
+                        </div>
+                        <div class="floating">
+                            <input class=" floating__input wide-input" name="Weight"
+                                placeholder="Weight" type="number" required>
+                            <label for="Weight" class="floating__label" data-content="Weight (kg)">
+                                <span class="hidden--visually">Weight (kg)</span>
+                            </label>
+                        </div>
                     </div>
                     <button class="submit button">Create</button>
                 </form>
