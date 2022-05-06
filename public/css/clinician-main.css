@@ -13,9 +13,8 @@ body {
 }
 
 .clinician-main {
-    position: absolute;
-    left: 25%;
-    width: 75%;
+    position: relative;
+    left: 25rem;
 }
 
 .back-button {
@@ -42,7 +41,7 @@ body {
 .main-page-content {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 2em;
     flex-shrink: 0;
 }
 
@@ -207,8 +206,7 @@ td {
     display: flex;
     gap: 2em;
     position: absolute;
-    left: 25%;
-    width: 73%;
+    left: 25rem;
 }
 
 .patient-stats {
@@ -291,8 +289,8 @@ td {
     gap: 3em;
     height: 90%;
     position: absolute;
-    left: 21%;
-    width: 79%;
+    left: 25rem;
+    width: 75%;
 }
 
 .patient-left {
@@ -619,21 +617,23 @@ input[type="checkbox"]:checked {
     align-items: center;
     background-color: white;
     padding: 1em;
-    border-radius: 1em 1em 0 0;
+    border-radius: 2em 2em 0 0;
     border: solid 3px var(--dark-blue);
     box-shadow: 2px 2px 3px var(--box-shadow);
     justify-content: center;
+    height: 75px;
 }
 
 .time-series-bottom {
     background-color: white;
     padding: 1em;
-    border-radius: 0 0 1em 1em;
+    border-radius: 0 0 2em 2em;
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
+    gap: 1.5em;
     align-items: center;
     box-shadow: 2px 2px 3px var(--box-shadow);
+    height: 150px;
 }
 
 .time-series-bottom input::-webkit-outer-spin-button,
@@ -647,9 +647,10 @@ input[type="checkbox"]:checked {
     border: none;
     border-radius: 1em;
     width: 30%;
-    padding: 0.5em;
+    padding: 1em;
     color: white;
     text-align: center;
+    height: 2.5rem;
 }
 
 .time-series-bottom-input {
@@ -693,14 +694,11 @@ input[type="checkbox"]::before {
 .edit-ts-container {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    left: 0;
-    top: 20vh;
-    align-items: center;
 }
 
 .save-botton {
     padding-top: 3em;
+    text-align: center;
 }
 
 
