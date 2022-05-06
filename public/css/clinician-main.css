@@ -601,13 +601,13 @@ input[type="checkbox"]:checked {
 
 .time-series {
     display: flex;
-    gap: 1em;
+    gap: 3em;
 }
 
 .single-time-series {
     display: flex;
     flex-direction: column;
-    width: 20em;
+    width: 18em;
     align-items: stretch;
 }
 

@@ -111,13 +111,13 @@
                 details</a></span>
         <div>
             <div>
-                <button class="tablinks" onclick="openCity(event, 'Add-support-message')" id="open">Support
+                <button class="tablinks active" onclick="openCity(event, 'Add-support-message')" id="open">Support
                     Messages</button>
                 <button class="tablinks" onclick="openCity(event, 'Add-clinician-note')">Clinicial Notes</button>
             </div>
 
             <!-- Tab content -->
-            <div id="Add-support-message" class="tabcontent whitebox note-section-bottom">
+            <div id="Add-support-message" class="tabcontent whitebox note-section-bottom" style="display:block;">
 
                 <div class="space-between">
                     <a href="/clinician/my-patient/{{patient._id}}/support" class="edit-ts add-button" style="font-size:24px">Add+</a>
@@ -132,7 +132,7 @@
                 </div>
             </div>
 
-            <div id="Add-clinician-note" class="tabcontent whitebox note-section-bottom">
+            <div id="Add-clinician-note" class="tabcontent whitebox note-section-bottom" style="display:none;">
 
                 <div class="space-between">
                     <a href="/clinician/my-patient/{{patient._id}}/notes" class="edit-ts add-button" style="font-size:24px">Edit</a>
