@@ -60,6 +60,20 @@ a:hover {
     margin: 1rem auto;
 }
 
+.new-patient-submit {
+    background-color: var(--dark-blue);
+    color: white;
+    width: 20rem;
+    height: auto;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 3em;
+    display: block;
+    margin-top: 2rem;
+}
+
 /*DEFAULT STYLE FOR SUBMIT HOVER STATE*/
 .submit:hover {
     background-color: var(--dark-blue);
