@@ -30,7 +30,7 @@ patientRouter.get('/logout', (req, res) => {
 patientRouter.get('/home', isAuthenticated, patientController.getHome)
 
 //display the leaderboard page
-patientRouter.get('/leaderboard', patientController.getLeaderboard)
+patientRouter.get('/leaderboard',isAuthenticated, patientController.getLeaderboard)
 
 //display patient's all log history
 patientRouter.get('/history', patientController.getLogHistory)

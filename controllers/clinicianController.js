@@ -10,7 +10,6 @@ const { format } = require('express/lib/response')
 
 const getHome = async(req, res) => {
     var cId = req.user._id
-    console.log(req.user._id)
     var currentId
     var healthRecord
     var logItemId
@@ -25,7 +24,6 @@ const getHome = async(req, res) => {
             timeSeries: true
         }).lean()
         var now = new Date()
-        console.log(patients)
 
         //for each of the patient get today's health record
         for (let i = 0; i < patients.length; i++) {

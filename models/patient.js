@@ -14,6 +14,7 @@ const patientSchema = new mongoose.Schema({
     diabeteType: String,
     darkMode: { type: Boolean, default: false },
     dateOfBirth: { type: String },
+    registerDate: { type: Date, default: Date.now },
     clinicianId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Clinician',

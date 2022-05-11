@@ -90,22 +90,57 @@ const getHome = async(req, res) => {
 
 const getLeaderboard = async(req, res) => {
     try {
-        const patient = await Patient.findById(
-            '625e1e3d67c164c3d21e5bce'
-        ).lean()
+        const allPatient = await Patient.find({}, {
+            givenName: true,
+            familyName: true,
+            nickName: true,
+            registerDate: true
+        }).lean()
 
-        if (!patient) {
-            return res.sendStatus(404)
+        var myResult = null
+
+        for(let i = 0; i < allPatient.length; i++){
+            var healthRecord = await HealthRecord.aggregate([{
+                $match: {patientId: allPatient[i]._id}
+            }, {
+                $group: {
+                    _id: { $dateToString: { format: "%d/%m", date: "$when" } }
+                }
+            }])
+            var now = moment()
+            var registerDate = moment(allPatient[i].registerDate)
+            var days = now.diff(registerDate, 'days') + 1
+            var engageRate = healthRecord.length / days * 100
+            allPatient[i]['engagementRate'] = Math.round(engageRate)
+
+
+            if(req.user._id.equals(allPatient[i]._id)){
+                allPatient[i].nickName = 'ME'
+                myResult = allPatient[i]
+            }
         }
-        //found patient
+
+        allPatient.sort((x, y) => { return y.engagementRate - x.engagementRate })
+        var mypos = allPatient.indexOf(myResult)
+        if(mypos >= 5){
+            myResult['rank'] = mypos
+        }
+        var topPatient = allPatient.slice(0,5)
+
         return res.render('patient-leaderboard', {
-            thisPatient: patient,
+            self: myResult,
+            top: topPatient,
             title: "Leaderboard",
-            layout: "patient-main"
+            layout: "patient-main",
+            helpers: {
+                inc: function (value, options) {
+                    return parseInt(value) + 1;
+                }
+            }
         })
 
     } catch (err) {
-        return next(err)
+        console.log(err)
     }
 }
 
