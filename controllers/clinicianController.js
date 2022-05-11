@@ -9,7 +9,8 @@ const moment = require('moment')
 const { format } = require('express/lib/response')
 
 const getHome = async(req, res) => {
-    var cId = req.user._id;
+    var cId = req.user._id
+    console.log(req.user._id)
     var currentId
     var healthRecord
     var logItemId
@@ -24,6 +25,7 @@ const getHome = async(req, res) => {
             timeSeries: true
         }).lean()
         var now = new Date()
+        console.log(patients)
 
         //for each of the patient get today's health record
         for (let i = 0; i < patients.length; i++) {
@@ -67,8 +69,8 @@ const getHome = async(req, res) => {
             title: "Dashboard",
             layout: 'clinician-main',
             doctor: {
-                givenName: 'Chris',
-                familyName: 'Smith'
+                givenName: req.user.givenName,
+                familyName: req.user.familyName
             }
         })
     } catch (err) {

@@ -8,21 +8,23 @@ passport.serializeUser((user, done) => {
 })
 
 passport.deserializeUser((userId, done) => {
-    var user = null
-    try {
-        user = Clinician.findById(userId, {
-            password: 0
-        })
-        if (!user) {
-            user = Patient.findById(userId, {
-                password: 0
-            })
+    Clinician.findById(userId, { password: 0 }, (err, user) => {
+        if (err) {
+            return done(err, undefined)
         }
-
-    } catch (err) {
-        return done(err, undefined)
-    }
-    return done(undefined, user)
+        if(!user){
+            Patient.findById(userId, { password: 0 }, (err, user) => {
+                if (err) {
+                    return done(err, undefined)
+                }
+                console.log(user)
+                return done(undefined, user)
+            })
+        }else{
+            console.log(user)
+            return done(undefined, user)
+        }
+    })
 })
 
 
