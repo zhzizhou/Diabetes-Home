@@ -13,7 +13,6 @@
 
 .menu-container {  /*WHEN POPS UP*/
     background-color: var(--dark-blue);
-    padding:2rem;
     display: none;
     flex-direction: column;
     gap: 2rem;
@@ -70,7 +69,8 @@
     .grid-menu {
         grid-template-columns: 1fr 1fr; /*LESS ITEMS IN GRID HORIZONTALLY*/
         gap: 0.5rem;
-        margin:0;
+        margin: 0;
+        padding: 1rem;
     }
 
     .menu-square {
@@ -83,7 +83,10 @@
     }
 
     .responsive-nav {
-        padding: 1rem;
         width: 375px;
+    }
+
+    .responsive-nav-top {
+        padding: 1em;
     }
 }
