@@ -473,14 +473,12 @@ const editNotes = async(req, res) => {
 
     console.log(req.body)
 
-    var filter = { patientId: req.params.id, clinicianId: cId }
-    var content = { content: req.body.notes }
-
     try {
-        const currentNotes = await clinicianNote.findOne({
+        const currentNotes = await clinicianNote.find({
             patientId: req.params.id,
             clinicianId: cId
         }).lean()
+
         if (!currentNotes) {
             console.log("Add new Notes")
             const newNote = new clinicianNote({
@@ -491,7 +489,7 @@ const editNotes = async(req, res) => {
             await newNote.save()
         } else {
             console.log("Update Notes")
-            await clinicianNote.findOneandUpdate(filter, content)
+            await clinicianNote.findOneAndUpdate({ patientId: req.params.id }, { content: req.body.notes })
         }
 
         // res.status(204).send()
