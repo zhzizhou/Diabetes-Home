@@ -186,9 +186,10 @@ const getNewPatientPage = async(req, res) => {
 const addNewPatient = async(req, res) => {
     //fake Id for temporary use
     var clinicianId = '6256dde2082aa786c9760f98'
+    var password
+
     console.log(req.body)
     try {
-
         var defaultTimeSeries = [{
                 logItem: 'Weight',
                 lowerLimit: 60,
@@ -210,10 +211,17 @@ const addNewPatient = async(req, res) => {
                 upperLimit: 11.3,
             },
         ]
+
+        if (!req.body.password) {
+            password = "password"
+        } else {
+            password = req.body.password
+        }
+
         const newPatient = new Patient({
             givenName: req.body.givenName,
             familyName: req.body.familyName,
-            password: req.body.password,
+            password: password,
             email: req.body.email,
             mobile: req.body.mobile,
             profilePicture: 'defaultPic',
@@ -227,11 +235,13 @@ const addNewPatient = async(req, res) => {
             timeSeries: defaultTimeSeries,
         })
 
-        await newPatient.save().catch((err) => res.send(err))
+        await newPatient.save()
+        res.send("<script> alert('Add new patient successfully');\
+            window.location.href='home'; </script>")
     } catch {
-        res.send('internal error')
+        res.send("<script> alert('add new patient Fail');\
+            window.location.href='home'; </script>")
     }
-    res.send('register patient sucessful')
 }
 
 const getMyPatientPage = async(req, res) => {
@@ -562,7 +572,6 @@ const updateTimeSeries = async(req, res) => {
 }
 
 const getPatientDetail = async(req, res) => {
-
     var cId = '625e240b01e5ce1b9ef808e9'
     try {
         const clinician = await Clinician.findById(
