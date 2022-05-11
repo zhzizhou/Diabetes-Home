@@ -33,125 +33,155 @@
         </div>
     </div>
 
-    <div class="page-padding">
-
-        <div class="responsive-nav responsive-nav-top">
-            <a href="index.html"><img class="small-logo" src="/images/logo.svg" alt=""></a>
-            <div onclick="openMenu()" class="square-menu">
-                <span class="material-icons-round blue-text" id="menu-opener">apps</span>
-            </div>
+    <div class="responsive-nav responsive-nav-top">
+        <a href="index.html"><img class="small-logo" src="/images/logo.svg" alt=""></a>
+        <div onclick="openMenu()" class="square-menu">
+            <span class="material-icons-round blue-text" id="menu-opener">apps</span>
         </div>
+    </div>
 
-        <div class="nav-placeholder">
-            <nav class="patient-nav">
-                <div class="nav-top">
-                    <img class="small-logo" src="/images/logo.svg" alt="">
-                    <div class="menu-item-layout">
-                        <img class="nav-profile-pic" src="/images/patient-profile-pic.svg" alt="profile picture">
-                        <h3>{{thisPatient.nickName}} {{thisPatient.familyName}}</h3>
-                    </div>
-                    <div class="menu-section">
-                        <a href="../../patient/home" class="menu-item-layout menu-item selected">
-                            <span class="material-icons-round">check</span>
-                            <h3>My Checklist</h3>
-                        </a>
-                        <a href="../patient/leaderboard" class="menu-item-layout menu-item patient-menu">
-                            <span class="material-icons">leaderboard</span>
-                            <h3>Leaderboard</h3>
-                        </a>
-                        <a href="../patient/history" class="menu-item-layout menu-item patient-menu">
-                            <span class="material-icons">history</span>
-                            <h3>Log history</h3>
-                        </a>
-                    </div>
+    <div class="nav-placeholder">
+        <nav class="patient-nav">
+            <div class="nav-top">
+                <img class="small-logo" src="/images/logo.svg" alt="">
+                <div class="menu-item-layout">
+                    <img class="nav-profile-pic" src="/images/patient-profile-pic.svg" alt="profile picture">
+                    <h3>{{thisPatient.nickName}} {{thisPatient.familyName}}</h3>
                 </div>
                 <div class="menu-section">
-                    <a href="../patient/profile" class="menu-item-layout menu-item patient-menu">
-                        <span class="material-icons">account_circle</span>
-                        <h3>Account</h3>
+                    <a href="../../patient/home" class="menu-item-layout menu-item">
+                        <span class="material-icons-round">check</span>
+                        <h3>My Checklist</h3>
                     </a>
-                    <a href="../../patient/settings" class="menu-item-layout menu-item patient-menu">
-                        <span class="material-icons">settings</span>
-                        <h3>Settings</h3>
+                    <a href="../../patient/leaderboard" class="menu-item-layout menu-item patient-menu">
+                        <span class="material-icons">leaderboard</span>
+                        <h3>Leaderboard</h3>
                     </a>
-                    <a href="../../patient/settings" class="menu-item-layout menu-item patient-menuÏ">
-                        <span class="material-icons">help</span>
-                        <h3>Help</h3>
+                    <a href="../../patient/history" class="menu-item-layout menu-item patient-menu">
+                        <span class="material-icons">history</span>
+                        <h3>Log history</h3>
                     </a>
                 </div>
-            </nav>
-        </div>
-        <div class="menu-section">
-            <a href="../patient/profile" class="menu-item-layout menu-item patient-menu selected">
-                <span class="material-icons">account_circle</span>
-                <h3>Account</h3>
-            </a>
-            <a href="../patient/settings" class="menu-item-layout menu-item patient-menu">
-                <span class="material-icons">settings</span>
-                <h3>Settings</h3>
-            </a>
-            <a href="../patient/help" class="menu-item-layout menu-item patient-menuÏ">
-                <span class="material-icons">help</span>
-                <h3>Help</h3>
-            </a>
-        </div>
-    </nav>
-</div>
+            </div>
+            <div class="menu-section">
+                <a href="../patient/profile" class="menu-item-layout menu-item patient-menu selected">
+                    <span class="material-icons">account_circle</span>
+                    <h3>Account</h3>
+                </a>
+                <a href="../patient/settings" class="menu-item-layout menu-item patient-menu">
+                    <span class="material-icons">settings</span>
+                    <h3>Settings</h3>
+                </a>
+                <a href="../patient/settings" class="menu-item-layout menu-item patient-menu">
+                    <span class="material-icons">help</span>
+                    <h3>Help</h3>
+                </a>
+            </div>
+        </nav>
+    </div>
 
+    <main class="dashboard-container">
 
-<main>
-    <a href="../patient/home" class="back-button">
-        <span class="material-icons-round">arrow_back_ios</span>
-        <h4>Back</h4>
-    </a>
-    <div>
-        <h1 class="page-title">Account</h1>
-        <br>
-
-        <section id="profile-container">
-            <div class="profile-picture-container">
-                <h2>My profile picture</h2>
-                <img class="profile-picture-display" src="/images/clinitian-profile-pic.svg" alt="profile picture">
-                <h3 class="blue-text">Change profile picture</h3>
+        <div class="dashboard-right enter-ts-container" id="dashboard-right">
+            <div class="page-title-and-nav">
+                <span class="material-icons-round blue-text">arrow_back_ios</span>
+                <div class="page-title-icon checklist-title" id="ts-title">
+                    <span class="data-icon material-icons-round blue-text">history</span>
+                    <h3 class="blue-text">Account</h3>
+                </div>
             </div>
 
-            <ul class="profile-statistic">
-                <li>
-                    <h2>First Name</h2>
-                    </br>
-                    <h3 class="blue-text">{{thisPatient.givenName}}</h3>
-                </li>
+            <div>
+                <section id="blue-main-page">
+                    <div class="inside-container">
+                        <div class="profile-pic-container">
+                            <h3>My profile picture</h3>
+                            <img class="profile-picture-display" src="/images/clinitian-profile-pic.svg"
+                                alt="profile picture">
+                            <h3 class="blue-text">Change profile picture</h3>
+                        </div>
+                        <ul class="details-container">
+                            <div class="whitebox shadow detail-field space-between">
+                                <li>
+                                    <h3>Nickname</h2>
+                                        </br>
+                                        <h3 class="blue-text">{{thisPatient.nickName}}</h3>
+                                </li>
+                                <div class="space-between">
+                                    <h4 class="blue-text">Edit</h4>
+                                    <span class="material-icons-round blue-text">navigate_next</span>
+                                </div>
+                            </div>
+                            <div class="whitebox shadow detail-field space-between">
+                                <li>
+                                    <h3>First Name</h2>
+                                        </br>
+                                        <h3 class="blue-text">{{thisPatient.givenName}}</h3>
+                                </li>
+                                <div class="space-between">
+                                    <h4 class="blue-text">Edit</h4>
+                                    <span class="material-icons-round blue-text">navigate_next</span>
+                                </div>
+                            </div>
+                            <div class="whitebox shadow detail-field space-between">
+                                <li>
+                                    <h3>Last Name</h2>
+                                        </br>
+                                        <h3 class="blue-text">{{thisPatient.familyName}}</h3>
+                                </li>
+                                <div class="space-between">
+                                    <h4 class="blue-text">Edit</h4>
+                                    <span class="material-icons-round blue-text">navigate_next</span>
+                                </div>
+                            </div>
+                            <div class="whitebox shadow detail-field space-between">
+                                <li>
+                                    <h3>Gender</h3>
+                                    </br>
+                                    <h3 class="blue-text">{{thisPatient.gender}}</h3>
+                                </li>
+                                <div class="space-between">
+                                    <h4 class="blue-text">Edit</h4>
+                                    <span class="material-icons-round blue-text">navigate_next</span>
+                                </div>
+                            </div>
+                            <div class="whitebox shadow detail-field space-between">
+                                <li>
+                                    <h3>Email</h3>
+                                    </br>
+                                    <h3 class="blue-text">{{thisPatient.email}}</h3>
+                                </li>
+                                <div class="space-between">
+                                    <h4 class="blue-text">Edit</h4>
+                                    <span class="material-icons-round blue-text">navigate_next</span>
+                                </div>
+                            </div>
+                            <div class="whitebox shadow detail-field space-between">
+                                <li>
+                                    <h3>Birthday</h3>
+                                    </br>
+                                    <h3 class="blue-text">{{thisPatient.dateOfBirth}}</h3>
+                                </li>
+                                <div class="space-between">
+                                    <h4 class="blue-text">Edit</h4>
+                                    <span class="material-icons-round blue-text">navigate_next</span>
+                                </div>
+                            </div>
+                            <div class="whitebox shadow detail-field space-between">
+                                <li>
+                                    <h3>Mobile</h3>
+                                    </br>
+                                    <h3 class="blue-text">0{{thisPatient.mobile}}</h3>
+                                </li>
+                                <div class="space-between">
+                                    <h4 class="blue-text">Edit</h4>
+                                    <span class="material-icons-round blue-text">navigate_next</span>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                </section>
+            </div>
 
-                <li>
-                    <h2>Gender</h2>
-                    </br>
-                    <h3 class="blue-text">{{thisPatient.gender}}</h3>
-                </li>
-
-                <li>
-                    <h2>Email</h2>
-                    </br>
-                    <h3 class="blue-text">{{thisPatient.email}}</h3>
-                </li>
-
-                <li>
-                    <h2>Last Name</h2>
-                    </br>
-                    <h3 class="blue-text">{{thisPatient.familyName}}</h3>
-                </li>
-
-                <li>
-                    <h2>Birthday</h2>
-                    </br>
-                    <h3 class="blue-text">{{thisPatient.dateOfBirth}}</h3>
-                </li>
-
-                <li>
-                    <h2>Mobile</h2>
-                    </br>
-                    <h3 class="blue-text">0{{thisPatient.mobile}}</h3>
-                </li>
-            </ul>
-        </section>
-    </div>
-</main>
+        </div>
+    </main>
