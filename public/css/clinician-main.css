@@ -492,7 +492,7 @@ input[type="checkbox"]:checked {
     font-size: 24px;
     text-align: left;
     max-width: 300px;
-    word-break: break-all;
+    word-break: break-word;
 }
 
 .comment-box {
