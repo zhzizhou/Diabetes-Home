@@ -245,13 +245,17 @@ const addNewPatient = async(req, res) => {
 }
 
 const getMyPatientPage = async(req, res) => {
-    var cId = '6256dde2082aa786c9760f98'
+    var cId = req.user._id
     var saveQuery = {
         'male': true,
         'female': true
     }
 
     try {
+        const clinician = await Clinician.findById(
+            cId
+        ).lean()
+
         const allPatient = await Patient.find({
             clinicianId: cId
         }, {
@@ -271,10 +275,7 @@ const getMyPatientPage = async(req, res) => {
             total: totalPatient,
             query: saveQuery,
             layout: 'clinician-main',
-            doctor: {
-                givenName: 'Chris',
-                familyName: "Smith"
-            }
+            doctor: clinician,
         })
     } catch (err) {
         console.log(err)

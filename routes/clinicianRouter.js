@@ -57,7 +57,7 @@ clinicianRouter.get('/new-patient', clinicianController.getNewPatientPage)
 clinicianRouter.post('/new-patient', clinicianController.addNewPatient)
 
 //display my patient page
-clinicianRouter.get('/my-patient', clinicianController.getMyPatientPage)
+clinicianRouter.get('/my-patient', isAuthenticated, clinicianController.getMyPatientPage)
 
 //search for patients based on filter
 clinicianRouter.post('/my-patient', clinicianController.searchPatient)
