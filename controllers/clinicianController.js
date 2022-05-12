@@ -438,7 +438,6 @@ const addSupport = async(req, res) => {
 const getNotesPage = async(req, res) => {
     var cId = "625e240b01e5ce1b9ef808e9"
     var when = moment(new Date()).format('D/M/YY H:mm:ss')
-    var placeholder
 
     try {
         const clinician = await Clinician.findById(
@@ -449,68 +448,117 @@ const getNotesPage = async(req, res) => {
             req.params.id
         ).lean()
 
-        const notes = await clinicianNote.findOne({
-            patientId: req.params.id,
-            clinicianId: cId
-        }).lean()
-
         if (!clinician || !patient) {
             return res.sendStatus(404)
         }
 
-        if (!notes) {
-            placeholder = "Take note of something..."
-        } else {
-            placeholder = notes.content
-        }
-
-        return res.render('clinician-editNotes', {
+        return res.render('clinician-addNotes', {
             thisClinician: clinician,
             thisPatient: patient,
             time: when,
-            placeholder: placeholder,
-            title: "Edit Notes",
+            title: "Add Clinician Notes",
             layout: 'clinician-main'
         })
 
     } catch (err) {
         return next(err)
     }
+
+
+    // var cId = "625e240b01e5ce1b9ef808e9"
+    // var when = moment(new Date()).format('D/M/YY H:mm:ss')
+    // var placeholder
+
+    // try {
+    //     const clinician = await Clinician.findById(
+    //         cId
+    //     ).lean()
+
+    //     const patient = await Patient.findById(
+    //         req.params.id
+    //     ).lean()
+
+    //     const notes = await clinicianNote.findOne({
+    //         patientId: req.params.id,
+    //         clinicianId: cId
+    //     }).lean()
+
+    //     if (!clinician || !patient) {
+    //         return res.sendStatus(404)
+    //     }
+
+    //     if (!notes) {
+    //         placeholder = "Take note of something..."
+    //     } else {
+    //         placeholder = notes.content
+    //     }
+
+    //     return res.render('clinician-editNotes', {
+    //         thisClinician: clinician,
+    //         thisPatient: patient,
+    //         time: when,
+    //         placeholder: placeholder,
+    //         title: "Edit Notes",
+    //         layout: 'clinician-main'
+    //     })
+
+    // } catch (err) {
+    //     return next(err)
+    // }
 }
 
-const editNotes = async(req, res) => {
+const addNotes = async(req, res) => {
     var cId = "625e240b01e5ce1b9ef808e9"
 
     console.log(req.body)
 
+    const newNote = new clinicianNote({
+        patientId: req.params.id,
+        clinicianId: cId,
+        content: req.body.notes
+    })
+
     try {
-        const currentNotes = await clinicianNote.find({
-            patientId: req.params.id,
-            clinicianId: cId
-        }).lean()
-
-        if (!currentNotes) {
-            console.log("Add new Notes")
-            const newNote = new clinicianNote({
-                patientId: req.params.id,
-                clinicianId: cId,
-                content: req.body.notes
-            })
-            await newNote.save()
-        } else {
-            console.log("Update Notes")
-            await clinicianNote.findOneAndUpdate({ patientId: req.params.id }, { content: req.body.notes })
-        }
-
-        // res.status(204).send()
-        res.send("<script> alert('Update clinician notes successfully');\
+        await newNote.save()
+        res.send("<script> alert('Added Note successfully');\
             window.location.href='detail'; </script>")
 
     } catch {
-        // res.status(204).send("<script> alert('Update Fail');</script>")
-        res.send("<script> alert('Update Fail');\
-            window.location.href='detail'; </script>")
+        res.send("<script> alert('add note Fail');\
+        window.location.href='detail'; </script>")
     }
+    // var cId = "625e240b01e5ce1b9ef808e9"
+
+    // console.log(req.body)
+
+    // try {
+    //     const currentNotes = await clinicianNote.find({
+    //         patientId: req.params.id,
+    //         clinicianId: cId
+    //     }).lean()
+
+    //     if (!currentNotes) {
+    //         console.log("Add new Notes")
+    //         const newNote = new clinicianNote({
+    //             patientId: req.params.id,
+    //             clinicianId: cId,
+    //             content: req.body.notes
+    //         })
+    //         await newNote.save()
+    //     } else {
+    //         console.log("Update Notes")
+    //         await clinicianNote.findOneAndUpdate({ patientId: req.params.id }, { content: req.body.notes })
+    //     }
+
+    //     // res.status(204).send()
+    //     res.send("<script> alert('Update clinician notes successfully');\
+    //         window.location.href='detail'; </script>")
+
+    // } catch {
+    //     // res.status(204).send("<script> alert('Update Fail');</script>")
+    //     res.send("<script> alert('Update Fail');\
+    //         window.location.href='detail'; </script>")
+    // }
 }
 
 const getTimeSeriesPage = async(req, res) => {
@@ -626,26 +674,28 @@ const getPatientDetail = async(req, res) => {
         }
 
         // find latest clinician note
-        // const notes = await clinicianNote.find({
-        //     patientId: req.params.id,
-        //     clinicianId: cId
-        // }).sort({ when: -1 }).limit(1).lean()
-
-        // for (let j = 0; j < notes.length; j++) {
-        //     notes[j].when = moment(notes[j].when).format('D/M/YY H:mm:ss')
-        // }
-
-        var notes
-        const note = await clinicianNote.findOne({
+        const notes = await clinicianNote.find({
             patientId: req.params.id,
             clinicianId: cId
-        }).lean()
+        }).sort({ when: -1 }).limit(1).lean()
 
-        if (!note) {
-            notes = "Start Entering Notes For This Patient"
-        } else {
-            notes = note.content
+        for (let j = 0; j < notes.length; j++) {
+            notes[j].when = moment(notes[j].when).format('D/M/YY H:mm:ss')
         }
+
+        console.log(notes)
+
+        // var note
+        // const note = await clinicianNote.findOne({
+        //     patientId: req.params.id,
+        //     clinicianId: cId
+        // }).lean()
+
+        // if (!notes) {
+        //     note = "Start Entering Notes For This Patient"
+        // } else {
+        //     note = note.content
+        // }
 
         return res.render('clinician-patient-page', {
             patient: patient,
@@ -704,7 +754,7 @@ module.exports = {
     getSupportPage,
     addSupport,
     getNotesPage,
-    editNotes,
+    addNotes,
     getTimeSeriesPage,
     updateTimeSeries,
     getPatientDetail,

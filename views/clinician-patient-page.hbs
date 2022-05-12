@@ -135,13 +135,16 @@
             <div id="Add-clinician-note" class="tabcontent whitebox note-section-bottom" style="display:none;">
 
                 <div class="space-between">
-                    <a href="/clinician/my-patient/{{patient._id}}/notes" class="edit-ts add-button" style="font-size:24px">Edit</a>
+                    <a href="/clinician/my-patient/{{patient._id}}/notes" class="edit-ts add-button" style="font-size:24px">Add+</a>
                 </div>
 
                 <div class="comment-container">
+                    {{#each note}}
+                    <div class="comment-time">{{this.when}}</div>
                     <div class="comment-box light-blue-box shadow">
-                        <span class="comment-content">{{note}}</span>
+                        <span class="comment-content">{{this.content}}</span>
                     </div>
+                    {{/each}}
                 </div>
                 {{!-- <form method="post" action="">
                     <div class="space-between">

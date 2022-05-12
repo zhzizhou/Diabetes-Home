@@ -14,13 +14,13 @@ clinicianRouter.get('/login', clinicianController.getLoginPage)
 
 // clinician login
 clinicianRouter.post('/login',
-    passport.authenticate('clinician', {
-        successRedirect: 'home',
-        failureRedirect: 'login',
-        failureFlash: true
-    })
-)
-// clinician logout
+        passport.authenticate('clinician', {
+            successRedirect: 'home',
+            failureRedirect: 'login',
+            failureFlash: true
+        })
+    )
+    // clinician logout
 clinicianRouter.get('/logout', (req, res) => {
     req.logout()
     res.redirect('/')
@@ -78,7 +78,7 @@ clinicianRouter.post('/my-patient/:id/support', clinicianController.addSupport)
 clinicianRouter.get('/my-patient/:id/notes', clinicianController.getNotesPage)
 
 //update notes to a specific patient
-clinicianRouter.post('/my-patient/:id/notes', clinicianController.editNotes)
+clinicianRouter.post('/my-patient/:id/notes', clinicianController.addNotes)
 
 //display patient's time-series page
 clinicianRouter.get(
