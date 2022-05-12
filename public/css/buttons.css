@@ -9,7 +9,7 @@ a {
 }
 
 a.white-text {
-    color: white;
+    color: var(--white);
 }
 
 a:hover {
@@ -19,7 +19,7 @@ a:hover {
 /*DEFAULT STYLE FOR ROUND BUTTONS*/
 .button {
     background-color: var(--dark-blue);
-    color: white;
+    color: var(-white);
     padding: 8px 15px;
     border: none;
     cursor: pointer;
@@ -42,13 +42,13 @@ a:hover {
 /*DEFAULT STYLE FOR SUBMIT HOVER STATE*/
 .button:hover {
     background-color: var(--button-hover);
-    color: white;
+    color: var(--white);
 }
 
 /*DEFAULT STYLE FOR SUBMIT BUTTONS*/
 .submit {
     background-color: var(--dark-blue);
-    color: white;
+    color: var(--white);
     width: 50%;
     height: auto;
     border: none;
@@ -62,7 +62,7 @@ a:hover {
 
 .new-patient-submit {
     background-color: var(--dark-blue);
-    color: white;
+    color: var(--white);
     width: 20rem;
     height: auto;
     border: none;
@@ -100,7 +100,7 @@ input[type=date] {
 }
 
 #birthday-input {
-    background-color: white;
+    background-color: var(--white);
     margin-left: 0rem;
     padding: 1.4rem;
     width: 12rem;
@@ -142,7 +142,7 @@ input[type=date] {
 
 /* Create an active/current tablink class */
 .active {
-    background-color: white;
+    background-color: var(--white);
     color: var(--dark-blue);
 }
 

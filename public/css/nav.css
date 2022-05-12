@@ -13,7 +13,7 @@ main {
 }
 
 nav {
-    background-color: white;
+    background-color: var(--white);
     /*CLINICIAN DESKTOP NAV IS WHITE*/
     width: 22rem !important;
     height: 100%;
@@ -73,17 +73,17 @@ nav a {
 
 .patient-menu.menu-item:hover {
     /*DIFFERENT HOVER STATE FOR PATEINT BC OF BLUE BACKGORUND*/
-    background-color: white;
+    background-color: var(--white);
 }
 
 .menu-item:active {
     background-color: var(--dark-blue);
-    color: white;
+    color: var(--white);
 }
 
 .menu-item.selected {
     background-color: var(--dark-blue);
-    color: white;
+    color: var(--white);
 }
 
 .menu-section {

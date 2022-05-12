@@ -28,14 +28,14 @@
 
 input {
     outline: none;
-    background-color: white;
+    background-color: var(--white);
     color: var(--dark-blue);
     border-radius: 2rem;
     padding: 1rem;
     margin: 5px;
     resize: none;
     outline: none;
-    border: 2px solid white;
+    border: 2px solid var(--white);
     box-shadow: 2px 2px 3px var(--box-shadow);
     transition: 0.5s ease;
     flex-shrink: 0;
@@ -73,7 +73,7 @@ input {
 /*Placeholder invisible*/
 
 .floating__input::placeholder {
-    color: white;
+    color: var(--white);
 }
 
 
@@ -143,7 +143,7 @@ input {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #F2F7FF;
+    background-color: var(--light-blue);
     border-radius: 3em 0 3em 0;
     padding-top: 5%;
     padding-left: 8%;
@@ -152,7 +152,6 @@ input {
     height: 60%;
     width: 50%;
     overflow: hidden;
-    box-shadow: 2px 2px 3px var(--box-shadow);
 }
 
 #center-word {
@@ -184,18 +183,17 @@ input {
 
 .wide-input {
     width: 35rem !important;
-    background-color:white;
+    background-color:var(--white);
     border-radius: 2rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    box-shadow: 2px 2px 3px var(--box-shadow);
 }
 
 /*RESPONSIVE DESIGN FOR IPAD SIZE*/
 @media screen and (max-width:1100px) {
     .split-screen {
         display: block;
-        background-image: linear-gradient(to bottom right, var(--dark-blue), white);
+        background-image: linear-gradient(to bottom right, var(--dark-blue), var(--white));
     }
 
     .left {

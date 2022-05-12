@@ -12,7 +12,7 @@ a:hover {
 
 .button {
     background-color: var(--dark-blue);
-    color: white;
+    color: var(--white);
     padding: 15px 20px;
     border: none;
     cursor: pointer;
@@ -27,12 +27,12 @@ a:hover {
 }
 .button:hover {
     background-color: var(--button-hover);
-    color: white;
+    color: var(--white);
 }
 
 .submit{
     background-color: var(--dark-blue);
-    color: white;
+    color: var(--white);
     width: 50%;
     height: auto;
     border: none;

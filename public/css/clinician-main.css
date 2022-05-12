@@ -31,7 +31,7 @@ body {
 }
 
 .whitebox {
-    background-color: white;
+    background-color: var(--white);
 }
 
 .light-blue-box {
@@ -83,7 +83,7 @@ a {
     /*SUB CONTAINER*/
     display: grid;
     grid-template-columns: 25% 40% 35%;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--white);
     height: 100vh;
 }
 
@@ -195,7 +195,7 @@ td {
 }
 
 .patient-record {
-    background-color: white;
+    background-color: var(--white);
     box-shadow: 2px 2px 3px var(--box-shadow);
     border-radius: 2em;
     padding: 2em;
@@ -210,7 +210,7 @@ td {
 }
 
 .patient-stats {
-    background-color: white;
+    background-color: var(--white);
     box-shadow: 2px 2px 3px var(--box-shadow);
     border-radius: 2em;
     width: 20em;
@@ -242,7 +242,7 @@ td {
 
 .my-patient-table td {
     font-size: 20px;
-    border: solid 1px lightgrey;
+    border: solid 1px var(--light-grey-background);
     border-style: solid none;
     padding: 0.4em 0.8em;
 }
@@ -336,12 +336,12 @@ td {
 
 .patient-age {
     /*PATIENT STATS*/
-    color: #8B8B8B;
+    color: var(--dark-grey-text);
     font-size: 26px;
 }
 
 .edit-ts {
-    color: rgb(255, 255, 255);
+    color: var(--white);
     font-size: 16px;
     background-color: var(--dark-blue);
     padding: 0.4em 0.8em 0.4em 0.8em;
@@ -387,7 +387,7 @@ td {
     padding: 1rem;
     background-color: var(--dark-blue);
     border-radius: 2rem;
-    color: white;
+    color: var(--white);
     border: none;
     transition: 0.5s;
 }
@@ -417,7 +417,7 @@ input[type="checkbox"]:checked {
 
 .overview-data-title {
     font-size: 16px;
-    color: #8B8B8B;
+    color: var(--dark-grey-text);
     text-align: center;
 }
 
@@ -491,6 +491,7 @@ input[type="checkbox"]:checked {
 .comment-content {
     font-size: 24px;
     text-align: left;
+    max-width: 300px;
 }
 
 .comment-box {
@@ -509,7 +510,7 @@ input[type="checkbox"]:checked {
 .select-messages {
     color: var(--dark-blue);
     padding: 0 0 16px 0;
-    background-color: #ffffff;
+    background-color: var(--white);
     border-radius: 0 48px 0 0;
 }
 
@@ -625,7 +626,7 @@ input[type="checkbox"]:checked {
 }
 
 .time-series-bottom {
-    background-color: white;
+    background-color: var(--white);
     padding: 1em;
     border-radius: 0 0 2em 2em;
     display: flex;
@@ -648,7 +649,7 @@ input[type="checkbox"]:checked {
     border-radius: 1em;
     width: 30%;
     padding: 1em;
-    color: white;
+    color: var(--white);
     text-align: center;
     height: 2.5rem;
 }
@@ -671,14 +672,14 @@ input[type="checkbox"]::before {
 
 #time-series-button {
     background-color: var(--dark-blue);
-    color: white;
+    color: var(--white);
     padding: 0.4em 0.8em 0.4em 0.8em;
     border-radius: 1em;
 }
 
 #time-series-button {
     background-color: var(--dark-blue);
-    color: white;
+    color: var(--white);
     width: 25em;
     height: 3em;
     border-radius: 2em;
@@ -738,9 +739,9 @@ input[type="checkbox"]::before {
 .pop-up-container {
     display: none;
     position: fixed;
-    background-color: white;
+    background-color: var(--white)white;
     border-radius: 1em;
-    box-shadow: 2px 2px 10px rgb(204, 204, 204);
+    box-shadow: 2px 2px 10px var(--box-shadow);
     text-align: center;
     padding-top: 2em;
     top: 40%;
@@ -775,7 +776,7 @@ input[type="checkbox"]::before {
 }
 
 .notes-container {
-    background-color: white;
+    background-color: var(--white);
     border: none;
     width: 30rem;
     height: 30rem;
@@ -784,7 +785,7 @@ input[type="checkbox"]::before {
 }
 
 .clinician-note-container {
-    background-color: white;
+    background-color: var(--white);
     border: none;
     width: 30rem;
     padding: 1rem;
@@ -804,7 +805,7 @@ input[type="checkbox"]::before {
 .date-time-container:focus {
     display: flex;
     width: 30rem;
-    background-color: white;
+    background-color: var(--white);
     border-radius: 1rem;
     height: 4rem;
     padding: 1rem;

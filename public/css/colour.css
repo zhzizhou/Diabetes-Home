@@ -2,7 +2,7 @@
 :root {
     --dark-blue: #587BB4;
     --light-blue: #F2F7FF;
-    --light-grey-background: #f7f7f7;
+    --light-grey-background: #f0f0f0;
 
     --dark-grey-text: #525252;
     --light-grey-text: #8B8B8B;
@@ -12,5 +12,28 @@
     
     --alert-red: #CB0814;
 
-    --box-shadow: rgba(136, 136, 136, 0.5)
+    --box-shadow: rgba(136, 136, 136, 0.5);
+
+    --white:white;
 }
+
+
+/* COLOUR VARIABLES - FOR DARK MODE
+:root {
+    --dark-blue: #587BB4;
+    --light-blue: #0F2940;
+    --light-grey-background: #0F2940;
+
+    --dark-grey-text: #D0DFF2;
+    --light-grey-text: #7394BF;
+
+    --button-hover: #D0DFF2;
+    --box-shadow: rgba(255, 255, 255, 0.80);
+    
+    --alert-red: #CB0814;
+
+    --box-shadow: rgba(136, 136, 136, 0.5);
+
+    --white:#061726;
+}*/
+

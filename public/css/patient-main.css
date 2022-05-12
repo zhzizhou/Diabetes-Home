@@ -7,7 +7,7 @@
 /*GLOBAL STYLE (ALL PAGES)*/
 
 body {
-    background-color: white;
+    background-color: var(--white);
 }
 
 .fixed {
@@ -20,7 +20,7 @@ body {
 }
 
 .whitebox {
-    background-color:white;
+    background-color:var(--white);
     border-radius: 1rem;
     padding: 1rem;
 }
@@ -141,7 +141,7 @@ input:focus {
 
 .checklist-item {
     /*EACH ITEM BEFORE IT HAS BEEN ENTERED FOR THE DAY*/
-    background-color: white;
+    background-color: var(--white);
     border-radius: 1.5rem;
     padding: 2rem;
     align-items: center;
@@ -215,16 +215,16 @@ input:focus {
 }
 
 .record {
-    background-color: #ffffff;
+    background-color: var(--white);
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     padding: 1em;
     border-radius: 20px;
     display: grid;
     grid-template-columns: 1fr 2fr 2fr;
-    -moz-box-shadow: 2px 2px 10px rgb(216, 216, 216);
-    -webkit-box-shadow: 2px 2px 10px rgb(216, 216, 216);
-    box-shadow: 2px 2px 10px rgb(204, 204, 204);
+    -moz-box-shadow: 2px 2px 10px var(--box-shadow);
+    -webkit-box-shadow: 2px 2px 10px var(--box-shadow);
+    box-shadow: 2px 2px 10px var(--box-shadow);
     font-size: 18px;
     text-align: center;
 }
@@ -236,7 +236,7 @@ input:focus {
 }
 
 .leaderboard-box {
-    background-color: #f2f7ff;
+    background-color: var(--white);
     padding: 1.5em;
     border-radius: 20px;
     text-align: center;
@@ -266,7 +266,7 @@ input:focus {
     color: #587BB4;
     text-align: center;
     padding: 1.5rem 0 4rem 0;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--white);
     position: relative;
     left: 5%;
 }
@@ -360,7 +360,7 @@ input.enter-data-box::placeholder {
 }
 
 input.enter-data-box:focus {
-    background-color: white;
+    background-color: var(--white);
     outline: 3px solid var(--dark-blue);
     color: var(--dark-blue);
     border-radius: 20rem;
@@ -388,7 +388,7 @@ input.enter-data-box:hover {
 .date-time-container:focus {
     display: flex;
     width: 30rem;
-    background-color: white;
+    background-color: var(--white);
     border-radius: 1rem;
     height: 4rem;
     padding: 1rem;
@@ -397,7 +397,7 @@ input.enter-data-box:hover {
 }
 
 .notes-container {
-    background-color: white;
+    background-color: var(--white);
     border: none;
     width: 30rem;
     height: 30rem;
@@ -423,9 +423,9 @@ input.enter-data-box:hover {
 .pop-up-container {
     display: none;
     position: fixed;
-    background-color: white;
+    background-color: var(--white);
     border-radius: 1em;
-    box-shadow: 2px 2px 10px rgb(204, 204, 204);
+    box-shadow: 2px 2px 10px var(--box-shadow);
     text-align: center;
     padding-top: 2em;
     top: 40%;
@@ -565,7 +565,7 @@ input[type=number] {
 
 @media screen and (max-width: 1050px) {
     body {
-        background-color: white;
+        background-color: var(--white);
         display: block;
     }
     .dashboard-right.enter-ts-container {
@@ -637,7 +637,7 @@ input[type=number] {
         background-color: var(--light-blue);
     }
     .checklist-item {
-        background-color: white;
+        background-color: var(--white);
     }
     .infobar {
         padding: 1.5rem 0 4rem 1rem;
@@ -647,8 +647,8 @@ input[type=number] {
     }
     /*checklist*/
     .messageArea {
-        background-color: white;
-        box-shadow: 2px 2px 10px rgb(204, 204, 204);
+        background-color: var(--white);
+        box-shadow: 2px 2px 10px var(--box-shadow);
         padding: 1em;
         margin-top: 5em;
         margin-left: 5em;

@@ -19,7 +19,7 @@ body {
 }
 
 .whitebox {
-    background-color: white;
+    background-color: var(--white);
 }
 
 .light-blue-box {
@@ -55,7 +55,7 @@ a {
 .outer-container {
     display: grid;
     grid-template-columns: 25% 40% 35%;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--white);
     height: 100vh;
 }
 
@@ -81,7 +81,7 @@ a {
     padding: 0.5em;
     border-radius: 1em;
     background-color: var(--dark-blue);
-    color: white;
+    color: var(--white);
     margin-left: 0.5em;
 }
 
@@ -154,7 +154,7 @@ td {
 /*ALL PATIENT PAGE*/
 
 .patient-record {
-    background-color: white;
+    background-color: var(--white);
     box-shadow: 2px 2px 3px var(--box-shadow);
     border-radius: 2em;
     padding: 2em;
@@ -167,7 +167,7 @@ td {
 }
 
 .patient-stats {
-    background-color: white;
+    background-color: var(--white);
     box-shadow: 2px 2px 3px var(--box-shadow);
     border-radius: 2em;
     width: 20em;
@@ -195,7 +195,7 @@ td {
 
 .my-patient-table td {
     font-size: 20px;
-    border: solid 1px lightgrey;
+    border: solid 1px var(--box-shadow);
     border-style: solid none;
     padding: 0.4em 0.8em;
 }
@@ -218,7 +218,7 @@ td {
 
 .my-patient-table a {
     background-color: var(--dark-blue);
-    color: white;
+    color: var(--white);
     padding: 0.4em 0.8em 0.4em 0.8em;
     border-radius: 1em;
 }
@@ -278,14 +278,14 @@ td {
 }
 
 .patient-age {
-    color: #8B8B8B;
+    color: var(--light-grey-text);
     font-size: 26px;
     padding: 0em 0.8em 0em;
     vertical-align: middle;
 }
 
 .edit-ts {
-    color: rgb(255, 255, 255);
+    color: var(--white);
     font-size: 16px;
     background-color: var(--dark-blue);
     padding: 0.4em 0.8em 0.4em 0.8em;
@@ -310,7 +310,7 @@ td {
 
 .overview-data-title {
     font-size: 16px;
-    color: #8B8B8B;
+    color: var(--light-grey-text);
 }
 
 .ts-data {
