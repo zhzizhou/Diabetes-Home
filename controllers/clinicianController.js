@@ -79,8 +79,7 @@ const getHome = async(req, res) => {
 const getProfile = async(req, res) => {
     try {
         const clinician = await Clinician.findById(
-            // req.params.clinician_id
-            '625e240b01e5ce1b9ef808e9'
+            req.user._id
         ).lean()
 
         if (!clinician) {
@@ -164,8 +163,7 @@ const registerClinician = async(req, res) => {
 const getNewPatientPage = async(req, res) => {
     try {
         const clinician = await Clinician.findById(
-            // req.params.clinician_id
-            '625e240b01e5ce1b9ef808e9'
+            req.user._id
         ).lean()
 
         if (!clinician) {
@@ -184,8 +182,7 @@ const getNewPatientPage = async(req, res) => {
 }
 
 const addNewPatient = async(req, res) => {
-    //fake Id for temporary use
-    var clinicianId = '6256dde2082aa786c9760f98'
+    var clinicianId = req.user._id
     var password
 
     console.log(req.body)
@@ -359,7 +356,7 @@ const searchPatient = async(req, res) => {
 }
 
 const getOnePatientPage = async(req, res) => {
-    var cId = "625e240b01e5ce1b9ef808e9"
+    var cId = req.user._id
 
     try {
         const clinician = await Clinician.findById(
@@ -387,7 +384,7 @@ const getOnePatientPage = async(req, res) => {
 }
 
 const getSupportPage = async(req, res) => {
-    var cId = "625e240b01e5ce1b9ef808e9"
+    var cId = req.user._id
     var when = moment(new Date()).format('D/M/YY H:mm:ss')
 
     try {
@@ -417,7 +414,7 @@ const getSupportPage = async(req, res) => {
 }
 
 const addSupport = async(req, res) => {
-    var cID = "625e240b01e5ce1b9ef808e9"
+    var cID = req.user._id
 
     console.log(req.body)
 
@@ -437,7 +434,7 @@ const addSupport = async(req, res) => {
 }
 
 const getNotesPage = async(req, res) => {
-    var cId = "625e240b01e5ce1b9ef808e9"
+    var cId = req.user._id
     var when = moment(new Date()).format('D/M/YY H:mm:ss')
 
     try {
@@ -509,7 +506,7 @@ const getNotesPage = async(req, res) => {
 }
 
 const addNotes = async(req, res) => {
-    var cId = "625e240b01e5ce1b9ef808e9"
+    var cId = req.user._id
 
     console.log(req.body)
 
@@ -565,6 +562,10 @@ const addNotes = async(req, res) => {
 const getTimeSeriesPage = async(req, res) => {
     const pid = req.params.id
     try {
+        const clinician = await Clinician.findById(
+            req.user._id
+        ).lean()
+
         const onePatient = await Patient.findOne({
             _id: pid
         }, {
@@ -577,10 +578,7 @@ const getTimeSeriesPage = async(req, res) => {
             patient: onePatient,
             title: "Edit Time Series",
             layout: 'clinician-main',
-            doctor: {
-                givenName: 'Chris',
-                familyName: 'Smith'
-            }
+            doctor: clinician
         })
     } catch {
         res.send('patient not found')
@@ -621,7 +619,7 @@ const updateTimeSeries = async(req, res) => {
 }
 
 const getPatientDetail = async(req, res) => {
-    var cId = '625e240b01e5ce1b9ef808e9'
+    var cId = req.user._id
     try {
         const clinician = await Clinician.findById(
             cId
@@ -704,10 +702,7 @@ const getPatientDetail = async(req, res) => {
             support: supports,
             note: notes,
             title: 'My Patient Detail',
-            doctor: {
-                givenName: 'Chris',
-                familyName: "Smith"
-            },
+            doctor: clinician,
             layout: "clinician-main"
         })
     } catch (err) {

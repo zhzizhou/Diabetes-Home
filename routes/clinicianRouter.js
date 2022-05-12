@@ -30,7 +30,7 @@ clinicianRouter.get('/logout', (req, res) => {
 clinicianRouter.get('/home', isAuthenticated, clinicianController.getHome)
 
 //display clinician's profile page
-clinicianRouter.get('/profile', clinicianController.getProfile)
+clinicianRouter.get('/profile', isAuthenticated, clinicianController.getProfile)
 
 //display clinician's edit profile page
 clinicianRouter.get('/edit', clinicianController.getEditPage)
@@ -51,10 +51,10 @@ clinicianRouter.get('/register', clinicianController.getRegisterPage)
 clinicianRouter.post('/register', clinicianController.registerClinician)
 
 //display add patient page
-clinicianRouter.get('/new-patient', clinicianController.getNewPatientPage)
+clinicianRouter.get('/new-patient', isAuthenticated, clinicianController.getNewPatientPage)
 
 //add a new patient
-clinicianRouter.post('/new-patient', clinicianController.addNewPatient)
+clinicianRouter.post('/new-patient', isAuthenticated, clinicianController.addNewPatient)
 
 //display my patient page
 clinicianRouter.get('/my-patient', isAuthenticated, clinicianController.getMyPatientPage)
@@ -63,26 +63,28 @@ clinicianRouter.get('/my-patient', isAuthenticated, clinicianController.getMyPat
 clinicianRouter.post('/my-patient', clinicianController.searchPatient)
 
 //display a specific patient
-clinicianRouter.get('/my-patient/:id', clinicianController.getOnePatientPage)
+clinicianRouter.get('/my-patient/:id', isAuthenticated, clinicianController.getOnePatientPage)
 
 //display support page
 clinicianRouter.get(
     '/my-patient/:id/support',
+    isAuthenticated,
     clinicianController.getSupportPage
 )
 
 //add support to a specific patient
-clinicianRouter.post('/my-patient/:id/support', clinicianController.addSupport)
+clinicianRouter.post('/my-patient/:id/support', isAuthenticated, clinicianController.addSupport)
 
 //display notes page
-clinicianRouter.get('/my-patient/:id/notes', clinicianController.getNotesPage)
+clinicianRouter.get('/my-patient/:id/notes', isAuthenticated, clinicianController.getNotesPage)
 
 //update notes to a specific patient
-clinicianRouter.post('/my-patient/:id/notes', clinicianController.addNotes)
+clinicianRouter.post('/my-patient/:id/notes', isAuthenticated, clinicianController.addNotes)
 
 //display patient's time-series page
 clinicianRouter.get(
     '/my-patient/:id/time-series',
+    isAuthenticated,
     clinicianController.getTimeSeriesPage
 )
 
@@ -95,6 +97,7 @@ clinicianRouter.post(
 //display a patient's detail
 clinicianRouter.get(
     '/my-patient/:id/detail',
+    isAuthenticated,
     clinicianController.getPatientDetail
 )
 
@@ -107,6 +110,7 @@ clinicianRouter.get(
 //update a patient's detail
 clinicianRouter.put(
     '/my-patient/:id/edit',
+    isAuthenticated,
     clinicianController.updatePatientDetail
 )
 
