@@ -42,7 +42,7 @@
             </a>
             <div class="my-patient-left">
                 <h1 class="page-title">Add new patient</h1>
-                <form method="post" id="newPatient">
+                <form method="post" id="newPatient" name="newPatientForm">
                     <h3 class="form-heading">Personal Details</h3>
                     <div class="add-new-patient-form">
                         <div class="floating">
@@ -108,9 +108,8 @@
                                 <span class="hidden--visually">Set password</span>
                             </label>
                         </div>
-                    <button class="new-patient-submit button">Create</button>
+                    <button class="new-patient-submit button" onclick="ValidateEmail(document.newPatientForm.email)">Create</button>
                 </form>
-
             </div>
         </div>
     </div>
