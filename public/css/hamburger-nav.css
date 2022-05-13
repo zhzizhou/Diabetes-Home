@@ -48,6 +48,9 @@
     text-align: left;
 }
 
+.white-text {
+    color: var(--white);
+}
 /*FOR IPAD SCREEN SIZE - DISPLAY THE RESPONSIVE MENU*/
 @media screen and (max-width: 1050px) {
     .responsive-nav {
