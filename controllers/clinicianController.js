@@ -16,6 +16,12 @@ const getHome = async(req, res) => {
     var alerts = 0
     var comments = 0
     try {
+        const clinician = await Clinician.findById(cId).lean()
+
+        if (!clinician) {
+            return res.sendStatus(404)
+        }
+
         const patients = await Patient.find({
             clinicianId: cId
         }, {
@@ -23,6 +29,8 @@ const getHome = async(req, res) => {
             familyName: true,
             timeSeries: true
         }).lean()
+
+
         var now = new Date()
 
         //for each of the patient get today's health record
@@ -66,10 +74,7 @@ const getHome = async(req, res) => {
             totalPatient: patients.length,
             title: "Dashboard",
             layout: 'clinician-main',
-            doctor: {
-                givenName: req.user.givenName,
-                familyName: req.user.familyName
-            }
+            doctor: clinician
         })
     } catch (err) {
         console.log(err)
@@ -326,6 +331,7 @@ const searchPatient = async(req, res) => {
 
     console.log(query)
     try {
+        const clinician = await Clinician.findById(req.user._id).lean()
         const result = await Patient.find(
             query, {
                 givenName: true,
@@ -345,10 +351,7 @@ const searchPatient = async(req, res) => {
             total: totalPatient,
             query: saveQuery,
             layout: 'clinician-main',
-            doctor: {
-                givenName: 'Chris',
-                familyName: "Smith"
-            }
+            doctor: clinician
         })
     } catch (err) {
         console.log(err)
