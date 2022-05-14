@@ -16,11 +16,6 @@ const getHome = async(req, res) => {
     var alerts = 0
     var comments = 0
     try {
-        const clinician = await Clinician.findById(cId).lean()
-
-        if (!clinician) {
-            return res.sendStatus(404)
-        }
 
         const patients = await Patient.find({
             clinicianId: cId
@@ -74,7 +69,10 @@ const getHome = async(req, res) => {
             totalPatient: patients.length,
             title: "Dashboard",
             layout: 'clinician-main',
-            doctor: clinician
+            doctor: {
+                familyName: req.user.familyName,
+                givenName: req.user.givenName
+            }
         })
     } catch (err) {
         console.log(err)
@@ -167,16 +165,11 @@ const registerClinician = async(req, res) => {
 
 const getNewPatientPage = async(req, res) => {
     try {
-        const clinician = await Clinician.findById(
-            req.user._id
-        ).lean()
-
-        if (!clinician) {
-            return res.sendStatus(404)
-        }
-        //found clinician
         return res.render('clinician-add-new-patient', {
-            doctor: clinician,
+            doctor: {
+                familyName: req.user.familyName,
+                givenName: req.user.givenName
+            },
             title: "Add new patient",
             layout: "clinician-add-new-patient"
         })
@@ -254,10 +247,6 @@ const getMyPatientPage = async(req, res) => {
     }
 
     try {
-        const clinician = await Clinician.findById(
-            cId
-        ).lean()
-
         const allPatient = await Patient.find({
             clinicianId: cId
         }, {
@@ -277,7 +266,10 @@ const getMyPatientPage = async(req, res) => {
             total: totalPatient,
             query: saveQuery,
             layout: 'clinician-main',
-            doctor: clinician,
+            doctor: {
+                familyName: req.user.familyName,
+                givenName: req.user.givenName
+            }
         })
     } catch (err) {
         console.log(err)
@@ -359,23 +351,21 @@ const searchPatient = async(req, res) => {
 }
 
 const getOnePatientPage = async(req, res) => {
-    var cId = req.user._id
 
     try {
-        const clinician = await Clinician.findById(
-            cId
-        ).lean()
-
         const patient = await Patient.findById(
             req.params.id
         ).lean()
 
-        if (!clinician || !patient) {
+        if (!patient) {
             return res.sendStatus(404)
         }
 
         return res.render('clinician-patient-detail', {
-            thisClinician: clinician,
+            thisClinician: {
+                familyName: req.user.familyName,
+                givenName: req.user.givenName
+            },
             thisPatient: patient,
             title: "Patient Detail",
             layout: 'clinician-main'
@@ -387,24 +377,23 @@ const getOnePatientPage = async(req, res) => {
 }
 
 const getSupportPage = async(req, res) => {
-    var cId = req.user._id
+
     var when = moment(new Date()).format('D/M/YY H:mm:ss')
 
     try {
-        const clinician = await Clinician.findById(
-            cId
-        ).lean()
-
         const patient = await Patient.findById(
             req.params.id
         ).lean()
 
-        if (!clinician || !patient) {
+        if (!patient) {
             return res.sendStatus(404)
         }
 
         return res.render('clinician-addSupportMessage', {
-            thisClinician: clinician,
+            thisClinician: {
+                familyName: req.user.familyName,
+                givenName: req.user.givenName
+            },
             thisPatient: patient,
             time: when,
             title: "Add Support Message",
@@ -418,8 +407,6 @@ const getSupportPage = async(req, res) => {
 
 const addSupport = async(req, res) => {
     var cID = req.user._id
-
-    console.log(req.body)
 
     const newSupportMessage = new SupportMessage({
         patientId: req.params.id,
@@ -437,24 +424,22 @@ const addSupport = async(req, res) => {
 }
 
 const getNotesPage = async(req, res) => {
-    var cId = req.user._id
     var when = moment(new Date()).format('D/M/YY H:mm:ss')
 
     try {
-        const clinician = await Clinician.findById(
-            cId
-        ).lean()
-
         const patient = await Patient.findById(
             req.params.id
         ).lean()
 
-        if (!clinician || !patient) {
+        if (!patient) {
             return res.sendStatus(404)
         }
 
         return res.render('clinician-addNotes', {
-            thisClinician: clinician,
+            thisClinician: {
+                familyName: req.user.familyName,
+                givenName: req.user.givenName
+            },
             thisPatient: patient,
             time: when,
             title: "Add Clinician Notes",
@@ -565,10 +550,6 @@ const addNotes = async(req, res) => {
 const getTimeSeriesPage = async(req, res) => {
     const pid = req.params.id
     try {
-        const clinician = await Clinician.findById(
-            req.user._id
-        ).lean()
-
         const onePatient = await Patient.findOne({
             _id: pid
         }, {
@@ -581,7 +562,10 @@ const getTimeSeriesPage = async(req, res) => {
             patient: onePatient,
             title: "Edit Time Series",
             layout: 'clinician-main',
-            doctor: clinician
+            doctor: {
+                familyName: req.user.familyName,
+                givenName: req.user.givenName
+            }
         })
     } catch {
         res.send('patient not found')
@@ -622,14 +606,12 @@ const updateTimeSeries = async(req, res) => {
 }
 
 const getPatientDetail = async(req, res) => {
-    var cId = req.user._id
+
     try {
-        const clinician = await Clinician.findById(
-            cId
-        ).lean()
         const patient = await Patient.findById(req.params.id).lean()
         patient.age = utility.getAge(patient.dateOfBirth)
             //search all health record group by date in descending order
+        console.log(patient)
         var healthRecord = await HealthRecord.aggregate([{
             $match: {
                 patientId: patient._id,
@@ -668,7 +650,7 @@ const getPatientDetail = async(req, res) => {
         // find latest support message
         const supports = await SupportMessage.find({
             patientId: req.params.id,
-            clinicianId: cId
+            clinicianId: req.user._id,
         }).sort({ when: -1 }).limit(2).lean()
 
         for (let j = 0; j < supports.length; j++) {
@@ -678,7 +660,7 @@ const getPatientDetail = async(req, res) => {
         // find latest clinician note
         const notes = await clinicianNote.find({
             patientId: req.params.id,
-            clinicianId: cId
+            clinicianId: req.user._id,
         }).sort({ when: -1 }).limit(1).lean()
 
         for (let j = 0; j < notes.length; j++) {
@@ -705,7 +687,10 @@ const getPatientDetail = async(req, res) => {
             support: supports,
             note: notes,
             title: 'My Patient Detail',
-            doctor: clinician,
+            doctor: {
+                familyName: req.user.familyName,
+                givenName: req.user.givenName
+            },
             layout: "clinician-main"
         })
     } catch (err) {
