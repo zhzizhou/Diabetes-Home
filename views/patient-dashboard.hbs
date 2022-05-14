@@ -82,7 +82,7 @@
                         <span class="material-icons">help</span>
                         <h3>Help</h3>
                     </a>
-                    <a href="../patient/logout" class="menu-item-layout menu-item patient-menu">
+                    <a href="../patient/about" class="menu-item-layout menu-item patient-menu">
                         <span class="material-icons">web</span>
                         <h3>About this site</h3>
                     </a>
@@ -100,8 +100,10 @@
                 <div class="top-page">
                     <h1 class="page-title">Welcome Back, {{patient.nickName}}</h1>
                     {{#if (showbadge engagement)}}
-                    <img class="badge" src="/images/{{badge}}.svg" alt="">
+                        <img class="badge" src="/images/{{badge}}.svg" alt="">
                     {{else}}
+                        <img class="badge" src="/images/{{badge}}.svg" alt="">
+
                     {{/if}}
                 </div>
 
