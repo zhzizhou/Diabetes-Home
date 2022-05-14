@@ -56,5 +56,6 @@ patientRouter.get('/settings', isAuthenticated, patientController.getSettings)
 //update new settings
 patientRouter.put('/settings', isAuthenticated, patientController.updateSettings)
 
-
+//update patient's password
+patientRouter.get('/changepassword', isAuthenticated, patientController.getChangePassword)
 module.exports = patientRouter
