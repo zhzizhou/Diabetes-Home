@@ -1,4 +1,3 @@
-/*COLOUR VARIABLES - FOR LIGHT MODE*/
 :root {
     --dark-blue: #587BB4;
     --light-blue: #F2F7FF;
@@ -18,14 +17,13 @@
 }
 
 
-/* COLOUR VARIABLES - FOR DARK MODE
-:root {
+:root dark {
     --dark-blue: #587BB4;
     --light-blue: #0F2940;
     --light-grey-background: #0F2940;
 
     --dark-grey-text: #D0DFF2;
-    --light-grey-text: #7394BF;
+    --light-grey-text: #D0DFF2;
 
     --button-hover: #D0DFF2;
     --box-shadow: rgba(255, 255, 255, 0.80);
@@ -35,5 +33,4 @@
     --box-shadow: rgba(136, 136, 136, 0.5);
 
     --white:#061726;
-}*/
-
+}
