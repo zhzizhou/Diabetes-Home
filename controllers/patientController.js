@@ -168,6 +168,20 @@ const getLogHistory = async(req, res) => {
         const patient = await Patient.findById(
             req.user._id
         ).lean()
+        var healthRecord = await HealthRecord.aggregate([{
+            $match: {
+                patientId: patient._id,
+                when: { $gte: moment().day(-7).toDate() }
+            }
+        }, {
+            $group: {
+                _id: { $dateToString: { format: "%d/%m", date: "$when" } },
+                list: { $push: { item: "$logItemId", value: "$value" } },
+                count: { $sum: 1 }
+            }
+        }, {
+            $sort: { _id: -1 }
+        }])
 
         if (!patient) {
             return res.sendStatus(404)
@@ -176,7 +190,8 @@ const getLogHistory = async(req, res) => {
         res.render('patient-log-history', {
             title: "Log History",
             layout: "patient-main",
-            thisPatient: patient
+            thisPatient: patient,
+            healthRecord: healthRecord,
         })
 
     } catch (err) {
