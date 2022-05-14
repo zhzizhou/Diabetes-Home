@@ -79,6 +79,9 @@ a.white-text {
 
 /*DASHBOARD*/
 
+.badge {
+    width: 2rem !important;
+}
 .top-page {
     display: flex;
     flex-direction: row;

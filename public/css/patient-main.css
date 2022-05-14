@@ -85,6 +85,9 @@ input:focus {
 
 /*MAIN PART OF THE MAGE*/
 
+.badge {
+    width: 5rem;
+}
 #blue-main-page {
     background-color: var(--light-blue);
     padding: 4rem;
