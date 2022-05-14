@@ -87,92 +87,24 @@
                 <span class="material-icons-round blue-text">arrow_back_ios</span>
                 <div class="page-title-icon checklist-title" id="ts-title">
                     <span class="data-icon material-icons-round blue-text">person</span>
-                    <h3 class="blue-text">Account</h3>
+                    <h3 class="blue-text">Change Nickname</h3>
                 </div>
             </div>
 
             <div>
                 <section id="blue-main-page">
                     <div class="inside-container">
-                        <div class="profile-pic-container">
-                            <h3>My profile picture</h3>
-                            <img class="profile-picture-display" src="/images/clinitian-profile-pic.svg"
-                                alt="profile picture">
-                            <h3 class="blue-text">Change profile picture</h3>
-                        </div>
-                        <ul class="details-container">
-                            <a href="../patient/changepassword">
-                                <div class="whitebox shadow detail-field space-between">
-                                <li>
-                                    <h3>Change My Password</h2>
-                                    </br>
-                                    <h3 class="blue-text">●●●●●●●</h3>
-                                </li>
-                                <div class="space-between">
-                                    <span class="material-icons-round blue-text">navigate_next</span>
-                                </div>
+                        <form method="post" id="UpdateNickname">
+                            <div class="floating">
+                                <input class="floating__input" id="newNickname" name="newNickname"
+                                    placeholder="New-Nickname" type="text" required>
+                                <label for="newNickname" class="floating__label" data-content="New NickName">
+                                    <span class="hidden--visually">Password</span>
+                                </label>
                             </div>
-                            </a>
                             
-                            <h3>My Account Details</h3>
-                            <a href="../patient/changenickname">
-                                <div class="whitebox shadow detail-field space-between">
-                                    <li>
-                                        <h3>Nickname</h2>
-                                            </br>
-                                            <h3 class="blue-text">{{thisPatient.nickName}}</h3>
-                                    </li>
-                                </div>
-                            </a>
-                            
-                            <div class="whitebox shadow detail-field space-between">
-                                <li>
-                                    <h3>First Name</h2>
-                                        </br>
-                                        <h3 class="blue-text">{{thisPatient.givenName}}</h3>
-                                </li>
-                            </div>
-                            <div class="whitebox shadow detail-field space-between">
-                                <li>
-                                    <h3>Last Name</h2>
-                                        </br>
-                                        <h3 class="blue-text">{{thisPatient.familyName}}</h3>
-                                </li>
-
-                            </div>
-                            <div class="whitebox shadow detail-field space-between">
-                                <li>
-                                    <h3>Gender</h3>
-                                    </br>
-                                    <h3 class="blue-text">{{thisPatient.gender}}</h3>
-                                </li>
-
-                            </div>
-                            <div class="whitebox shadow detail-field space-between">
-                                <li>
-                                    <h3>Email</h3>
-                                    </br>
-                                    <h3 class="blue-text">{{thisPatient.email}}</h3>
-                                </li>
-
-                            </div>
-                            <div class="whitebox shadow detail-field space-between">
-                                <li>
-                                    <h3>Birthday</h3>
-                                    </br>
-                                    <h3 class="blue-text">{{thisPatient.dateOfBirth}}</h3>
-                                </li>
-
-                            </div>
-                            <div class="whitebox shadow detail-field space-between">
-                                <li>
-                                    <h3>Mobile</h3>
-                                    </br>
-                                    <h3 class="blue-text">0{{thisPatient.mobile}}</h3>
-                                </li>
-
-                            </div>
-                        </ul>
+                            <button class="button">Update</button>
+                        </form>
                     </div>
                 </section>
             </div>

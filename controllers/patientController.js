@@ -317,6 +317,26 @@ const getChangePassword = async(req, res) =>{
     }
 }
 
+const getChangeNickname = async(req, res) => {
+    console.log("inside the change nickname page")
+    
+    try{
+        const patient = await Patient.findById(
+            req.user._id
+        ).lean()
+
+        if (!patient) {
+            return res.sendStatus(404)
+        }
+        return res.render('patient-change-nickname',{
+            layout: 'patient-changepassword',
+            thisPatient: patient
+        })
+    }catch(err){
+        return next(err)
+    }
+}
+
 const getEditPage = async(req, res) => {
     res.send('GET EditPage')
         //TODO
@@ -381,5 +401,6 @@ module.exports = {
     updateSettings,
     getLoginPage,
     patientLogin,
-    getChangePassword
+    getChangePassword,
+    getChangeNickname
 }
