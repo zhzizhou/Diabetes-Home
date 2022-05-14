@@ -1,4 +1,4 @@
-<body class="dashboard-body">
+<div class="ts-body" id="ts-body">
     <div id="responsive-nav" class="menu-container responsive-nav">
         <div class="responsive-nav-top">
             <img class="small-logo" src="/images/white-logo.svg" alt="">
@@ -32,66 +32,73 @@
 
         </div>
     </div>
-        <div class="responsive-nav responsive-nav-top">
-            <a href="index.html"><img class="small-logo" src="/images/logo.svg" alt=""></a>
-            <div onclick="openMenu()" class="square-menu">
-                <span class="material-icons-round blue-text" id="menu-opener">apps</span>
-            </div>
-        </div>
 
-        <div class="nav-placeholder">
-            <nav class="patient-nav">
-                <div class="nav-top">
-                    <img class="small-logo" src="/images/logo.svg" alt="">
-                    <div class="menu-item-layout">
-                        <img class="nav-profile-pic" src="/images/patient-profile-pic.svg" alt="profile picture">
-                        <h3>{{patient.nickName}} {{patient.familyName}}</h3>
-                    </div>
-                    <div class="menu-section">
-                        <a href="../../patient/home" class="menu-item-layout menu-item patient-menu">
-                            <span class="material-icons-round">check</span>
-                            <h3>My Checklist</h3>
-                        </a>
-                        <a href="../../patient/leaderboard" class="menu-item-layout patient-menu menu-item">
-                            <span class="material-icons">leaderboard</span>
-                            <h3>Leaderboard</h3>
-                        </a>
-                        <a href="../../patient/history" class="menu-item-layout menu-item patient-menu">
-                            <span class="material-icons">history</span>
-                            <h3>Log history</h3>
-                        </a>
-                    </div>
+   
+
+    <div class="nav-placeholder">
+        <nav class="patient-nav">
+            <div class="nav-top">
+                <img class="small-logo" src="/images/logo.svg" alt="">
+                <div class="menu-item-layout">
+                    <img class="nav-profile-pic" src="/images/patient-profile-pic.svg" alt="profile picture">
+                    <h3>{{thisPatient.nickName}} {{thisPatient.familyName}}</h3>
                 </div>
                 <div class="menu-section">
-                    <a href="../patient/profile" class="menu-item-layout menu-item patient-menu">
-                        <span class="material-icons">account_circle</span>
-                        <h3>Account</h3>
+                    <a href="../../patient/home" class="menu-item-layout menu-item patient-menu">
+                        <span class="material-icons-round">check</span>
+                        <h3>My Checklist</h3>
                     </a>
-                    <a href="../patient/settings" class="menu-item-layout menu-item selected">
-                        <span class="material-icons">settings</span>
-                        <h3>Settings</h3>
+                    <a href="../../patient/leaderboard" class="menu-item-layout menu-item patient-menu patient-menu">
+                        <span class="material-icons">leaderboard</span>
+                        <h3>Leaderboard</h3>
                     </a>
-                    <a href="/" class="menu-item-layout menu-item patient-menu">
-                        <span class="material-icons">help</span>
-                        <h3>Help</h3>
+                    <a href="../../patient/history" class="menu-item-layout menu-item patient-menu patient-menu">
+                        <span class="material-icons">history</span>
+                        <h3>Log history</h3>
                     </a>
                 </div>
-            </nav>
+            </div>
+            <div class="menu-section">
+                <a href="../patient/profile" class="menu-item-layout menu-item patient-menu">
+                    <span class="material-icons">account_circle</span>
+                    <h3>Account</h3>
+                </a>
+                <a href="../patient/settings" class="menu-item-layout menu-item selected">
+                    <span class="material-icons">settings</span>
+                    <h3>Settings</h3>
+                </a>
+                <a href="../patient/settings" class="menu-item-layout menu-item patient-menu">
+                    <span class="material-icons">help</span>
+                    <h3>Help</h3>
+                </a>
+            </div>
+        </nav>
+    </div>
+<main>
+    <div class="my-patient-container">
+        <div class="left-container">
+            <a href="../patient/home" class="back-button">
+                <span class="material-icons-round">arrow_back_ios</span>
+                <h4>Back</h4>
+            </a> 
+            <div class="my-patient-left">
+                <h1 class="page-title">Settings</h1>
+                <h3 class="form-heading">Color Theme Setting</h3>
+                    <div class="add-new-patient-form">
+                        
+                        <div class="floating wide-input non-type-input space-between">
+                            <h4 class="blue-text"><label for="gender">Color</label></h4>
+
+                            <select name="gender" id="gender">
+                            <option value="Male">Light</option>
+                            <option value="Female">Dark</option>
+                            </select>
+                        </div>
+                        
+                    </div>
+            </div>
         </div>
 
-        <main class="dashboard-container">
-
-            <div class="dashboard-right">
-                <div class="top-page">
-                    <h1 class="page-title">Settings</h1>
-                    
-                </div>
-
-
-
-            </div>
-
-        </main>
-
     </div>
-</body>
+   
+</main>
