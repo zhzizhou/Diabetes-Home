@@ -10,6 +10,7 @@ const getHome = async(req, res) => {
     //return res.render("patient-dashboard")
     console.log("GET Patient Dashboard Home page")
     var pID = req.user._id
+    var badge;
 
     try {
         // found hardcoded doctor and patient
@@ -17,6 +18,12 @@ const getHome = async(req, res) => {
         const doctor = await Doctor.findById(patient.clinicianId).lean()
         if (!patient || !doctor) {
             return res.sendStatus(404)
+        }
+
+        if (patient.engagementRate >= 80) {
+            badge = "badge-filled"
+        } else {
+            badge = "badge"
         }
 
         var latestLog1 = null
@@ -63,15 +70,15 @@ const getHome = async(req, res) => {
                 log4Time = moment(allhealth[i].when).format('D/M/YY H:mm:ss')
                 continue
             }
-        } 
+        }
 
         // latest support message
         const notes = await clinicianNote.find({
             patientId: pID,
             clinicianId: patient.clinicianId
-        }).sort({when: -1}).limit(1).lean()
+        }).sort({ when: -1 }).limit(1).lean()
 
-        for (let j=0; j< notes.length; j++){
+        for (let j = 0; j < notes.length; j++) {
             notes[j].when = moment(notes[j].when).format('D/M/YY H:mm:ss')
         }
         console.log(notes[0])
@@ -80,6 +87,7 @@ const getHome = async(req, res) => {
         return res.render('patient-dashboard', {
             layout: 'patient-main',
             title: "Dashboard",
+            badge: badge,
             patient: patient,
             doctor: doctor,
             log1: latestLog1,
@@ -297,10 +305,10 @@ const getProfile = async(req, res) => {
         return next(err)
     }
 }
-const getChangePassword = async(req, res) =>{
+const getChangePassword = async(req, res) => {
     console.log("inside the change password page")
-    
-    try{
+
+    try {
         const patient = await Patient.findById(
             req.user._id
         ).lean()
@@ -308,19 +316,19 @@ const getChangePassword = async(req, res) =>{
         if (!patient) {
             return res.sendStatus(404)
         }
-        return res.render('patient-change-psw',{
+        return res.render('patient-change-psw', {
             layout: 'patient-changepassword',
             thisPatient: patient
         })
-    }catch(err){
+    } catch (err) {
         return next(err)
     }
 }
 
 const getChangeNickname = async(req, res) => {
     console.log("inside the change nickname page")
-    
-    try{
+
+    try {
         const patient = await Patient.findById(
             req.user._id
         ).lean()
@@ -328,11 +336,11 @@ const getChangeNickname = async(req, res) => {
         if (!patient) {
             return res.sendStatus(404)
         }
-        return res.render('patient-change-nickname',{
+        return res.render('patient-change-nickname', {
             layout: 'patient-changepassword',
             thisPatient: patient
         })
-    }catch(err){
+    } catch (err) {
         return next(err)
     }
 }
