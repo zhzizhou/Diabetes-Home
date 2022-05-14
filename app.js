@@ -20,9 +20,7 @@ app.engine(
     exphbs.engine({
         defaultlayout: 'main',
         extname: 'hbs',
-        helpers: {
-            have: x => x != "null"
-        }
+        helpers: require('./utils/handlebars-helpers')
     })
 )
 

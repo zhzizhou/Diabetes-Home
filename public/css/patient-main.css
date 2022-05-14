@@ -460,11 +460,9 @@ input.enter-data-box:hover {
 }
 
 .centre-flex {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 40rem;
+    display: grid;
+    width: 100vh;
+    justify-items: center;
 }
 
 input::-webkit-outer-spin-button,
@@ -485,8 +483,25 @@ input[type=number] {
 }
 
 #log-history-date {
-    margin-bottom: 1rem;
-    margin-left: 24rem;
+    padding-bottom: 2rem;
+}
+
+.loghistory-grid{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.loghistory-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.log-value-grid{
+    display: grid;
+    justify-items: start;
 }
 
 
@@ -826,5 +841,9 @@ input[type=number] {
 
     #blue-main-page {
         padding: 4rem 0 4rem 0;
+    }
+
+    .loghistory-grid{
+        grid-template-columns: repeat(1,1fr);
     }
 }
