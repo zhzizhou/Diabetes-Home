@@ -4,6 +4,7 @@ const Patient = require('../models/patient')
 const Doctor = require('../models/clinician')
 const moment = require('moment')
 const expressValidator = require('express-validator')
+const clinicianNote = require('../models/clinicianNote')
 
 const getHome = async(req, res) => {
     //return res.render("patient-dashboard")
@@ -62,7 +63,18 @@ const getHome = async(req, res) => {
                 log4Time = moment(allhealth[i].when).format('D/M/YY H:mm:ss')
                 continue
             }
+        } 
+
+        // latest support message
+        const notes = await clinicianNote.find({
+            patientId: pID,
+            clinicianId: patient.clinicianId
+        }).sort({when: -1}).limit(1).lean()
+
+        for (let j=0; j< notes.length; j++){
+            notes[j].when = moment(notes[j].when).format('D/M/YY H:mm:ss')
         }
+        console.log(notes[0])
 
         // render hbs page
         return res.render('patient-dashboard', {
@@ -77,8 +89,8 @@ const getHome = async(req, res) => {
             log1time: log1Time,
             log2time: log2Time,
             log3time: log3Time,
-            log4time: log4Time
-
+            log4time: log4Time,
+            note: notes[0]
         })
 
     } catch (err) {

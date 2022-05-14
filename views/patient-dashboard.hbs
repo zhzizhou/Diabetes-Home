@@ -94,9 +94,13 @@
                                     alt="profile picture">
                                 <p>Dr. {{doctor.familyName}}</p>
                             </div>
-                            <p class="p-dark doctor-comment">“Hi {{patient.givenName}}, great day for exercising today!
-                                Keep up the good work
-                                😊.”</p>
+                            {{#if note}}
+                            <p class="p-dark doctor-comment">{{note.content}}</p>
+                            {{else}}
+                            <p class="p-dark doctor-comment">“Hi {{patient.givenName}}, great day for exercising today!, No message from the clinician
+                                Keep up the good work 😊.”
+                            </p>
+                            {{/if}}
                             {{!-- <p class="p-dark doctor-comment">{{message}}”</p> --}}
                         </div>
 
