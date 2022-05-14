@@ -4,11 +4,13 @@ const Patient = require('../models/patient')
 const Doctor = require('../models/clinician')
 const moment = require('moment')
 const expressValidator = require('express-validator')
+const clinicianNote = require('../models/clinicianNote')
 
 const getHome = async(req, res) => {
     //return res.render("patient-dashboard")
     console.log("GET Patient Dashboard Home page")
     var pID = req.user._id
+    var badge;
 
     try {
         // found hardcoded doctor and patient
@@ -16,6 +18,12 @@ const getHome = async(req, res) => {
         const doctor = await Doctor.findById(patient.clinicianId).lean()
         if (!patient || !doctor) {
             return res.sendStatus(404)
+        }
+
+        if (patient.engagementRate >= 80) {
+            badge = "badge-filled"
+        } else {
+            badge = "badge"
         }
 
         var latestLog1 = null
@@ -64,10 +72,22 @@ const getHome = async(req, res) => {
             }
         }
 
+        // latest support message
+        const notes = await clinicianNote.find({
+            patientId: pID,
+            clinicianId: patient.clinicianId
+        }).sort({ when: -1 }).limit(1).lean()
+
+        for (let j = 0; j < notes.length; j++) {
+            notes[j].when = moment(notes[j].when).format('D/M/YY H:mm:ss')
+        }
+        console.log(notes[0])
+
         // render hbs page
         return res.render('patient-dashboard', {
             layout: 'patient-main',
             title: "Dashboard",
+            badge: badge,
             patient: patient,
             doctor: doctor,
             log1: latestLog1,
@@ -77,8 +97,8 @@ const getHome = async(req, res) => {
             log1time: log1Time,
             log2time: log2Time,
             log3time: log3Time,
-            log4time: log4Time
-
+            log4time: log4Time,
+            note: notes[0]
         })
 
     } catch (err) {
@@ -300,6 +320,45 @@ const getProfile = async(req, res) => {
         return next(err)
     }
 }
+const getChangePassword = async(req, res) => {
+    console.log("inside the change password page")
+
+    try {
+        const patient = await Patient.findById(
+            req.user._id
+        ).lean()
+
+        if (!patient) {
+            return res.sendStatus(404)
+        }
+        return res.render('patient-change-psw', {
+            layout: 'patient-changepassword',
+            thisPatient: patient
+        })
+    } catch (err) {
+        return next(err)
+    }
+}
+
+const getChangeNickname = async(req, res) => {
+    console.log("inside the change nickname page")
+
+    try {
+        const patient = await Patient.findById(
+            req.user._id
+        ).lean()
+
+        if (!patient) {
+            return res.sendStatus(404)
+        }
+        return res.render('patient-change-nickname', {
+            layout: 'patient-changepassword',
+            thisPatient: patient
+        })
+    } catch (err) {
+        return next(err)
+    }
+}
 
 const getEditPage = async(req, res) => {
     res.send('GET EditPage')
@@ -323,11 +382,10 @@ const getSettings = async(req, res) => {
         }
         //found patient
         return res.render('patient-setting', {
-            layout: "patient-main",
+            layout: "patient-settingLayout",
             thisTitle: "Settings",
             patient: patient,
             icon: "bloodtype"
-
         })
 
     } catch (err) {
@@ -366,4 +424,6 @@ module.exports = {
     updateSettings,
     getLoginPage,
     patientLogin,
+    getChangePassword,
+    getChangeNickname
 }

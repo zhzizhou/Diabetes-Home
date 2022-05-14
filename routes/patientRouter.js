@@ -5,7 +5,10 @@ const patientController = require('../controllers/patientController')
 
 const isAuthenticated = (req, res, next) => {
     if (!req.isAuthenticated()) {
-        return res.redirect('login')
+        return res.redirect('/patient/login')
+    }
+    if(req.user.clinicianId === undefined){
+        return res.redirect('/patient/login')
     }
     return next()
 }
@@ -56,5 +59,8 @@ patientRouter.get('/settings', isAuthenticated, patientController.getSettings)
 //update new settings
 patientRouter.put('/settings', isAuthenticated, patientController.updateSettings)
 
-
+//update patient's password
+patientRouter.get('/changepassword', isAuthenticated, patientController.getChangePassword)
+//update patient's nickname
+patientRouter.get('/changenickname', isAuthenticated, patientController.getChangeNickname)
 module.exports = patientRouter

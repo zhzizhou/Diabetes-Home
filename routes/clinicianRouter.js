@@ -1,11 +1,15 @@
 const express = require('express')
+const { body } = require('express-validator')
 const clinicianRouter = express.Router()
 const passport = require('passport')
 const clinicianController = require('../controllers/clinicianController')
 
 const isAuthenticated = (req, res, next) => {
     if (!req.isAuthenticated()) {
-        return res.redirect('login')
+        return res.redirect('/clinician/login')
+    }
+    if (req.user.clinicianId !== undefined) {
+        return res.redirect('/clinician/login')
     }
     return next()
 }
@@ -51,10 +55,15 @@ clinicianRouter.get('/register', clinicianController.getRegisterPage)
 clinicianRouter.post('/register', clinicianController.registerClinician)
 
 //display add patient page
-clinicianRouter.get('/new-patient', isAuthenticated, clinicianController.getNewPatientPage)
+clinicianRouter.get('/new-patient',
+    isAuthenticated,
+    clinicianController.getNewPatientPage)
 
 //add a new patient
-clinicianRouter.post('/new-patient', isAuthenticated, clinicianController.addNewPatient)
+clinicianRouter.post('/new-patient',
+    isAuthenticated,
+    body('password', 'must be at least 8 characters long').isLength({ min: 8 }).escape(),
+    clinicianController.addNewPatient)
 
 //display my patient page
 clinicianRouter.get('/my-patient', isAuthenticated, clinicianController.getMyPatientPage)
