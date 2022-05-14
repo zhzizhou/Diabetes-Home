@@ -4,17 +4,17 @@ const Patient = require('../models/patient')
 const Doctor = require('../models/clinician')
 const moment = require('moment')
 const expressValidator = require('express-validator')
+const clinicianNote = require('../models/clinicianNote')
 
 const getHome = async(req, res) => {
     //return res.render("patient-dashboard")
     console.log("GET Patient Dashboard Home page")
-    var pID = "625e1e3d67c164c3d21e5bce" // Pat hardcoded
-    var dID = "625e240b01e5ce1b9ef808e9" // doctor smith hardcoded
+    var pID = req.user._id
 
     try {
         // found hardcoded doctor and patient
         const patient = await Patient.findById(pID).lean()
-        const doctor = await Doctor.findById(dID).lean()
+        const doctor = await Doctor.findById(patient.clinicianId).lean()
         if (!patient || !doctor) {
             return res.sendStatus(404)
         }
@@ -63,7 +63,18 @@ const getHome = async(req, res) => {
                 log4Time = moment(allhealth[i].when).format('D/M/YY H:mm:ss')
                 continue
             }
+        } 
+
+        // latest support message
+        const notes = await clinicianNote.find({
+            patientId: pID,
+            clinicianId: patient.clinicianId
+        }).sort({when: -1}).limit(1).lean()
+
+        for (let j=0; j< notes.length; j++){
+            notes[j].when = moment(notes[j].when).format('D/M/YY H:mm:ss')
         }
+        console.log(notes[0])
 
         // render hbs page
         return res.render('patient-dashboard', {
@@ -78,8 +89,8 @@ const getHome = async(req, res) => {
             log1time: log1Time,
             log2time: log2Time,
             log3time: log3Time,
-            log4time: log4Time
-
+            log4time: log4Time,
+            note: notes[0]
         })
 
     } catch (err) {
@@ -99,9 +110,9 @@ const getLeaderboard = async(req, res) => {
 
         var myResult = null
 
-        for(let i = 0; i < allPatient.length; i++){
+        for (let i = 0; i < allPatient.length; i++) {
             var healthRecord = await HealthRecord.aggregate([{
-                $match: {patientId: allPatient[i]._id}
+                $match: { patientId: allPatient[i]._id }
             }, {
                 $group: {
                     _id: { $dateToString: { format: "%d/%m", date: "$when" } }
@@ -114,7 +125,7 @@ const getLeaderboard = async(req, res) => {
             allPatient[i]['engagementRate'] = Math.round(engageRate)
 
 
-            if(req.user._id.equals(allPatient[i]._id)){
+            if (req.user._id.equals(allPatient[i]._id)) {
                 allPatient[i].nickName = 'ME'
                 myResult = allPatient[i]
             }
@@ -122,10 +133,10 @@ const getLeaderboard = async(req, res) => {
 
         allPatient.sort((x, y) => { return y.engagementRate - x.engagementRate })
         var mypos = allPatient.indexOf(myResult)
-        if(mypos >= 5){
+        if (mypos >= 5) {
             myResult['rank'] = mypos
         }
-        var topPatient = allPatient.slice(0,5)
+        var topPatient = allPatient.slice(0, 5)
 
         return res.render('patient-leaderboard', {
             self: myResult,
@@ -133,7 +144,7 @@ const getLeaderboard = async(req, res) => {
             title: "Leaderboard",
             layout: "patient-main",
             helpers: {
-                inc: function (value, options) {
+                inc: function(value, options) {
                     return parseInt(value) + 1;
                 }
             }
@@ -147,7 +158,7 @@ const getLeaderboard = async(req, res) => {
 const getLogHistory = async(req, res) => {
     try {
         const patient = await Patient.findById(
-            '625e1e3d67c164c3d21e5bce'
+            req.user._id
         ).lean()
 
         if (!patient) {
@@ -165,20 +176,19 @@ const getLogHistory = async(req, res) => {
     }
 
 
-    
+
 }
 
 const getLogPage = async(req, res) => {
     console.log('GET Patient LogPage')
 
-    var pID = "625e1e3d67c164c3d21e5bce"
+    var pID = req.user._id
 
     var logName
     var logIcon
     var placeHolder
     var enterType
 
-    //Problem : Melbourne Time?
     var when = moment(new Date()).format('D/M/YY H:mm:ss')
 
     if (req.params.id != '') {
@@ -248,7 +258,7 @@ const insertLog = async(req, res) => {
      * patient/log/4 BLOOD GLUCOSE LEVEL
      */
 
-    var pID = "625e1e3d67c164c3d21e5bce"
+    var pID = req.user._id
 
 
     const newHealthRecord = new HealthRecord({
@@ -270,7 +280,7 @@ const insertLog = async(req, res) => {
 const getProfile = async(req, res) => {
     try {
         const patient = await Patient.findById(
-            '625e1e3d67c164c3d21e5bce'
+            req.user._id
         ).lean()
 
         if (!patient) {
@@ -302,18 +312,18 @@ const getSettings = async(req, res) => {
     console.log("Inside get settings")
     try {
         const patient = await Patient.findById(
-            '625e1e3d67c164c3d21e5bce'
+            req.user._id
         ).lean()
 
         if (!patient) {
             return res.sendStatus(404)
         }
         //found patient
-        return res.render('patient-setting',{
-            layout:"patient-main",
+        return res.render('patient-setting', {
+            layout: "patient-main",
             thisTitle: "Settings",
             patient: patient,
-            icon:"bloodtype"
+            icon: "bloodtype"
 
         })
 

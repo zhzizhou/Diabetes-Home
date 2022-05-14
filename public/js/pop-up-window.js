@@ -81,3 +81,4 @@ function ValidateEmail(inputText) {
     return false;
   }
 }
+//document.getElementById("open").click();
