@@ -8,7 +8,7 @@ const utility = require('../utils/utils')
 const moment = require('moment')
 const { format } = require('express/lib/response')
 
-const getHome = async (req, res) => {
+const getHome = async(req, res) => {
     var cId = req.user._id
     var currentId
     var healthRecord
@@ -43,13 +43,13 @@ const getHome = async (req, res) => {
                 }
             }, {}).lean()
             alerts += 4 - healthRecord.length
-            //if the item is not activated then do not alert
+                //if the item is not activated then do not alert
             patients[i].timeSeries.forEach(element => {
-                if (!element.activated) {
-                    alerts--
-                }
-            })
-            //inject the log into patient's timeSeries by logId
+                    if (!element.activated) {
+                        alerts--
+                    }
+                })
+                //inject the log into patient's timeSeries by logId
             for (let j = 0; j < healthRecord.length; j++) {
                 logItemId = healthRecord[j].logItemId - 1
                 healthRecord[j].when = moment(healthRecord[j].when).format('D/M/YY H:mm:ss')
@@ -59,7 +59,7 @@ const getHome = async (req, res) => {
                 var val = healthRecord[j].value
                 var upper = patients[i].timeSeries[logItemId].upperLimit
                 var lower = patients[i].timeSeries[logItemId].lowerLimit
-                //check if the value out of threshold
+                    //check if the value out of threshold
                 if (val > upper || val < lower) {
                     alerts++;
                     healthRecord[j]['alert'] = true
@@ -81,7 +81,7 @@ const getHome = async (req, res) => {
     }
 }
 
-const getProfile = async (req, res) => {
+const getProfile = async(req, res) => {
     try {
         const clinician = await Clinician.findById(
             req.user._id
@@ -102,17 +102,17 @@ const getProfile = async (req, res) => {
     }
 }
 
-const getEditPage = async (req, res) => {
+const getEditPage = async(req, res) => {
     res.send('GET EditPage')
-    //TODO
+        //TODO
 }
 
-const updateProfile = async (req, res) => {
+const updateProfile = async(req, res) => {
     res.send('PUT updateProfile')
-    //TODO
+        //TODO
 }
 
-const getSettings = async (req, res) => {
+const getSettings = async(req, res) => {
     try {
         const clinician = await Clinician.findById(
             // req.params.clinician_id
@@ -132,17 +132,17 @@ const getSettings = async (req, res) => {
     }
 }
 
-const updateSettings = async (req, res) => {
+const updateSettings = async(req, res) => {
     res.send('PUT Settings')
-    //TODO
+        //TODO
 }
 
-const getRegisterPage = async (req, res) => {
+const getRegisterPage = async(req, res) => {
     res.send('Patient')
-    //TODO
+        //TODO
 }
 
-const registerClinician = async (req, res) => {
+const registerClinician = async(req, res) => {
     console.log(req.body)
     try {
         const newClinician = new Clinician({
@@ -165,7 +165,7 @@ const registerClinician = async (req, res) => {
     }
 }
 
-const getNewPatientPage = async (req, res) => {
+const getNewPatientPage = async(req, res) => {
     try {
         const clinician = await Clinician.findById(
             req.user._id
@@ -186,32 +186,32 @@ const getNewPatientPage = async (req, res) => {
     }
 }
 
-const addNewPatient = async (req, res) => {
+const addNewPatient = async(req, res) => {
     var clinicianId = req.user._id
     var password
 
     console.log(req.body)
     try {
         var defaultTimeSeries = [{
-            logItem: 'Weight',
-            lowerLimit: 60,
-            upperLimit: 80,
-        },
-        {
-            logItem: 'Insulin Doses',
-            lowerLimit: 1,
-            upperLimit: 2,
-        },
-        {
-            logItem: 'Exercise Steps',
-            lowerLimit: 5000,
-            upperLimit: 15000,
-        },
-        {
-            logItem: 'Blood Glucose Level',
-            lowerLimit: 7.8,
-            upperLimit: 11.3,
-        },
+                logItem: 'Weight',
+                lowerLimit: 60,
+                upperLimit: 80,
+            },
+            {
+                logItem: 'Insulin Doses',
+                lowerLimit: 1,
+                upperLimit: 2,
+            },
+            {
+                logItem: 'Exercise Steps',
+                lowerLimit: 5000,
+                upperLimit: 15000,
+            },
+            {
+                logItem: 'Blood Glucose Level',
+                lowerLimit: 7.8,
+                upperLimit: 11.3,
+            },
         ]
 
         if (!req.body.password) {
@@ -219,41 +219,42 @@ const addNewPatient = async (req, res) => {
         } else {
             password = req.body.password
         }
-    
+
         var emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        console.log(req.body.email.value.match(emailformat))
-        if (!req.body.email.value.match(emailformat)) {
-            res.send("<script> alert('invali email');\
-            window.location.href='home'; </script>")
+        var email = req.body.email
+        if (!emailformat.test(email)) {
+            res.send("<script> alert('invalid email');\
+            window.location.href='new-patient'; </script>")
+        } else {
+            const newPatient = new Patient({
+                givenName: req.body.givenName,
+                familyName: req.body.familyName,
+                password: password,
+                email: req.body.email,
+                mobile: req.body.mobile,
+                profilePicture: 'defaultPic',
+                nickName: req.body.givenName,
+                gender: req.body.gender,
+                engagementRate: 100,
+                diabeteType: req.body.diabeteType,
+                darkMode: false,
+                dateOfBirth: req.body.dateOfBirth,
+                clinicianId: clinicianId,
+                timeSeries: defaultTimeSeries,
+            })
+
+            await newPatient.save()
+            res.send("<script> alert('Add new patient successfully');\
+                window.location.href='home'; </script>")
+
         }
-
-        const newPatient = new Patient({
-            givenName: req.body.givenName,
-            familyName: req.body.familyName,
-            password: password,
-            email: req.body.email,
-            mobile: req.body.mobile,
-            profilePicture: 'defaultPic',
-            nickName: req.body.givenName,
-            gender: req.body.gender,
-            engagementRate: 100,
-            diabeteType: req.body.diabeteType,
-            darkMode: false,
-            dateOfBirth: req.body.dateOfBirth,
-            clinicianId: clinicianId,
-            timeSeries: defaultTimeSeries,
-        })
-
-        await newPatient.save()
-        res.send("<script> alert('Add new patient successfully');\
-            window.location.href='home'; </script>")
     } catch {
         res.send("<script> alert('add new patient Fail');\
             window.location.href='home'; </script>")
     }
 }
 
-const getMyPatientPage = async (req, res) => {
+const getMyPatientPage = async(req, res) => {
     var cId = req.user._id
     var saveQuery = {
         'male': true,
@@ -291,7 +292,7 @@ const getMyPatientPage = async (req, res) => {
     }
 }
 
-const searchPatient = async (req, res) => {
+const searchPatient = async(req, res) => {
     console.log(req.body)
     var query = {}
     var saveQuery = {}
@@ -341,12 +342,12 @@ const searchPatient = async (req, res) => {
         const clinician = await Clinician.findById(req.user._id).lean()
         const result = await Patient.find(
             query, {
-            givenName: true,
-            familyName: true,
-            dateOfBirth: true,
-            diabeteType: true,
-            gender: true
-        }
+                givenName: true,
+                familyName: true,
+                dateOfBirth: true,
+                diabeteType: true,
+                gender: true
+            }
         ).lean()
         var totalPatient = result.length
         for (let i = 0; i < totalPatient; i++) {
@@ -365,7 +366,7 @@ const searchPatient = async (req, res) => {
     }
 }
 
-const getOnePatientPage = async (req, res) => {
+const getOnePatientPage = async(req, res) => {
     var cId = req.user._id
 
     try {
@@ -393,7 +394,7 @@ const getOnePatientPage = async (req, res) => {
     }
 }
 
-const getSupportPage = async (req, res) => {
+const getSupportPage = async(req, res) => {
     var cId = req.user._id
     var when = moment(new Date()).format('D/M/YY H:mm:ss')
 
@@ -423,7 +424,7 @@ const getSupportPage = async (req, res) => {
     }
 }
 
-const addSupport = async (req, res) => {
+const addSupport = async(req, res) => {
     var cID = req.user._id
 
     console.log(req.body)
@@ -443,7 +444,7 @@ const addSupport = async (req, res) => {
     }
 }
 
-const getNotesPage = async (req, res) => {
+const getNotesPage = async(req, res) => {
     var cId = req.user._id
     var when = moment(new Date()).format('D/M/YY H:mm:ss')
 
@@ -515,7 +516,7 @@ const getNotesPage = async (req, res) => {
     // }
 }
 
-const addNotes = async (req, res) => {
+const addNotes = async(req, res) => {
     var cId = req.user._id
 
     console.log(req.body)
@@ -569,7 +570,7 @@ const addNotes = async (req, res) => {
     // }
 }
 
-const getTimeSeriesPage = async (req, res) => {
+const getTimeSeriesPage = async(req, res) => {
     const pid = req.params.id
     try {
         const clinician = await Clinician.findById(
@@ -595,7 +596,7 @@ const getTimeSeriesPage = async (req, res) => {
     }
 }
 
-const updateTimeSeries = async (req, res) => {
+const updateTimeSeries = async(req, res) => {
     var newTimeSeries = []
     for (let i = 0; i < 4; i++) {
         var lower = Number(req.body.lowerLimit[i])
@@ -628,7 +629,7 @@ const updateTimeSeries = async (req, res) => {
     }
 }
 
-const getPatientDetail = async (req, res) => {
+const getPatientDetail = async(req, res) => {
     var cId = req.user._id
     try {
         const clinician = await Clinician.findById(
@@ -636,7 +637,7 @@ const getPatientDetail = async (req, res) => {
         ).lean()
         const patient = await Patient.findById(req.params.id).lean()
         patient.age = utility.getAge(patient.dateOfBirth)
-        //search all health record group by date in descending order
+            //search all health record group by date in descending order
         var healthRecord = await HealthRecord.aggregate([{
             $match: {
                 patientId: patient._id,
@@ -721,17 +722,17 @@ const getPatientDetail = async (req, res) => {
 }
 
 
-const getEditPatientPage = async (req, res) => {
+const getEditPatientPage = async(req, res) => {
     res.send('GET EditPatientPage')
-    //TODO
+        //TODO
 }
 
-const updatePatientDetail = async (req, res) => {
+const updatePatientDetail = async(req, res) => {
     res.send('POST updatePatientDetail')
-    //TODO
+        //TODO
 }
 
-const getLoginPage = async (req, res) => {
+const getLoginPage = async(req, res) => {
     res.render('clinician-login', {
         flash: req.flash('error'),
         title: "Clinician login",
@@ -739,7 +740,7 @@ const getLoginPage = async (req, res) => {
     })
 }
 
-const clinicianLogin = async (req, res) => {
+const clinicianLogin = async(req, res) => {
     res.redirect("/clinician/home")
 }
 
