@@ -1,17 +1,13 @@
-const getAge = (date) => {
-    var day = date.split("/")[0]
-    var month = date.split("/")[1]
-    var year = date.split("/")[2]
-
-    var today = new Date()
-    var age = today.getFullYear() - year - 1
-    if(month < today.getMonth() + 1){
-        age++
-    }else if(month === today.getMonth() + 1 && day <= today.getDate()){
-        age++
+const getAge = (dateString) => {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) 
+    {
+        age--;
     }
-
-    return age
+    return age;
 }
 
 module.exports = {getAge}

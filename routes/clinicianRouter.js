@@ -62,7 +62,8 @@ clinicianRouter.get('/new-patient',
 //add a new patient
 clinicianRouter.post('/new-patient',
     isAuthenticated,
-    body('password', 'must be at least 8 characters long').isLength({ min: 8 }).escape(),
+    body('password', 'must be at least 5 characters long').isLength({ min: 5 }).escape(),
+    body('email', 'must be an email address').isEmail().escape(),
     clinicianController.addNewPatient)
 
 //display my patient page
