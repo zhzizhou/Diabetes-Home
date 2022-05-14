@@ -7,6 +7,7 @@ const expressValidator = require('express-validator')
 const utility = require('../utils/utils')
 const moment = require('moment')
 const { format } = require('express/lib/response')
+const { body } = require('express-validator')
 
 const getHome = async(req, res) => {
     var cId = req.user._id
@@ -213,6 +214,8 @@ const addNewPatient = async(req, res) => {
             password = req.body.password
         }
 
+        req.body('password', 'must be at least 8 characters long').isLength({ min: 8 }).escape()
+
         var emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         var email = req.body.email
         if (!emailformat.test(email)) {
@@ -241,9 +244,10 @@ const addNewPatient = async(req, res) => {
                 window.location.href='home'; </script>")
 
         }
-    } catch {
-        res.send("<script> alert('add new patient Fail');\
-            window.location.href='home'; </script>")
+    } catch (err) {
+        res.send(err)
+            // res.send("<script> alert('add new patient Fail');\
+            //     window.location.href='home'; </script>")
     }
 }
 

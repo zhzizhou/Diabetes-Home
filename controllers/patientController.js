@@ -297,6 +297,25 @@ const getProfile = async(req, res) => {
         return next(err)
     }
 }
+const getChangePassword = async(req, res) =>{
+    console.log("inside the change password page")
+    
+    try{
+        const patient = await Patient.findById(
+            req.user._id
+        ).lean()
+
+        if (!patient) {
+            return res.sendStatus(404)
+        }
+        return res.render('patient-change-psw',{
+            layout: 'patient-changepassword',
+            thisPatient: patient
+        })
+    }catch(err){
+        return next(err)
+    }
+}
 
 const getEditPage = async(req, res) => {
     res.send('GET EditPage')
@@ -320,11 +339,10 @@ const getSettings = async(req, res) => {
         }
         //found patient
         return res.render('patient-setting', {
-            layout: "patient-main",
+            layout: "patient-settingLayout",
             thisTitle: "Settings",
             patient: patient,
             icon: "bloodtype"
-
         })
 
     } catch (err) {
@@ -363,4 +381,5 @@ module.exports = {
     updateSettings,
     getLoginPage,
     patientLogin,
+    getChangePassword
 }
