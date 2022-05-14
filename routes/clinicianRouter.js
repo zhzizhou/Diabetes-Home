@@ -5,10 +5,10 @@ const clinicianController = require('../controllers/clinicianController')
 
 const isAuthenticated = (req, res, next) => {
     if (!req.isAuthenticated()) {
-        return res.redirect('login')
+        return res.redirect('/clinician/login')
     }
     if(req.user.clinicianId !== undefined){
-        return res.redirect('login')
+        return res.redirect('/clinician/login')
     }
     return next()
 }
