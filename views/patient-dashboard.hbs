@@ -91,7 +91,10 @@
             <div class="dashboard-right">
                 <div class="top-page">
                     <h1 class="page-title">Welcome Back, {{patient.nickName}}</h1>
+                    {{#if (showbadge engagement)}}
                     <img class="badge" src="/images/{{badge}}.svg" alt="">
+                    {{else}}
+                    {{/if}}
                 </div>
 
                 <div class="main-content space-between">
@@ -115,7 +118,7 @@
                         <div class="my-stats">
                             <h4>My Stats</h4>
                             <div>
-                                <h3>{{patient.engagementRate}}%</h3>
+                                <h3>{{engagement}}%</h3>
                                 <p>Engagement Rate</p>
                             </div>
                             <a href="../../patient/leaderboard" class="blue-text">View Leaderboard</a>

@@ -40,7 +40,7 @@ const getHome = async(req, res) => {
         // retrive lastest healthRecord from the database and do implementation
 
         const allhealth = await HealthRecord.find({
-            patientId: pID,
+            patientId: patient._id,
             when: {
                 $gte: new Date(now.getFullYear(), now.getMonth(), now.getDate())
             }
@@ -82,6 +82,26 @@ const getHome = async(req, res) => {
             notes[j].when = moment(notes[j].when).format('D/M/YY H:mm:ss')
         }
         console.log(notes[0])
+        // get engagement rate
+
+        var healthRecord = await HealthRecord.aggregate([{
+            $match: { patientId: patient._id}
+        }, {
+            $group: {
+                _id: { $dateToString: { format: "%d/%m", date: "$when" } }
+            }
+        }])
+
+
+        var now = moment()
+        var registerDate = moment(patient.registerDate)
+        var days = now.diff(registerDate, 'days') + 1
+        var engageRate = Math.round(healthRecord.length / days * 100)
+        console.log("healthrecord" + healthRecord.length)
+        console.log("days:" + days)
+        console.log("engegemtn" + engageRate)
+
+
 
         // render hbs page
         return res.render('patient-dashboard', {
@@ -98,7 +118,16 @@ const getHome = async(req, res) => {
             log2time: log2Time,
             log3time: log3Time,
             log4time: log4Time,
-            note: notes[0]
+            note: notes[0],
+            engagement: engageRate,
+            helpers: {
+                showbadge: function(engagement){
+                    if(engagement >= 80){
+                        return true
+                    }
+                    return false
+                }
+            }
         })
 
     } catch (err) {
