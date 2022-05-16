@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="375" height="260.403" viewBox="0 0 375 260.403">
+  <g id="Group_361" data-name="Group 361" transform="translate(0 -66)">
+    <g id="Group_14" data-name="Group 14" transform="translate(0 -89.5)">
+      <rect id="Rectangle_31" data-name="Rectangle 31" width="375" height="223" transform="translate(0 155.5)" fill="#f2f7ff"/>
+    </g>
+    <path id="Path_297" data-name="Path 297" d="M110.638,400.2h55.171V371.36h24.6v9.331H244.7v8.619h17.814V343.367h59.379v35.627h60.227v24.6H430.47V373.481h54.072v92.886h-373.9Z" transform="translate(-110.638 -177.741)" fill="#e3f1ff"/>
+    <g id="Group_78" data-name="Group 78" transform="translate(39.482 -15.905)">
+      <path id="Icon_feather-star" data-name="Icon feather-star" d="M36.894,3,47.367,24.218l23.421,3.423L53.841,44.147l4,23.319L36.894,56.451,15.947,67.466l4-23.319L3,27.641l23.421-3.423Z" transform="translate(107.251 153.022)" fill="#c7ddff"/>
+      <g id="Icon_ionic-md-podium" data-name="Icon ionic-md-podium" transform="translate(66.543 232.037)">
+        <path id="Path_298" data-name="Path 298" d="M2.25,15.75H51.26V89.264H2.25Z" transform="translate(-2.25 21.007)" fill="#c7ddff"/>
+        <path id="Path_299" data-name="Path 299" d="M13.5,9H62.51V119.271H13.5Z" transform="translate(47.762 -9)" fill="#c7ddff"/>
+        <path id="Path_300" data-name="Path 300" d="M24.75,20.25H73.76V69.26H24.75Z" transform="translate(97.494 41.012)" fill="#c7ddff"/>
+      </g>
+      <g id="Icon_ionic-md-podium-2" data-name="Icon ionic-md-podium" transform="translate(58.518 225.617)">
+        <path id="Path_298-2" data-name="Path 298" d="M2.25,15.75H51.26V89.264H2.25Z" transform="translate(-2.25 21.007)" fill="#587bb4"/>
+        <path id="Path_299-2" data-name="Path 299" d="M13.5,9H62.51V119.271H13.5Z" transform="translate(47.762 -9)" fill="#587bb4"/>
+        <path id="Path_300-2" data-name="Path 300" d="M24.75,20.25H73.76V69.26H24.75Z" transform="translate(97.494 41.012)" fill="#587bb4"/>
+      </g>
+      <text id="_2" data-name="2" transform="translate(66.544 223.427)" fill="#587bb4" font-size="30" font-family="ArialRoundedMTBold, Arial Rounded MT Bold"><tspan x="6.936" y="28">2</tspan></text>
+      <text id="_1" data-name="1" transform="translate(128.709 173.144)" fill="#587bb4" font-size="30" font-family="ArialRoundedMTBold, Arial Rounded MT Bold"><tspan x="4.917" y="28">1</tspan></text>
+      <text id="_3" data-name="3" transform="translate(183.688 249.73)" fill="#587bb4" font-size="30" font-family="ArialRoundedMTBold, Arial Rounded MT Bold"><tspan x="11.952" y="28">3</tspan></text>
+    </g>
+  </g>
+</svg>

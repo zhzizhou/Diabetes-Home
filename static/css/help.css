@@ -1,0 +1,36 @@
+.blue-background {
+    background-color: var(--light-blue);
+    width:375px;
+    height: 80vh;
+    padding: 5rem;
+    border-radius:3rem;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content:space-between;
+}
+
+.centre-text {
+    text-align: center;
+    justify-items: center;
+}
+
+.help-img {
+    padding-bottom: 5rem;
+}
+
+.space-between {
+    display: flex;
+    flex-direction: row;
+    gap:2rem;
+    height: 2rem;
+}
+
+.gap {
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+}

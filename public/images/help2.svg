@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="375" height="301.5" viewBox="0 0 375 301.5">
+  <defs>
+    <filter id="Rectangle_31" x="44.5" y="98.5" width="287" height="203" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_6" x="64.982" y="208.382" width="247.848" height="66.054" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1.5" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_14" x="78.225" y="226.211" width="30.395" height="30.395" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1.5" result="blur-3"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_6-2" x="65.936" y="140.63" width="246.894" height="66.054" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1.5" result="blur-4"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_14-2" x="78.466" y="157.746" width="30.395" height="30.395" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1.5" result="blur-5"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-5"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_359" data-name="Group 359" transform="translate(0 -66)">
+    <g id="Group_14" data-name="Group 14" transform="translate(0 -89.5)">
+      <rect id="Rectangle_31-2" data-name="Rectangle 31" width="375" height="223" transform="translate(0 155.5)" fill="#f2f7ff"/>
+    </g>
+    <g id="Group_65" data-name="Group 65" transform="translate(0 -5)">
+      <g id="Group_14-2" data-name="Group 14" transform="translate(49.222 170.644)">
+        <g transform="matrix(1, 0, 0, 1, -49.22, -99.64)" filter="url(#Rectangle_31)">
+          <rect id="Rectangle_31-3" data-name="Rectangle 31" width="278" height="194" rx="20" transform="translate(49 100)" fill="#e3f1ff"/>
+        </g>
+      </g>
+      <g id="Group_2" data-name="Group 2" transform="translate(69.482 281.882)">
+        <g transform="matrix(1, 0, 0, 1, -69.48, -210.88)" filter="url(#Path_6)">
+          <g id="Path_6-3" data-name="Path 6" transform="translate(69.48 210.88)" fill="#fff">
+            <path d="M 223.826416015625 56.05429840087891 L 15.0219144821167 56.05429840087891 C 11.26678943634033 56.05429840087891 7.73900842666626 54.66823577880859 5.088383197784424 52.15142440795898 C 2.451945781707764 49.64807891845703 1.000008344650269 46.32370376586914 1.000008344650269 42.79070281982422 L 1.000008344650269 14.26357936859131 C 1.000008344650269 10.7305793762207 2.451945781707764 7.406235218048096 5.088383197784424 4.902891635894775 C 7.73900842666626 2.386079072952271 11.26678943634033 1.000016570091248 15.0219144821167 1.000016570091248 L 145.0009155273438 1.000016570091248 L 223.826416015625 1.000016570091248 C 227.5815124511719 1.000016570091248 231.1092834472656 2.386079072952271 233.7598876953125 4.902891635894775 C 236.3963165283203 7.406235218048096 237.8482513427734 10.7305793762207 237.8482513427734 14.26357936859131 L 237.8482513427734 42.79070281982422 C 237.8482513427734 46.32370376586914 236.3963165283203 49.64807891845703 233.7598876953125 52.15142440795898 C 231.1092834472656 54.66823577880859 227.5815124511719 56.05429840087891 223.826416015625 56.05429840087891 Z" stroke="none"/>
+            <path d="M 15.02191162109375 1.999984741210938 C 11.52420043945312 1.999984741210938 8.240921020507812 3.288455963134766 5.776947021484375 5.628047943115234 C 3.341354370117188 7.940704345703125 2.000015258789062 11.00751495361328 2.000015258789062 14.26358032226562 L 2.000015258789062 42.79070281982422 C 2.000015258789062 46.04676818847656 3.341354370117188 49.11357879638672 5.776947021484375 51.42623519897461 C 8.240921020507812 53.76579666137695 11.524169921875 55.05426788330078 15.02191162109375 55.05426788330078 L 223.8263854980469 55.05426788330078 C 227.3240966796875 55.05426788330078 230.6073455810547 53.76579666137695 233.0713195800781 51.42623519897461 C 235.5069122314453 49.11357879638672 236.8482513427734 46.04676818847656 236.8482513427734 42.79070281982422 L 236.8482513427734 14.26358032226562 C 236.8482513427734 11.00751495361328 235.5069122314453 7.940704345703125 233.0713195800781 5.628047943115234 C 230.6073455810547 3.288455963134766 227.3240966796875 1.999984741210938 223.8263854980469 1.999984741210938 L 15.02191162109375 1.999984741210938 M 15.02191162109375 -1.52587890625e-05 L 223.8263854980469 -1.52587890625e-05 C 232.1227264404297 -1.52587890625e-05 238.8482513427734 6.386016845703125 238.8482513427734 14.26358032226562 L 238.8482513427734 42.79070281982422 C 238.8482513427734 50.66826629638672 232.1227264404297 57.05426788330078 223.8263854980469 57.05426788330078 L 15.02191162109375 57.05426788330078 C 6.725540161132812 57.05426788330078 1.52587890625e-05 50.66826629638672 1.52587890625e-05 42.79070281982422 L 1.52587890625e-05 14.26358032226562 C 1.52587890625e-05 6.386016845703125 6.725540161132812 -1.52587890625e-05 15.02191162109375 -1.52587890625e-05 Z" stroke="none" fill="#587bb4"/>
+          </g>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, -69.48, -210.88)" filter="url(#Rectangle_14)">
+          <rect id="Rectangle_14-3" data-name="Rectangle 14" width="21.395" height="21.395" rx="5" transform="translate(82.73 228.71)" fill="#f7f7f7"/>
+        </g>
+        <text id="Blood_glucose_level_" data-name="Blood glucose level " transform="translate(59.599 21.55)" fill="#8b8b8b" font-size="9" font-family="Effra-Regular, Effra"><tspan x="0" y="0">Blood glucose level </tspan></text>
+        <text id="_2:28_pm" data-name="2:28 pm" transform="translate(177.987 21.55)" fill="#525252" font-size="9" font-family="Effra-Regular, Effra"><tspan x="0" y="0">2:28 pm</tspan></text>
+        <text id="_7.8_mmol_L" data-name="7.8 mmol/L" transform="translate(46.049 37.814)" fill="#525252" font-size="11" font-family="Effra-Regular, Effra"><tspan x="0" y="0">7.8 mmol/L</tspan></text>
+        <path id="Icon_ionic-ios-arrow-forward" data-name="Icon ionic-ios-arrow-forward" d="M16.335,12.564,11.514,7.747a.907.907,0,0,1,0-1.286.918.918,0,0,1,1.29,0l5.462,5.459a.909.909,0,0,1,.027,1.256l-5.485,5.5a.911.911,0,1,1-1.29-1.286Z" transform="translate(207.709 6.737)" fill="#587bb4"/>
+      </g>
+      <path id="flood" d="M7.121,5.891c-.446-.024-.669-.555-.778-.88-.1-.278-.241-.766-.349-1.061-.127-.344-.163-.368-.235-.368-.151,0-.266.428-.38.748-.241.663-.422,1.393-1.062,1.393a1.182,1.182,0,0,1-.977-.682c-.163-.241-.259-.3-.41-.3-.193,0-.283.169-.458.464a1.95,1.95,0,0,1-.349.458A.967.967,0,0,1,1.5,5.9a.286.286,0,0,1-.278-.283c0-.223.247-.266.386-.32.121-.042.265-.259.338-.38.193-.331.44-.766.995-.766a1.076,1.076,0,0,1,.9.561c.163.223.259.4.446.41.157.006.374-.585.5-.995.193-.627.446-1.206.953-1.206.682,0,.881.953,1.092,1.682a3.61,3.61,0,0,0,.121.368c.1.205.175.338.259.38s.253.157.205.338a.275.275,0,0,1-.3.2ZM1.562,5.312ZM4.342,0A4.342,4.342,0,1,0,8.683,4.342,4.339,4.339,0,0,0,4.342,0Zm0,7.966A3.624,3.624,0,1,1,7.966,4.342,3.624,3.624,0,0,1,4.342,7.966Z" transform="translate(116.741 297.337)" fill="#587bb4"/>
+      <path id="Icon_feather-check" data-name="Icon feather-check" d="M18.051,9,9.766,17.285,6,13.519" transform="translate(82.431 297.76)" fill="none" stroke="#587bb4" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      <g id="Group_2-2" data-name="Group 2" transform="translate(70.437 214.13)">
+        <g transform="matrix(1, 0, 0, 1, -70.44, -143.13)" filter="url(#Path_6-2)">
+          <path id="Path_6-4" data-name="Path 6" d="M14.962,0h207.97c8.263,0,14.962,6.386,14.962,14.264V42.791c0,7.878-6.7,14.264-14.962,14.264H14.962C6.7,57.054,0,50.668,0,42.791V14.264C0,6.386,6.7,0,14.962,0Z" transform="translate(70.44 143.13)" fill="#fff"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, -70.44, -143.13)" filter="url(#Rectangle_14-2)">
+          <rect id="Rectangle_14-4" data-name="Rectangle 14" width="21.395" height="21.395" rx="5" transform="translate(82.97 160.25)" fill="#f7f7f7"/>
+        </g>
+        <text id="Weight" transform="translate(65.305 28.682)" fill="#525252" font-size="9" font-family="Effra-Light, Effra" font-weight="300"><tspan x="0" y="0">Weight</tspan></text>
+        <path id="Icon_ionic-ios-arrow-forward-2" data-name="Icon ionic-ios-arrow-forward" d="M16.335,12.564,11.514,7.747a.907.907,0,0,1,0-1.286.918.918,0,0,1,1.29,0l5.462,5.459a.909.909,0,0,1,.027,1.256l-5.485,5.5a.911.911,0,1,1-1.29-1.286Z" transform="translate(207.161 15.295)" fill="#587bb4"/>
+      </g>
+      <g id="Group_7" data-name="Group 7" transform="translate(117.407 235.76)">
+        <path id="flood-2" data-name="flood" d="M6.419,0a6.419,6.419,0,1,0,6.419,6.419A6.415,6.415,0,0,0,6.419,0Zm0,11.777A5.358,5.358,0,1,1,11.777,6.42a5.357,5.357,0,0,1-5.358,5.357Z" transform="translate(0)" fill="#587bb4"/>
+      </g>
+      <path id="Icon_awesome-weight" data-name="Icon awesome-weight" d="M5.867.838h-.34A2.513,2.513,0,1,1,.838,2.1,2.5,2.5,0,0,1,1.178.838H.838A.839.839,0,0,0,0,1.676V5.867a.839.839,0,0,0,.838.838H5.867a.839.839,0,0,0,.838-.838V1.676A.839.839,0,0,0,5.867.838ZM3.353,4.191a2.1,2.1,0,1,0-2.1-2.1A2.1,2.1,0,0,0,3.353,4.191Zm0-1.99.44-1.026a.21.21,0,0,1,.386.165L3.733,2.368A.521.521,0,1,1,3.349,2.2Z" transform="translate(120.481 238.805)" fill="none" stroke="#587bb4" stroke-width="0.5"/>
+      <text id="My_Checklist" data-name="My Checklist" transform="translate(70.437 186.618)" fill="#8b8b8b" font-size="16" font-family="Effra-Regular, Effra"><tspan x="0" y="15">My Checklist</tspan></text>
+    </g>
+  </g>
+</svg>

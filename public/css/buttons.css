@@ -39,6 +39,20 @@ a:hover {
     height: 3rem;
 }
 
+.help-button {
+    display: flex;
+    margin:auto;
+    height: 50px;
+    justify-content:center;
+    align-items: center;
+}
+
+.skip-button {
+    background-color: var(--white)!important;
+    border:3px solid var(--dark-blue)!important;
+    color:var(--dark-blue)!important;
+}
+
 /*DEFAULT STYLE FOR SUBMIT HOVER STATE*/
 .button:hover {
     background-color: var(--button-hover);
