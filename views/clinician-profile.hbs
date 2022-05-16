@@ -1,37 +1,36 @@
-
-    <nav>
-        <div class="nav-top">
-            <img class="small-logo" src="/images/logo.svg" alt="">
-            <div class="menu-item-layout">
-                <img class="nav-profile-pic" src="/images/clinician-profile-pic.svg" alt="profile picture">
-                <h3>{{thisClinician.givenName}} {{thisClinician.familyName}}</h3>
-            </div>
-            <div class="menu-section">
-                <a href="../clinician/home" class="menu-item-layout menu-item">
-                    <span class="material-icons">dashboard</span>
-                    <h3>Dashboard</h3>
-                </a>
-                <a href="../clinician/my-patient" class="menu-item-layout menu-item">
-                    <span class="material-icons">group</span>
-                    <h3>My Patients</h3>
-                </a>
-                <a href="../clinician/new-patient" class="menu-item-layout menu-item ">
-                    <span class="material-icons">person_add</span>
-                    <h3>New Patient</h3>
-                </a>
-            </div>
+<nav>
+    <div class="nav-top">
+        <img class="small-logo" src="/images/logo.svg" alt="">
+        <div class="menu-item-layout">
+            <img class="nav-profile-pic" src="/images/clinitian-profile-pic.svg" alt="profile picture">
+            <h3>{{thisClinician.givenName}} {{thisClinician.familyName}}</h3>
         </div>
         <div class="menu-section">
-            <a href="../clinician/profile" class="menu-item-layout menu-item selected">
-                <span class="material-icons">account_circle</span>
-                <h3>Account</h3>
+            <a href="../clinician/home" class="menu-item-layout menu-item">
+                <span class="material-icons">dashboard</span>
+                <h3>Dashboard</h3>
             </a>
-            <a href="../clinician/logout" class="menu-item-layout menu-item">
-                <span class="material-icons">logout</span>
-                <h3>logout</h3>
+            <a href="../clinician/my-patient" class="menu-item-layout menu-item">
+                <span class="material-icons">group</span>
+                <h3>My Patients</h3>
+            </a>
+            <a href="../clinician/new-patient" class="menu-item-layout menu-item ">
+                <span class="material-icons">person_add</span>
+                <h3>New Patient</h3>
             </a>
         </div>
-    </nav>
+    </div>
+    <div class="menu-section">
+        <a href="../clinician/profile" class="menu-item-layout menu-item selected">
+            <span class="material-icons">account_circle</span>
+            <h3>Account</h3>
+        </a>
+        <a href="../clinician/logout" class="menu-item-layout menu-item">
+            <span class="material-icons">logout</span>
+            <h3>logout</h3>
+        </a>
+    </div>
+</nav>
 
 
 <main class="clinician-main">
@@ -42,52 +41,61 @@
     <div>
         <h1 class="page-title">Account</h1>
         <br>
-
-        <section id="profile-container">
-
-            <div class="profile-picture-container">
-                <h2>My profile picture</h2>
-                <img class="profile-picture-display" src="/images/clinician-profile-pic.svg" alt="profile picture">
-                <h3 class="blue-text">Change profile picture</h3>
+        <div class="inside-container">
+            <div class="profile-pic-container">
+                <h3>My profile picture</h3>
+                <img class="my-profile-pic" src="/images/clinitian-profile-pic.svg" alt="profile picture">
             </div>
 
-            <ul class="profile-statistic">
-                <li>
-                    <h2>First Name</h2>
-                    </br>
-                    <h3 class="blue-text">{{thisClinician.givenName}}</h3>
-                </li>
+            <div class="account-section-container">
+                <h3>My Account Details</h3>
+                <ul class="details-container">
 
-                <li>
-                    <h2>Gender</h2>
-                    </br>
-                    <h3 class="blue-text">{{thisClinician.gender}}</h3>
-                </li>
+                    <div class="whitebox shadow space-between curved">
+                        <li>
+                            <h3>First Name</h2>
 
-                <li>
-                    <h2>Email</h2>
-                    </br>
-                    <h3 class="blue-text">{{thisClinician.email}}</h3>
-                </li>
+                                <h3 class="blue-text">{{thisClinician.givenName}}</h3>
+                        </li>
+                    </div>
+                    <div class="whitebox shadow space-between curved">
+                        <li>
+                            <h3>Last Name</h2>
 
-                <li>
-                    <h2>Last Name</h2>
-                    </br>
-                    <h3 class="blue-text">{{thisClinician.familyName}}</h3>
-                </li>
+                                <h3 class="blue-text">{{thisClinician.familyName}}</h3>
+                        </li>
+                    </div>
+                    <div class="whitebox shadow space-between curved">
+                        <li>
+                            <h3>Gender</h3>
 
-                <li>
-                    <h2>Birthday</h2>
-                    </br>
-                    <h3 class="blue-text">{{thisClinician.dateOfBirth}}</h3>
-                </li>
+                            <h3 class="blue-text">{{thisClinician.gender}}</h3>
+                        </li>
 
-                <li>
-                    <h2>Mobile</h2>
-                    </br>
-                    <h3 class="blue-text">0{{thisClinician.mobile}}</h3>
-                </li>
+                    </div>
+                    <div class="whitebox shadow space-between curved">
+                        <li>
+                            <h3>Email</h3>
+
+                            <h3 class="blue-text">{{thisClinician.email}}</h3>
+                        </li>
+                    </div>
+                    <div class="whitebox shadow space-between curved">
+                        <li>
+                            <h3>Birthday</h3>
+
+                            <h3 class="blue-text">{{thisClinician.dateOfBirth}}</h3>
+                        </li>
+                    </div>
+                    <div class="whitebox shadow space-between curved">
+                        <li>
+                            <h3>Mobile</h3>
+
+                            <h3 class="blue-text">0{{thisClinician.mobile}}</h3>
+                        </li>
+                    </div>
+            </div>
             </ul>
-        </section>
+        </div>
     </div>
 </main>

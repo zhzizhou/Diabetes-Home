@@ -97,7 +97,7 @@ const getProfile = async(req, res) => {
         return res.render('clinician-profile', {
             thisClinician: clinician,
             title: "Profile",
-            layout: "clinician-main"
+            layout: "clinician-add-new-patient"
         })
 
     } catch (err) {
