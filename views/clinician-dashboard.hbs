@@ -107,7 +107,7 @@
             {{#each patients}}
             {{#each this.timeSeries}}
             {{#if this.log.notes}}
-            <div class="msgbox light-blue-box shadow space-between">
+            <div class="msgbox light-blue-box shadow">
                 <div>
                     <div class="space-between">
                         <p>{{../givenName}} {{../familyName}}</p>
@@ -115,7 +115,6 @@
                     </div>
                     <p class="p-dark">{{this.log.notes}}</p>
                     <p class="blue-text">{{this.logItem}}: {{this.log.value}}</p>
-
                 </div>
             </div>
             {{/if}}

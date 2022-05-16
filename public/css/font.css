@@ -60,3 +60,9 @@ h3 {
     font-weight: 400;
     font-style: normal;
 }
+
+textarea {
+    font-family: effra, sans-serif;
+    color:var(--dark-blue);
+    font-size: 24px;
+}

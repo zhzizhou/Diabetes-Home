@@ -94,7 +94,7 @@
         <div class="dashboard-right enter-ts-container" id="dashboard-right">
             <div class="page-title-and-nav">
                 <a href="../patient/home">
-                    <span class="material-icons-round blue-text">arrow_back_ios</span>
+                  
                 </a>
                 <div class="page-title-icon checklist-title" id="ts-title">
                     <span class="data-icon material-icons-round blue-text">person</span>
@@ -109,84 +109,89 @@
                             <h3>My profile picture</h3>
                             <img class="profile-picture-display" src="/images/clinitian-profile-pic.svg"
                                 alt="profile picture">
-                            <h3 class="blue-text">Change profile picture</h3>
                         </div>
                         <ul class="details-container">
-                            <a href="../patient/changepassword">
-                                <div class="whitebox shadow detail-field space-between">
-                                    <li>
-                                        <h3>Change My Password</h2>
-                                            </br>
-                                            <h3 class="blue-text">●●●●●●●</h3>
-                                    </li>
-                                    <div class="space-between">
-                                        <h4 class="blue-text">Edit</h4>
-                                        <span class="material-icons-round blue-text">navigate_next</span>
+                            <div class="title">
+                                <h3>Password</h3>
+                                <a href="../patient/changepassword">
+                                    <div class="whitebox shadow detail-field space-between">
+                                        <li>
+                                            <h3>Change My Password</h2>
+                                                </br>
+                                                <h3 class="blue-text">●●●●●●●</h3>
+                                        </li>
+                                        <div class="space-between">
+                                            <h4 class="blue-text">Edit</h4>
+                                            <span class="material-icons-round blue-text">navigate_next</span>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+                            </div>
 
-                            <h3>My Account Details</h3>
-                            <a href="../patient/changenickname">
-                                <div class="whitebox shadow detail-field space-between">
-                                    <li>
-                                        <h3>Nickname</h2>
-                                            </br>
-                                            <h3 class="blue-text">{{thisPatient.nickName}}</h3>
-                                    </li>
-                                    <div class="space-between">
-                                        <h4 class="blue-text">Edit</h4>
-                                        <span class="material-icons-round blue-text">navigate_next</span>
+                            <div class="title">
+                                <h3>My Account Details</h3>
+                                <div class="profile-grid">
+                                    <a href="../patient/changenickname">
+                                    <div class="whitebox shadow detail-field space-between">
+                                        <li>
+                                            <h3>Nickname</h2>
+                                                </br>
+                                                <h3 class="blue-text">{{thisPatient.nickName}}</h3>
+                                        </li>
+                                        <div class="space-between">
+                                            <h4 class="blue-text">Edit</h4>
+                                            <span class="material-icons-round blue-text">navigate_next</span>
+                                        </div>
                                     </div>
+                                </a>
+
+                                <div class="whitebox shadow space-between">
+                                    <li>
+                                        <h3>First Name</h2>
+                                            </br>
+                                            <h3 class="blue-text">{{thisPatient.givenName}}</h3>
+                                    </li>
                                 </div>
-                            </a>
+                                <div class="whitebox shadow space-between">
+                                    <li>
+                                        <h3>Last Name</h2>
+                                            </br>
+                                            <h3 class="blue-text">{{thisPatient.familyName}}</h3>
+                                    </li>
 
-                            <div class="whitebox shadow space-between">
-                                <li>
-                                    <h3>First Name</h2>
+                                </div>
+                                <div class="whitebox shadow space-between">
+                                    <li>
+                                        <h3>Gender</h3>
                                         </br>
-                                        <h3 class="blue-text">{{thisPatient.givenName}}</h3>
-                                </li>
-                            </div>
-                            <div class="whitebox shadow space-between">
-                                <li>
-                                    <h3>Last Name</h2>
+                                        <h3 class="blue-text">{{thisPatient.gender}}</h3>
+                                    </li>
+
+                                </div>
+                                <div class="whitebox shadow space-between">
+                                    <li>
+                                        <h3>Email</h3>
                                         </br>
-                                        <h3 class="blue-text">{{thisPatient.familyName}}</h3>
-                                </li>
+                                        <h3 class="blue-text">{{thisPatient.email}}</h3>
+                                    </li>
 
-                            </div>
-                            <div class="whitebox shadow space-between">
-                                <li>
-                                    <h3>Gender</h3>
-                                    </br>
-                                    <h3 class="blue-text">{{thisPatient.gender}}</h3>
-                                </li>
+                                </div>
+                                <div class="whitebox shadow space-between">
+                                    <li>
+                                        <h3>Birthday</h3>
+                                        </br>
+                                        <h3 class="blue-text">{{thisPatient.dateOfBirth}}</h3>
+                                    </li>
 
-                            </div>
-                            <div class="whitebox shadow space-between">
-                                <li>
-                                    <h3>Email</h3>
-                                    </br>
-                                    <h3 class="blue-text">{{thisPatient.email}}</h3>
-                                </li>
+                                </div>
+                                <div class="whitebox shadow space-between">
+                                    <li>
+                                        <h3>Mobile</h3>
+                                        </br>
+                                        <h3 class="blue-text">0{{thisPatient.mobile}}</h3>
+                                    </li>
 
-                            </div>
-                            <div class="whitebox shadow space-between">
-                                <li>
-                                    <h3>Birthday</h3>
-                                    </br>
-                                    <h3 class="blue-text">{{thisPatient.dateOfBirth}}</h3>
-                                </li>
-
-                            </div>
-                            <div class="whitebox shadow space-between">
-                                <li>
-                                    <h3>Mobile</h3>
-                                    </br>
-                                    <h3 class="blue-text">0{{thisPatient.mobile}}</h3>
-                                </li>
-
+                                </div>
                             </div>
                         </ul>
                     </div>

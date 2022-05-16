@@ -68,7 +68,7 @@ a {
     gap: 3em;
     position: absolute;
     left: 21%;
-    width: 70%;
+    width: 78%;
 }
 
 .dashboard-left {
@@ -824,6 +824,12 @@ input[type="checkbox"]::before {
     height: 30rem;
     padding: 5rem 1rem 5rem 1rem;
     border-radius: 1rem;
+    transition: 0.5s;
+}
+
+.notes-container:hover{
+    outline: 3px solid var(--dark-blue);
+    transition: 0.5s;
 }
 
 .clinician-note-container {

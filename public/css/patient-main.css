@@ -76,6 +76,7 @@ li {
     position: absolute;
     left: 24rem;
     padding-right: 2rem;
+    margin-top: 2rem;
 }
 
 input:focus {
@@ -94,6 +95,7 @@ input:focus {
     border-radius: 2rem;
     box-shadow: 2px 2px 3px var(--box-shadow);
     gap: 3rem;
+    margin-bottom: 3rem;
 }
 
 
@@ -292,8 +294,7 @@ input:focus {
 }
 
 .dashboard-right.enter-ts-container {
-    margin: auto;
-    left: 65rem;
+    left: 55rem;
     transform: translateX(-20rem);
 }
 
@@ -537,12 +538,13 @@ input[type=number] {
 .details-container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    align-items: center;
+    gap: 3rem;
 }
 
 .detail-field {
-    width:30rem;
     transition:0.5s;
+    width:30rem;
 }
 
 .detail-field:hover {
@@ -555,6 +557,21 @@ input[type=number] {
     flex-direction: column;
     align-items: center;
     gap:2rem;
+}
+
+.profile-grid {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: 60rem;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
 }
 
 /*REPSONSIVE DESIGN SECTION*/
@@ -721,6 +738,16 @@ input[type=number] {
     .leaderboard-return{
         display: block;
     }
+
+    .details-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .detail-field {
+        width:30rem;
+}
 }
 
 
