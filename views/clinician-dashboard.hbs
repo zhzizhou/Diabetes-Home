@@ -82,7 +82,7 @@
                         </tr>
                         {{#each patients}}
                         <tr class="out-border">
-                            <td>{{this.givenName}} {{this.familyName}}</td>
+                            <td><a href="/clinician/my-patient/{{this._id}}/detail">{{this.givenName}} {{this.familyName}}</a></td>
                             {{#each this.timeSeries}}
                             {{#if this.log}}
                             <td {{#if this.log.alert}}style="color: red;" {{/if}}>
@@ -94,6 +94,7 @@
                             {{/each}}
                         </tr>
                         {{/each}}
+                        
                     </table>
                 </div>
             </div>

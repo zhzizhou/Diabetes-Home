@@ -265,7 +265,7 @@ input:focus {
 .infobar {
     display: block;
     font-size: 30px;
-    color: #587BB4;
+    color: var(--dark-blue);
     text-align: center;
     padding: 1.5rem 0 4rem 0;
     background-color: var(--white);

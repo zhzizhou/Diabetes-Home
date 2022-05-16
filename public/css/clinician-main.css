@@ -207,6 +207,7 @@ td {
     gap: 2em;
     position: absolute;
     left: 25rem;
+    width: 76%;
 }
 
 .patient-stats {
@@ -245,6 +246,12 @@ td {
     border: solid 1px var(--light-grey-background);
     border-style: solid none;
     padding: 0.4em 0.8em;
+    transition:0.5s;
+}
+
+.my-patient-table tr:hover td {
+    background-color:var(--light-blue);
+    transition:0.5s;
 }
 
 .my-patient-table td:first-child {
@@ -380,7 +387,7 @@ td {
 }
 
 .search-icon {
-    transform: translate(50px);
+    transform: translate(70px);
 }
 
 #diabetesType {

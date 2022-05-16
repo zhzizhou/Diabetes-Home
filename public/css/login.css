@@ -181,7 +181,7 @@ input {
 }
 
 .wide-input {
-    width: 35rem !important;
+    width: 44rem !important;
     background-color:var(--white);
     border-radius: 2rem;
     padding-left: 1rem;
