@@ -6,8 +6,8 @@
         </div>
         <div class="grid-menu white-text" scroll="no">
             <a class="white-text menu-square" href="../../patient/home">
-                <span class="material-icons-round menu-icon">home</span>
-                <h3>Home</h3>
+                <span class="material-icons-round menu-icon">check</span>
+                <h3>Checklist</h3>
             </a>
             <a class="white-text menu-square" href="../../patient/leaderboard">
                 <span class="material-icons-round menu-icon">leaderboard</span>
@@ -29,7 +29,10 @@
                 <span class="material-icons-round menu-icon">settings</span>
                 <h3>Settings</h3>
             </a>
-
+            <a class="white-text menu-square" href="../patient/logout">
+                <span class="material-icons-round menu-icon">web</span>
+                <h3>About this site</h3>
+            </a>
             <a class="white-text menu-square" href="../patient/logout">
                 <span class="material-icons-round menu-icon">logout</span>
                 <h3>logout</h3>
@@ -39,7 +42,7 @@
     </div>
 
     <div class="responsive-nav responsive-nav-top">
-        <a href="index.html"><img class="small-logo" src="/images/logo.svg" alt=""></a>
+        <a href="../../patient/home"><img class="small-logo" src="/images/logo.svg" alt=""></a>
         <div onclick="openMenu()" class="square-menu">
             <span class="material-icons-round blue-text" id="menu-opener">apps</span>
         </div>
@@ -82,99 +85,99 @@
                     <h3>Help</h3>
                 </a>
                 <a href="../patient/logout" class="menu-item-layout menu-item patient-menu">
-                        <span class="material-icons">logout</span>
-                        <h3>logout</h3>
-                    </a>
+                    <span class="material-icons">logout</span>
+                    <h3>logout</h3>
+                </a>
             </div>
         </nav>
     </div>
 
 
-        <main class="leaderboard-container" id="dashboard-right">
-            <div class="infobar">
-                <div class="return-icon leaderboard-return">
-                    <a href="../../patient/home" class="material-icons-round blue-text">arrow_back_ios</a>
-                </div>
-                <div class="checklist-title">
-                    <div class="page-title-icon">
-                        <span class="data-icon material-icons-round blue-text">history</span>
-                        <h3 class="blue-text">Log History</h3>
-                    </div>
+    <main class="leaderboard-container" id="dashboard-right">
+        <div class="infobar">
+            <div class="return-icon leaderboard-return">
+                <a href="../../patient/home" class="material-icons-round blue-text">arrow_back_ios</a>
+            </div>
+            <div class="checklist-title">
+                <div class="page-title-icon">
+                    <span class="data-icon material-icons-round blue-text">history</span>
+                    <h3 class="blue-text">Log History</h3>
                 </div>
             </div>
+        </div>
 
-            <div class="leaderboard-box loghistory-box">
-                <div id="log-history-date" lass="filter-button white-background">Filter by date<input type="date"></div>
-                <div id="blue-main-page" class="centre-flex log-container">
-                    {{#each healthRecord}}
-                    <div class="grey-background p-dark">{{this._id}}</div>
-                    <div class="loghistory-grid">
+        <div class="leaderboard-box loghistory-box">
+            <div id="log-history-date" lass="filter-button white-background">Filter by date<input type="date"></div>
+            <div id="blue-main-page" class="centre-flex log-container">
+                {{#each healthRecord}}
+                <div class="grey-background p-dark">{{this._id}}</div>
+                <div class="loghistory-grid">
                     {{#each this.list}}
-                        {{#ifCond this.item "=="1}}
-                        <div class="checklist-item space-between filled">
-                            <div class="checklist-left space-between">
-                                <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
-                                <span class="material-icons-round blue-text data-icon">timeline</span>
-                                <div class="log-value-grid">
-                                    <p>Weight</p>
-                                    <h3{{#if this.alert}}style="color: red;" {{/if}}>{{this.value}} Kg</h3>
-                                </div>
-                            </div>
-                            <div class="time-entered-box">
-                                <span class="material-icons-round blue-text">navigate_next</span>
+                    {{#ifCond this.item "=="1}}
+                    <div class="checklist-item space-between filled">
+                        <div class="checklist-left space-between">
+                            <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                            <span class="material-icons-round blue-text data-icon">timeline</span>
+                            <div class="log-value-grid">
+                                <p>Weight</p>
+                                <h3{{#if this.alert}}style="color: red;" {{/if}}>{{this.value}} Kg</h3>
                             </div>
                         </div>
-                        {{/ifCond}}
-                        {{#ifCond this.item "==" 2}}
-                        <div class="checklist-item space-between filled">
-                            <div class="checklist-left space-between">
-                                <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
-                                <span class="material-icons-round blue-text data-icon">timeline</span>
-                                <div class="log-value-grid">
-                                    <p>Insulin</p>
-                                    <h3{{#if this.alert}}style="color: red;" {{/if}}>{{this.value}} dose(s)</h3>
-                                </div>
-                            </div>
-                            <div class="time-entered-box">
-                                <span class="material-icons-round blue-text">navigate_next</span>
-                            </div>
+                        <div class="time-entered-box">
+                            <span class="material-icons-round blue-text">navigate_next</span>
                         </div>
-                        {{/ifCond}}
-                        {{#ifCond this.item "==" 3}}
-                        <div class="checklist-item space-between filled">
-                            <div class="checklist-left space-between">
-                                <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
-                                <span class="material-icons-round blue-text data-icon">timeline</span>
-                                <div class="log-value-grid">
-                                    <p>Exercise</p>
-                                    <h3{{#if this.alert}}style="color: red;" {{/if}}>{{this.value}} steps</h3>
-                                </div>
-                            </div>
-                            <div class="time-entered-box">
-                                <span class="material-icons-round blue-text">navigate_next</span>
-                            </div>
-                        </div>
-                        {{/ifCond}}
-                        {{#ifCond this.item "==" 4}}
-                        <div class="checklist-item space-between filled">
-                            <div class="checklist-left space-between">
-                                <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
-                                <span class="material-icons-round blue-text data-icon">timeline</span>
-                                <div class="log-value-grid">
-                                    <p>Blood Glucose</p>
-                                    <h3{{#if this.alert}}style="color: red;" {{/if}}>{{this.value}} nmol/L</h3>
-                                </div>
-                            </div>
-                            <div class="time-entered-box">
-                                <span class="material-icons-round blue-text">navigate_next</span>
-                            </div>
-                        </div>
-                        {{/ifCond}}
-                    {{/each}}
                     </div>
-                    {{/each}}                 
+                    {{/ifCond}}
+                    {{#ifCond this.item "==" 2}}
+                    <div class="checklist-item space-between filled">
+                        <div class="checklist-left space-between">
+                            <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                            <span class="material-icons-round blue-text data-icon">timeline</span>
+                            <div class="log-value-grid">
+                                <p>Insulin</p>
+                                <h3{{#if this.alert}}style="color: red;" {{/if}}>{{this.value}} dose(s)</h3>
+                            </div>
+                        </div>
+                        <div class="time-entered-box">
+                            <span class="material-icons-round blue-text">navigate_next</span>
+                        </div>
+                    </div>
+                    {{/ifCond}}
+                    {{#ifCond this.item "==" 3}}
+                    <div class="checklist-item space-between filled">
+                        <div class="checklist-left space-between">
+                            <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                            <span class="material-icons-round blue-text data-icon">timeline</span>
+                            <div class="log-value-grid">
+                                <p>Exercise</p>
+                                <h3{{#if this.alert}}style="color: red;" {{/if}}>{{this.value}} steps</h3>
+                            </div>
+                        </div>
+                        <div class="time-entered-box">
+                            <span class="material-icons-round blue-text">navigate_next</span>
+                        </div>
+                    </div>
+                    {{/ifCond}}
+                    {{#ifCond this.item "==" 4}}
+                    <div class="checklist-item space-between filled">
+                        <div class="checklist-left space-between">
+                            <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
+                            <span class="material-icons-round blue-text data-icon">timeline</span>
+                            <div class="log-value-grid">
+                                <p>Blood Glucose</p>
+                                <h3{{#if this.alert}}style="color: red;" {{/if}}>{{this.value}} nmol/L</h3>
+                            </div>
+                        </div>
+                        <div class="time-entered-box">
+                            <span class="material-icons-round blue-text">navigate_next</span>
+                        </div>
+                    </div>
+                    {{/ifCond}}
+                    {{/each}}
                 </div>
+                {{/each}}
             </div>
+        </div>
 
 
     </main>
