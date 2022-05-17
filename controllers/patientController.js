@@ -3,6 +3,8 @@ const HealthRecord = require('../models/healthRecord')
 const Patient = require('../models/patient')
 const Doctor = require('../models/clinician')
 const moment = require('moment')
+const bcrypt = require('bcrypt')
+
 const expressValidator = require('express-validator')
 const clinicianNote = require('../models/clinicianNote')
 
@@ -18,12 +20,6 @@ const getHome = async(req, res) => {
         const doctor = await Doctor.findById(patient.clinicianId).lean()
         if (!patient || !doctor) {
             return res.sendStatus(404)
-        }
-
-        if (patient.engagementRate >= 80) {
-            badge = "badge-filled"
-        } else {
-            badge = "badge"
         }
 
         var latestLog1 = null
@@ -101,7 +97,11 @@ const getHome = async(req, res) => {
         console.log("days:" + days)
         console.log("engegemtn" + engageRate)
 
-
+        if (engageRate >= 80) {
+            badge = "badge-filled"
+        } else {
+            badge = "badge"
+        }
 
         // render hbs page
         return res.render('patient-dashboard', {
@@ -372,8 +372,20 @@ const getChangePassword = async(req, res) => {
 }
 
 const updatePassword = async(req, res) => {
-    res.send('Update Password')
-        //TODO
+    console.log(req.body);
+    try {
+        const salt = await bcrypt.genSalt(10)
+
+        var thisPassword = await bcrypt.hash(req.body.newPassword, salt)
+
+        await Patient.findByIdAndUpdate({ _id: req.user._id }, { password: thisPassword })
+        res.send("<script> alert('Updated password');\
+             window.location.href='profile'; </script>")
+    } catch (err) {
+        console.log(err)
+        res.send("<script> alert('Update Fail');\
+             window.location.href='profile'; </script>")
+    }
 }
 
 const getChangeNickname = async(req, res) => {
@@ -397,8 +409,15 @@ const getChangeNickname = async(req, res) => {
 }
 
 const updateNickname = async(req, res) => {
-    res.send('Update Password')
-        //TODO
+    console.log(req.body);
+    try {
+        await Patient.findByIdAndUpdate({ _id: req.user._id }, { nickName: req.body.newNickname })
+        res.send("<script> alert('Updated');\
+             window.location.href='profile'; </script>")
+    } catch (err) {
+        res.send("<script> alert('Update Fail');\
+             window.location.href='profile'; </script>")
+    }
 }
 
 const getSettings = async(req, res) => {
@@ -415,7 +434,7 @@ const getSettings = async(req, res) => {
         return res.render('patient-setting', {
             layout: "patient-changepassword",
             thisTitle: "Settings",
-            patient: patient,
+            thisPatient: patient,
             icon: "bloodtype"
         })
 
@@ -425,8 +444,25 @@ const getSettings = async(req, res) => {
 }
 
 const updateSettings = async(req, res) => {
-    res.send('PUT Settings')
-        //TODO
+    try {
+        const patient = await Patient.findById(
+            req.user._id
+        ).lean()
+
+        if (!patient) {
+            return res.sendStatus(404)
+        }
+        //found patient
+        return res.render('patient-setting', {
+            layout: "patient-changepassword",
+            thisTitle: "Settings",
+            thisPatient: patient,
+            icon: "bloodtype"
+        })
+
+    } catch (err) {
+        return next(err)
+    }
 }
 
 const getLoginPage = async(req, res) => {
@@ -439,6 +475,61 @@ const getLoginPage = async(req, res) => {
 
 const patientLogin = async(req, res) => {
     res.redirect("/patient/home")
+}
+
+const getHelpPageOne = async(req, res) => {
+    res.render('help1', {
+        flash: req.flash('error'),
+        title: "Help",
+        layout: "help-pages"
+    })
+}
+
+const getHelpPageTwo = async(req, res) => {
+    res.render('help2', {
+        flash: req.flash('error'),
+        title: "Help",
+        layout: "help-pages"
+    })
+}
+
+const getHelpPageThree = async(req, res) => {
+    res.render('help3', {
+        flash: req.flash('error'),
+        title: "Help",
+        layout: "help-pages"
+    })
+}
+
+const getHelpPageFour = async(req, res) => {
+    res.render('help4', {
+        flash: req.flash('error'),
+        title: "Help",
+        layout: "help-pages"
+    })
+
+}
+
+const getAboutpage = async(req,res) => {
+    console.log("Inside get settings")
+    try {
+        const patient = await Patient.findById(
+            req.user._id
+        ).lean()
+
+        if (!patient) {
+            return res.sendStatus(404)
+        }
+        //found patient
+        return res.render('about', {
+            layout: "index-main",
+            title: "aboutPage",
+            patient: patient
+        })
+
+    } catch (err) {
+        return next(err)
+    }
 }
 
 module.exports = {
@@ -454,6 +545,11 @@ module.exports = {
     patientLogin,
     getChangePassword,
     getChangeNickname,
+    getHelpPageOne,
+    getHelpPageTwo,
+    getHelpPageThree,
+    getHelpPageFour,
     updatePassword,
-    updateNickname
+    updateNickname,
+    getAboutpage
 }
