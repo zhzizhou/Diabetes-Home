@@ -616,15 +616,33 @@ const updateTimeSeries = async(req, res) => {
 
 const getPatientDetail = async(req, res) => {
     try {
+        var dateQuery = {}
+        var saveQuery = {}
+        console.log(req.query)
+
+        if(Object.keys(req.query).length === 0){
+
+            saveQuery['startDate'] = moment().subtract(7,'d').format('YYYY-MM-DD')
+            dateQuery['$gte'] = new Date(saveQuery['startDate'])
+            saveQuery['endDate'] = moment().format('YYYY-MM-DD')
+
+        }else{
+            saveQuery['startDate'] = req.query.start
+            saveQuery['endDate'] = req.query.end
+
+            var start = new Date(req.query.start)
+            var end = moment(new Date(req.query.end)).add(1,'d').toDate()
+            dateQuery['$gte'] = start
+            dateQuery['$lt'] = end
+        }
+
         const patient = await Patient.findById(req.params.id).lean()
         patient.age = utility.getAge(patient.dateOfBirth)
             //search all health record group by date in descending order
         var healthRecord = await HealthRecord.aggregate([{
             $match: {
                 patientId: patient._id,
-                when: {
-                    $gte: moment().day(-7).toDate()
-                }
+                when: dateQuery
             }
         }, {
             $group: {
@@ -696,26 +714,13 @@ const getPatientDetail = async(req, res) => {
             notes[j].when = moment(notes[j].when).format('D/M/YY H:mm:ss')
         }
 
-        console.log(notes)
-
-        // var note
-        // const note = await clinicianNote.findOne({
-        //     patientId: req.params.id,
-        //     clinicianId: cId
-        // }).lean()
-
-        // if (!notes) {
-        //     note = "Start Entering Notes For This Patient"
-        // } else {
-        //     note = note.content
-        // }
-
         return res.render('clinician-patient-page', {
             patient: patient,
             healthRecord: healthRecord,
             support: supports,
             note: notes,
             title: 'My Patient Detail',
+            date: saveQuery,
             doctor: {
                 familyName: req.user.familyName,
                 givenName: req.user.givenName
