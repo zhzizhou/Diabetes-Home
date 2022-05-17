@@ -7,7 +7,7 @@ const isAuthenticated = (req, res, next) => {
     if (!req.isAuthenticated()) {
         return res.redirect('/patient/login')
     }
-    if(req.user.clinicianId === undefined){
+    if (req.user.clinicianId === undefined) {
         return res.redirect('/patient/login')
     }
     return next()
@@ -47,20 +47,22 @@ patientRouter.post('/log/:id', isAuthenticated, patientController.insertLog)
 //display patient's profile page
 patientRouter.get('/profile', isAuthenticated, patientController.getProfile)
 
-//display patient's edit profile page
-patientRouter.get('/edit', isAuthenticated, patientController.getEditPage)
-
-//update patient's details
-patientRouter.put('/edit', isAuthenticated, patientController.updateProfile)
-
 //display patient's setting page
 patientRouter.get('/settings', isAuthenticated, patientController.getSettings)
 
 //update new settings
-patientRouter.put('/settings', isAuthenticated, patientController.updateSettings)
+patientRouter.post('/settings', isAuthenticated, patientController.updateSettings)
+
+//display eidt patient's password
+patientRouter.get('/changepassword', isAuthenticated, patientController.getChangePassword)
 
 //update patient's password
-patientRouter.get('/changepassword', isAuthenticated, patientController.getChangePassword)
+patientRouter.post('/changepassword', isAuthenticated, patientController.updatePassword)
+
 //update patient's nickname
 patientRouter.get('/changenickname', isAuthenticated, patientController.getChangeNickname)
+
+//update patient's password
+patientRouter.post('/changenickname', isAuthenticated, patientController.updateNickname)
+
 module.exports = patientRouter
