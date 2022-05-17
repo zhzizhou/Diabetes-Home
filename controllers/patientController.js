@@ -82,10 +82,10 @@ const getHome = async(req, res) => {
             notes[j].when = moment(notes[j].when).format('D/M/YY H:mm:ss')
         }
         console.log(notes[0])
-        // get engagement rate
+            // get engagement rate
 
         var healthRecord = await HealthRecord.aggregate([{
-            $match: { patientId: patient._id}
+            $match: { patientId: patient._id }
         }, {
             $group: {
                 _id: { $dateToString: { format: "%d/%m", date: "$when" } }
@@ -121,8 +121,8 @@ const getHome = async(req, res) => {
             note: notes[0],
             engagement: engageRate,
             helpers: {
-                showbadge: function(engagement){
-                    if(engagement >= 80){
+                showbadge: function(engagement) {
+                    if (engagement >= 80) {
                         return true
                     }
                     return false
@@ -370,6 +370,11 @@ const getChangePassword = async(req, res) => {
     }
 }
 
+const updatePassword = async(req, res) => {
+    res.send('Update Password')
+        //TODO
+}
+
 const getChangeNickname = async(req, res) => {
     console.log("inside the change nickname page")
 
@@ -390,13 +395,8 @@ const getChangeNickname = async(req, res) => {
     }
 }
 
-const getEditPage = async(req, res) => {
-    res.send('GET EditPage')
-        //TODO
-}
-
-const updateProfile = async(req, res) => {
-    res.send('PUT updateProfile')
+const updateNickname = async(req, res) => {
+    res.send('Update Password')
         //TODO
 }
 
@@ -436,7 +436,6 @@ const getLoginPage = async(req, res) => {
     })
 }
 
-
 const patientLogin = async(req, res) => {
     res.redirect("/patient/home")
 }
@@ -448,12 +447,12 @@ module.exports = {
     getLogPage,
     insertLog,
     getProfile,
-    getEditPage,
-    updateProfile,
     getSettings,
     updateSettings,
     getLoginPage,
     patientLogin,
     getChangePassword,
-    getChangeNickname
+    getChangeNickname,
+    updatePassword,
+    updateNickname
 }
