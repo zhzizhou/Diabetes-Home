@@ -411,7 +411,7 @@ const getSettings = async(req, res) => {
         }
         //found patient
         return res.render('patient-setting', {
-            layout: "patient-settingLayout",
+            layout: "patient-changepassword",
             thisTitle: "Settings",
             patient: patient,
             icon: "bloodtype"
