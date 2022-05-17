@@ -207,8 +207,7 @@ const getLogHistory = async(req, res) => {
         }, {
             $group: {
                 _id: { $dateToString: { format: "%d/%m", date: "$when" } },
-                list: { $push: { item: "$logItemId", value: "$value", time: moment(when).format('H:mm:ss')}
-            } },
+                list: { $push: { item: "$logItemId", value: "$value" } },
                 count: { $sum: 1 }
             }
         }, {
