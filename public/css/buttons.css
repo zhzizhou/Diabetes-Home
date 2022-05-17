@@ -20,13 +20,14 @@ a:hover {
 .button {
     background-color: var(--dark-blue);
     color: var(--white);
-    padding: 8px 15px;
+    padding: 15px 15px;
     border: none;
     cursor: pointer;
     width: 100%;
     border-radius: 3em;
     text-align: center;
     box-shadow: 0px 3px 3px var(--box-shadow);
+    font-size: 24px;
 }
 
 /*CUSTOM BUTTON SIZES*/
@@ -98,7 +99,14 @@ a:hover {
 .search {
     box-shadow: none;
     height: 2.9rem;
-    width: 5rem;
+    width: 6rem;
+    font-size:16px;
+
+}
+
+.setting-button {
+    width: 40%!important;
+
 }
 
 
@@ -177,4 +185,12 @@ select {
 select:active {
     border: none;
     outline: none;
+}
+
+@media screen and (max-width: 550px) {
+
+    .non-type-input {
+        height: 6rem !important;
+    }
+
 }

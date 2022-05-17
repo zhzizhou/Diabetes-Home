@@ -63,4 +63,19 @@ patientRouter.put('/settings', isAuthenticated, patientController.updateSettings
 patientRouter.get('/changepassword', isAuthenticated, patientController.getChangePassword)
 //update patient's nickname
 patientRouter.get('/changenickname', isAuthenticated, patientController.getChangeNickname)
+
+//display patient's help page
+patientRouter.get('/help-one', isAuthenticated, patientController.getHelpPageOne)
+
+//display patient's help page
+patientRouter.get('/help-two', isAuthenticated, patientController.getHelpPageTwo)
+
+//display patient's help page
+patientRouter.get('/help-three', isAuthenticated, patientController.getHelpPageThree)
+
+//display patient's help page
+patientRouter.get('/help-four', isAuthenticated, patientController.getHelpPageFour)
+
+
 module.exports = patientRouter
+

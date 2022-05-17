@@ -440,6 +440,38 @@ const patientLogin = async(req, res) => {
     res.redirect("/patient/home")
 }
 
+const getHelpPageOne = async(req, res) => {
+    res.render('help1', {
+        flash: req.flash('error'),
+        title: "Help",
+        layout: "help-pages"
+    })
+}
+
+const getHelpPageTwo = async(req, res) => {
+    res.render('help2', {
+        flash: req.flash('error'),
+        title: "Help",
+        layout: "help-pages"
+    })
+}
+
+const getHelpPageThree = async(req, res) => {
+    res.render('help3', {
+        flash: req.flash('error'),
+        title: "Help",
+        layout: "help-pages"
+    })
+}
+
+const getHelpPageFour = async(req, res) => {
+    res.render('help4', {
+        flash: req.flash('error'),
+        title: "Help",
+        layout: "help-pages"
+    })
+}
+
 module.exports = {
     getHome,
     getLeaderboard,
@@ -454,5 +486,9 @@ module.exports = {
     getLoginPage,
     patientLogin,
     getChangePassword,
-    getChangeNickname
+    getChangeNickname,
+    getHelpPageOne,
+    getHelpPageTwo,
+    getHelpPageThree,
+    getHelpPageFour
 }
