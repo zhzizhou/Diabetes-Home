@@ -19,6 +19,7 @@ p, ul {
 
 .p-dark {
     color: var(--dark-grey-text);
+    word-break: break-word;
 }
 
 li {
