@@ -4,6 +4,7 @@ const Patient = require('../models/patient')
 const Doctor = require('../models/clinician')
 const moment = require('moment')
 const bcrypt = require('bcrypt')
+const supportMessage = require('../models/supportMessage')
 
 const expressValidator = require('express-validator')
 const clinicianNote = require('../models/clinicianNote')
@@ -69,7 +70,7 @@ const getHome = async(req, res) => {
         }
 
         // latest support message
-        const notes = await clinicianNote.find({
+        const notes = await supportMessage.find({
             patientId: pID,
             clinicianId: patient.clinicianId
         }).sort({ when: -1 }).limit(1).lean()
