@@ -65,4 +65,6 @@ patientRouter.get('/changenickname', isAuthenticated, patientController.getChang
 //update patient's password
 patientRouter.post('/changenickname', isAuthenticated, patientController.updateNickname)
 
+//patient's about page
+patientRouter.get('/about', isAuthenticated, patientController.getAboutpage)
 module.exports = patientRouter

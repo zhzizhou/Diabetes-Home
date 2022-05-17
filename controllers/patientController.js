@@ -20,12 +20,6 @@ const getHome = async(req, res) => {
             return res.sendStatus(404)
         }
 
-        if (patient.engagementRate >= 80) {
-            badge = "badge-filled"
-        } else {
-            badge = "badge"
-        }
-
         var latestLog1 = null
         var latestLog2 = null
         var latestLog3 = null
@@ -101,7 +95,11 @@ const getHome = async(req, res) => {
         console.log("days:" + days)
         console.log("engegemtn" + engageRate)
 
-
+        if (engageRate >= 80) {
+            badge = "badge-filled"
+        } else {
+            badge = "badge"
+        }
 
         // render hbs page
         return res.render('patient-dashboard', {
@@ -439,6 +437,28 @@ const patientLogin = async(req, res) => {
     res.redirect("/patient/home")
 }
 
+const getAboutpage = async(req,res) => {
+    console.log("Inside get settings")
+    try {
+        const patient = await Patient.findById(
+            req.user._id
+        ).lean()
+
+        if (!patient) {
+            return res.sendStatus(404)
+        }
+        //found patient
+        return res.render('about', {
+            layout: "index-main",
+            title: "aboutPage",
+            patient: patient
+        })
+
+    } catch (err) {
+        return next(err)
+    }
+}
+
 module.exports = {
     getHome,
     getLeaderboard,
@@ -453,5 +473,6 @@ module.exports = {
     getChangePassword,
     getChangeNickname,
     updatePassword,
-    updateNickname
+    updateNickname,
+    getAboutpage
 }
