@@ -53,14 +53,17 @@ h3 {
 
 
 /*ICONS*/
-
+.material-icons {
+    display: flex!important;
+}
+ 
 .material-icons-round {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
     font-size: 32px;
     /* Preferred icon size */
-    display: inline-block;
+    display: flex!important;
     line-height: 1;
     text-transform: none;
     letter-spacing: normal;
@@ -68,6 +71,10 @@ h3 {
     white-space: nowrap;
     direction: ltr;
     color: var(--dark-blue)
+}
+
+#material-icons-round {
+    display: flex!important;
 }
 
 
