@@ -6,8 +6,8 @@
         </div>
         <div class="grid-menu white-text" scroll="no">
             <a class="white-text menu-square" href="../../patient/home">
-                <span class="material-icons-round menu-icon">home</span>
-                <h3>Home</h3>
+                <span class="material-icons-round menu-icon">check</span>
+                <h3>My Checklist</h3>
             </a>
             <a class="white-text menu-square" href="../../patient/leaderboard">
                 <span class="material-icons-round menu-icon">leaderboard</span>
@@ -29,6 +29,10 @@
                 <span class="material-icons-round menu-icon">settings</span>
                 <h3>Settings</h3>
             </a>
+            <a class="white-text menu-square" href="../../about">
+                <span class="material-icons-round menu-icon">web</span>
+                <h3>About this site</h3>
+            </a>
 
             <a class="white-text menu-square" href="../patient/logout">
                 <span class="material-icons-round menu-icon">logout</span>
@@ -39,7 +43,7 @@
     </div>
 
     <div class="responsive-nav responsive-nav-top">
-        <a href="index.html"><img class="small-logo" src="/images/logo.svg" alt=""></a>
+        <a href="../../patient/home"><img class="small-logo" src="/images/logo.svg" alt=""></a>
         <div onclick="openMenu()" class="square-menu">
             <span class="material-icons-round blue-text" id="menu-opener">apps</span>
         </div>
@@ -66,10 +70,6 @@
                         <span class="material-icons">history</span>
                         <h3>Log history</h3>
                     </a>
-                    <a href="../patient/logout" class="menu-item-layout menu-item patient-menu">
-                        <span class="material-icons">logout</span>
-                        <h3>logout</h3>
-                    </a>
                 </div>
             </div>
             <div class="menu-section">
@@ -85,6 +85,14 @@
                     <span class="material-icons">help</span>
                     <h3>Help</h3>
                 </a>
+                <a href="../patient/about" class="menu-item-layout menu-item patient-menu">
+                    <span class="material-icons">web</span>
+                    <h3>About this site</h3>
+                </a>
+                <a href="../patient/logout" class="menu-item-layout menu-item patient-menu">
+                    <span class="material-icons">logout</span>
+                    <h3>logout</h3>
+                </a>
             </div>
         </nav>
     </div>
@@ -92,30 +100,41 @@
     <main class="dashboard-container">
 
         <div class="dashboard-right enter-ts-container" id="dashboard-right">
-            <div class="page-title-and-nav">
-                <a href="../patient/profile">
-                    <span class="material-icons-round blue-text">arrow_back_ios</span>
-                </a>
-                <div class="page-title-icon checklist-title" id="ts-title">
-                    <span class="data-icon material-icons-round blue-text">person</span>
-                    <h3 class="blue-text">Change Nickname</h3>
+            <div class="infobar">
+                <div class="return-icon leaderboard-return">
+                    <a href="../../patient/home" class="material-icons-round blue-text">arrow_back_ios</a>
+                </div>
+                <div class="checklist-title">
+                    <div class="page-title-icon">
+                        <a class="material-icons-round blue-text">person</a>
+                        <h3 class="blue-text">Account</h3>
+                    </div>
                 </div>
             </div>
 
             <div>
                 <section id="blue-main-page">
                     <div class="inside-container">
-                        <form method="post" id="UpdateNickname">
-                            <div class="floating">
-                                <input class="floating__input" id="newNickname" name="newNickname"
-                                    placeholder="New-Nickname" type="text" required>
-                                <label for="newNickname" class="floating__label" data-content="New NickName">
-                                    <span class="hidden--visually">Password</span>
-                                </label>
+
+                        <ul class="details-container">
+                            <div class="setting-title">
+                                <h3 class="p-dark">Update Nickname</h3>
+                                <div class="setting-box">
+                                    <form Method="post" id="UpdateNickname" class="update-account">
+                                        <div class="floating">
+                                            <input class="wide-input-account floating__input" id="newNickname"
+                                                name="newNickname" placeholder="NewNickname">
+                                            <label for="NewNickname" class="floating__label"
+                                                data-content="New Nickname">
+                                                <span class="hidden--visually">New Nickname</span>
+                                            </label>
+                                        </div>
+                                        
+                                    </form>
+                                </div>
                             </div>
-                            
-                            <button class="button">Update</button>
-                        </form>
+                            <a class="button setting-button" href="">Save</a>
+                        </ul>
                     </div>
                 </section>
             </div>
