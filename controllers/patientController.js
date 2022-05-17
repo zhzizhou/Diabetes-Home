@@ -164,6 +164,7 @@ const getLeaderboard = async(req, res) => {
 
             if (req.user._id.equals(allPatient[i]._id)) {
                 allPatient[i].nickName = 'ME'
+                allPatient[i].self = true
                 myResult = allPatient[i]
             }
         }
