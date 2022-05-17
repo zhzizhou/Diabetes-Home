@@ -276,7 +276,6 @@ input:focus {
 .infobar {
     display: flex;
     flex-direction: row;
-    margin: auto;
     font-size: 32px;
     color: var(--dark-blue);
     text-align: center;
@@ -293,7 +292,6 @@ input:focus {
     width: 70%;
     display: flex;
     flex-direction: column;
-    align-items:center;
 }
 
 
@@ -721,7 +719,6 @@ input[type=number] {
     }
     .checklist-item {
         background-color: var(--white);
-        width: 20rem;
     }
 
     .dashboard-checklist-item {
@@ -768,8 +765,8 @@ input[type=number] {
         padding-left: 2rem;
     }
     .return-icon {
-        position: fixed;
-        left: 5%;
+        position: absolute;
+        left: 4%;
     }
     .button-width-20 {
         width: 15rem;

@@ -60,16 +60,15 @@
             </div>
 
             <div class="patient-data whitebox shadow">
-                <div class="space-between">
+                <div>
+                    <form action="" method="get">
                     <span style="font-size: 32px;">Health records</span>
-                    <div class="space-between">
-                        <span class="filter-button">Filter by date
-                        <input type="date">
-                        <h3>-</h3>
-                        <input type="date">
+                    <span class="filter-button">Filter by date
+                        <input id="start" name="start" type="date" value={{date.startDate}}>
+                        <input id="end" name="end" type="date" value={{date.endDate}}>
                         <button class="button search">Search</button>
                     </span>
-                    </div>
+                    </form>
                 </div>
 
                 <table class="my-patient-table">
@@ -105,8 +104,6 @@
                     </tr>
                     {{/each}}
                 </table>
-                {{!-- Not yet implement --}}
-                <a href="#">show more records</a>
             </div>
         </div>
     </div>
