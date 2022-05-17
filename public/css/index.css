@@ -286,7 +286,20 @@ a:hover {
     width: 90%;
 }
 
+.data-icon{
+    font-size: 32px !important;
+}
 
+.back-button-container{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+.back-button-container:hover{
+    color: var(--button-hover);
+    
+}
 /*RESPONSIVE*/
 
 @media screen and (max-width: 1570px) {
