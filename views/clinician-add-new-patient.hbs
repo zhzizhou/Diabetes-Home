@@ -61,32 +61,30 @@
                         </div>
                         <div class="floating wide-input space-between non-type-input">
                             <h4 class="blue-text">Birthday</h4>
-                            <input class="floating__input" name="dateOfBirth" placeholder="dateOfBirth"
-                                id="dateOfBirth" type="date" required>
+                            <input class="floating__input" name="dateOfBirth" placeholder="dateOfBirth" id="dateOfBirth"
+                                type="date" required>
                         </div>
                         <div class="floating wide-input non-type-input space-between">
                             <h4 class="blue-text"><label for="gender">Gender</label></h4>
 
                             <select name="gender" id="gender">
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
                             </select>
                         </div>
                         <div class="floating">
-                            <input class=" floating__input wide-input" name="email" placeholder="Email" type ="text" 
-                            pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
-                            title="Must be in the format of ******@***.com"
-                             required>
+                            <input class=" floating__input wide-input" name="email" placeholder="Email" type="text"
+                                pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                                title="Must be in the format of ******@***.com" required>
                             <label for="email" class="floating__label" data-content="Email">
                                 <span class="hidden--visually">Email</span>
                             </label>
                         </div>
                         <div class="floating">
-                            <input class=" floating__input wide-input" name="mobile"
-                                placeholder="Contact Number" type="number" 
+                            <input class=" floating__input wide-input" name="mobile" placeholder="Contact Number"
+                                type="number"
                                 pattern="/^\({0,1}((0|\+61)(2|4|3|7|8)){0,1}\){0,1}(\ |-){0,1}[0-9]{2}(\ |-){0,1}[0-9]{2}(\ |-){0,1}[0-9]{1}(\ |-){0,1}[0-9]{3}$/"
-                                title="Must be in Australian Numbers"
-                                required>
+                                title="Must be in Australian Numbers" required>
                             <label for="mobile" class="floating__label" data-content="Contact Number">
                                 <span class="hidden--visually">Contact Number</span>
                             </label>
@@ -99,36 +97,42 @@
                             <h4 class="blue-text"><label for="diabeteType">Type of Diabetes</label></h4>
 
                             <select name="diabeteType" id="diabeteType">
-                            <option value="Type1">Type 1</option>
-                            <option value="Type2">Type 2</option>
-                            <option value="Type3">Gestational</option>
+                                <option value="Type1">Type 1</option>
+                                <option value="Type2">Type 2</option>
+                                <option value="Type3">Gestational</option>
                             </select>
                         </div>
                         <div class="floating">
-                            <input class=" floating__input wide-input" name="Weight" placeholder="Weight"
-                                type="text" required>
+                            <input class=" floating__input wide-input" name="Weight" placeholder="Weight" type="text"
+                                required>
                             <label for="number" class="floating__label" data-content="Weight">
                                 <span class="hidden--visually">Weight</span>
                             </label>
                         </div>
-                         <div class="floating">
-                            <input class=" floating__input wide-input" name="Height" placeholder="Height"
-                                type="number" required>
+                        <div class="floating">
+                            <input class=" floating__input wide-input" name="Height" placeholder="Height" type="number"
+                                required>
                             <label for="Height" class="floating__label" data-content="Height">
                                 <span class="hidden--visually">Height</span>
                             </label>
                         </div>
-                        
+
                     </div>
                     <h3 class="form-heading">Set password</h3>
                     <div class="floating">
-                            <input class=" floating__input wide-input" name="password"  
-                                placeholder="Contact Number" type="text" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters"required>
-                            <label for="password" class="floating__label" data-content="Set password">
-                                <span class="hidden--visually">Set password</span>
-                            </label>
-                        </div>
-                    <button class="new-patient-submit button" >Create</button>
+                        <input class=" floating__input wide-input" name="password" placeholder="Contact Number"
+                            type="text" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}"
+                            title="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters"
+                            required>
+                        <label for="password" class="floating__label" data-content="Set password">
+                            <span class="hidden--visually">Set password</span>
+                        </label>
+                    </div>
+                    <div>
+                        <p>● Must contain at least one number and one uppercase and lowercase letter</p>
+                        <p>● Must be 5 or more characters</p>
+                    </div>
+                    <button class="new-patient-submit button">Create</button>
                 </form>
             </div>
         </div>
