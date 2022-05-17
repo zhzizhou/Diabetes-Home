@@ -3,6 +3,8 @@ const HealthRecord = require('../models/healthRecord')
 const Patient = require('../models/patient')
 const Doctor = require('../models/clinician')
 const moment = require('moment')
+const bcrypt = require('bcrypt')
+
 const expressValidator = require('express-validator')
 const clinicianNote = require('../models/clinicianNote')
 
@@ -18,12 +20,6 @@ const getHome = async(req, res) => {
         const doctor = await Doctor.findById(patient.clinicianId).lean()
         if (!patient || !doctor) {
             return res.sendStatus(404)
-        }
-
-        if (patient.engagementRate >= 80) {
-            badge = "badge-filled"
-        } else {
-            badge = "badge"
         }
 
         var latestLog1 = null
@@ -82,10 +78,10 @@ const getHome = async(req, res) => {
             notes[j].when = moment(notes[j].when).format('D/M/YY H:mm:ss')
         }
         console.log(notes[0])
-        // get engagement rate
+            // get engagement rate
 
         var healthRecord = await HealthRecord.aggregate([{
-            $match: { patientId: patient._id}
+            $match: { patientId: patient._id }
         }, {
             $group: {
                 _id: { $dateToString: { format: "%d/%m", date: "$when" } }
@@ -101,7 +97,11 @@ const getHome = async(req, res) => {
         console.log("days:" + days)
         console.log("engegemtn" + engageRate)
 
-
+        if (engageRate >= 80) {
+            badge = "badge-filled"
+        } else {
+            badge = "badge"
+        }
 
         // render hbs page
         return res.render('patient-dashboard', {
@@ -121,8 +121,8 @@ const getHome = async(req, res) => {
             note: notes[0],
             engagement: engageRate,
             helpers: {
-                showbadge: function(engagement){
-                    if(engagement >= 80){
+                showbadge: function(engagement) {
+                    if (engagement >= 80) {
                         return true
                     }
                     return false
@@ -164,6 +164,7 @@ const getLeaderboard = async(req, res) => {
 
             if (req.user._id.equals(allPatient[i]._id)) {
                 allPatient[i].nickName = 'ME'
+                allPatient[i].self = true
                 myResult = allPatient[i]
             }
         }
@@ -369,6 +370,23 @@ const getChangePassword = async(req, res) => {
     }
 }
 
+const updatePassword = async(req, res) => {
+    console.log(req.body);
+    try {
+        const salt = await bcrypt.genSalt(10)
+
+        var thisPassword = await bcrypt.hash(req.body.newPassword, salt)
+
+        await Patient.findByIdAndUpdate({ _id: req.user._id }, { password: thisPassword })
+        res.send("<script> alert('Updated password');\
+             window.location.href='profile'; </script>")
+    } catch (err) {
+        console.log(err)
+        res.send("<script> alert('Update Fail');\
+             window.location.href='profile'; </script>")
+    }
+}
+
 const getChangeNickname = async(req, res) => {
     console.log("inside the change nickname page")
 
@@ -389,14 +407,16 @@ const getChangeNickname = async(req, res) => {
     }
 }
 
-const getEditPage = async(req, res) => {
-    res.send('GET EditPage')
-        //TODO
-}
-
-const updateProfile = async(req, res) => {
-    res.send('PUT updateProfile')
-        //TODO
+const updateNickname = async(req, res) => {
+    console.log(req.body);
+    try {
+        await Patient.findByIdAndUpdate({ _id: req.user._id }, { nickName: req.body.newNickname })
+        res.send("<script> alert('Updated');\
+             window.location.href='profile'; </script>")
+    } catch (err) {
+        res.send("<script> alert('Update Fail');\
+             window.location.href='profile'; </script>")
+    }
 }
 
 const getSettings = async(req, res) => {
@@ -413,7 +433,7 @@ const getSettings = async(req, res) => {
         return res.render('patient-setting', {
             layout: "patient-changepassword",
             thisTitle: "Settings",
-            patient: patient,
+            thisPatient: patient,
             icon: "bloodtype"
         })
 
@@ -423,8 +443,25 @@ const getSettings = async(req, res) => {
 }
 
 const updateSettings = async(req, res) => {
-    res.send('PUT Settings')
-        //TODO
+    try {
+        const patient = await Patient.findById(
+            req.user._id
+        ).lean()
+
+        if (!patient) {
+            return res.sendStatus(404)
+        }
+        //found patient
+        return res.render('patient-setting', {
+            layout: "patient-changepassword",
+            thisTitle: "Settings",
+            thisPatient: patient,
+            icon: "bloodtype"
+        })
+
+    } catch (err) {
+        return next(err)
+    }
 }
 
 const getLoginPage = async(req, res) => {
@@ -434,7 +471,6 @@ const getLoginPage = async(req, res) => {
         layout: "login"
     })
 }
-
 
 const patientLogin = async(req, res) => {
     res.redirect("/patient/home")
@@ -470,6 +506,29 @@ const getHelpPageFour = async(req, res) => {
         title: "Help",
         layout: "help-pages"
     })
+
+}
+
+const getAboutpage = async(req,res) => {
+    console.log("Inside get settings")
+    try {
+        const patient = await Patient.findById(
+            req.user._id
+        ).lean()
+
+        if (!patient) {
+            return res.sendStatus(404)
+        }
+        //found patient
+        return res.render('about', {
+            layout: "index-main",
+            title: "aboutPage",
+            patient: patient
+        })
+
+    } catch (err) {
+        return next(err)
+    }
 }
 
 module.exports = {
@@ -479,8 +538,6 @@ module.exports = {
     getLogPage,
     insertLog,
     getProfile,
-    getEditPage,
-    updateProfile,
     getSettings,
     updateSettings,
     getLoginPage,
@@ -490,5 +547,8 @@ module.exports = {
     getHelpPageOne,
     getHelpPageTwo,
     getHelpPageThree,
-    getHelpPageFour
+    getHelpPageFour,
+    updatePassword,
+    updateNickname,
+    getAboutpage
 }
