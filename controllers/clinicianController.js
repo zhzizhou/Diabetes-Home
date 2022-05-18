@@ -552,6 +552,32 @@ const addNotes = async(req, res) => {
     // }
 }
 
+const getAllClinicianNotes = async(req, res) => {
+    try {
+        const clinician = await Clinician.findById(req.user._id).lean()
+        const patient = await Patient.findById(req.params.id).lean()
+        const notes = await clinicianNote.find({
+            patientId: req.params.id,
+            clinicianId: req.user._id,
+        }).lean()
+
+        for (let j = 0; j < notes.length; j++) {
+            notes[j].when = moment(notes[j].when).format('D/M/YY H:mm:ss')
+        }
+
+        return res.render('clinician-all-notes', {
+            patient: patient,
+            clinician: clinician,
+            note: notes,
+            title: 'Notes',
+            layout: "clinician-main"
+        })
+
+    } catch (err) {
+        res.send(err)
+    }
+}
+
 const getTimeSeriesPage = async(req, res) => {
     const pid = req.params.id
     try {
@@ -620,18 +646,18 @@ const getPatientDetail = async(req, res) => {
         var saveQuery = {}
         console.log(req.query)
 
-        if(Object.keys(req.query).length === 0){
+        if (Object.keys(req.query).length === 0) {
 
-            saveQuery['startDate'] = moment().subtract(7,'d').format('YYYY-MM-DD')
+            saveQuery['startDate'] = moment().subtract(7, 'd').format('YYYY-MM-DD')
             dateQuery['$gte'] = new Date(saveQuery['startDate'])
             saveQuery['endDate'] = moment().format('YYYY-MM-DD')
 
-        }else{
+        } else {
             saveQuery['startDate'] = req.query.start
             saveQuery['endDate'] = req.query.end
 
             var start = new Date(req.query.start)
-            var end = moment(new Date(req.query.end)).add(1,'d').toDate()
+            var end = moment(new Date(req.query.end)).add(1, 'd').toDate()
             dateQuery['$gte'] = start
             dateQuery['$lt'] = end
         }
@@ -733,6 +759,9 @@ const getPatientDetail = async(req, res) => {
 }
 
 
+
+
+
 const getEditPatientPage = async(req, res) => {
     res.send('GET EditPatientPage')
         //TODO
@@ -780,4 +809,5 @@ module.exports = {
     updatePatientDetail,
     getLoginPage,
     clinicianLogin,
+    getAllClinicianNotes
 }

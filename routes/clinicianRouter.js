@@ -124,11 +124,12 @@ clinicianRouter.put(
     clinicianController.updatePatientDetail
 )
 
-/*//display clinician log in page
-clinicianRouter.get('/login', clinicianController.getLoginPage)
-
-//clician login request
-clinicianRouter.post('/login', clinicianController.clinicianLogin)*/
+//display all clinician note
+clinicianRouter.get(
+    '/my-patient/:id/allnotes',
+    isAuthenticated,
+    clinicianController.getAllClinicianNotes
+)
 
 
 module.exports = clinicianRouter
