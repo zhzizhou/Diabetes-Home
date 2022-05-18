@@ -636,8 +636,8 @@ const getAboutpage = async(req, res) => {
             colorlayout = 'DARK-index-main'
         } 
         //found patient
-        console.log("before rendering")
-        return res.render('about', {
+        // console.log("before rendering")
+        return res.render('about-loggedin', {
             layout: colorlayout,
             title: "aboutPage",
             patient: patient
