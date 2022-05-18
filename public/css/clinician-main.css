@@ -101,6 +101,25 @@ a {
     align-items: center;
 }
 
+.column-flex {
+    display:flex;
+    flex-direction: row;
+    gap:1rem;
+    text-align: center;
+}
+
+.legend-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.legend-text {
+    max-width: 15rem;
+}
+
 
 /*DASHBOARD - SUB ELEMENT STYLE*/
 
