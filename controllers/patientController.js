@@ -520,20 +520,20 @@ const updateSettings = async(req, res) => {
         } else {
             thisDarkMode = false
         }
-        var colorlayout
-        if (patient.darkMode == false){
-            //light colorscheme
-            colorlayout = 'patient-changepassword'
-        }else{
-            colorlayout = 'DARK-patient-changepassword'
-        }
-        //found patient
-        return res.render('patient-setting', {
-            layout: colorlayout,
-            thisTitle: "Settings",
-            thisPatient: patient,
-            icon: "bloodtype"
-        })
+        // var colorlayout
+        // if (patient.darkMode == false){
+        //     //light colorscheme
+        //     colorlayout = 'patient-changepassword'
+        // }else{
+        //     colorlayout = 'DARK-patient-changepassword'
+        // }
+        // //found patient
+        // return res.render('patient-setting', {
+        //     layout: colorlayout,
+        //     thisTitle: "Settings",
+        //     thisPatient: patient,
+        //     icon: "bloodtype"
+        // })
         await Patient.findByIdAndUpdate({ _id: req.user._id }, { darkMode: thisDarkMode })
         res.send("<script> alert('Updated successfully');\
                 window.location.href='settings'; </script>")
