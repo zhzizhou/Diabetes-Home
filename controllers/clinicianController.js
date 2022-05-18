@@ -105,48 +105,29 @@ const getProfile = async(req, res) => {
     }
 }
 
-const getSettings = async(req, res) => {
-    try {
-        const clinician = await Clinician.findById(
-            // req.params.clinician_id
-            '625e240b01e5ce1b9ef808e9'
-        ).lean()
-
-        if (!clinician) {
-            return res.sendStatus(404)
+const
+    registerClinician = async(req, res) => {
+        console.log(req.body)
+        try {
+            const newClinician = new Clinician({
+                givenName: req.body.givenName,
+                familyName: req.body.familyName,
+                password: req.body.password,
+                email: req.body.email,
+                dateOfBirth: req.body.dateOfBirth,
+                darkMode: false,
+                mobile: req.body.mobile,
+                profilePicture: 'defaultPic',
+                gender: req.body.gender,
+            })
+            await newClinician
+                .save()
+                .then((result) => res.send(result))
+                .catch((err) => res.send(err))
+        } catch {
+            res.send('internal error')
         }
-        //found clinician
-        return res.render('clinician-setting', {
-            layout: "clinician-main"
-        })
-
-    } catch (err) {
-        return next(err)
     }
-}
-
-const registerClinician = async(req, res) => {
-    console.log(req.body)
-    try {
-        const newClinician = new Clinician({
-            givenName: req.body.givenName,
-            familyName: req.body.familyName,
-            password: req.body.password,
-            email: req.body.email,
-            dateOfBirth: req.body.dateOfBirth,
-            darkMode: false,
-            mobile: req.body.mobile,
-            profilePicture: 'defaultPic',
-            gender: req.body.gender,
-        })
-        await newClinician
-            .save()
-            .then((result) => res.send(result))
-            .catch((err) => res.send(err))
-    } catch {
-        res.send('internal error')
-    }
-}
 
 const getNewPatientPage = async(req, res) => {
     try {
@@ -400,10 +381,12 @@ const addSupport = async(req, res) => {
 
     try {
         await newSupportMessage.save()
-        res.status(204).send()
+        res.send("<script> alert('Add new support message successfully');\
+                window.location.href='detail'; </script>")
 
     } catch {
-        res.status(204).send("<script> alert('Update Fail');</script>")
+        res.send("<script> alert('Fail to add new support message');\
+            window.location.href='detail'; </script>")
     }
 }
 
@@ -453,7 +436,7 @@ const addNotes = async(req, res) => {
             window.location.href='detail'; </script>")
 
     } catch {
-        res.send("<script> alert('add note Fail');\
+        res.send("<script> alert('Add clinician note Fail');\
         window.location.href='detail'; </script>")
     }
 }
@@ -679,7 +662,6 @@ const clinicianLogin = async(req, res) => {
 module.exports = {
     getHome,
     getProfile,
-    getSettings,
     registerClinician,
     getNewPatientPage,
     addNewPatient,
