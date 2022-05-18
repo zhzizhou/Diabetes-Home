@@ -504,10 +504,19 @@ input[type=number] {
 
 .log-container {
     gap: 2rem;
+    min-width: 990px;
 }
 
 #log-history-date {
     padding-bottom: 2rem;
+}
+
+.log-filter{
+    padding-top: 1rem;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
 }
 
 .loghistory-grid {
@@ -919,6 +928,11 @@ input[type=number] {
         margin: auto;
     }
 
+    .log-container {
+        min-width: 1024px;
+        min-height: 500px;
+    }
+
 
 }
 
@@ -1124,5 +1138,13 @@ input[type=number] {
     .loghistory-grid {
         grid-template-columns: repeat(1, 1fr);
         width: 90vw;
+    }
+    .log-container {
+        min-width: 375px;
+        min-height: 460px;
+    }
+
+    .log-filter{
+        grid-template-columns: repeat(1, 1fr);
     }
 }

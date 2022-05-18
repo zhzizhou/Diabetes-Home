@@ -111,7 +111,16 @@
         </div>
 
         <div class="leaderboard-box loghistory-box">
-            <div id="log-history-date" lass="filter-button white-background">Filter by date<input type="date"></div>
+            <div id="log-history-date">
+                <form action="" method="get">
+                    <h4>Filter by date</h4>
+                    <div class="filter-button white-background log-filter">
+                        <div>Start:<input id="start" name="start" type="date" value={{date.startDate}}></div>
+                        <div>End:<input id="end" name="end" type="date" value={{date.endDate}}></div>
+                        <div><button class="button search">Search</button></div>
+                    </div>
+                </form>
+            </div>
             <div id="blue-main-page" class="centre-flex log-container">
                 {{#each healthRecord}}
                 <div class="grey-background p-dark">{{this._id}}</div>

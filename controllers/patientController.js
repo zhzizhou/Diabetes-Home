@@ -85,7 +85,7 @@ const getHome = async(req, res) => {
             $match: { patientId: patient._id }
         }, {
             $group: {
-                _id: { $dateToString: { format: "%d/%m", date: "$when" } }
+                _id: { $dateToString: { format: "%d/%m", date: "$when", timezone: "Australia/Melbourne" } }
             }
         }])
 
@@ -163,7 +163,7 @@ const getLeaderboard = async(req, res) => {
                 $match: { patientId: allPatient[i]._id }
             }, {
                 $group: {
-                    _id: { $dateToString: { format: "%d/%m", date: "$when" } }
+                    _id: { $dateToString: { format: "%d/%m", date: "$when", timezone: "Australia/Melbourne" } }
                 }
             }])
             var now = moment()
@@ -215,18 +215,38 @@ const getLeaderboard = async(req, res) => {
 
 const getLogHistory = async(req, res) => {
     try {
+        var dateQuery = {}
+        var saveQuery = {}
+        console.log(req.query)
+
+        if (Object.keys(req.query).length === 0) {
+
+            saveQuery['startDate'] = moment().subtract(7, 'd').format('YYYY-MM-DD')
+            dateQuery['$gte'] = new Date(saveQuery['startDate'])
+            saveQuery['endDate'] = moment().format('YYYY-MM-DD')
+
+        } else {
+            saveQuery['startDate'] = req.query.start
+            saveQuery['endDate'] = req.query.end
+
+            var start = new Date(req.query.start)
+            var end = moment(new Date(req.query.end)).add(1, 'd').toDate()
+            dateQuery['$gte'] = start
+            dateQuery['$lt'] = end
+        }
+
         const patient = await Patient.findById(
             req.user._id
         ).lean()
         var healthRecord = await HealthRecord.aggregate([{
             $match: {
                 patientId: patient._id,
-                when: { $gte: moment().day(-7).toDate() }
+                when: dateQuery
             }
         }, {
             $group: {
-                _id: { $dateToString: { format: "%d/%m", date: "$when" } },
-                list: { $push: { item: "$logItemId", value: "$value", id: "$_id" } },
+                _id: { $dateToString: { format: "%d/%m", date: "$when", timezone: "Australia/Melbourne" } },
+                list: { $push: { item: "$logItemId", value: "$value", id: "$_id", time:{ $dateToString: { format: "%H:%M", date: "$when", timezone: "Australia/Melbourne"} }} },
                 count: { $sum: 1 }
             }
         }, {
@@ -250,6 +270,7 @@ const getLogHistory = async(req, res) => {
             layout: colorlayout,
             thisPatient: patient,
             healthRecord: healthRecord,
+            date: saveQuery,
         })
 
     } catch (err) {
@@ -273,6 +294,8 @@ const viewLogHistory = async(req, res) => {
             patientId: patient._id
         }).lean()
 
+        const logTime = moment(onehealthRecord.when).format('D/M/YY H:mm:ss')
+
         if (!patient) {
             return res.sendStatus(404)
         }
@@ -285,6 +308,7 @@ const viewLogHistory = async(req, res) => {
             layout: "patient-main",
             thisPatient: patient,
             healthRecord: onehealthRecord,
+            logTime: logTime
         })
     } catch (err) {
         return next(err)
