@@ -3,26 +3,26 @@
         <div class="nav-top">
             <img class="small-logo" src="/images/logo.svg" alt="">
             <div class="menu-item-layout">
-                <img class="nav-profile-pic" src="/images/clinitian-profile-pic.svg" alt="profile picture">
+                <img src="/images/clinitian-profile-pic.svg" alt="profile picture">
                 <h3>{{clinician.givenName}} {{clinician.familyName}}</h3>
             </div>
             <div class="menu-section">
-                <a href="../clinician/home" class="menu-item-layout menu-item selected">
+                <a href="../../../clinician/home" class="menu-item-layout menu-item">
                     <span class="material-icons">dashboard</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="../clinician/my-patient" class="menu-item-layout menu-item">
+                <a href="../../../clinician/my-patient" class="menu-item-layout menu-item selected ">
                     <span class="material-icons">group</span>
                     <h3>My Patients</h3>
                 </a>
-                <a href="../clinician/new-patient" class="menu-item-layout menu-item ">
+                <a href="../../../clinician/new-patient" class="menu-item-layout menu-item ">
                     <span class="material-icons">person_add</span>
                     <h3>New Patient</h3>
                 </a>
             </div>
         </div>
         <div class="menu-section">
-            <a href="../clinician/profile" class="menu-item-layout menu-item">
+            <a href="../../../clinician/profile" class="menu-item-layout menu-item">
                 <span class="material-icons">account_circle</span>
                 <h3>Account</h3>
             </a>
@@ -34,13 +34,19 @@
     </nav>
 </div>
 
-<div id="Add-support-message" class="tabcontent whitebox note-section-bottom" style="display:block;">
-    <div class="comment-container">
-        {{#each notes}}
-            <div class="comment-time">{{this.when}}</div>
-            <div class="comment-box light-blue-box shadow">
-                <span class="comment-content">{{this.content}}</span>
-            </div>
-        {{/each}}
-    </div>        
-</div>
+<main class="dashboard-container">
+    <div class="dashboard-right centre-content">
+        <div id="blue-main-page" class="centre-flex">
+            <h3 class="blue-text">View All notes</h3>
+            <div class="notes-container">
+                {{#each note}}
+                    <div class="comment-time">{{this.when}}</div>
+                    <div class="comment-box light-blue-box shadow">
+                        <span class="comment-content">{{this.content}}</span>
+                    </div>
+                {{/each}}
+            </div>       
+
+        </div>
+    </div>
+</main>
