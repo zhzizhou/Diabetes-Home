@@ -163,6 +163,8 @@ input:focus {
 
 .filled {
     outline: 3px solid var(--dark-blue);
+    padding: 1.5rem;
+    height: 5rem!important;
 }
 
 .data-icon {
@@ -771,12 +773,10 @@ input[type=number] {
     }
 
     .my-checklist {
-        width: 40rem;
-        margin: auto;
-        width: 85%;
+        width: 55rem;
         background-color: var(--light-blue);
-        margin-bottom: 3rem;
         box-shadow: none;
+        margin: auto 3rem;
     }
 
     .checklist-item {
@@ -916,6 +916,28 @@ input[type=number] {
     .flex-column {
         margin: 0;
         gap: 5rem;
+    }
+
+
+}
+
+@media screen and (max-width: 1024px) {
+    .my-stats {
+        width: 30%;
+    }
+
+    .top-page {
+        gap: 0;
+    }
+
+    .my-checklist {
+        width:600px;
+        margin: auto;
+    }
+
+    .dashboard-checklist-item {
+        width: 30rem!important;
+        margin: auto;
     }
 
 
