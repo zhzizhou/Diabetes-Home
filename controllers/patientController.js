@@ -22,6 +22,7 @@ const getHome = async(req, res) => {
         if (!patient || !doctor) {
             return res.sendStatus(404)
         }
+        
 
         var latestLog1 = null
         var latestLog2 = null
@@ -103,10 +104,20 @@ const getHome = async(req, res) => {
         } else {
             badge = "badge"
         }
+        
+
+        // darkmode rendering 
+        var colorlayout
+        if (patient.darkMode == false){
+            //light colorscheme
+            colorlayout = 'patient-main'
+        }else{
+            colorlayout = 'DARK-patient-main'
+        }
 
         // render hbs page
         return res.render('patient-dashboard', {
-            layout: 'patient-main',
+            layout: colorlayout, 
             title: "Dashboard",
             badge: badge,
             patient: patient,
@@ -177,11 +188,20 @@ const getLeaderboard = async(req, res) => {
         }
         var topPatient = allPatient.slice(0, 5)
 
+        var colorlayout
+        const patient = await Patient.findById(req.user._id).lean()
+        if (patient.darkMode == false){
+            //light colorscheme
+            colorlayout = 'patient-main'
+        }else{
+            colorlayout = 'DARK-patient-main'
+        }
+
         return res.render('patient-leaderboard', {
             self: myResult,
             top: topPatient,
             title: "Leaderboard",
-            layout: "patient-main",
+            layout: colorlayout, 
             helpers: {
                 inc: function(value, options) {
                     return parseInt(value) + 1;
@@ -217,10 +237,18 @@ const getLogHistory = async(req, res) => {
         if (!patient) {
             return res.sendStatus(404)
         }
+        // color mode
+        var colorlayout
+        if (patient.darkMode == false){
+            //light colorscheme
+            colorlayout = 'patient-main'
+        }else{
+            colorlayout = 'DARK-patient-main'
+        } 
         //found patient
         res.render('patient-log-history', {
             title: "Log History",
-            layout: "patient-main",
+            layout: colorlayout, 
             thisPatient: patient,
             healthRecord: healthRecord,
         })
@@ -286,7 +314,14 @@ const getLogPage = async(req, res) => {
         if (!patient) {
             return res.sendStatus(404)
         }
-
+        //color scheme
+        var colorlayout
+        if (patient.darkMode == false){
+            //light colorscheme
+            colorlayout = 'patient-main'
+        }else{
+            colorlayout = 'DARK-patient-main'
+        }
         return res.render('patient-enter-hs', {
             thisPatient: patient,
             title: "Enter Log",
@@ -296,7 +331,7 @@ const getLogPage = async(req, res) => {
             id: req.params.id,
             dataPlaceHolder: placeHolder,
             thisEnterType: enterType,
-            layout: 'patient-main'
+            layout: colorlayout 
         })
 
     } catch (err) {
@@ -340,11 +375,19 @@ const getProfile = async(req, res) => {
         if (!patient) {
             return res.sendStatus(404)
         }
+
+        var colorlayout
+        if (patient.darkMode == false){
+            //light colorscheme
+            colorlayout = 'patient-main'
+        }else{
+            colorlayout = 'DARK-patient-main'
+        }
         //found patient
         return res.render('patient-profile', {
             thisPatient: patient,
             title: "Profile",
-            layout: "patient-main"
+            layout: colorlayout 
         })
 
     } catch (err) {
@@ -362,8 +405,16 @@ const getChangePassword = async(req, res) => {
         if (!patient) {
             return res.sendStatus(404)
         }
+        // color mode
+        var colorlayout
+        if (patient.darkMode == false){
+            //light colorscheme
+            colorlayout = 'patient-changepassword'
+        }else{
+            colorlayout = 'DARK-patient-changepassword'
+        }
         return res.render('patient-change-psw', {
-            layout: 'patient-changepassword',
+            layout: colorlayout,
             thisPatient: patient
         })
     } catch (err) {
@@ -399,8 +450,15 @@ const getChangeNickname = async(req, res) => {
         if (!patient) {
             return res.sendStatus(404)
         }
+        var colorlayout
+        if (patient.darkMode == false){
+            //light colorscheme
+            colorlayout = 'patient-main'
+        }else{
+            colorlayout = 'DARK-patient-main'
+        } 
         return res.render('patient-change-nickname', {
-            layout: 'patient-changepassword',
+            layout: colorlayout,
             thisPatient: patient
         })
     } catch (err) {
@@ -430,9 +488,17 @@ const getSettings = async(req, res) => {
         if (!patient) {
             return res.sendStatus(404)
         }
+        var colorlayout
+        if (patient.darkMode == false){
+            //light colorscheme
+            colorlayout = 'patient-changepassword'
+        }else{
+            colorlayout = 'DARK-patient-changepassword'
+        }
+        
         //found patient
         return res.render('patient-setting', {
-            layout: "patient-changepassword",
+            layout: colorlayout,
             thisTitle: "Settings",
             thisPatient: patient,
             icon: "bloodtype"
@@ -443,6 +509,8 @@ const getSettings = async(req, res) => {
     }
 }
 
+
+// change dark mode functionality
 const updateSettings = async(req, res) => {
     try {
         const patient = await Patient.findById(
@@ -452,9 +520,16 @@ const updateSettings = async(req, res) => {
         if (!patient) {
             return res.sendStatus(404)
         }
+        var colorlayout
+        if (patient.darkMode == false){
+            //light colorscheme
+            colorlayout = 'patient-changepassword'
+        }else{
+            colorlayout = 'DARK-patient-changepassword'
+        }
         //found patient
         return res.render('patient-setting', {
-            layout: "patient-changepassword",
+            layout: colorlayout,
             thisTitle: "Settings",
             thisPatient: patient,
             icon: "bloodtype"
@@ -466,6 +541,8 @@ const updateSettings = async(req, res) => {
 }
 
 const getLoginPage = async(req, res) => {
+
+
     res.render('patient-login', {
         flash: req.flash('error'),
         title: "Patient login",
@@ -478,34 +555,62 @@ const patientLogin = async(req, res) => {
 }
 
 const getHelpPageOne = async(req, res) => {
+    const patient = await Patient.findById(req.user._id).lean()
+    var colorlayout
+    if (patient.darkMode == false){
+        colorlayout = 'help-pages'
+    }else{
+        colorlayout = 'DARK-help-pages'
+    }
     res.render('help1', {
         flash: req.flash('error'),
         title: "Help",
-        layout: "help-pages"
+        layout: colorlayout
     })
 }
 
 const getHelpPageTwo = async(req, res) => {
+    const patient = await Patient.findById(req.user._id).lean()
+    var colorlayout
+    if (patient.darkMode == false){
+        colorlayout = 'help-pages'
+    }else{
+        colorlayout = 'DARK-help-pages'
+    }
     res.render('help2', {
         flash: req.flash('error'),
         title: "Help",
-        layout: "help-pages"
+        layout: colorlayout
     })
 }
 
 const getHelpPageThree = async(req, res) => {
+    const patient = await Patient.findById(req.user._id).lean()
+    var colorlayout
+    if (patient.darkMode == false){
+        colorlayout = 'help-pages'
+    }else{
+        colorlayout = 'DARK-help-pages'
+    }
     res.render('help3', {
         flash: req.flash('error'),
         title: "Help",
-        layout: "help-pages"
+        layout: colorlayout
     })
 }
 
 const getHelpPageFour = async(req, res) => {
+    const patient = await Patient.findById(req.user._id).lean()
+    var colorlayout
+    if (patient.darkMode == false){
+        colorlayout = 'help-pages'
+    }else{
+        colorlayout = 'DARK-help-pages'
+    }
     res.render('help4', {
         flash: req.flash('error'),
         title: "Help",
-        layout: "help-pages"
+        layout: colorlayout
     })
 
 }
@@ -520,9 +625,15 @@ const getAboutpage = async(req,res) => {
         if (!patient) {
             return res.sendStatus(404)
         }
+        var colorlayout
+        if (patient.darkMode == false){
+            colorlayout = 'index-main'
+        }else{
+            colorlayout = 'DARK-index-main'
+        } 
         //found patient
         return res.render('about', {
-            layout: "index-main",
+            layout: colorlayout,
             title: "aboutPage",
             patient: patient
         })

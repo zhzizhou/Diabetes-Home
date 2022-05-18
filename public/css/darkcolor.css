@@ -1,0 +1,18 @@
+/* dark colour scheme */
+:root {
+    --dark-blue: #587BB4;
+    --light-blue: #0F2940;
+    --light-grey-background: #0F2940;
+
+    --dark-grey-text: #D0DFF2;
+    --light-grey-text: #D0DFF2;
+
+    --button-hover: #D0DFF2;
+    --box-shadow: rgba(255, 255, 255, 0.80);
+    
+    --alert-red: #CB0814;
+
+    --box-shadow: rgba(136, 136, 136, 0.5);
+
+    --white:#061726;
+}
