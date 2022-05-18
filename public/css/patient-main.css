@@ -648,13 +648,6 @@ input[type=number] {
     padding-bottom: 5rem;
 }
 
-.space-between {
-    display: flex;
-    flex-direction: row;
-    height: 2rem;
-    align-items: space-between;
-}
-
 .gap {
     display: flex;
     flex-direction: column;
