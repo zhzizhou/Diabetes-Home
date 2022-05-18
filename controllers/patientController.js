@@ -255,9 +255,6 @@ const getLogHistory = async(req, res) => {
     } catch (err) {
         return next(err)
     }
-
-
-
 }
 
 const getLogPage = async(req, res) => {
@@ -357,11 +354,11 @@ const insertLog = async(req, res) => {
     try {
         await newHealthRecord.save()
         res.send("<script> alert('Added heal record successfully');\
-            window.location.href='home'; </script>")
+            window.location.href='../home'; </script>")
 
     } catch {
         res.send("<script> alert('Fail to add heal record');\
-        window.location.href='home'; </script>")
+        window.location.href='../home'; </script>")
     }
 }
 
