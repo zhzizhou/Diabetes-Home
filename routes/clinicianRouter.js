@@ -36,21 +36,6 @@ clinicianRouter.get('/home', isAuthenticated, clinicianController.getHome)
 //display clinician's profile page
 clinicianRouter.get('/profile', isAuthenticated, clinicianController.getProfile)
 
-//display clinician's edit profile page
-clinicianRouter.get('/edit', clinicianController.getEditPage)
-
-//update clinician's profile
-clinicianRouter.put('/edit', clinicianController.updateProfile)
-
-//display clinician's setting page
-clinicianRouter.get('/settings', clinicianController.getSettings)
-
-//update clinician's new settings
-clinicianRouter.put('/settings', clinicianController.updateSettings)
-
-//display clinician's register page
-clinicianRouter.get('/register', clinicianController.getRegisterPage)
-
 //add a new clinician
 clinicianRouter.post('/register', clinicianController.registerClinician)
 
@@ -109,19 +94,6 @@ clinicianRouter.get(
     '/my-patient/:id/detail',
     isAuthenticated,
     clinicianController.getPatientDetail
-)
-
-//display edit patient page
-clinicianRouter.get(
-    '/my-patient/:id/edit',
-    clinicianController.getEditPatientPage
-)
-
-//update a patient's detail
-clinicianRouter.put(
-    '/my-patient/:id/edit',
-    isAuthenticated,
-    clinicianController.updatePatientDetail
 )
 
 //display all clinician note
