@@ -38,6 +38,9 @@ patientRouter.get('/leaderboard', isAuthenticated, patientController.getLeaderbo
 //display patient's all log history
 patientRouter.get('/history', isAuthenticated, patientController.getLogHistory)
 
+//display patient's one particular log history
+patientRouter.get('/viewlog/:id', isAuthenticated, patientController.viewLogHistory)
+
 //display one of the log page according to record item id
 patientRouter.get('/log/:id', isAuthenticated, patientController.getLogPage)
 
