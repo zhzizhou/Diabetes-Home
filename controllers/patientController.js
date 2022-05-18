@@ -683,6 +683,7 @@ module.exports = {
     getHome,
     getLeaderboard,
     getLogHistory,
+    viewLogHistory,
     getLogPage,
     insertLog,
     getProfile,
