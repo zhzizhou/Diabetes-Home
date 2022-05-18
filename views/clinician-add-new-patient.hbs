@@ -47,6 +47,8 @@
                     <div class="add-new-patient-form">
                         <div class="floating">
                             <input class=" floating__input wide-input" name="givenName" placeholder="Given Name"
+                                pattern = "(.|\s)*\S(.|\s)*"
+                                title="Can't be empty"
                                 type="text" required>
                             <label for="givenName" class="floating__label" data-content="Given Name">
                                 <span class="hidden--visually">Given Name</span>
@@ -54,6 +56,8 @@
                         </div>
                         <div class="floating">
                             <input class=" floating__input wide-input" name="familyName" placeholder="Family Name"
+                                pattern = "(.|\s)*\S(.|\s)*"
+                                title="Can't be empty"
                                 type="text" required>
                             <label for="familyName" class="floating__label" data-content="Family Name">
                                 <span class="hidden--visually">Family Name</span>
@@ -97,9 +101,9 @@
                             <h4 class="blue-text"><label for="diabeteType">Type of Diabetes</label></h4>
 
                             <select name="diabeteType" id="diabeteType">
-                                <option value="Type1">Type 1</option>
-                                <option value="Type2">Type 2</option>
-                                <option value="Type3">Gestational</option>
+                                <option value="Type 1">Type 1</option>
+                                <option value="Type 2">Type 2</option>
+                                <option value="Gestational">Gestational</option>
                             </select>
                         </div>
                         <div class="floating">

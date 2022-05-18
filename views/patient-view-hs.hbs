@@ -53,7 +53,7 @@
                         <h3>{{thisPatient.nickName}} {{thispatient.familyName}}</h3>
                     </div>
                     <div class="menu-section">
-                        <a href="../../patient/home" class="menu-item-layout menu-item selected">
+                        <a href="../../patient/home" class="menu-item-layout menu-item patient-menu">
                             <span class="material-icons-round">check</span>
                             <h3>My Checklist</h3>
                         </a>
@@ -61,7 +61,7 @@
                             <span class="material-icons">leaderboard</span>
                             <h3>Leaderboard</h3>
                         </a>
-                        <a href="../../patient/history" class="menu-item-layout menu-item patient-menu">
+                        <a href="../../patient/history" class="menu-item-layout menu-item selected">
                             <span class="material-icons">history</span>
                             <h3>Log history</h3>
                         </a>
@@ -94,7 +94,7 @@
 
             <div class="page-title-and-nav">
                 <div class="return-icon">
-                    <a href="../../patient/home" class="material-icons-round blue-text">arrow_back_ios</a>
+                    <a href="../../patient/history" class="material-icons-round blue-text">arrow_back_ios</a>
                 </div>
                 <div class="checklist-title">
                     <div class="page-title-icon">
@@ -105,35 +105,33 @@
 
             </div>
 
-            <form method="post" action="">
-                <div id="blue-main-page" class="centre-flex">
-                    <input style="display:none" type="Number" name="logItemId" value={{id}}>
-                    <input style="display:none" type="mongoose.Schema.Types.ObjectId" name="patientId"
-                        value={{thisPatient._id}}>
+            
+            <div id="blue-main-page" class="centre-flex">
+                <input style="display:none" type="Number" name="logItemId" value={{id}}>
+                <input style="display:none" type="mongoose.Schema.Types.ObjectId" name="patientId"
+                    value={{thisPatient._id}}>
 
-                    <input style="fontsize: 1em " min="0" class="enter-data-box" type="Number" step="{{thisEnterType}}"
-                        name="value" placeholder="{{dataPlaceHolder}}">
-                    <div class="date-time-container">
-                        <div class="page-title-icon">
-                            <span class="material-icons-round blue-text">schedule</span>
-                            <p class="blue-text">Time</p>
-                        </div>
-                        <p class="p-dark">{{time}}</p>
+                <input style="fontsize: 1em " min="0" class="enter-data-box" type="Number" step="{{thisEnterType}}"
+                    name="value" placeholder="{{dataPlaceHolder}}">
+                <div class="date-time-container">
+                    <div class="page-title-icon">
+                        <span class="material-icons-round blue-text">schedule</span>
+                        <p class="blue-text">Time</p>
                     </div>
-                    <div>
-                        <div class="page-title-icon on-top">
-                            <span class="material-icons-round blue-text">edit</span>
-                            <p class="blue-text">Notes</p>
-                        </div>
-
-                        <div class="notes-container">
-                            <textarea name="notes" id="message-input" cols="30 " rows="10 " maxlength="150"></textarea>
-                        </div>
-                    </div>
-                    <button type="submit" class="button button-width-20">Save</button>
-                    {{!-- <span class="button button-width-20" onclick="showModel()">Save</button> --}}
+                    <p class="p-dark">{{time}}</p>
                 </div>
-            </form>
+                <div>
+                    <div class="page-title-icon on-top">
+                        <span class="material-icons-round blue-text">edit</span>
+                        <p class="blue-text">Notes</p>
+                    </div>
+
+                    <div class="notes-container">
+                        <textarea name="notes" id="message-input" cols="30 " rows="10 " maxlength="150"></textarea>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 </div>
+

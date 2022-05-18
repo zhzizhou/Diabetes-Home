@@ -105,68 +105,29 @@ const getProfile = async(req, res) => {
     }
 }
 
-const getEditPage = async(req, res) => {
-    res.send('GET EditPage')
-        //TODO
-}
-
-const updateProfile = async(req, res) => {
-    res.send('PUT updateProfile')
-        //TODO
-}
-
-const getSettings = async(req, res) => {
-    try {
-        const clinician = await Clinician.findById(
-            // req.params.clinician_id
-            '625e240b01e5ce1b9ef808e9'
-        ).lean()
-
-        if (!clinician) {
-            return res.sendStatus(404)
+const
+    registerClinician = async(req, res) => {
+        console.log(req.body)
+        try {
+            const newClinician = new Clinician({
+                givenName: req.body.givenName,
+                familyName: req.body.familyName,
+                password: req.body.password,
+                email: req.body.email,
+                dateOfBirth: req.body.dateOfBirth,
+                darkMode: false,
+                mobile: req.body.mobile,
+                profilePicture: 'defaultPic',
+                gender: req.body.gender,
+            })
+            await newClinician
+                .save()
+                .then((result) => res.send(result))
+                .catch((err) => res.send(err))
+        } catch {
+            res.send('internal error')
         }
-        //found clinician
-        return res.render('clinician-setting', {
-            layout: "clinician-main"
-        })
-
-    } catch (err) {
-        return next(err)
     }
-}
-
-const updateSettings = async(req, res) => {
-    res.send('PUT Settings')
-        //TODO
-}
-
-const getRegisterPage = async(req, res) => {
-    res.send('Patient')
-        //TODO
-}
-
-const registerClinician = async(req, res) => {
-    console.log(req.body)
-    try {
-        const newClinician = new Clinician({
-            givenName: req.body.givenName,
-            familyName: req.body.familyName,
-            password: req.body.password,
-            email: req.body.email,
-            dateOfBirth: req.body.dateOfBirth,
-            darkMode: false,
-            mobile: req.body.mobile,
-            profilePicture: 'defaultPic',
-            gender: req.body.gender,
-        })
-        await newClinician
-            .save()
-            .then((result) => res.send(result))
-            .catch((err) => res.send(err))
-    } catch {
-        res.send('internal error')
-    }
-}
 
 const getNewPatientPage = async(req, res) => {
     try {
@@ -420,10 +381,12 @@ const addSupport = async(req, res) => {
 
     try {
         await newSupportMessage.save()
-        res.status(204).send()
+        res.send("<script> alert('Add new support message successfully');\
+                window.location.href='detail'; </script>")
 
     } catch {
-        res.status(204).send("<script> alert('Update Fail');</script>")
+        res.send("<script> alert('Fail to add new support message');\
+            window.location.href='detail'; </script>")
     }
 }
 
@@ -454,48 +417,6 @@ const getNotesPage = async(req, res) => {
     } catch (err) {
         return next(err)
     }
-
-
-    // var cId = "625e240b01e5ce1b9ef808e9"
-    // var when = moment(new Date()).format('D/M/YY H:mm:ss')
-    // var placeholder
-
-    // try {
-    //     const clinician = await Clinician.findById(
-    //         cId
-    //     ).lean()
-
-    //     const patient = await Patient.findById(
-    //         req.params.id
-    //     ).lean()
-
-    //     const notes = await clinicianNote.findOne({
-    //         patientId: req.params.id,
-    //         clinicianId: cId
-    //     }).lean()
-
-    //     if (!clinician || !patient) {
-    //         return res.sendStatus(404)
-    //     }
-
-    //     if (!notes) {
-    //         placeholder = "Take note of something..."
-    //     } else {
-    //         placeholder = notes.content
-    //     }
-
-    //     return res.render('clinician-editNotes', {
-    //         thisClinician: clinician,
-    //         thisPatient: patient,
-    //         time: when,
-    //         placeholder: placeholder,
-    //         title: "Edit Notes",
-    //         layout: 'clinician-main'
-    //     })
-
-    // } catch (err) {
-    //     return next(err)
-    // }
 }
 
 const addNotes = async(req, res) => {
@@ -515,41 +436,9 @@ const addNotes = async(req, res) => {
             window.location.href='detail'; </script>")
 
     } catch {
-        res.send("<script> alert('add note Fail');\
+        res.send("<script> alert('Add clinician note Fail');\
         window.location.href='detail'; </script>")
     }
-    // var cId = "625e240b01e5ce1b9ef808e9"
-
-    // console.log(req.body)
-
-    // try {
-    //     const currentNotes = await clinicianNote.find({
-    //         patientId: req.params.id,
-    //         clinicianId: cId
-    //     }).lean()
-
-    //     if (!currentNotes) {
-    //         console.log("Add new Notes")
-    //         const newNote = new clinicianNote({
-    //             patientId: req.params.id,
-    //             clinicianId: cId,
-    //             content: req.body.notes
-    //         })
-    //         await newNote.save()
-    //     } else {
-    //         console.log("Update Notes")
-    //         await clinicianNote.findOneAndUpdate({ patientId: req.params.id }, { content: req.body.notes })
-    //     }
-
-    //     // res.status(204).send()
-    //     res.send("<script> alert('Update clinician notes successfully');\
-    //         window.location.href='detail'; </script>")
-
-    // } catch {
-    //     // res.status(204).send("<script> alert('Update Fail');</script>")
-    //     res.send("<script> alert('Update Fail');\
-    //         window.location.href='detail'; </script>")
-    // }
 }
 
 const getAllClinicianNotes = async(req, res) => {
@@ -758,20 +647,6 @@ const getPatientDetail = async(req, res) => {
     }
 }
 
-
-
-
-
-const getEditPatientPage = async(req, res) => {
-    res.send('GET EditPatientPage')
-        //TODO
-}
-
-const updatePatientDetail = async(req, res) => {
-    res.send('POST updatePatientDetail')
-        //TODO
-}
-
 const getLoginPage = async(req, res) => {
     res.render('clinician-login', {
         flash: req.flash('error'),
@@ -787,11 +662,6 @@ const clinicianLogin = async(req, res) => {
 module.exports = {
     getHome,
     getProfile,
-    getEditPage,
-    updateProfile,
-    getSettings,
-    updateSettings,
-    getRegisterPage,
     registerClinician,
     getNewPatientPage,
     addNewPatient,
@@ -805,8 +675,6 @@ module.exports = {
     getTimeSeriesPage,
     updateTimeSeries,
     getPatientDetail,
-    getEditPatientPage,
-    updatePatientDetail,
     getLoginPage,
     clinicianLogin,
     getAllClinicianNotes
