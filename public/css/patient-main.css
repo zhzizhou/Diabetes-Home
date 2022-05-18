@@ -770,10 +770,8 @@ input[type=number] {
     .my-checklist {
         margin: auto;
         width: 85%;
-        width: 55rem;
         background-color: var(--light-blue);
         box-shadow: none;
-        margin: auto 3rem;
     }
 
     .checklist-item {
@@ -925,11 +923,6 @@ input[type=number] {
 
     .my-checklist {
         width:600px;
-        margin: auto;
-    }
-
-    .dashboard-checklist-item {
-        width: 30rem!important;
         margin: auto;
     }
 
