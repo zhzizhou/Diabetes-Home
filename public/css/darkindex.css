@@ -1,0 +1,486 @@
+/* dark colour scheme */
+:root {
+    --dark-blue: #587BB4;
+    --light-blue: #0F2940;
+    --light-grey-background: #0F2940;
+
+    --dark-grey-text: #D0DFF2;
+    --light-grey-text: #D0DFF2;
+
+    --button-hover: #D0DFF2;
+    --box-shadow: rgba(255, 255, 255, 0.80);
+    
+    --alert-red: #CB0814;
+
+    --box-shadow: rgba(136, 136, 136, 0.5);
+
+    --white:#061726;
+}
+
+
+/*FONT STYLE AND SIZE*/
+
+body {
+    font-family: effra, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--dark-grey-text);
+}
+
+p,
+ul {
+    font-size: 16px;
+    line-height: 1.5em;
+    text-align: left;
+    color: var(--light-grey-text);
+}
+
+li {
+    text-align: left;
+}
+
+h1 {
+    font-size: 72px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+.blue-text {
+    color: var(--dark-blue);
+}
+
+
+/*ICONS*/
+.material-icons {
+    display: flex!important;
+}
+ 
+.material-icons-round {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 32px;
+    /* Preferred icon size */
+    display: flex!important;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    color: var(--dark-blue)
+}
+
+#material-icons-round {
+    display: flex!important;
+}
+
+
+/*LAYOUT & PAGE BACKGROUNDS*/
+
+.topnav {
+    overflow: hidden;
+    padding-left: 2em;
+    padding-right: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.menu-flex {
+    display: flex;
+    gap: 2em;
+    align-items: center;
+}
+
+.page {
+    min-height: 100vh;
+}
+
+#welcome-page {
+    background-color: var(--light-grey-background);
+    height: 90vh;
+    border-radius: 0 0 10em 0;
+    padding: 5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.mobile-login {
+    display: none;
+}
+
+.drop-down {
+    display: none;
+}
+
+#what-is-diabetes {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#homepage-links {
+    background-color: var(--light-blue);
+    border-radius: 10em 0 0 0;
+    padding-left: 2em;
+    padding-right: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+#about-page {
+    background-color: var(--light-grey-background);
+    align-items: center;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    justify-content: center;
+}
+
+p.centre-text {
+    text-align: center;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+.static-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.static-grid-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.aboutWeb {
+    padding: 1% 25%;
+    text-align: center;
+}
+
+.link-logo {
+    width: 10rem;
+}
+
+.links-flex {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.individual-link {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+    justify-content: center;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 3rem;
+    box-shadow: 3px 3px var(--box-shadow);
+    transition: 0.5s;
+}
+
+.individual-link:hover {
+    box-shadow: 5px 5px var(--dark-blue);
+    transition: 0.5s;
+}
+
+.info-link {
+    color: var(--dark-blue);
+    text-decoration: none;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    gap: 5em;
+}
+
+
+/*BUTTONS*/
+
+a {
+    transition: 0.5s;
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: var(--dark-blue);
+}
+
+.button {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 3em;
+    text-align: center;
+    box-shadow: 0px 3px 3px var(--box-shadow);
+}
+
+.button:hover {
+    background-color: var(--button-hover);
+    color: var(--white);
+}
+
+.submit {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    width: 50%;
+    height: auto;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 3em;
+    display: block;
+    margin: auto;
+}
+
+.submit:hover {
+    background-color: var(--dark-blue);
+    transition: 0.5s;
+}
+
+
+/*LOGO & IMAGE SIZING*/
+
+.logo-main {
+    width: 150%;
+}
+
+.small-logo {
+    width: 5rem;
+    transform: translate(0, 0.5rem);
+}
+
+#splash-img {
+    width: 30%;
+}
+
+.logo-about {
+    width: 40%;
+}
+
+.doctor-and-patient {
+    width: 90%;
+}
+
+.data-icon{
+    font-size: 32px !important;
+}
+
+.back-button-container{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+.back-button-container:hover{
+    color: var(--button-hover);
+    
+}
+/*RESPONSIVE*/
+
+@media screen and (max-width: 1570px) {
+    h1 {
+        font-size: 56px;
+    }
+    .logo-main {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .about {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        align-items: center;
+    }
+    .links-flex {
+        flex-direction: column;
+        gap: 2rem;
+        width: 50%;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .static-grid-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .doctor-and-patient {
+        width: 50%;
+    }
+    #what-is-diabetes {
+        padding-bottom: 5rem;
+    }
+    .logo-about {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    #welcome-page {
+        flex-direction: column;
+    }
+    #splash-img {
+        width: 50%;
+    }
+    .responsive-hide {
+        display: none;
+    }
+    .links-flex {
+        flex-direction: column;
+        width: 70%;
+    }
+    .mobile-login {
+        display: block;
+        width: 50%;
+    }
+    .topnav {
+        padding: 16px;
+    }
+    nav>ul {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        transition: 0.5s;
+    }
+    /* Layout of each product category name within the box*/
+    /*Drop down style*/
+    nav ul ul {
+        transform: scale(1, 0);
+        /* Hidden when not hovered*/
+        transform-origin: top center;
+        position: absolute;
+        text-align: center;
+        padding-top: 0rem;
+        text-transform: none;
+        transition: 0.5s;
+    }
+    nav ul ul li {
+        /* margin-top: 0.5rem; */
+        width: 10em;
+        padding: 0.5rem;
+        background-color: var(--dark-blue);
+        /* border-radius: 2rem; */
+        transform: translate(-8rem);
+        box-shadow: 0px 3px 3px var(--box-shadow);
+        text-align: center;
+        color: var(--white);
+    }
+    nav ul ul li:first-child {
+        border-radius: 2rem 2rem 0 0;
+    }
+    nav ul ul li:last-child {
+        border-radius: 0 0 2rem 2rem;
+    }
+    nav ul ul li:hover {
+        background-color: var(--button-hover);
+        color: var(--white);
+    }
+      
+    nav li:hover ul{
+        transform: scale(1,1); /* It become the full scale when hovered -- reveals the subcategories*/ 
+        opacity: 100%;
+    }
+    .drop-down #diabetes {
+        padding: 10px 15px;
+    }
+    .drop-down #about {
+        padding: 10px 29px;
+    }
+    .drop-down #login {
+        padding: 10px 55px;
+    }
+    .drop-down a:hover {
+        color: #ffffff;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .menu-flex {
+        display: none;
+    }
+    .drop-down {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #splash-img {
+        width: 120%;
+        transform: translate(1.5rem, -2rem)
+    }
+    #welcome-page {
+        gap: 1rem;
+    }
+    h1 {
+        font-size: 32px;
+    }
+    h2 {
+        font-size: 24px;
+    }
+    .doctor-and-patient {
+        width: 100%;
+    }
+    .static-grid-item {
+        padding-top: 2rem;
+    }
+    .links-flex {
+        flex-direction: column;
+        width: 100%;
+    }
+    .about {
+        gap: 2rem;
+    }
+    p.centre-text {
+        padding-left: 2rem;
+        padding-right: 2rem
+    }
+    .logo-about {
+        width: 90%;
+    }
+    .mobile-login {
+        display: block;
+        width: 100%;
+    }
+}
+
+
+/* Login Page*/

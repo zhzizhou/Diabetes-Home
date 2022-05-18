@@ -620,7 +620,7 @@ const getHelpPageFour = async(req, res) => {
 }
 
 const getAboutpage = async(req, res) => {
-    console.log("Inside get settings")
+    console.log("Inside get about page")
     try {
         const patient = await Patient.findById(
             req.user._id
@@ -636,6 +636,7 @@ const getAboutpage = async(req, res) => {
             colorlayout = 'DARK-index-main'
         } 
         //found patient
+        console.log("before rendering")
         return res.render('about', {
             layout: colorlayout,
             title: "aboutPage",
