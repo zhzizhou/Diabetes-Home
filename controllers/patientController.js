@@ -479,7 +479,7 @@ const updateNickname = async(req, res) => {
 }
 
 const getSettings = async(req, res) => {
-    console.log("Inside get settings")
+    // console.log("Inside get settings")
     try {
         const patient = await Patient.findById(
             req.user._id
@@ -512,13 +512,13 @@ const getSettings = async(req, res) => {
 
 // change dark mode functionality
 const updateSettings = async(req, res) => {
-    try {
-        const patient = await Patient.findById(
-            req.user._id
-        ).lean()
 
-        if (!patient) {
-            return res.sendStatus(404)
+    var thisDarkMode
+    try {
+        if (req.body.colourTheme == 'dark') {
+            thisDarkMode = true
+        } else {
+            thisDarkMode = false
         }
         var colorlayout
         if (patient.darkMode == false){
@@ -534,9 +534,13 @@ const updateSettings = async(req, res) => {
             thisPatient: patient,
             icon: "bloodtype"
         })
+        await Patient.findByIdAndUpdate({ _id: req.user._id }, { darkMode: thisDarkMode })
+        res.send("<script> alert('Updated successfully');\
+                window.location.href='settings'; </script>")
 
     } catch (err) {
-        return next(err)
+        res.send("<script> alert('Updat false');\
+                window.location.href='settings'; </script>")
     }
 }
 
@@ -615,7 +619,7 @@ const getHelpPageFour = async(req, res) => {
 
 }
 
-const getAboutpage = async(req,res) => {
+const getAboutpage = async(req, res) => {
     console.log("Inside get settings")
     try {
         const patient = await Patient.findById(
