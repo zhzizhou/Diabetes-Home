@@ -85,13 +85,13 @@
                     <span class="material-icons">help</span>
                     <h3>Help</h3>
                 </a>
-                 <a href="../patient/about" class="menu-item-layout menu-item patient-menu">
+                <a href="../patient/about" class="menu-item-layout menu-item patient-menu">
                     <span class="material-icons">web</span>
                     <h3>About this site</h3>
                 </a>
                 <a href="../patient/logout" class="menu-item-layout menu-item patient-menu">
-                        <span class="material-icons">logout</span>
-                        <h3>logout</h3>
+                    <span class="material-icons">logout</span>
+                    <h3>logout</h3>
                 </a>
             </div>
         </nav>
@@ -116,24 +116,31 @@
 
                         <ul class="details-container">
                             <div class="setting-title">
-                                <h3 class="p-dark" >Customise appearance</h3>
+                                <h3 class="p-dark">Customise appearance</h3>
                                 <div class="setting-box">
-                                    <div class="floating setting-input non-type-input space-between">
-                                        <h3 class="blue-text"><label for="colourscheme">Colour Scheme</label></h3>
-                                        <form method = "post" class="space-between colour-setting-box">
-                                            <div>
-                                                <input class="h3-size" type="radio" id="light" name="colourTheme" value="Light">
-                                                <label class="h3-size" for="light">Light</label><br>
+                                    <form method="post" class="details-container">
+                                        <div class="floating setting-input non-type-input space-between colour-setting-box setting-box">
+                                            <h3 class="blue-text"><label for="colourscheme">Colour Preference</label></h3>
+                                            <div class="space-between">
+                                                <div class="space-between">
+                                                <input class="h3-size" type="radio" id="light" name="colourTheme"
+                                                    value="Light" checked>
+                                                  <label class="h3-size" for="light">Light</label><br>
                                             </div>
-                                            <div>
-                                                <input class="h3-size" type="radio" id="dark" name="colourTheme" value="dark">
-                                                <label class="h3-size" for="dark">Dark</label><br>
+                                            <div class="space-between">
+                                                <input class="h3-size" type="radio" id="dark" name="colourTheme"
+                                                    value="dark">
+                                                  <label class="h3-size" for="dark">Dark</label><br>
                                             </div>
-                                            <button class="button setting-button">Save</button>
+                                            </div>
+                                            
+                                        </div>
 
-                                        </form>
-                                    </div>
+                                        <a type="submit" class="setting-button button" onclick="showModel()">Update</a>
+                                        {{!-- <span class="button button-width-20" onclick="showModel()">Save</button> --}}
+                                    </form>
                                 </div>
+                            </div>
                         </ul>
                     </div>
                 </section>
@@ -141,3 +148,21 @@
 
         </div>
     </main>
+    <div id="hidebg"></div>
+
+    {{!-- Pop up window after post message --}}
+
+    <div class="pop-up-container" id="successful-update-data" scroll="no">
+        <div class="pop-up-string">
+            <br>
+            <br>
+            <h3>Your colour preference</h3>
+            <h3>has successfully</h3>
+            <h3>updated!</h3>
+
+        </div>
+        <a href="../../patient/home">
+            <span class="button submit" onclick="closeModel()">Home</span>
+        </a>
+
+    </div>

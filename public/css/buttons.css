@@ -42,16 +42,18 @@ a:hover {
 
 .help-button {
     display: flex;
-    margin:auto;
+    margin-right: 1.5rem;
     height: 50px;
     justify-content:center;
     align-items: center;
+
 }
 
 .skip-button {
     background-color: var(--white)!important;
     border:3px solid var(--dark-blue)!important;
     color:var(--dark-blue)!important;
+    margin-left: 1.5rem;
 }
 
 /*DEFAULT STYLE FOR SUBMIT HOVER STATE*/
@@ -187,10 +189,25 @@ select:active {
     outline: none;
 }
 
+.width-50 {
+    width: 50%!important;
+    margin: auto;
+}
+
 @media screen and (max-width: 550px) {
 
     .non-type-input {
         height: 6rem !important;
+    }
+
+    .help-button {
+        margin-right: 0;
+    }
+    
+    .skip-button {
+        margin-left:0;
+        margin: auto;
+        width: 15rem;
     }
 
 }
