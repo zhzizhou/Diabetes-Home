@@ -166,6 +166,12 @@ input:focus {
     height: 5rem!important;
 }
 
+.filled-large {
+    outline: 3px solid var(--dark-blue);
+    padding: 1.5rem;
+    height: 7.5rem!important;
+}
+
 .data-icon {
     font-size: 32px !important;
 }
@@ -193,7 +199,7 @@ input:focus {
     display: flex;
     flex-direction: column;
     gap: 4rem;
-    width: 35rem;
+    width: 50rem;
 }
 
 .my-stats {
@@ -207,6 +213,7 @@ input:focus {
     padding: 1.5rem;
     border-radius: 2rem;
     box-shadow: 2px 2px 3px var(--box-shadow);
+    width: 80%;
 }
 
 .checkbox {
