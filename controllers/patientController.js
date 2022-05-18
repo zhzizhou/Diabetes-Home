@@ -227,7 +227,7 @@ const getLogHistory = async(req, res) => {
         }, {
             $group: {
                 _id: { $dateToString: { format: "%d/%m", date: "$when" } },
-                list: { $push: { item: "$logItemId", value: "$value" } },
+                list: { $push: { item: "$logItemId", value: "$value", id: "$_id"} },
                 count: { $sum: 1 }
             }
         }, {
@@ -256,9 +256,40 @@ const getLogHistory = async(req, res) => {
     } catch (err) {
         return next(err)
     }
+}
 
+const viewLogHistory = async(req, res) => {
+    try {
+        if (req.params.id != '')
+            logid = req.params.id
 
+        const patient = await Patient.findById(
+            req.user._id
+            ).lean()
 
+        const ObjectId = require('mongodb').ObjectId;
+
+        const onehealthRecord = await HealthRecord.findOne({
+            _id: ObjectId(logid),
+            patientId: patient._id
+        }).lean()
+
+        if (!patient) {
+            return res.sendStatus(404)
+        }
+        if (!onehealthRecord) {
+            return res.sendStatus(404)
+        }
+        //found patient
+        res.render('patient-view-hs', {
+            title: "Log History",
+            layout: "patient-main",
+            thisPatient: patient,
+            healthRecord: onehealthRecord,
+        })
+    } catch (err) {
+        return next(err)
+    }
 }
 
 const getLogPage = async(req, res) => {

@@ -118,7 +118,7 @@
                 <div class="loghistory-grid">
                     {{#each this.list}}
                     {{#ifCond this.item "=="1}}
-                    <div class="checklist-item space-between filled">
+                    <a href="../patient/log/{{this.id}}/4" class="checklist-item space-between filled">
                         <div class="checklist-left space-between">
                             <span class="material-icons-round blue-text check-icon">check_circle_outline</span>
                             <span class="material-icons-round blue-text data-icon">timeline</span>
@@ -131,7 +131,7 @@
                         <div class="time-entered-box">
                             <span class="material-icons-round blue-text">navigate_next</span>
                         </div>
-                    </div>
+                    </a>
                     {{/ifCond}}
                     {{#ifCond this.item "==" 2}}
                     <div class="checklist-item space-between filled">
