@@ -123,6 +123,8 @@
                                     <form Method="post" id="UpdateNickname" class="update-account">
                                         <div class="floating">
                                             <input class="wide-input-account floating__input" id="newNickname"
+                                                pattern = "(.|\s)*\S(.|\s)*"
+                                                title="Can't be empty"
                                                 name="newNickname" placeholder="NewNickname">
                                             <label for="NewNickname" class="floating__label"
                                                 data-content="New Nickname">
