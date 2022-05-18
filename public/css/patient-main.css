@@ -149,7 +149,6 @@ input:focus {
     padding: 2rem;
     border-radius: 2rem;
     text-align: left;
-    width: 50rem;
     box-shadow: 2px 2px 3px var(--box-shadow);
 }
 
@@ -667,10 +666,6 @@ input[type=number] {
 /*REPSONSIVE DESIGN SECTION*/
 
 @media screen and (max-width: 1900px) {
-    .my-checklist {
-        width: 30rem;
-    }
-
     .top-page {
         gap: 40rem;
     }
@@ -771,7 +766,6 @@ input[type=number] {
     }
 
     .my-checklist {
-        width: 40rem;
         margin: auto;
         width: 85%;
         background-color: var(--light-blue);
@@ -781,10 +775,6 @@ input[type=number] {
 
     .checklist-item {
         background-color: var(--white);
-    }
-
-    .dashboard-checklist-item {
-        width: 49rem !important;
     }
 
     .infobar {
@@ -958,9 +948,6 @@ input[type=number] {
         padding: 0em;
     }
 
-    .dashboard-checklist-item {
-        width: 20rem !important;
-    }
 
     .leaderboard-container {
         padding: 1rem;
