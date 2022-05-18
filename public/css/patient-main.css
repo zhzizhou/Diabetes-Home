@@ -369,6 +369,17 @@ input[type=checkbox]:focus {
     width: max-content;
 }
 
+.enter-data-box {
+    background-color: var(--dark-blue);
+    border-radius: 20rem;
+    padding: 1rem;
+    color: white;
+    border: none;
+    width: 15rem;
+    text-align: center;
+    font-size: 32px;
+}
+
 input.enter-data-box {
     background-color: var(--dark-blue);
     border-radius: 20rem;

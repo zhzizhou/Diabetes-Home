@@ -527,6 +527,19 @@ input[type="checkbox"]:checked {
     line-height: 1.75em;
 }
 
+.all-note-section{
+    border-radius: 3em;
+    padding: 2em;
+    width: 50vw;
+    position: relative;
+}
+.view-note-box {
+    width: 100%;
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+}
+
 .select-notes {
     color: var(--light-grey-text);
     padding: 16px 64px 16px 64px;

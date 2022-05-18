@@ -1,4 +1,4 @@
-<body>
+
     <div class="page">
         <div class="topnav">
             <a href="/"><img class="small-logo" src="/images/logo.svg" alt=""></a>
@@ -10,29 +10,41 @@
 
             <nav class="drop-down">
                 <ul>
-                    <li onclick="void(0)"><span class="material-icons-round">expand_more</span>
+                    <li onclick="void(0)">
+                        <span class="material-icons-round">expand_more</span>
                         <ul>
-                            <li><a id="diabetes" href="#what-is-diabetes">What is diabetes?</a></li>
-                            <li><a id="about" href="/about">About this site</a></li>
-                            <li><a id="login" href="/patient/login">Login</a></li>
+                            <li><a class="button" style="font-size:6px" href="/#what-is-diabetes">What is
+                                    diabetes?</a></li>
+                            <li><a class="button" style="font-size:6px" href="/about">About this site</a></li>
                         </ul>
                     </li>
                 </ul>
             </nav>
+
+            <!--<nav class="drop-down">
+                <ul>
+                    <li onclick="void(0)">
+                        <span class="material-icons-round">expand_more</span>
+                        <ul>
+                            <li><a id="diabetes" class="button" href="#what-is-diabetes">What is diabetes?</a></li>
+                            <li style="width: 176px;height: 40px;"><a id="about" class="button" href="/about">About this site</a></li>
+                            <li style="width: 176px;height: 40px;"><a id="login" class="button" href="/patient/login">Login</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>-->
         </div>
     
-        
-
-    <div id="welcome-page">
-        <div>
-            <img class="logo-main" src="/images/logo.svg" alt="">
-            <h3 class="blue-text responsive-hide">Helping you manage your diabetes</h3>
-            <h3 class="blue-text responsive-hide">in the comfort of your own home.</h3>
+        <div id="welcome-page">
+            <div>
+                <img class="logo-main" src="/images/logo.svg" alt="">
+                <h3 class="blue-text responsive-hide">Helping you manage your diabetes</h3>
+                <h3 class="blue-text responsive-hide">in the comfort of your own home.</h3>
+            </div>
+            <img src="" alt="">
+            <img id="splash-img" src="/images/homepage-splashimg.svg" alt="">
+            <a class="button mobile-login" href="/patient/login" id="login">Login</a>
         </div>
-        <img src="" alt="">
-        <img id="splash-img" src="/images/homepage-splashimg.svg" alt="">
-        <a class="button mobile-login" href="/patient/login" id="login">Login</a>
-    </div>
     
     </div>
 
@@ -117,4 +129,3 @@
             </div>
         </div>
     </div>
-</body>
