@@ -36,9 +36,6 @@ clinicianRouter.get('/home', isAuthenticated, clinicianController.getHome)
 //display clinician's profile page
 clinicianRouter.get('/profile', isAuthenticated, clinicianController.getProfile)
 
-//display clinician's setting page
-clinicianRouter.get('/settings', clinicianController.getSettings)
-
 //add a new clinician
 clinicianRouter.post('/register', clinicianController.registerClinician)
 
@@ -98,7 +95,6 @@ clinicianRouter.get(
     isAuthenticated,
     clinicianController.getPatientDetail
 )
-
 
 //display all clinician note
 clinicianRouter.get(
