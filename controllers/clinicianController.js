@@ -564,7 +564,8 @@ const getPatientDetail = async(req, res) => {
                 _id: {
                     $dateToString: {
                         format: "%d/%m",
-                        date: "$when"
+                        date: "$when",
+                        timezone: "Australia/Melbourne"
                     }
                 },
                 list: {

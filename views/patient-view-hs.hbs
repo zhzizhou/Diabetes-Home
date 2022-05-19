@@ -6,8 +6,8 @@
         </div>
         <div class="grid-menu white-text" scroll="no">
             <a class="white-text menu-square" href="../../patient/home">
-                <span class="material-icons-round menu-icon">home</span>
-                <h3>Home</h3>
+                <span class="material-icons-round menu-icon">check</span>
+                <h3>Checklist</h3>
             </a>
             <a class="white-text menu-square" href="../../patient/leaderboard">
                 <span class="material-icons-round menu-icon">leaderboard</span>
@@ -29,108 +29,207 @@
                 <span class="material-icons-round menu-icon">settings</span>
                 <h3>Settings</h3>
             </a>
-
-            <a class="white-text menu-square" href="../logout">
+            <a class="white-text menu-square" href="../patient/logout">
+                <span class="material-icons-round menu-icon">web</span>
+                <h3>About this site</h3>
+            </a>
+            <a class="white-text menu-square" href="../patient/logout">
                 <span class="material-icons-round menu-icon">logout</span>
                 <h3>logout</h3>
             </a>
+
         </div>
     </div>
 
-        <div class="responsive-nav responsive-nav-top">
-            <a href="index.html"><img class="small-logo" src="/images/logo.svg" alt=""></a>
-            <div onclick="openMenu()" class="square-menu">
-                <span class="material-icons-round blue-text" id="menu-opener">apps</span>
-            </div>
+    <div class="responsive-nav responsive-nav-top">
+        <a href="../../patient/home"><img class="small-logo" src="/images/logo.svg" alt=""></a>
+        <div onclick="openMenu()" class="square-menu">
+            <span class="material-icons-round blue-text" id="menu-opener">apps</span>
         </div>
+    </div>
 
-        <div class="nav-placeholder">
-            <nav class="patient-nav">
-                <div class="nav-top">
-                    <img class="small-logo" src="/images/logo.svg" alt="">
-                    <div class="menu-item-layout">
-                        <img class="nav-profile-pic" src="/images/patient-profile-pic.svg" alt="profile picture">
-                        <h3>{{thisPatient.nickName}} {{thispatient.familyName}}</h3>
-                    </div>
-                    <div class="menu-section">
-                        <a href="../../patient/home" class="menu-item-layout menu-item patient-menu">
-                            <span class="material-icons-round">check</span>
-                            <h3>My Checklist</h3>
-                        </a>
-                        <a href="../../patient/leaderboard" class="menu-item-layout menu-item patient-menu">
-                            <span class="material-icons">leaderboard</span>
-                            <h3>Leaderboard</h3>
-                        </a>
-                        <a href="../../patient/history" class="menu-item-layout menu-item selected">
-                            <span class="material-icons">history</span>
-                            <h3>Log history</h3>
-                        </a>
-                    </div>
+    <div class="nav-placeholder">
+        <nav class="patient-nav">
+            <div class="nav-top">
+                <img class="small-logo" src="/images/logo.svg" alt="">
+                <div class="menu-item-layout">
+                    <img class="nav-profile-pic" src="/images/patient-profile-pic.svg" alt="profile picture">
+                    <h3>{{thisPatient.nickName}} {{thisPatient.familyName}}</h3>
                 </div>
                 <div class="menu-section">
-                    <a href="../profile" class="menu-item-layout menu-item patient-menu">
-                        <span class="material-icons">account_circle</span>
-                        <h3>Account</h3>
+                    <a href="../../patient/home" class="menu-item-layout menu-item patient-menu">
+                        <span class="material-icons-round">check</span>
+                        <h3>My Checklist</h3>
                     </a>
-                    <a href="../settings" class="menu-item-layout menu-item patient-menu">
-                        <span class="material-icons">settings</span>
-                        <h3>Settings</h3>
+                    <a href="../../patient/leaderboard" class="menu-item-layout menu-item patient-menu">
+                        <span class="material-icons">leaderboard</span>
+                        <h3>Leaderboard</h3>
                     </a>
-                    <a href="../help-one" class="menu-item-layout menu-item patient-menuÏ">
-                        <span class="material-icons">help</span>
-                        <h3>Help</h3>
-                    </a>
-                    <a href="../logout" class="menu-item-layout menu-item patient-menu">
-                        <span class="material-icons">logout</span>
-                        <h3>logout</h3>
+                    <a href="../../patient/history" class="menu-item-layout menu-item selected">
+                        <span class="material-icons">history</span>
+                        <h3>Log history</h3>
                     </a>
                 </div>
-            </nav>
-        </div>
+            </div>
+            <div class="menu-section">
+                <a href="../patient/profile" class="menu-item-layout menu-item patient-menu">
+                    <span class="material-icons">account_circle</span>
+                    <h3>Account</h3>
+                </a>
+                <a href="../patient/settings" class="menu-item-layout menu-item patient-menu">
+                    <span class="material-icons">settings</span>
+                    <h3>Settings</h3>
+                </a>
+                <a href="../patient/help-one" class="menu-item-layout menu-item patient-menu">
+                    <span class="material-icons">help</span>
+                    <h3>Help</h3>
+                </a>
+                <a href="../patient/about" class="menu-item-layout menu-item patient-menu">
+                        <span class="material-icons">web</span>
+                        <h3>About this site</h3>
+                </a>
+                <a href="../patient/logout" class="menu-item-layout menu-item patient-menu">
+                    <span class="material-icons">logout</span>
+                    <h3>logout</h3>
+                </a>
+            </div>
+        </nav>
+    </div>
 
     <main class="dashboard-container">
-
-        <div class="dashboard-right enter-ts-container" id="dashboard-right">
-
-            <div class="page-title-and-nav">
-                <div class="return-icon">
-                    <a href="../../patient/history" class="material-icons-round blue-text">arrow_back_ios</a>
-                </div>
-                <div class="checklist-title">
-                    <div class="page-title-icon">
-                        <span class="data-icon material-icons-round blue-text">{{icon}}</span>
-                        <h3 class="blue-text">{{thisTitle}}</h3>
+        <div class="dashboard-right enter-ts-container" id="dashboard-right">  
+            {{#ifCond healthRecord.logItemId "==" 1}}
+                <div class="page-title-and-nav">
+                    <div class="return-icon">
+                        <a href="../../patient/history" class="material-icons-round blue-text">arrow_back_ios</a>
+                    </div>
+                    <div class="checklist-title">
+                        <div class="page-title-icon">
+                            <span class="data-icon material-icons-round blue-text">scale</span>
+                            <h3 class="blue-text">Weight</h3>
+                        </div>
                     </div>
                 </div>
-
-            </div>
-
-            
-            <div id="blue-main-page" class="centre-flex">
-                <input style="display:none" type="Number" name="logItemId" value={{id}}>
-                <input style="display:none" type="mongoose.Schema.Types.ObjectId" name="patientId"
-                    value={{thisPatient._id}}>
-
-                <input style="fontsize: 1em " min="0" class="enter-data-box" type="Number" step="{{thisEnterType}}"
-                    name="value" placeholder="{{dataPlaceHolder}}">
-                <div class="date-time-container">
-                    <div class="page-title-icon">
-                        <span class="material-icons-round blue-text">schedule</span>
-                        <p class="blue-text">Time</p>
+                <div id="blue-main-page" class="centre-flex">
+                    <div class="enter-data-box">{{healthRecord.value}} Kg</div>
+                    <div class="date-time-container">
+                        <div class="page-title-icon">
+                            <span class="material-icons-round blue-text">schedule</span>
+                            <p class="blue-text">Time</p>
+                        </div>
+                        <p class="p-dark">{{logTime}}</p>
                     </div>
-                    <p class="p-dark">{{time}}</p>
-                </div>
-                <div>
-                    <div class="page-title-icon on-top">
-                        <span class="material-icons-round blue-text">edit</span>
-                        <p class="blue-text">Notes</p>
-                    </div>
+                    <div>
+                        <div class="page-title-icon on-top">
+                            <span class="material-icons-round blue-text">edit</span>
+                            <p class="blue-text">Notes</p>
+                        </div>
 
-                    <div class="notes-container">
-                        <textarea name="notes" id="message-input" cols="30 " rows="10 " maxlength="150"></textarea>
+                        <div class="notes-container">
+                            <p style="font-size:24px">{{healthRecord.notes}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            {{/ifCond}}
+            {{#ifCond healthRecord.logItemId "==" 2}}
+                <div class="page-title-and-nav">
+                    <div class="return-icon">
+                        <a href="../../patient/history" class="material-icons-round blue-text">arrow_back_ios</a>
+                    </div>
+                    <div class="checklist-title">
+                        <div class="page-title-icon">
+                            <span class="data-icon material-icons-round blue-text">vaccines</span>
+                            <h3 class="blue-text">Insulin Doses</h3>
+                        </div>
+                    </div>
+                </div>
+                <div id="blue-main-page" class="centre-flex">
+                    <div class="enter-data-box">{{healthRecord.value}} dose(s)</div>
+                    <div class="date-time-container">
+                        <div class="page-title-icon">
+                            <span class="material-icons-round blue-text">schedule</span>
+                            <p class="blue-text">Time</p>
+                        </div>
+                        <p class="p-dark">{{logTime}}</p>
+                    </div>
+                    <div>
+                        <div class="page-title-icon on-top">
+                            <span class="material-icons-round blue-text">edit</span>
+                            <p class="blue-text">Notes</p>
+                        </div>
+
+                        <div class="notes-container">
+                            <p style="font-size:24px">{{healthRecord.notes}}</p>
+                        </div>
+                    </div>
+                </div>
+            {{/ifCond}}
+            {{#ifCond healthRecord.logItemId "==" 3}}
+                <div class="page-title-and-nav">
+                    <div class="return-icon">
+                        <a href="../../patient/history" class="material-icons-round blue-text">arrow_back_ios</a>
+                    </div>
+                    <div class="checklist-title">
+                        <div class="page-title-icon">
+                            <span class="data-icon material-icons-round blue-text">scale</span>
+                            <h3 class="blue-text">Weight</h3>
+                        </div>
+                    </div>
+                </div>
+                <div id="blue-main-page" class="centre-flex">
+                    <div class="enter-data-box">{{healthRecord.value}} steps</div>
+                    <div class="date-time-container">
+                        <div class="page-title-icon">
+                            <span class="material-icons-round blue-text">directions_run</span>
+                            <p class="blue-text">Exercise</p>
+                        </div>
+                        <p class="p-dark">{{logTime}}</p>
+                    </div>
+                    <div>
+                        <div class="page-title-icon on-top">
+                            <span class="material-icons-round blue-text">edit</span>
+                            <p class="blue-text">Notes</p>
+                        </div>
+
+                        <div class="notes-container">
+                            <p style="font-size:24px">{{healthRecord.notes}}</p>
+                        </div>
+                    </div>
+                </div>
+            {{/ifCond}} 
+            {{#ifCond healthRecord.logItemId "==" 4}}
+                <div class="page-title-and-nav">
+                    <div class="return-icon">
+                        <a href="../../patient/history" class="material-icons-round blue-text">arrow_back_ios</a>
+                    </div>
+                    <div class="checklist-title">
+                        <div class="page-title-icon">
+                            <span class="data-icon material-icons-round blue-text">scale</span>
+                            <h3 class="blue-text">Weight</h3>
+                        </div>
+                    </div>
+                </div>
+                <div id="blue-main-page" class="centre-flex">
+                    <div class="enter-data-box">{{healthRecord.value}} nmol/L</div>
+                    <div class="date-time-container">
+                        <div class="page-title-icon">
+                            <span class="material-icons-round blue-text">bloodtype</span>
+                            <p class="blue-text">Blood Glucose Level</p>
+                        </div>
+                        <p class="p-dark">{{logTime}}</p>
+                    </div>
+                    <div>
+                        <div class="page-title-icon on-top">
+                            <span class="material-icons-round blue-text">edit</span>
+                            <p class="blue-text">Notes</p>
+                        </div>
+
+                        <div class="notes-container">
+                            <p style="font-size:24px">{{healthRecord.notes}}</p>
+                        </div>
+                    </div>
+                </div>
+            {{/ifCond}}                                 
         </div>
     </main>
 </div>

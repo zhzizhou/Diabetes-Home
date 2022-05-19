@@ -150,7 +150,6 @@ input:focus {
     padding: 2rem;
     border-radius: 2rem;
     text-align: left;
-    width: 50rem;
     box-shadow: 2px 2px 3px var(--box-shadow);
 }
 
@@ -166,6 +165,12 @@ input:focus {
     outline: 3px solid var(--dark-blue);
     padding: 1.5rem;
     height: 5rem!important;
+}
+
+.filled-large {
+    outline: 3px solid var(--dark-blue);
+    padding: 1.5rem;
+    height: 7.5rem!important;
 }
 
 .data-icon {
@@ -195,7 +200,7 @@ input:focus {
     display: flex;
     flex-direction: column;
     gap: 4rem;
-    width: 35rem;
+    width: 50rem;
 }
 
 .my-stats {
@@ -209,6 +214,7 @@ input:focus {
     padding: 1.5rem;
     border-radius: 2rem;
     box-shadow: 2px 2px 3px var(--box-shadow);
+    width: 80%;
 }
 
 .checkbox {
@@ -364,6 +370,17 @@ input[type=checkbox]:focus {
     width: max-content;
 }
 
+.enter-data-box {
+    background-color: var(--dark-blue);
+    border-radius: 20rem;
+    padding: 1rem;
+    color: white;
+    border: none;
+    width: 15rem;
+    text-align: center;
+    font-size: 32px;
+}
+
 input.enter-data-box {
     background-color: var(--dark-blue);
     border-radius: 20rem;
@@ -506,10 +523,19 @@ input[type=number] {
 
 .log-container {
     gap: 2rem;
+    min-width: 990px;
 }
 
 #log-history-date {
     padding-bottom: 2rem;
+}
+
+.log-filter{
+    padding-top: 1rem;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
 }
 
 .loghistory-grid {
@@ -650,13 +676,6 @@ input[type=number] {
     padding-bottom: 5rem;
 }
 
-.space-between {
-    display: flex;
-    flex-direction: row;
-    height: 2rem;
-    align-items: space-between;
-}
-
 .gap {
     display: flex;
     flex-direction: column;
@@ -670,10 +689,6 @@ input[type=number] {
 /*REPSONSIVE DESIGN SECTION*/
 
 @media screen and (max-width: 1900px) {
-    .my-checklist {
-        width: 30rem;
-    }
-
     .top-page {
         gap: 40rem;
     }
@@ -774,18 +789,14 @@ input[type=number] {
     }
 
     .my-checklist {
-        width: 55rem;
+        margin: auto;
+        width: 85%;
         background-color: var(--light-blue);
         box-shadow: none;
-        margin: auto 3rem;
     }
 
     .checklist-item {
         background-color: var(--white);
-    }
-
-    .dashboard-checklist-item {
-        width: 49rem !important;
     }
 
     .infobar {
@@ -936,9 +947,9 @@ input[type=number] {
         margin: auto;
     }
 
-    .dashboard-checklist-item {
-        width: 30rem!important;
-        margin: auto;
+    .log-container {
+        min-width: 1024px;
+        min-height: 500px;
     }
 
 
@@ -981,9 +992,6 @@ input[type=number] {
         padding: 0em;
     }
 
-    .dashboard-checklist-item {
-        width: 20rem !important;
-    }
 
     .leaderboard-container {
         padding: 1rem;
@@ -1149,5 +1157,13 @@ input[type=number] {
     .loghistory-grid {
         grid-template-columns: repeat(1, 1fr);
         width: 90vw;
+    }
+    .log-container {
+        min-width: 375px;
+        min-height: 460px;
+    }
+
+    .log-filter{
+        grid-template-columns: repeat(1, 1fr);
     }
 }
