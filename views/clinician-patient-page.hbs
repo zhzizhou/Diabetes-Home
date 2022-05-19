@@ -43,8 +43,15 @@
             <span class="patient-title-age">
                 <span class="patient-title">{{patient.givenName}} {{patient.familyName}}</span>
                 <span class="patient-age">{{patient.gender}} {{patient.age}}</span></span>
-            <span class="edit-ts-button"><a href="../../my-patient/{{patient._id}}/time-series"
-                    class="edit-ts">edit-time series</a></span>
+
+            <div>
+                <div class="edit-ts-button">
+                    <a href="/clinician/my-patient/{{patient._id}}" class="edit-ts">Patient details</a>
+                    <a href="../../my-patient/{{patient._id}}/time-series" class="edit-ts">Edit-time series</a>
+                </div>
+
+            </div>
+
         </div>
         <div class="main-section">
             <div class="ts-container whitebox shadow">
@@ -62,12 +69,12 @@
             <div class="patient-data whitebox shadow">
                 <div>
                     <form action="" method="get">
-                    <span style="font-size: 32px;">Health records</span>
-                    <span class="filter-button">Filter by date
-                        <input id="start" name="start" type="date" value={{date.startDate}}>
-                        <input id="end" name="end" type="date" value={{date.endDate}}>
-                        <button class="button search">Search</button>
-                    </span>
+                        <span style="font-size: 32px;">Health records</span>
+                        <span class="filter-button">Filter by date
+                            <input id="start" name="start" type="date" value={{date.startDate}}>
+                            <input id="end" name="end" type="date" value={{date.endDate}}>
+                            <button class="button search">Search</button>
+                        </span>
                     </form>
                 </div>
 
@@ -96,9 +103,9 @@
                         <td>{{this._id}}</td>
                         {{#each this.list}}
                         {{#if this.item}}
-                        <td {{#if this.alert}}style="color: red;" {{/if}}>{{this.value}}</td>
+                        <td {{#if this.alert}}style="color: rgb(203,8,8);" {{/if}}>{{this.value}}</td>
                         {{else}}
-                        <td>N/A</td>
+                        <td><span style="color: rgb(203,8,8);" class="material-icons-round">error_outline</span></td>
                         {{/if}}
                         {{/each}}
                     </tr>
@@ -108,9 +115,6 @@
         </div>
     </div>
     <div class="patient-right">
-
-        <span class="details-button"><a href="/clinician/my-patient/{{patient._id}}" class="edit-ts">Patient
-                details</a></span>
         <div>
             <div>
                 <button class="tablinks active" onclick="openCity(event, 'Add-support-message')" id="open">Support
@@ -122,7 +126,8 @@
             <div id="Add-support-message" class="tabcontent whitebox note-section-bottom" style="display:block;">
 
                 <div class="space-between">
-                    <a href="/clinician/my-patient/{{patient._id}}/support" class="edit-ts add-button" style="font-size:24px">Add+</a>
+                    <a href="/clinician/my-patient/{{patient._id}}/support" class="edit-ts add-button"
+                        style="font-size:20px">Add+</a>
                 </div>
                 <div class="comment-container">
                     {{#each support}}
@@ -137,8 +142,10 @@
             <div id="Add-clinician-note" class="tabcontent whitebox note-section-bottom" style="display:none;">
 
                 <div class="space-between">
-                    <a href="/clinician/my-patient/{{patient._id}}/notes" class="edit-ts add-button" style="font-size:24px">Add+</a>
-                    <a href="/clinician/my-patient/{{patient._id}}/allnotes" class="edit-ts add-button" style="font-size:24px">View All</a>
+                    <a href="/clinician/my-patient/{{patient._id}}/notes" class="edit-ts add-button"
+                        style="font-size:20px">Add+</a>
+                    <a href="/clinician/my-patient/{{patient._id}}/allnotes" class="edit-ts add-button"
+                        style="font-size:20px">View All</a>
 
                 </div>
 

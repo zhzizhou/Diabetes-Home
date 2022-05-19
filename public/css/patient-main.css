@@ -25,6 +25,7 @@ body {
     padding: 1rem;
 }
 
+
 .shadow {
     /*USE FOR SHADOWS*/
     box-shadow: 2px 2px 3px var(--box-shadow);

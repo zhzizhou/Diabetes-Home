@@ -58,7 +58,12 @@ a {
 
 
 /*DASHBOARD PAGE*/
-
+.greybox {
+    background-color: var(--light-grey-background);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-top: 2rem;
+}
 
 /*LAYOUT FOR DASHBOARD PAGE*/
 
@@ -370,9 +375,10 @@ td {
     color: var(--white);
     font-size: 16px;
     background-color: var(--dark-blue);
-    padding: 0.4em 0.8em 0.4em 0.8em;
+    padding: 0.6em 0.8em 0.6em 0.8em;
     border-radius: 1em;
     vertical-align: middle;
+    margin-left: 1rem;
 }
 
 
@@ -486,6 +492,9 @@ input[type="checkbox"]:checked {
     /*SPECFIC*/
     vertical-align: middle;
     float: right;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .details-button {

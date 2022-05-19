@@ -68,3 +68,8 @@ textarea {
     font-size: 24px;
 }
 
+p.instructions {
+    text-align: left;
+    margin-top:0.5rem;
+    margin-left:1rem;
+}

@@ -89,6 +89,7 @@ a:hover {
     border-radius: 3em;
     display: block;
     margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 /*DEFAULT STYLE FOR SUBMIT HOVER STATE*/
@@ -100,7 +101,6 @@ a:hover {
 /*SEARCH BUTTON STYLE - CLINICIAN PAGE*/
 .search {
     box-shadow: none;
-    height: 2.9rem;
     width: 6rem;
     font-size:16px;
 
@@ -182,6 +182,7 @@ input[type=date] {
 select {
     color: var(--dark-blue);
     border: none;
+    font-size:24px;
 }
 
 select:active {
@@ -193,6 +194,7 @@ select:active {
     width: 50%!important;
     margin: auto;
 }
+  
 
 @media screen and (max-width: 550px) {
 
