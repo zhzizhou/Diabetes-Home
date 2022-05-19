@@ -41,6 +41,7 @@ h1 {
 
 h2 {
     font-size: 32px;
+    word-break: break-word;
 }
 
 h3 {
@@ -123,10 +124,11 @@ html {
 }
 
 #what-is-diabetes {
-    padding: 1em;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-height: 100vh;
+    padding: 1rem;
 }
 
 #homepage-links {
@@ -242,7 +244,6 @@ a:hover {
     width: 100%;
     border-radius: 3em;
     text-align: center;
-    box-shadow: 0px 3px 3px var(--box-shadow);
 }
 
 .button:hover {
@@ -399,11 +400,9 @@ a:hover {
         text-align: center;
         color: var(--white);
     }
-    nav ul ul li:first-child {
-        border-radius: 2rem 2rem 0 0;
-    }
-    nav ul ul li:last-child {
-        border-radius: 0 0 2rem 2rem;
+    nav ul ul li {
+        border-radius: 1rem;
+        margin-bottom: 0.5rem;
     }
     nav ul ul li:hover {
         background-color: var(--button-hover);
