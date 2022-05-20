@@ -359,7 +359,17 @@ const getLogPage = async(req, res) => {
     var enterType
 
     if(!req.user.timeSeries[req.params.id - 1].activated){
-        res.redirect('/patient/dashboard')
+        res.redirect('/patient/home')
+    }else{
+        var now = new Date()
+        var healthRecord = await HealthRecord.find({patientId: pID, logItemId: req.params.id, 
+            when: {
+                $gte: new Date(now.getFullYear(), now.getMonth(), now.getDate())
+            }},{})
+        
+        if(healthRecord.length !== 0){
+            res.redirect('/patient/home')
+        }
     }
 
     var when = moment(new Date()).format('D/M/YY H:mm:ss')
