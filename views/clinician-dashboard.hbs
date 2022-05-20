@@ -58,10 +58,11 @@
             <div>
                 <div class="patient-record whitebox shadow">
                     <h2>Recent health records</h2>
-                    
-                    <div class="legend-box greybox">  
+
+                    <div class="legend-box greybox">
                         <div class="column-flex">
-                            <div><span style="color: rgb(203,8,8);" class="material-icons-round">error_outline</span></div>
+                            <div><span style="color: rgb(203,8,8);" class="material-icons-round">error_outline</span>
+                            </div>
                             <h4 class="legend-text">Patient did not enter data on that day</h4>
                         </div>
                         <div class="column-flex">
@@ -69,11 +70,12 @@
                             <h4 class="legend-text">Patient entered data outside their safety threshold</h4>
                         </div>
                         <div class="column-flex">
-                            <div><span style="color: rgb(82, 82, 82);" class="material-icons-round">do_not_disturb_on</span></div>
+                            <div><span style="color: rgb(82, 82, 82);"
+                                    class="material-icons-round">do_not_disturb_on</span></div>
                             <h4 class="legend-text">This data is not required by clinician</h4>
                         </div>
                     </div>
-              
+
                     <table class="my-patient-table">
                         <tr class="out-border">
                             <th>Patient</th>
@@ -104,13 +106,16 @@
                                 {{this.log.value}}
                             </td>
                             {{else}}
-                            <td {{#if this.activated}}style="color: rgb(203,8,8);" {{/if}}><span
+                            <td {{#if this.activated}}style="color: rgb(203,8,8);"><span
                                     class="material-icons-round">error_outline</span></td>
+                            <td {{else}}style="color: rgb(82, 82, 82);">
+                                <span class="material-icons-round">do_not_disturb_on</span>
+                            </td>
+                            {{/if}}
                             {{/if}}
                             {{/each}}
                         </tr>
                         {{/each}}
-
                     </table>
                 </div>
             </div>
