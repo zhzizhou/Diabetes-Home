@@ -571,16 +571,12 @@ const getSettings = async(req, res) => {
         if (!patient) {
             return res.sendStatus(404)
         }
-        
-        var light
         var colorlayout
         if (patient.darkMode == false) {
             //light colorscheme
             colorlayout = 'patient-changepassword'
-            light = true 
         } else {
             colorlayout = 'DARK-patient-changepassword'
-            light = false
         }
 
         //found patient
@@ -588,8 +584,7 @@ const getSettings = async(req, res) => {
             layout: colorlayout,
             thisTitle: "Settings",
             thisPatient: patient,
-            icon: "bloodtype",
-            light: light 
+            icon: "bloodtype"
         })
 
     } catch (err) {

@@ -121,31 +121,17 @@
                                     <form method="post" class="details-container">
                                         <div class="floating setting-input non-type-input space-between colour-setting-box setting-box">
                                             <h3 class="blue-text"><label for="colourscheme">Colour Preference</label></h3>
-                                            {{#if light}}
                                             <div class="space-between">
                                                 <div class="space-between">
-                                                <input class="h3-size" type="radio" id="light" name="colourtheme"
-                                                    value="light" checked>
-                                                  <label class="h3-size" for="light">light</label><br>
+                                                <input class="h3-size" type="radio" id="light" name="colourTheme"
+                                                    value="Light" checked>
+                                                  <label class="h3-size" for="light">Light</label><br>
                                             </div>
                                             <div class="space-between">
-                                                <input class="h3-size" type="radio" id="dark" name="colourtheme"
+                                                <input class="h3-size" type="radio" id="dark" name="colourTheme"
                                                     value="dark">
-                                                  <label class="h3-size" for="dark">dark</label><br>
+                                                  <label class="h3-size" for="dark">Dark</label><br>
                                             </div>
-                                            {{else}}
-                                            <div class="space-between">
-                                                <div class="space-between">
-                                                <input class="h3-size" type="radio" id="light" name="colourtheme"
-                                                    value="light" >
-                                                  <label class="h3-size" for="light">light</label><br>
-                                            </div>
-                                            <div class="space-between">
-                                                <input class="h3-size" type="radio" id="dark" name="colourtheme"
-                                                    value="dark" checked>
-                                                  <label class="h3-size" for="dark">dark</label><br>
-                                            </div>
-                                            {{/if}}
                                             </div>
                                             
                                         </div>
