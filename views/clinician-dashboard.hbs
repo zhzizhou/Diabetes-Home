@@ -93,7 +93,7 @@
                         </tr>
                         {{#each patients}}
                         <tr class="out-border" onclick="location.href='/clinician/my-patient/{{this._id}}/detail';">
-                            <td>{{this.givenName}}{{this.familyName}}</td>
+                            <td>{{this.givenName}} {{this.familyName}}</td>
                             {{#each this.timeSeries}}
                             {{#if this.log}}
                             <td {{#if this.log.alert}}style="color: rgb(203,8,8);" {{/if}}>
