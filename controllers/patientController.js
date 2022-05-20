@@ -343,6 +343,10 @@ const getLogPage = async(req, res) => {
     var placeHolder
     var enterType
 
+    if(!req.user.timeSeries[req.params.id - 1].activated){
+        res.redirect('/patient/dashboard')
+    }
+
     var when = moment(new Date()).format('D/M/YY H:mm:ss')
 
     if (req.params.id != '') {
