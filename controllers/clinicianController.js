@@ -448,11 +448,12 @@ const getAllClinicianNotes = async(req, res) => {
         const notes = await clinicianNote.find({
             patientId: req.params.id,
             clinicianId: req.user._id,
-        }).lean()
+        }).sort({ when: -1 }).lean()
 
         for (let j = 0; j < notes.length; j++) {
             notes[j].when = moment(notes[j].when).format('D/M/YY H:mm:ss')
         }
+
 
         return res.render('clinician-all-notes', {
             patient: patient,

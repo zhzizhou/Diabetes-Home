@@ -447,7 +447,16 @@ const insertLog = async(req, res) => {
      * patient/log/3 EXERCISE
      * patient/log/4 BLOOD GLUCOSE LEVEL
      */
-
+     var now = new Date()
+     var healthRecord = await HealthRecord.find({patientId: req.user._id, logItemId: req.params.id, 
+         when: {
+             $gte: new Date(now.getFullYear(), now.getMonth(), now.getDate())
+         }},{})
+     
+     if(healthRecord.length !== 0){
+        console.log('duplicate health record')
+        return
+     }
 
     const newHealthRecord = new HealthRecord({
         logItemId: req.params.id,
@@ -458,7 +467,7 @@ const insertLog = async(req, res) => {
 
     try {
         await newHealthRecord.save()
-        res.send("<script> alert('Added heal record successfully');\
+        res.send("<script> alert('Added health record successfully');\
             window.location.href='../home'; </script>")
 
     } catch {

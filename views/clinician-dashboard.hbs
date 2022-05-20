@@ -97,9 +97,8 @@
                             </th>
                         </tr>
                         {{#each patients}}
-                        <tr class="out-border">
-                            <td><a href="/clinician/my-patient/{{this._id}}/detail">{{this.givenName}}
-                                    {{this.familyName}}</a></td>
+                        <tr class="out-border" onclick="location.href='/clinician/my-patient/{{this._id}}/detail';">
+                            <td>{{this.givenName}}{{this.familyName}}</td>
                             {{#each this.timeSeries}}
                             {{#if this.log}}
                             <td {{#if this.log.alert}}style="color: rgb(203,8,8);" {{/if}}>
@@ -129,7 +128,7 @@
             {{#each patients}}
             {{#each this.timeSeries}}
             {{#if this.log.notes}}
-            <div class="msgbox light-blue-box shadow">
+            <div class="msgbox light-blue-box shadow" onclick="location.href='/clinician/my-patient/{{../this._id}}/detail';">
                 <div>
                     <div class="space-between">
                         <p>{{../givenName}} {{../familyName}}</p>
