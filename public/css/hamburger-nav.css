@@ -88,7 +88,7 @@
 }
 
 /*FOR IPHONE SCREEN SIZE - MAKE THE MENU SMALLER*/
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 600px) {
     .grid-menu {
         grid-template-columns: 1fr 1fr; /*LESS ITEMS IN GRID HORIZONTALLY*/
         gap: 0.5rem;
