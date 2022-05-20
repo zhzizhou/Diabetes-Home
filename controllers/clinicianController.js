@@ -183,6 +183,8 @@ const addNewPatient = async(req, res) => {
             password: req.body.password,
             email: req.body.email,
             mobile: req.body.mobile,
+            weight: req.body.Weight,
+            height: req.body.Height,
             profilePicture: 'defaultPic',
             nickName: req.body.givenName,
             gender: req.body.gender,
