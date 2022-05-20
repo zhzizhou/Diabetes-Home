@@ -29,7 +29,7 @@
 input {
     outline: none;
     background-color: var(--white);
-    color: var(--dark-blue);
+    color: var(--dark-grey-text);
     border-radius: 2rem;
     padding: 1rem;
     margin: 5px;
@@ -55,7 +55,8 @@ input {
 
 .floating__input {
     padding: 1.8rem 1rem 0.8rem;
-    font-size: 16px;
+    font-size: 24px;
+    min-width: 25rem;
 
 }
 
@@ -112,12 +113,12 @@ input {
 /*Where the label sits before it is clicked -- for the half sized inputs*/
 
 .floating__input:placeholder-shown+.floating__label::before {
-    transform: translate3d(0, -2.7rem, 0) scale3d(1, 1, 1);
+    transform: translate3d(0, -3.3rem, 0) scale3d(1.5, 1.5, 1.5);
 }
 
 .floating__label::before,
 .floating__input:focus+.floating__label::before {
-    transform: translate3d(0, -3.12rem, 0) scale3d(0.7, 0.7, 1);
+    transform: translate3d(0, -3.7rem, 0) scale3d(0.7, 0.7, 1);
 }
 
 .floating__input:focus+.floating__label::before {
@@ -148,8 +149,8 @@ input {
     padding-left: 8%;
     padding-right: 8%;
     gap: 2rem;
-    height: 60%;
-    width: 50%;
+    height: 80%;
+    width: 80%;
     overflow: hidden;
 }
 
@@ -182,11 +183,31 @@ input {
 
 .wide-input {
     width: 44rem !important;
-    background-color:var(--white);
+    background-color: var(--white);
     border-radius: 2rem;
     padding-left: 1rem;
     padding-right: 1rem;
     margin: 5px;
+}
+
+@media screen and (max-width:1300px) {
+    .floating__input {
+        min-width: 15rem;
+        font-size: 16px;
+    }
+
+    .floating__input:placeholder-shown+.floating__label::before {
+        transform: translate3d(0, -2.9rem, 0) scale3d(1, 1, 1);
+    }
+
+    .floating__label::before,
+    .floating__input:focus+.floating__label::before {
+        transform: translate3d(0, -3.3rem, 0) scale3d(0.7, 0.7, 1);
+    }
+
+    input {
+        font-size: 16px;
+    }
 }
 
 /*RESPONSIVE DESIGN FOR IPAD SIZE*/
@@ -225,14 +246,20 @@ input {
         padding-top: 5%;
         padding-left: 5%;
         padding-right: 5%;
-        height: 100vh;
-        width: 40%;
+        height: 80%;
+        width: 50%;
         margin-top: 3rem;
     }
 }
 
+@media screen and (max-width:100px) {
+    .outercontainer {
+        width: 70%;
+    }
+}
+
 /*RESPONSIVE DESIGN FOR IPHONES SIZE*/
-@media screen and (max-width:550px) {
+@media screen and (max-width:1000px) {
     .split-screen {
         flex-direction: column;
     }
@@ -249,14 +276,15 @@ input {
 
     .logo-sub-login {
         display: flex;
-        width: 70%;
+        width: 10rem;
     }
 
     .outercontainer {
         width: 80%;
-        height: 70vh;
+        height: 80vh;
         padding-top: 0;
         align-items: center;
         justify-content: center;
     }
+
 }

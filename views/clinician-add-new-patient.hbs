@@ -7,22 +7,22 @@
                 <h3>{{doctor.givenName}} {{doctor.familyName}}</h3>
             </div>
             <div class="menu-section">
-                <a href="../../../clinician/home" class="menu-item-layout menu-item">
+                <a href="../clinician/home" class="menu-item-layout menu-item">
                     <span class="material-icons">dashboard</span>
                     <h3>Dashboard</h3>
                 </a>
-                <a href="../../../clinician/my-patient" class="menu-item-layout menu-item">
+                <a href="../clinician/my-patient" class="menu-item-layout menu-item">
                     <span class="material-icons">group</span>
                     <h3>My Patients</h3>
                 </a>
-                <a href="../../../clinician/new-patient" class="menu-item-layout menu-item selected">
+                <a href="../clinician/new-patient" class="menu-item-layout menu-item selected">
                     <span class="material-icons">person_add</span>
                     <h3>New Patient</h3>
                 </a>
             </div>
         </div>
         <div class="menu-section">
-            <a href="../../../clinician/profile" class="menu-item-layout menu-item">
+            <a href="../clinician/profile" class="menu-item-layout menu-item">
                 <span class="material-icons">account_circle</span>
                 <h3>Account</h3>
             </a>
@@ -41,36 +41,43 @@
                 <h4>Back</h4>
             </a>
             <div class="my-patient-left">
-                <h1 class="page-title">Add new patient</h1>
+                <h1 class="page-title">Add a new patient</h1>
                 <form method="post" id="newPatient" name="newPatientForm">
                     <h3 class="form-heading">Personal Details</h3>
                     <div class="add-new-patient-form">
                         <div class="floating">
                             <input class=" floating__input wide-input" name="givenName" placeholder="Given Name"
-                                type="text" required>
+                                pattern="(.|\s)*\S(.|\s)*" title="Can't be empty" type="text" required>
                             <label for="givenName" class="floating__label" data-content="Given Name">
                                 <span class="hidden--visually">Given Name</span>
                             </label>
                         </div>
                         <div class="floating">
                             <input class=" floating__input wide-input" name="familyName" placeholder="Family Name"
-                                type="text" required>
+                                pattern="(.|\s)*\S(.|\s)*" title="Can't be empty" type="text" required>
                             <label for="familyName" class="floating__label" data-content="Family Name">
                                 <span class="hidden--visually">Family Name</span>
                             </label>
                         </div>
                         <div class="floating wide-input space-between non-type-input">
-                            <h4 class="blue-text">Birthday</h4>
+                            <h3 class="blue-text">Birthday</h3>
                             <input class="floating__input" name="dateOfBirth" placeholder="dateOfBirth" id="dateOfBirth"
                                 type="date" required>
                         </div>
                         <div class="floating wide-input non-type-input space-between">
-                            <h4 class="blue-text"><label for="gender">Gender</label></h4>
+                            <h3 class="blue-text"><label for="gender">Gender</label></h3>
 
-                            <select name="gender" id="gender">
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                            </select>
+                            <div class="space-between">
+                                <div class="space-between">
+                                    <input class="h3-size" type="radio" id="male" name="gender" value="Male"
+                                        checked>
+                                      <label class="h3-size" for="light">Male</label><br>
+                                </div>
+                                <div class="space-between">
+                                    <input class="h3-size" type="radio" id="female" name="gender" value="Female">
+                                      <label class="h3-size" for="dark">Female</label><br>
+                                </div>
+                            </div>
                         </div>
                         <div class="floating">
                             <input class=" floating__input wide-input" name="email" placeholder="Email" type="text"
@@ -88,31 +95,43 @@
                             <label for="mobile" class="floating__label" data-content="Contact Number">
                                 <span class="hidden--visually">Contact Number</span>
                             </label>
+                            <div>
+                                <p class="instructions">● Must be an Australian mobile number.</p>
+                            </div>
                         </div>
                     </div>
 
                     <h3 class="form-heading">Health Details</h3>
                     <div class="add-new-patient-form">
                         <div class="floating wide-input non-type-input space-between">
-                            <h4 class="blue-text"><label for="diabeteType">Type of Diabetes</label></h4>
-
-                            <select name="diabeteType" id="diabeteType">
-                                <option value="Type1">Type 1</option>
-                                <option value="Type2">Type 2</option>
-                                <option value="Type3">Gestational</option>
-                            </select>
+                            <h3 class="blue-text"><label for="diabeteType">Type of Diabetes</label></h3>
+                            <div class="space-between">
+                                <div class="space-between">
+                                    <input class="h3-size" type="radio" id="type1" name="diabeteType" value="Male"
+                                        checked>
+                                      <label class="h3-size" for="light">Type 1</label><br>
+                                </div>
+                                <div class="space-between">
+                                    <input class="h3-size" type="radio" id="type2" name="diabeteType" value="Female">
+                                      <label class="h3-size" for="dark">Type 2</label><br>
+                                </div>
+                                <div class="space-between">
+                                    <input class="h3-size" type="radio" id="Gestational" name="diabeteType" value="Female">
+                                      <label class="h3-size" for="dark">Gestational</label><br>
+                                </div>
+                            </div>
                         </div>
                         <div class="floating">
                             <input class=" floating__input wide-input" name="Weight" placeholder="Weight" type="text"
                                 required>
-                            <label for="number" class="floating__label" data-content="Weight">
+                            <label for="number" class="floating__label" data-content="Weight (kg)">
                                 <span class="hidden--visually">Weight</span>
                             </label>
                         </div>
                         <div class="floating">
                             <input class=" floating__input wide-input" name="Height" placeholder="Height" type="number"
                                 required>
-                            <label for="Height" class="floating__label" data-content="Height">
+                            <label for="Height" class="floating__label" data-content="Height (cm)">
                                 <span class="hidden--visually">Height</span>
                             </label>
                         </div>
@@ -129,8 +148,9 @@
                         </label>
                     </div>
                     <div>
-                        <p>● Must contain at least one number and one uppercase and lowercase letter</p>
-                        <p>● Must be 5 or more characters</p>
+                        <p class="instructions">● Must contain at least one number and one uppercase and lowercase
+                            letter</p>
+                        <p class="instructions">● Must be 5 or more characters</p>
                     </div>
                     <button class="new-patient-submit button">Create</button>
                 </form>

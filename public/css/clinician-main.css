@@ -58,7 +58,12 @@ a {
 
 
 /*DASHBOARD PAGE*/
-
+.greybox {
+    background-color: var(--light-grey-background);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-top: 2rem;
+}
 
 /*LAYOUT FOR DASHBOARD PAGE*/
 
@@ -99,6 +104,25 @@ a {
     display: flex;
     gap: 1em;
     align-items: center;
+}
+
+.column-flex {
+    display:flex;
+    flex-direction: row;
+    gap:1rem;
+    text-align: center;
+}
+
+.legend-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.legend-text {
+    max-width: 15rem;
 }
 
 
@@ -351,9 +375,10 @@ td {
     color: var(--white);
     font-size: 16px;
     background-color: var(--dark-blue);
-    padding: 0.4em 0.8em 0.4em 0.8em;
+    padding: 0.6em 0.8em 0.6em 0.8em;
     border-radius: 1em;
     vertical-align: middle;
+    margin-left: 1rem;
 }
 
 
@@ -392,15 +417,16 @@ td {
 
 #diabetesType {
     padding: 1rem;
-    background-color: var(--dark-blue);
+    background-color: var(--white);
     border-radius: 2rem;
-    color: var(--white);
-    border: none;
+    color: var(--dark-blue);
+    border: 3px solid var(--dark-blue);
     transition: 0.5s;
+    font-size:16px;
 }
 
 #diabetesType:hover {
-    background-color: var(--button-hover);
+    background-color: var(--light-blue);
 }
 
 input[type="checkbox"]:checked {
@@ -467,6 +493,9 @@ input[type="checkbox"]:checked {
     /*SPECFIC*/
     vertical-align: middle;
     float: right;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .details-button {
@@ -492,7 +521,7 @@ input[type="checkbox"]:checked {
 .comment-time {
     font-size: 16px;
     text-align: left;
-    padding: 0.5em 0.5em 1em 0.5em;
+    padding: 2em 0.5em 1em 0.5em;
 }
 
 .comment-content {
@@ -506,6 +535,19 @@ input[type="checkbox"]:checked {
     border-radius: 30px;
     padding: 1.5em;
     line-height: 1.75em;
+}
+
+.all-note-section{
+    border-radius: 3em;
+    padding: 2em;
+    width: 50vw;
+    position: relative;
+}
+.view-note-box {
+    width: 100%;
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
 }
 
 .select-notes {
@@ -543,6 +585,16 @@ input[type="checkbox"]:checked {
 
 
 /*NEW PATIENT PAGE*/
+#dateOfBirth {
+    font-size:24px;
+    min-width: 10rem !important;
+    border: none;
+    color:var(--dark-grey-text);
+}
+
+#dateOfBirth:hover{
+    box-shadow: none;
+}
 
 .new-patient-main {
     display: flex;

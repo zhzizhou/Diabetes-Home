@@ -22,7 +22,6 @@ const getHome = async(req, res) => {
         if (!patient || !doctor) {
             return res.sendStatus(404)
         }
-        
 
         var latestLog1 = null
         var latestLog2 = null
@@ -44,28 +43,46 @@ const getHome = async(req, res) => {
             }
         }).lean()
 
+        //Check for activaited health data 
+        //unfinished
+        //Need to find a way to unable user to enter deactivated health data 
+        var deactivated = -1
+        patient.timeSeries.forEach(element => {
+            if (!element.activated) {
+                console.log("Not Activated: " + element.logItem)
+                if (element.logItem == "Weight") {
+                    deactivated = 1
+                } else if (element.logItem == "Insulin Doses") {
+                    deactivated = 2
+                } else if (element.logItem == "Exercise Steps") {
+                    deactivated = 3
+                } else {
+                    deactivated = 4
+                }
+            }
+        })
 
         // current plan: reverse the records to find the lastest record
         // until i have a better approach, just keep it this way for now
         for (let i = allhealth.length - 1; i >= 0; i--) {
             if (latestLog1 == null && allhealth[i].logItemId == 1) {
                 latestLog1 = allhealth[i]
-                log1Time = moment(allhealth[i].when).format('D/M/YY H:mm:ss')
+                log1Time = moment(allhealth[i].when).format('DD/MM HH:mm')
                 continue
             }
             if (latestLog2 == null && allhealth[i].logItemId == 2) {
                 latestLog2 = allhealth[i]
-                log2Time = moment(allhealth[i].when).format('D/M/YY H:mm:ss')
+                log2Time = moment(allhealth[i].when).format('DD/MM HH:mm')
                 continue
             }
             if (latestLog3 == null && allhealth[i].logItemId == 3) {
                 latestLog3 = allhealth[i]
-                log3Time = moment(allhealth[i].when).format('D/M/YY H:mm:ss')
+                log3Time = moment(allhealth[i].when).format('DD/MM HH:mm')
                 continue
             }
             if (latestLog4 == null && allhealth[i].logItemId == 4) {
                 latestLog4 = allhealth[i]
-                log4Time = moment(allhealth[i].when).format('D/M/YY H:mm:ss')
+                log4Time = moment(allhealth[i].when).format('DD/MM HH:mm')
                 continue
             }
         }
@@ -77,7 +94,7 @@ const getHome = async(req, res) => {
         }).sort({ when: -1 }).limit(1).lean()
 
         for (let j = 0; j < notes.length; j++) {
-            notes[j].when = moment(notes[j].when).format('D/M/YY H:mm:ss')
+            notes[j].when = moment(notes[j].when).format('DD/MM HH:mm')
         }
         console.log(notes[0])
             // get engagement rate
@@ -86,7 +103,7 @@ const getHome = async(req, res) => {
             $match: { patientId: patient._id }
         }, {
             $group: {
-                _id: { $dateToString: { format: "%d/%m", date: "$when" } }
+                _id: { $dateToString: { format: "%d/%m", date: "$when", timezone: "Australia/Melbourne" } }
             }
         }])
 
@@ -95,29 +112,29 @@ const getHome = async(req, res) => {
         var registerDate = moment(patient.registerDate)
         var days = now.diff(registerDate, 'days') + 1
         var engageRate = Math.round(healthRecord.length / days * 100)
-        console.log("healthrecord" + healthRecord.length)
-        console.log("days:" + days)
-        console.log("engegemtn" + engageRate)
+        console.log("healthrecord: " + healthRecord.length)
+        console.log("days: " + days)
+        console.log("engegment: " + engageRate)
 
         if (engageRate >= 80) {
             badge = "badge-filled"
         } else {
             badge = "badge"
         }
-        
+
 
         // darkmode rendering 
         var colorlayout
-        if (patient.darkMode == false){
+        if (patient.darkMode == false) {
             //light colorscheme
             colorlayout = 'patient-main'
-        }else{
+        } else {
             colorlayout = 'DARK-patient-main'
         }
 
         // render hbs page
         return res.render('patient-dashboard', {
-            layout: colorlayout, 
+            layout: colorlayout,
             title: "Dashboard",
             badge: badge,
             patient: patient,
@@ -164,7 +181,7 @@ const getLeaderboard = async(req, res) => {
                 $match: { patientId: allPatient[i]._id }
             }, {
                 $group: {
-                    _id: { $dateToString: { format: "%d/%m", date: "$when" } }
+                    _id: { $dateToString: { format: "%d/%m", date: "$when", timezone: "Australia/Melbourne" } }
                 }
             }])
             var now = moment()
@@ -190,10 +207,10 @@ const getLeaderboard = async(req, res) => {
 
         var colorlayout
         const patient = await Patient.findById(req.user._id).lean()
-        if (patient.darkMode == false){
+        if (patient.darkMode == false) {
             //light colorscheme
             colorlayout = 'patient-main'
-        }else{
+        } else {
             colorlayout = 'DARK-patient-main'
         }
 
@@ -201,7 +218,7 @@ const getLeaderboard = async(req, res) => {
             self: myResult,
             top: topPatient,
             title: "Leaderboard",
-            layout: colorlayout, 
+            layout: colorlayout,
             helpers: {
                 inc: function(value, options) {
                     return parseInt(value) + 1;
@@ -216,18 +233,38 @@ const getLeaderboard = async(req, res) => {
 
 const getLogHistory = async(req, res) => {
     try {
+        var dateQuery = {}
+        var saveQuery = {}
+        console.log(req.query)
+
+        if (Object.keys(req.query).length === 0) {
+
+            saveQuery['startDate'] = moment().subtract(7, 'd').format('YYYY-MM-DD')
+            dateQuery['$gte'] = new Date(saveQuery['startDate'])
+            saveQuery['endDate'] = moment().format('YYYY-MM-DD')
+
+        } else {
+            saveQuery['startDate'] = req.query.start
+            saveQuery['endDate'] = req.query.end
+
+            var start = new Date(req.query.start)
+            var end = moment(new Date(req.query.end)).add(1, 'd').toDate()
+            dateQuery['$gte'] = start
+            dateQuery['$lt'] = end
+        }
+
         const patient = await Patient.findById(
             req.user._id
         ).lean()
         var healthRecord = await HealthRecord.aggregate([{
             $match: {
                 patientId: patient._id,
-                when: { $gte: moment().day(-7).toDate() }
+                when: dateQuery
             }
         }, {
             $group: {
-                _id: { $dateToString: { format: "%d/%m", date: "$when" } },
-                list: { $push: { item: "$logItemId", value: "$value" } },
+                _id: { $dateToString: { format: "%d/%m", date: "$when", timezone: "Australia/Melbourne" } },
+                list: { $push: { item: "$logItemId", value: "$value", id: "$_id", time: { $dateToString: { format: "%H:%M", date: "$when", timezone: "Australia/Melbourne" } } } },
                 count: { $sum: 1 }
             }
         }, {
@@ -239,26 +276,61 @@ const getLogHistory = async(req, res) => {
         }
         // color mode
         var colorlayout
-        if (patient.darkMode == false){
+        if (patient.darkMode == false) {
             //light colorscheme
             colorlayout = 'patient-main'
-        }else{
+        } else {
             colorlayout = 'DARK-patient-main'
-        } 
+        }
         //found patient
         res.render('patient-log-history', {
             title: "Log History",
-            layout: colorlayout, 
+            layout: colorlayout,
             thisPatient: patient,
             healthRecord: healthRecord,
+            date: saveQuery,
         })
 
     } catch (err) {
         return next(err)
     }
+}
 
+const viewLogHistory = async(req, res) => {
+    try {
+        if (req.params.id != '')
+            logid = req.params.id
 
+        const patient = await Patient.findById(
+            req.user._id
+        ).lean()
 
+        const ObjectId = require('mongodb').ObjectId;
+
+        const onehealthRecord = await HealthRecord.findOne({
+            _id: ObjectId(logid),
+            patientId: patient._id
+        }).lean()
+
+        const logTime = moment(onehealthRecord.when).format('D/M/YY H:mm:ss')
+
+        if (!patient) {
+            return res.sendStatus(404)
+        }
+        if (!onehealthRecord) {
+            return res.sendStatus(404)
+        }
+        //found patient
+        res.render('patient-view-hs', {
+            title: "Log History",
+            layout: "patient-main",
+            thisPatient: patient,
+            healthRecord: onehealthRecord,
+            logTime: logTime
+        })
+    } catch (err) {
+        return next(err)
+    }
 }
 
 const getLogPage = async(req, res) => {
@@ -320,10 +392,10 @@ const getLogPage = async(req, res) => {
         }
         //color scheme
         var colorlayout
-        if (patient.darkMode == false){
+        if (patient.darkMode == false) {
             //light colorscheme
             colorlayout = 'patient-main'
-        }else{
+        } else {
             colorlayout = 'DARK-patient-main'
         }
         return res.render('patient-enter-hs', {
@@ -335,7 +407,7 @@ const getLogPage = async(req, res) => {
             id: req.params.id,
             dataPlaceHolder: placeHolder,
             thisEnterType: enterType,
-            layout: colorlayout 
+            layout: colorlayout
         })
 
     } catch (err) {
@@ -351,22 +423,22 @@ const insertLog = async(req, res) => {
      * patient/log/4 BLOOD GLUCOSE LEVEL
      */
 
-    var pID = req.user._id
-
 
     const newHealthRecord = new HealthRecord({
         logItemId: req.params.id,
-        patientId: req.body.patientId,
+        patientId: req.user._id,
         value: req.body.value,
         notes: req.body.notes,
     })
 
     try {
         await newHealthRecord.save()
-        res.status(204).send()
+        res.send("<script> alert('Added heal record successfully');\
+            window.location.href='../home'; </script>")
 
     } catch {
-        res.status(204).send("<script> alert('Update Fail');</script>")
+        res.send("<script> alert('Fail to add heal record');\
+        window.location.href='../home'; </script>")
     }
 }
 
@@ -381,17 +453,17 @@ const getProfile = async(req, res) => {
         }
 
         var colorlayout
-        if (patient.darkMode == false){
+        if (patient.darkMode == false) {
             //light colorscheme
             colorlayout = 'patient-main'
-        }else{
+        } else {
             colorlayout = 'DARK-patient-main'
         }
         //found patient
         return res.render('patient-profile', {
             thisPatient: patient,
             title: "Profile",
-            layout: colorlayout 
+            layout: colorlayout
         })
 
     } catch (err) {
@@ -411,10 +483,10 @@ const getChangePassword = async(req, res) => {
         }
         // color mode
         var colorlayout
-        if (patient.darkMode == false){
+        if (patient.darkMode == false) {
             //light colorscheme
             colorlayout = 'patient-changepassword'
-        }else{
+        } else {
             colorlayout = 'DARK-patient-changepassword'
         }
         return res.render('patient-change-psw', {
@@ -455,12 +527,12 @@ const getChangeNickname = async(req, res) => {
             return res.sendStatus(404)
         }
         var colorlayout
-        if (patient.darkMode == false){
+        if (patient.darkMode == false) {
             //light colorscheme
-            colorlayout = 'patient-main'
-        }else{
-            colorlayout = 'DARK-patient-main'
-        } 
+            colorlayout = 'patient-changepassword'
+        } else {
+            colorlayout = 'DARK-patient-changepassword'
+        }
         return res.render('patient-change-nickname', {
             layout: colorlayout,
             thisPatient: patient
@@ -493,13 +565,13 @@ const getSettings = async(req, res) => {
             return res.sendStatus(404)
         }
         var colorlayout
-        if (patient.darkMode == false){
+        if (patient.darkMode == false) {
             //light colorscheme
             colorlayout = 'patient-changepassword'
-        }else{
+        } else {
             colorlayout = 'DARK-patient-changepassword'
         }
-        
+
         //found patient
         return res.render('patient-setting', {
             layout: colorlayout,
@@ -524,20 +596,7 @@ const updateSettings = async(req, res) => {
         } else {
             thisDarkMode = false
         }
-        // var colorlayout
-        // if (patient.darkMode == false){
-        //     //light colorscheme
-        //     colorlayout = 'patient-changepassword'
-        // }else{
-        //     colorlayout = 'DARK-patient-changepassword'
-        // }
-        // //found patient
-        // return res.render('patient-setting', {
-        //     layout: colorlayout,
-        //     thisTitle: "Settings",
-        //     thisPatient: patient,
-        //     icon: "bloodtype"
-        // })
+
         await Patient.findByIdAndUpdate({ _id: req.user._id }, { darkMode: thisDarkMode })
         res.send("<script> alert('Updated successfully');\
                 window.location.href='settings'; </script>")
@@ -563,63 +622,95 @@ const patientLogin = async(req, res) => {
 }
 
 const getHelpPageOne = async(req, res) => {
-    const patient = await Patient.findById(req.user._id).lean()
-    var colorlayout
-    if (patient.darkMode == false){
-        colorlayout = 'help-pages'
-    }else{
-        colorlayout = 'DARK-help-pages'
+    try {
+        const patient = await Patient.findById(req.user._id).lean()
+        if (!patient) {
+            return res.sendStatus(404)
+        }
+        var colorlayout
+        if (patient.darkMode == false) {
+            colorlayout = 'help-pages'
+        } else {
+            colorlayout = 'DARK-help-pages'
+        }
+        res.render('help1', {
+            flash: req.flash('error'),
+            title: "Help",
+            layout: colorlayout,
+            thisPatient: patient
+        })
+    } catch (err) {
+        return next(err)
     }
-    res.render('help1', {
-        flash: req.flash('error'),
-        title: "Help",
-        layout: colorlayout
-    })
 }
 
 const getHelpPageTwo = async(req, res) => {
-    const patient = await Patient.findById(req.user._id).lean()
-    var colorlayout
-    if (patient.darkMode == false){
-        colorlayout = 'help-pages'
-    }else{
-        colorlayout = 'DARK-help-pages'
+    try {
+        const patient = await Patient.findById(req.user._id).lean()
+        if (!patient) {
+            return res.sendStatus(404)
+        }
+        var colorlayout
+        if (patient.darkMode == false) {
+            colorlayout = 'help-pages'
+        } else {
+            colorlayout = 'DARK-help-pages'
+        }
+        res.render('help2', {
+            flash: req.flash('error'),
+            title: "Help",
+            layout: colorlayout,
+            thisPatient: patient
+        })
+    } catch (err) {
+        return next(err)
     }
-    res.render('help2', {
-        flash: req.flash('error'),
-        title: "Help",
-        layout: colorlayout
-    })
 }
 
 const getHelpPageThree = async(req, res) => {
-    const patient = await Patient.findById(req.user._id).lean()
-    var colorlayout
-    if (patient.darkMode == false){
-        colorlayout = 'help-pages'
-    }else{
-        colorlayout = 'DARK-help-pages'
+    try {
+        const patient = await Patient.findById(req.user._id).lean()
+        if (!patient) {
+            return res.sendStatus(404)
+        }
+        var colorlayout
+        if (patient.darkMode == false) {
+            colorlayout = 'help-pages'
+        } else {
+            colorlayout = 'DARK-help-pages'
+        }
+        res.render('help3', {
+            flash: req.flash('error'),
+            title: "Help",
+            layout: colorlayout,
+            thisPatient: patient
+        })
+    } catch (err) {
+        return next(err)
     }
-    res.render('help3', {
-        flash: req.flash('error'),
-        title: "Help",
-        layout: colorlayout
-    })
 }
 
 const getHelpPageFour = async(req, res) => {
-    const patient = await Patient.findById(req.user._id).lean()
-    var colorlayout
-    if (patient.darkMode == false){
-        colorlayout = 'help-pages'
-    }else{
-        colorlayout = 'DARK-help-pages'
+    try {
+        const patient = await Patient.findById(req.user._id).lean()
+        if (!patient) {
+            return res.sendStatus(404)
+        }
+        var colorlayout
+        if (patient.darkMode == false) {
+            colorlayout = 'help-pages'
+        } else {
+            colorlayout = 'DARK-help-pages'
+        }
+        res.render('help4', {
+            flash: req.flash('error'),
+            title: "Help",
+            layout: colorlayout,
+            thisPatient: patient
+        })
+    } catch (err) {
+        return next(err)
     }
-    res.render('help4', {
-        flash: req.flash('error'),
-        title: "Help",
-        layout: colorlayout
-    })
 
 }
 
@@ -634,14 +725,13 @@ const getAboutpage = async(req, res) => {
             return res.sendStatus(404)
         }
         var colorlayout
-        if (patient.darkMode == false){
+        if (patient.darkMode == false) {
             colorlayout = 'index-main'
-        }else{
+        } else {
             colorlayout = 'DARK-index-main'
-        } 
-        //found patient
-        console.log("before rendering")
-        return res.render('about', {
+        }
+
+        return res.render('about-loggedin', {
             layout: colorlayout,
             title: "aboutPage",
             patient: patient
@@ -656,6 +746,7 @@ module.exports = {
     getHome,
     getLeaderboard,
     getLogHistory,
+    viewLogHistory,
     getLogPage,
     insertLog,
     getProfile,

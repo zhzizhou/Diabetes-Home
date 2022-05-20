@@ -73,23 +73,23 @@
                 </div>
             </div>
             <div class="menu-section">
-                <a href="../patient/profile" class="menu-item-layout menu-item selected">
+                <a href="../../patient/profile" class="menu-item-layout menu-item selected">
                     <span class="material-icons">account_circle</span>
                     <h3>Account</h3>
                 </a>
-                <a href="../patient/settings" class="menu-item-layout menu-item patient-menu">
+                <a href="../../patient/settings" class="menu-item-layout menu-item patient-menu">
                     <span class="material-icons">settings</span>
                     <h3>Settings</h3>
                 </a>
-                <a href="../patient/help-one" class="menu-item-layout menu-item patient-menu">
+                <a href="../../patient/help-one" class="menu-item-layout menu-item patient-menu">
                     <span class="material-icons">help</span>
                     <h3>Help</h3>
                 </a>
-                <a href="../patient/about" class="menu-item-layout menu-item patient-menu">
+                <a href="../../patient/about" class="menu-item-layout menu-item patient-menu">
                     <span class="material-icons">web</span>
                     <h3>About this site</h3>
                 </a>
-                <a href="../patient/logout" class="menu-item-layout menu-item patient-menu">
+                <a href="../../patient/logout" class="menu-item-layout menu-item patient-menu">
                     <span class="material-icons">logout</span>
                     <h3>logout</h3>
                 </a>
@@ -102,7 +102,7 @@
         <div class="dashboard-right enter-ts-container" id="dashboard-right">
             <div class="infobar">
                 <div class="return-icon leaderboard-return">
-                    <a href="../../patient/home" class="material-icons-round blue-text">arrow_back_ios</a>
+                    <a href="../../patient/profile" class="material-icons-round blue-text">arrow_back_ios</a>
                 </div>
                 <div class="checklist-title">
                     <div class="page-title-icon">
@@ -126,7 +126,7 @@
                                                 name="newPassword" placeholder="New-Password" type="password"
                                                 type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}"
                                                 title="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters"
-                                                required>>
+                                                required>
                                             <label for="newPassword" class="floating__label"
                                                 data-content="New Password">
                                                 <span class="hidden--visually">Password</span>
@@ -139,7 +139,7 @@
                                                 title="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters"
                                                 required>
                                             <label for="ConfirmNewPassword" class="floating__label"
-                                                data-content="Confirrm New Password">
+                                                data-content="Confirm New Password">
                                                 <span class="hidden--visually">Confirrm New Password</span>
                                             </label>
                                         </div>
@@ -148,7 +148,7 @@
                                             </p>
                                             <p>● Must be 5 or more characters</p>
                                         </div>
-                                        <a type="submit" class="setting-button button" onclick="showModel()">Update</a>
+                                        <button type="submit" class="setting-button button" onclick="showModel()">Update</button>
                                         {{!-- <span class="button button-width-20" onclick="showModel()">Save</button> --}}
                                     </form>
                                 </div>
@@ -161,17 +161,3 @@
         </div>
     </main>
 </div>
-<div class="pop-up-container" id="successful-update-data" scroll="no">
-        <div class="pop-up-string">
-            <br>
-            <br>
-            <h3>Your colour preference</h3>
-            <h3>has successfully</h3>
-            <h3>updated!</h3>
-
-        </div>
-        <a href="../../patient/home">
-            <span class="button submit" onclick="closeModel()">Home</span>
-        </a>
-
-    </div>

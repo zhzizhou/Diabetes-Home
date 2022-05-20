@@ -7,7 +7,7 @@
         <div class="grid-menu white-text" scroll="no">
             <a class="white-text menu-square" href="../../patient/home">
                 <span class="material-icons-round menu-icon">check</span>
-                <h3>My Checklist</h3>
+                <h3>Checklist</h3>
             </a>
             <a class="white-text menu-square" href="../../patient/leaderboard">
                 <span class="material-icons-round menu-icon">leaderboard</span>
@@ -111,7 +111,7 @@
         </div>
         <div class="learderboard-box loghistory-box">
             <div>
-                <section id="blue-main-page">
+                <section id="setting-page" class="shadow">
                     <div class="inside-container">
 
                         <ul class="details-container">
@@ -136,7 +136,7 @@
                                             
                                         </div>
 
-                                        <a type="submit" class="setting-button button" onclick="showModel()">Update</a>
+                                        <button type="submit" class="setting-button button">Update</button>
                                         {{!-- <span class="button button-width-20" onclick="showModel()">Save</button> --}}
                                     </form>
                                 </div>
@@ -148,21 +148,5 @@
 
         </div>
     </main>
-    <div id="hidebg"></div>
 
-    {{!-- Pop up window after post message --}}
-
-    <div class="pop-up-container" id="successful-update-data" scroll="no">
-        <div class="pop-up-string">
-            <br>
-            <br>
-            <h3>Your colour preference</h3>
-            <h3>has successfully</h3>
-            <h3>updated!</h3>
-
-        </div>
-        <a href="../../patient/home">
-            <span class="button submit" onclick="closeModel()">Home</span>
-        </a>
-
-    </div>
+  

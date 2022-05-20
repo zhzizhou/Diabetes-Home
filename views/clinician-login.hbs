@@ -4,6 +4,19 @@
         <a href="/#what-is-diabetes">What is diabetes?</a>
         <a href="/about">About</a>
     </div>
+
+    <nav class="drop-down">
+        <ul>
+            <li onclick="void(0)">
+                <span class="material-icons-round">expand_more</span>
+                <ul>
+                    <li><a style="font-size:16px" href="/#what-is-diabetes">What is
+                            diabetes?</a></li>
+                    <li><a style="font-size:16px" href="/about">About this site</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
 </div>
 
 <div class="split-screen">
@@ -48,7 +61,7 @@
                 </div>
                 <button id="login-check" class="submit" href="/login">Login</button>
                 {{#each flash}}
-                <div style="color: red;">{{this}}</div>
+                <div style="color: red; text-align: center;">{{this}}</div>
                 {{/each}}
             </form>
             <span class="blue-text" id="center-word">To login as a patient please click <a href="/patient/login"

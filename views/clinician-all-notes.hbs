@@ -3,7 +3,7 @@
         <div class="nav-top">
             <img class="small-logo" src="/images/logo.svg" alt="">
             <div class="menu-item-layout">
-                <img src="/images/clinitian-profile-pic.svg" alt="profile picture">
+                <img class="nav-profile-pic" src="/images/clinitian-profile-pic.svg" alt="profile picture">
                 <h3>{{clinician.givenName}} {{clinician.familyName}}</h3>
             </div>
             <div class="menu-section">
@@ -26,7 +26,7 @@
                 <span class="material-icons">account_circle</span>
                 <h3>Account</h3>
             </a>
-            <a href="../clinician/logout" class="menu-item-layout menu-item">
+            <a href="../../../clinician/logout" class="menu-item-layout menu-item">
                 <span class="material-icons">logout</span>
                 <h3>logout</h3>
             </a>
@@ -34,19 +34,26 @@
     </nav>
 </div>
 
-<main class="dashboard-container">
-    <div class="dashboard-right centre-content">
-        <div id="blue-main-page" class="centre-flex">
-            <h3 class="blue-text">View All notes</h3>
-            <div class="notes-container">
-                {{#each note}}
-                    <div class="comment-time">{{this.when}}</div>
-                    <div class="comment-box light-blue-box shadow">
-                        <span class="comment-content">{{this.content}}</span>
-                    </div>
-                {{/each}}
-            </div>       
+<main class="my-patient-container">
+    <div class="left-container">
+        <a href="/clinician/my-patient/{{patient._id}}/detail" class="back-button">
+            <span class="material-icons-round">arrow_back_ios</span>
+            <h4>Back</h4>
+        </a>
+        <div class="my-patient-left">
+            <h1 class="page-title">View All notes</h1>
 
+            <div class="whitebox shadow nav-top all-note-section">
+                <div class="view-note-box">
+                    {{#each note}}
+                        <div class="comment-time">{{this.when}}</div>
+                        <div class="comment-box shadow light-blue-box">
+                            <span class="comment-content">{{this.content}}</span>
+                        </div>
+                    {{/each}}
+                </div>       
+
+            </div>
         </div>
     </div>
 </main>

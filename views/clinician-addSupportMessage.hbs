@@ -26,7 +26,7 @@
                 <span class="material-icons">account_circle</span>
                 <h3>Account</h3>
             </a>
-            <a href="../clinician/logout" class="menu-item-layout menu-item">
+            <a href="../../../clinician/logout" class="menu-item-layout menu-item">
                 <span class="material-icons">logout</span>
                 <h3>logout</h3>
             </a>
@@ -36,16 +36,6 @@
 
 <main class="dashboard-container">
     <div class="dashboard-right centre-content">
-
-        {{!-- Pop up window after post message --}}
-        <div class="pop-up-container" id="successful-update-data">
-            <img class="pop-up-image" src="/images/clap.svg" alt="">
-            <div class="pop-up-string">
-                <h3>Support Message Added</h3>
-            </div>
-            <span class="button submit" onclick="closeModel()">Dismiss</button>
-        </div>
-
 
         <form method="post" action="">
             <div id="blue-main-page" class="centre-flex">
@@ -69,7 +59,7 @@
                     </div>
                 </div>
 
-                <button type="submit" class="button button-width-20" onclick="showModel()">Save</button>
+                <button type="submit" class="button button-width-20">Save</button>
                 {{!-- <span class="button button-width-20" onclick="showModel()">Save</button> --}}
 
             </div>

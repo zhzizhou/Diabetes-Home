@@ -1,18 +1,20 @@
 <body>
     <div class="page">
         <div class="topnav">
-            <a class="back-button-container"href="../patient/home">
-                <span class="material-icons-round blue-text data-icon" >arrow_circle_left</span>
-                
-                <h3 class="blue-text">Back</h3>
-            </a>
+            <a href="/"><img class="small-logo" src="/images/logo.svg" alt=""></a>
             <div class="menu-flex">
-                <h3>Hi, {{patient.nickName}}!</h3>
+                <a href="/#what-is-diabetes">What is diabetes?</a>
+                <a href="/about">About</a>
+                <a class="button" style="font-size:16px" href="/patient/login" id="login">Login</a>
             </div>
             <nav class="drop-down">
                 <ul>
                     <li onclick="void(0)"><span class="material-icons-round">expand_more</span>
-                        <div id="login">{{patient.nickName}} {{patient.familyName}}</div>
+                        <ul>
+                            <li><a href="/#what-is-diabetes">What is diabetes?</a></li>
+                            <li><a href="/about">About this site</a></li>
+                            <li><a href="/patient/login">Login</a></li>
+                        </ul>
                     </li>
                 </ul>
             </nav>

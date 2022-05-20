@@ -102,7 +102,7 @@
         <div class="dashboard-right enter-ts-container" id="dashboard-right">
             <div class="infobar">
                 <div class="return-icon leaderboard-return">
-                    <a href="../../patient/home" class="material-icons-round blue-text">arrow_back_ios</a>
+                    <a href="../../patient/profile" class="material-icons-round blue-text">arrow_back_ios</a>
                 </div>
                 <div class="checklist-title">
                     <div class="page-title-icon">
@@ -123,6 +123,8 @@
                                     <form Method="post" id="UpdateNickname" class="update-account">
                                         <div class="floating">
                                             <input class="wide-input-account floating__input" id="newNickname"
+                                                pattern = "(.|\s)*\S(.|\s)*"
+                                                title="Can't be empty"
                                                 name="newNickname" placeholder="NewNickname">
                                             <label for="NewNickname" class="floating__label"
                                                 data-content="New Nickname">

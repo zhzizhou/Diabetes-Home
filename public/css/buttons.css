@@ -26,7 +26,6 @@ a:hover {
     width: 100%;
     border-radius: 3em;
     text-align: center;
-    box-shadow: 0px 3px 3px var(--box-shadow);
     font-size: 24px;
 }
 
@@ -37,7 +36,6 @@ a:hover {
 
 .button-width-20 {
     width: 20rem;
-    height: 3rem;
 }
 
 .help-button {
@@ -89,6 +87,7 @@ a:hover {
     border-radius: 3em;
     display: block;
     margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 /*DEFAULT STYLE FOR SUBMIT HOVER STATE*/
@@ -100,7 +99,6 @@ a:hover {
 /*SEARCH BUTTON STYLE - CLINICIAN PAGE*/
 .search {
     box-shadow: none;
-    height: 2.9rem;
     width: 6rem;
     font-size:16px;
 
@@ -116,10 +114,29 @@ a:hover {
 input[type=date] {
     color: var(--dark-blue);
     font-family: effra;
-    border: none;
-    padding: 1rem;
+    border: 3px solid var(--dark-blue);
+    padding: 0.5rem;
     border-radius: 2rem;
     margin-left: 1rem;
+}
+
+#end {
+    margin-right: 1rem;
+    background-color: var(--white);
+}
+
+#start {
+    margin-right: 1rem;
+    background-color: var(--white);
+}
+
+input::-webkit-calendar-picker-indicator {
+    background-color: var(--dark-grey-text);
+    border-radius:1rem;
+}
+
+input::-webkit-calendar-picker-indicator {
+    filter: invert(1);
 }
 
 #birthday-input {
@@ -140,6 +157,9 @@ input[type=date] {
     height: 64px !important;
 }
 
+#menu-opener {
+    cursor: pointer;
+}
 
 
 /*TAB BUTTONS*/
@@ -182,6 +202,7 @@ input[type=date] {
 select {
     color: var(--dark-blue);
     border: none;
+    font-size:24px;
 }
 
 select:active {
@@ -193,8 +214,9 @@ select:active {
     width: 50%!important;
     margin: auto;
 }
+  
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 1000px) {
 
     .non-type-input {
         height: 6rem !important;
@@ -208,6 +230,10 @@ select:active {
         margin-left:0;
         margin: auto;
         width: 15rem;
+    }
+
+    .button {
+        font-size: 16px;
     }
 
 }
