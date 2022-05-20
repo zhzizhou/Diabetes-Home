@@ -47,30 +47,34 @@
             <div>
                 <div class="edit-ts-button">
                     <a href="/clinician/my-patient/{{patient._id}}" class="edit-ts">Patient details</a>
-                    <a href="../../my-patient/{{patient._id}}/time-series" class="edit-ts">Edit-time series</a>
                 </div>
 
             </div>
 
         </div>
         <div class="main-section">
-            <div class="ts-container whitebox shadow">
-                {{!-- Time series display --}}
-                {{#each patient.timeSeries}}
-                {{#if this.activated}}
-                <div class="overview-data">
-                    <span class="overview-data-title">{{this.logItem}}</span>
-                    <span class="ts-data">{{this.lowerLimit}} - {{this.upperLimit}}</span>
+            <div class="whitebox shadow ts-box">
+                <div class="space-between">
+                    <h3>Required time series</h3>
+                    <a href="../../my-patient/{{patient._id}}/time-series" class="edit-ts">Edit-time series</a>
                 </div>
-                {{else}}
-                <div class="overview-data">
-                    <span style="color: rgb(82, 82, 82);" class="overview-data-title">{{this.logItem}}</span>
-                    <span style="color: rgb(82, 82, 82);" class="material-icons-round">do_not_disturb_on</span> 
+                <div class="ts-container">
+                    {{!-- Time series display --}}
+                    {{#each patient.timeSeries}}
+                    {{#if this.activated}}
+                    <div class="overview-data">
+                        <span style="color: rgb(88, 123, 180);" class="overview-data-title">{{this.logItem}}</span>
+                        <span class="ts-data">{{this.lowerLimit}} - {{this.upperLimit}}</span>
+                    </div>
+                    {{else}}
+                    <div class="overview-data">
+                        <span class="overview-data-title">{{this.logItem}}</span>
+                        <span style="color: rgb(82, 82, 82);" class="material-icons-round">do_not_disturb_on</span>
+                    </div>
+                    {{/if}}
+                    {{/each}}
+
                 </div>
-                {{/if}}
-                {{/each}}
-
-
             </div>
 
             <div class="patient-data whitebox shadow">
@@ -84,9 +88,10 @@
                             <button class="button search">Search</button>
                         </span>
                     </form>
-                    <div class="legend-box greybox">  
+                    <div class="legend-box greybox">
                         <div class="column-flex">
-                            <div><span style="color: rgb(203,8,8);" class="material-icons-round">error_outline</span></div>
+                            <div><span style="color: rgb(203,8,8);" class="material-icons-round">error_outline</span>
+                            </div>
                             <h4 class="legend-text">Patient did not enter data on that day</h4>
                         </div>
                         <div class="column-flex">
@@ -94,7 +99,8 @@
                             <h4 class="legend-text">Patient entered data outside their safety threshold</h4>
                         </div>
                         <div class="column-flex">
-                            <div><span style="color: rgb(82, 82, 82);" class="material-icons-round">do_not_disturb_on</span></div>
+                            <div><span style="color: rgb(82, 82, 82);"
+                                    class="material-icons-round">do_not_disturb_on</span></div>
                             <h4 class="legend-text">This data is not required by clinician</h4>
                         </div>
                     </div>

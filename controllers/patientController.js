@@ -327,10 +327,18 @@ const viewLogHistory = async(req, res) => {
         if (!onehealthRecord) {
             return res.sendStatus(404)
         }
+        // color mode
+        var colorlayout
+        if (patient.darkMode == false) {
+            //light colorscheme
+            colorlayout = 'patient-main'
+        } else {
+            colorlayout = 'DARK-patient-main'
+        }
         //found patient
         res.render('patient-view-hs', {
             title: "Log History",
-            layout: "patient-main",
+            layout: colorlayout,
             thisPatient: patient,
             healthRecord: onehealthRecord,
             logTime: logTime
@@ -351,7 +359,17 @@ const getLogPage = async(req, res) => {
     var enterType
 
     if(!req.user.timeSeries[req.params.id - 1].activated){
-        res.redirect('/patient/dashboard')
+        res.redirect('/patient/home')
+    }else{
+        var now = new Date()
+        var healthRecord = await HealthRecord.find({patientId: pID, logItemId: req.params.id, 
+            when: {
+                $gte: new Date(now.getFullYear(), now.getMonth(), now.getDate())
+            }},{})
+        
+        if(healthRecord.length !== 0){
+            res.redirect('/patient/home')
+        }
     }
 
     var when = moment(new Date()).format('D/M/YY H:mm:ss')
