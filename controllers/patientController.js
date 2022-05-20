@@ -43,6 +43,24 @@ const getHome = async(req, res) => {
             }
         }).lean()
 
+        //Check for activaited health data 
+        //unfinished
+        //Need to find a way to unable user to enter deactivated health data 
+        var deactivated = -1
+        patient.timeSeries.forEach(element => {
+            if (!element.activated) {
+                console.log("Not Activated: " + element.logItem)
+                if (element.logItem == "Weight") {
+                    deactivated = 1
+                } else if (element.logItem == "Insulin Doses") {
+                    deactivated = 2
+                } else if (element.logItem == "Exercise Steps") {
+                    deactivated = 3
+                } else {
+                    deactivated = 4
+                }
+            }
+        })
 
         // current plan: reverse the records to find the lastest record
         // until i have a better approach, just keep it this way for now
@@ -94,9 +112,9 @@ const getHome = async(req, res) => {
         var registerDate = moment(patient.registerDate)
         var days = now.diff(registerDate, 'days') + 1
         var engageRate = Math.round(healthRecord.length / days * 100)
-        console.log("healthrecord" + healthRecord.length)
-        console.log("days:" + days)
-        console.log("engegemtn" + engageRate)
+        console.log("healthrecord: " + healthRecord.length)
+        console.log("days: " + days)
+        console.log("engegment: " + engageRate)
 
         if (engageRate >= 80) {
             badge = "badge-filled"
@@ -246,7 +264,7 @@ const getLogHistory = async(req, res) => {
         }, {
             $group: {
                 _id: { $dateToString: { format: "%d/%m", date: "$when", timezone: "Australia/Melbourne" } },
-                list: { $push: { item: "$logItemId", value: "$value", id: "$_id", time:{ $dateToString: { format: "%H:%M", date: "$when", timezone: "Australia/Melbourne"} }} },
+                list: { $push: { item: "$logItemId", value: "$value", id: "$_id", time: { $dateToString: { format: "%H:%M", date: "$when", timezone: "Australia/Melbourne" } } } },
                 count: { $sum: 1 }
             }
         }, {
@@ -668,7 +686,7 @@ const getHelpPageThree = async(req, res) => {
     }
 }
 
-const getHelpPageFour = async (req, res) => {
+const getHelpPageFour = async(req, res) => {
     try {
         const patient = await Patient.findById(req.user._id).lean()
         if (!patient) {
