@@ -451,6 +451,7 @@ input.enter-data-box:hover {
     resize: none;
     color: var(--dark-text);
     font-family: effra;
+    background-color: var(--white);
 }
 
 #message-input:hover {
@@ -946,7 +947,7 @@ input[type=number] {
     }
 
     .top-page {
-        gap: 0;
+        gap: 0px;
     }
 
     .my-checklist {
@@ -965,7 +966,7 @@ input[type=number] {
 
 /*REPSONSIVE DESIGN - FOR IPHONE*/
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 1000px) {
     .doctor-comment-box {
         width: 100%;
     }
@@ -1039,13 +1040,6 @@ input[type=number] {
         max-width: 270px;
     }
 
-
-}
-
-
-/*REPSONSIVE DESIGN - FOR SMALL IPHONE*/
-
-@media screen and (max-width: 500px) {
     .dashboard-container {
         width: 243px;
         margin:auto;
@@ -1079,7 +1073,7 @@ input[type=number] {
 
     .dashboard-right {
         padding-top: 0rem;
-        left: 0;
+        left: -50px;
     }
 
     .page-title {
@@ -1180,5 +1174,10 @@ input[type=number] {
     .dashboard-container {
         width: 243px;
         margin:0px;
+    }
+
+    .dashboard-right {
+        padding-top: 0rem;
+        left: 0px;
     }
 }
