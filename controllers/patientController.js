@@ -327,10 +327,18 @@ const viewLogHistory = async(req, res) => {
         if (!onehealthRecord) {
             return res.sendStatus(404)
         }
+        // color mode
+        var colorlayout
+        if (patient.darkMode == false) {
+            //light colorscheme
+            colorlayout = 'patient-main'
+        } else {
+            colorlayout = 'DARK-patient-main'
+        }
         //found patient
         res.render('patient-view-hs', {
             title: "Log History",
-            layout: "patient-main",
+            layout: colorlayout,
             thisPatient: patient,
             healthRecord: onehealthRecord,
             logTime: logTime
