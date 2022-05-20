@@ -31,6 +31,10 @@ const getHome = async(req, res) => {
         var log2Time = null
         var log3Time = null
         var log4Time = null
+        var log1switch = true
+        var log2switch = true
+        var log3switch = true
+        var log4switch = true 
 
         var now = new Date()
 
@@ -46,18 +50,17 @@ const getHome = async(req, res) => {
         //Check for activaited health data 
         //unfinished
         //Need to find a way to unable user to enter deactivated health data 
-        var deactivated = -1
         patient.timeSeries.forEach(element => {
             if (!element.activated) {
                 console.log("Not Activated: " + element.logItem)
                 if (element.logItem == "Weight") {
-                    deactivated = 1
+                    log1switch = false
                 } else if (element.logItem == "Insulin Doses") {
-                    deactivated = 2
+                    log2switch = false
                 } else if (element.logItem == "Exercise Steps") {
-                    deactivated = 3
+                    log3switch = false
                 } else {
-                    deactivated = 4
+                    log4switch = false
                 }
             }
         })
@@ -147,6 +150,10 @@ const getHome = async(req, res) => {
             log2time: log2Time,
             log3time: log3Time,
             log4time: log4Time,
+            log1switch: log1switch,
+            log2switch: log2switch,
+            log3switch: log3switch,
+            log4switch: log4switch,
             note: notes[0],
             engagement: engageRate,
             helpers: {
