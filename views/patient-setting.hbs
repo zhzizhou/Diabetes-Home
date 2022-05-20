@@ -124,12 +124,12 @@
                                             <div class="space-between">
                                                 <div class="space-between">
                                                 <input class="h3-size" type="radio" id="light" name="colourTheme"
-                                                    value="Light" checked>
+                                                    value="Light" {{#unless thisPatient.darkMode}}checked{{/unless}}>
                                                   <label class="h3-size" for="light">Light</label><br>
                                             </div>
                                             <div class="space-between">
                                                 <input class="h3-size" type="radio" id="dark" name="colourTheme"
-                                                    value="dark">
+                                                    value="dark" {{#if thisPatient.darkMode}}checked{{/if}}>
                                                   <label class="h3-size" for="dark">Dark</label><br>
                                             </div>
                                             </div>

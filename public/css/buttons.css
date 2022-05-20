@@ -195,7 +195,7 @@ input::-webkit-calendar-picker-indicator {
 }
 
 .add-button {
-    margin-bottom: 2rem; 
+    margin-bottom: 0rem; 
 }
 
 /* Select drop down button*/
