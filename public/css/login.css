@@ -276,7 +276,7 @@ input {
 
     .logo-sub-login {
         display: flex;
-        width: 70%;
+        width: 10rem;
     }
 
     .outercontainer {

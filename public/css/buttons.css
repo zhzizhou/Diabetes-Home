@@ -114,10 +114,18 @@ a:hover {
 input[type=date] {
     color: var(--dark-blue);
     font-family: effra;
-    border: none;
-    padding: 1rem;
+    border: 3px solid var(--dark-blue);
+    padding: 0.5rem;
     border-radius: 2rem;
     margin-left: 1rem;
+}
+
+#end {
+    margin-right: 1rem;
+}
+
+#start {
+    margin-right: 1rem;
 }
 
 #birthday-input {
@@ -138,6 +146,9 @@ input[type=date] {
     height: 64px !important;
 }
 
+#menu-opener {
+    cursor: pointer;
+}
 
 
 /*TAB BUTTONS*/

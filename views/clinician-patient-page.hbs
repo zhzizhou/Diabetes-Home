@@ -72,10 +72,21 @@
                         <span style="font-size: 32px;">Health records</span>
                         <span class="filter-button">Filter by date
                             <input id="start" name="start" type="date" value={{date.startDate}}>
+                            <p>—</p>
                             <input id="end" name="end" type="date" value={{date.endDate}}>
                             <button class="button search">Search</button>
                         </span>
                     </form>
+                    <div class="legend-box greybox">  
+                        <div class="column-flex">
+                            <div><span style="color: rgb(203,8,8);" class="material-icons-round">error_outline</span></div>
+                            <h4 class="legend-text">Patient did not enter data on that day</h4>
+                        </div>
+                        <div class="column-flex">
+                            <div><span style="color: rgb(203,8,8);">Red Text</span></div>
+                            <h4 class="legend-text">Patient entered data outside their safety threshold</h4>
+                        </div>
+                    </div>
                 </div>
 
                 <table class="my-patient-table">

@@ -417,15 +417,16 @@ td {
 
 #diabetesType {
     padding: 1rem;
-    background-color: var(--dark-blue);
+    background-color: var(--white);
     border-radius: 2rem;
-    color: var(--white);
-    border: none;
+    color: var(--dark-blue);
+    border: 3px solid var(--dark-blue);
     transition: 0.5s;
+    font-size:16px;
 }
 
 #diabetesType:hover {
-    background-color: var(--button-hover);
+    background-color: var(--light-blue);
 }
 
 input[type="checkbox"]:checked {
@@ -520,7 +521,7 @@ input[type="checkbox"]:checked {
 .comment-time {
     font-size: 16px;
     text-align: left;
-    padding: 0.5em 0.5em 1em 0.5em;
+    padding: 2em 0.5em 1em 0.5em;
 }
 
 .comment-content {
@@ -584,6 +585,16 @@ input[type="checkbox"]:checked {
 
 
 /*NEW PATIENT PAGE*/
+#dateOfBirth {
+    font-size:24px;
+    min-width: 10rem !important;
+    border: none;
+    color:var(--dark-grey-text);
+}
+
+#dateOfBirth:hover{
+    box-shadow: none;
+}
 
 .new-patient-main {
     display: flex;
