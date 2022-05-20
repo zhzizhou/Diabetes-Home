@@ -45,11 +45,6 @@
                     <span class="blue-text h3-size">{{totalPatient}}</span>
                 </div>
                 <div class="overview-info">
-                    <span class="material-icons-round blue-text">error</span>
-                    <span class="h3-size">Alerts</span>
-                    <span class="blue-text h3-size">{{alert}}</span>
-                </div>
-                <div class="overview-info">
                     <span class="material-icons-round blue-text">chat</span>
                     <span class="h3-size">New Comments</span>
                     <span class="blue-text h3-size">{{comment}}</span>
@@ -72,7 +67,7 @@
                         <div class="column-flex">
                             <div><span style="color: rgb(82, 82, 82);"
                                     class="material-icons-round">do_not_disturb_on</span></div>
-                            <h4 class="legend-text">This data is not required by clinician</h4>
+                            <h4 class="legend-text">This data is not required by the clinician</h4>
                         </div>
                     </div>
 
@@ -127,7 +122,8 @@
             {{#each patients}}
             {{#each this.timeSeries}}
             {{#if this.log.notes}}
-            <div class="msgbox light-blue-box shadow" onclick="location.href='/clinician/my-patient/{{../this._id}}/detail';">
+            <div class="msgbox light-blue-box shadow"
+                onclick="location.href='/clinician/my-patient/{{../this._id}}/detail';">
                 <div>
                     <div class="space-between">
                         <p>{{../givenName}} {{../familyName}}</p>
