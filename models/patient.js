@@ -7,6 +7,8 @@ const patientSchema = new mongoose.Schema({
     password: { type: String, requied: true },
     email: { type: String, unique: true },
     mobile: { type: String },
+    weight: { type: String },
+    height: { type: String },
     profilePicture: String,
     nickName: String,
     gender: String,
@@ -20,17 +22,15 @@ const patientSchema = new mongoose.Schema({
         ref: 'Clinician',
         required: true,
     },
-    timeSeries: [
-        {
-            logItem: { type: String, requied: true },
-            activated: { type: Boolean, default: true },
-            lowerLimit: { type: Number, requied: true, min: 0 },
-            upperLimit: { type: Number, requied: true },
-        },
-    ],
+    timeSeries: [{
+        logItem: { type: String, requied: true },
+        activated: { type: Boolean, default: true },
+        lowerLimit: { type: Number, requied: true, min: 0 },
+        upperLimit: { type: Number, requied: true },
+    }, ],
 })
 
-patientSchema.methods.verifyPassword = function (password, callback) {
+patientSchema.methods.verifyPassword = function(password, callback) {
     bcrypt.compare(password, this.password, (err, valid) => {
         callback(err, valid)
     })
