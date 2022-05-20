@@ -248,6 +248,8 @@ const searchPatient = async(req, res) => {
     var query = {}
     var saveQuery = {}
 
+    query['clinicianId'] = req.user._id
+
     if (req.body.pname !== '') {
         var reg = new RegExp(req.body.pname, "i")
         query['$or'] = [{
