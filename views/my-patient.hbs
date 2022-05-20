@@ -78,7 +78,7 @@
                             <th>Diabete Type</th>
                         </tr>
                         {{#each patients}}
-                        <tr>
+                        <tr onclick="location.href='/clinician/my-patient/{{this._id}}/detail';">
                             <td>{{this.givenName}} {{this.familyName}}</td>
                             <td>{{this.gender}}</td>
                             <td>{{this.age}}</td>
