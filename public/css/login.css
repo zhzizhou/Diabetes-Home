@@ -197,7 +197,7 @@ input {
     }
 
     .floating__input:placeholder-shown+.floating__label::before {
-        transform: translate3d(0, -2.7rem, 0) scale3d(1, 1, 1);
+        transform: translate3d(0, -2.9rem, 0) scale3d(1, 1, 1);
     }
 
     .floating__label::before,
@@ -252,14 +252,14 @@ input {
     }
 }
 
-@media screen and (max-width:900px) {
+@media screen and (max-width:100px) {
     .outercontainer {
         width: 70%;
     }
 }
 
 /*RESPONSIVE DESIGN FOR IPHONES SIZE*/
-@media screen and (max-width:550px) {
+@media screen and (max-width:1000px) {
     .split-screen {
         flex-direction: column;
     }

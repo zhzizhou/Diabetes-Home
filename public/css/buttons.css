@@ -216,7 +216,7 @@ select:active {
 }
   
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 1000px) {
 
     .non-type-input {
         height: 6rem !important;
@@ -230,6 +230,10 @@ select:active {
         margin-left:0;
         margin: auto;
         width: 15rem;
+    }
+
+    .button {
+        font-size: 16px;
     }
 
 }

@@ -507,9 +507,9 @@ const getChangeNickname = async(req, res) => {
         var colorlayout
         if (patient.darkMode == false) {
             //light colorscheme
-            colorlayout = 'patient-main'
+            colorlayout = 'patient-changepassword'
         } else {
-            colorlayout = 'DARK-patient-main'
+            colorlayout = 'DARK-patient-changepassword'
         }
         return res.render('patient-change-nickname', {
             layout: colorlayout,

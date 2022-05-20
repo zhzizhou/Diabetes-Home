@@ -99,7 +99,7 @@ input:focus {
     width: 5rem;
 }
 
-#blue-main-page {
+#blue-main-page, #profile-page {
     background-color: var(--light-blue);
     padding: 4rem;
     border-radius: 2rem;
@@ -653,6 +653,13 @@ input[type=number] {
     gap: 2rem;
 }
 
+#setting-page {
+    background-color: var(--light-blue);
+    padding: 4rem 2rem;
+    border-radius: 2rem;
+}
+
+
 /*HELP PAGES*/
 .blue-background {
     background-color: var(--light-blue);
@@ -685,6 +692,7 @@ input[type=number] {
 
 .text-30 {
     width: 50rem !important;
+    margin:0px auto !important;
 }
 
 /*REPSONSIVE DESIGN SECTION*/
@@ -721,6 +729,7 @@ input[type=number] {
         position: absolute;
         left: 0;
         transform: none;
+        margin: 0px auto;
     }
 
     .dashboard-right {
@@ -840,12 +849,14 @@ input[type=number] {
         box-shadow: none;
     }
 
-    #blue-main-page {
+    #blue-main-page, #account-page {
         width: 1024px;
         box-shadow: none;
         border-radius: 0;
         height: auto;
     }
+
+    
 
     .page-title-and-nav {
         width: 1024px;
@@ -906,8 +917,9 @@ input[type=number] {
         width: 30rem;
     }
 
-    #blue-main-page {
-        margin-bottom: 0;
+    #blue-main-page, #account-page {
+        margin-bottom:0rem;
+        padding-bottom: 2rem;
     }
 
     .leaderboard-box {
@@ -1000,10 +1012,6 @@ input[type=number] {
         padding: 0em;
     }
 
-
-    .leaderboard-container {
-        padding: 1rem;
-    }
 
     .setting-box {
         width: 20rem;
@@ -1130,6 +1138,10 @@ input[type=number] {
     }
 
     #blue-main-page {
+        width: 100%;
+    }
+
+    #account-page {
         width: 375px;
     }
 
@@ -1168,6 +1180,11 @@ input[type=number] {
     .log-filter{
         grid-template-columns: repeat(1, 1fr);
     }
+
+    .floating__input {
+        min-width: 10rem;
+        max-width: 15rem;
+    }
 }
 
 @media screen and (max-width: 380px) {
@@ -1179,5 +1196,12 @@ input[type=number] {
     .dashboard-right {
         padding-top: 0rem;
         left: 0px;
+    }
+
+    #profile-page {
+        box-shadow:none;
+        border-radius:0px;
+        padding: 2.2rem;
+        padding-bottom: 4rem;
     }
 }
