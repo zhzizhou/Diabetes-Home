@@ -122,10 +122,21 @@ input[type=date] {
 
 #end {
     margin-right: 1rem;
+    background-color: var(--white);
 }
 
 #start {
     margin-right: 1rem;
+    background-color: var(--white);
+}
+
+input::-webkit-calendar-picker-indicator {
+    background-color: var(--dark-grey-text);
+    border-radius:1rem;
+}
+
+input::-webkit-calendar-picker-indicator {
+    filter: invert(1);
 }
 
 #birthday-input {
